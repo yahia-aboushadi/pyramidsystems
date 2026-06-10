@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <!-- Consent Mode v2 defaults MUST push to dataLayer BEFORE
+         the GTM head script runs. Loaded synchronously (no defer)
+         so gtag('consent','default',...) lands at dataLayer
+         index 0, before gtm.js. -->
+    <script src="../js/pyramid-consent.js"></script>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WSMBQZDP');</script>
+<!-- End Google Tag Manager -->
+
+        <link rel="icon" type="image/png" href="../images/newPyramidLogoIcon.png"/>
+        <link rel="apple-touch-icon" href="../images/newPyramidLogoIcon.png"/>
+
+        <!-- TEMPLATE:a11y_widget:START -->
+        <!-- Pyramid Systems accessibility widget — custom replacement for UserWay -->
+        <link rel="stylesheet" href="../css/pyramid-a11y.css">
+        <script>
+          /* Early-load: apply saved a11y settings before first paint so the page
+             doesn't flash unfiltered content when the user navigates between pages. */
+          (function () {
+            try {
+              var s = JSON.parse(localStorage.getItem('pyramid-a11y-settings') || '{}');
+              var c = document.documentElement.classList;
+              Object.keys(s).forEach(function (k) {
+                var v = s[k];
+                if (!v) return;
+                if (k === 'oversized') c.add('pa11y-oversized');
+                else if (typeof v === 'string') c.add('pa11y-' + k + '-' + v);
+                else c.add('pa11y-' + k);
+              });
+            } catch (e) {}
+          })();
+        </script>
+        <script src="../js/pyramid-a11y.js" defer></script>
+        <!-- TEMPLATE:a11y_widget:END -->
+
+        <!-- TEMPLATE:consent:START -->
+        <link rel="stylesheet" href="../css/pyramid-consent.css">
+        <!-- TEMPLATE:consent:END -->
+
+        <!-- TEMPLATE:attribution:START -->
+        <!-- Pyramid Systems UTM + attribution capture.
+             Loads on every page so when a visitor lands via a UTM-tagged
+             ad/email/QR, the params are stored in localStorage for 30
+             days. Any form on the site can then read them via
+             window.PyramidAttribution.getStored() at submit time. -->
+        <script src="../js/pyramid-attribution.js"></script>
+        <!-- TEMPLATE:attribution:END -->
+
+        <!-- TEMPLATE:ac_tracking:START -->
+        <!-- Pyramid Systems ActiveCampaign Site Tracking.
+             Wraps AC's vgo() snippet behind our consent system: only fires
+             when analytics consent is granted (default ON, user can opt out
+             via the Cookie Preferences modal). Form submit handlers call
+             window.PyramidACTracking.identify(email) to link the anonymous
+             session to the AC contact. -->
+        <script src="../js/pyramid-ac-tracking.js"></script>
+        <!-- TEMPLATE:ac_tracking:END -->
+        <!-- TEMPLATE:analytics:START -->
+        <!-- Pyramid Systems analytics layer.
+             Central dataLayer push for GTM: form_step, form_submit,
+             generate_lead, form_error, cta_click, page_view_attribution.
+             Also pre-checks the contact form's inquiry checkbox from
+             ?inquiry= deep links so vertical-CTA traffic lands in the
+             right inquiry context. -->
+        <script src="../js/pyramid-analytics.js" defer></script>
+        <!-- TEMPLATE:analytics:END -->
+
+        <!-- TEMPLATE:engagement:START -->
+        <!-- Pyramid Systems engagement tracking — captures popups,
+             cookie modal, FAQ, mobile menu, search, accessibility. -->
+        <script src="../js/pyramid-engagement.js" defer></script>
+        <!-- TEMPLATE:engagement:END -->
+
+        <!-- TEMPLATE:web_vitals:START -->
+        <!-- Core Web Vitals (LCP, INP, CLS) → dataLayer → GA4. -->
+        <script src="../js/pyramid-web-vitals.js" defer></script>
+        <!-- TEMPLATE:web_vitals:END -->
+
+
+        <meta charset="utf-8"/>
+        <title>Terms of Use | Pyramid Systems</title>
+        <meta content="Pyramid Systems terms of use. Governing law, license, intellectual property, disclaimers, limitation of liability, and indemnification for pyramidsystems.com." name="description"/>
+        <link rel="canonical" href="https://pyramidsystems.com/terms-of-use/"/>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+        <meta name="robots" content="index,follow"/>
+
+        <!-- OpenGraph -->
+        <meta property="og:title" content="Terms of Use | Pyramid Systems"/>
+        <meta property="og:description" content="Pyramid Systems terms of use. Governing law, license, IP, disclaimers, limitation of liability, indemnification."/>
+        <meta property="og:url" content="https://pyramidsystems.com/terms-of-use/"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:site_name" content="Pyramid Systems"/>
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:title" content="Terms of Use | Pyramid Systems"/>
+        <meta name="twitter:description" content="Pyramid Systems terms of use. Governing law, license, IP, disclaimers, limitation of liability, indemnification."/>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+        <link href="../css/styles.css" rel="stylesheet" type="text/css" crossorigin="anonymous"/>
+
+        <style>
+            /* Sticky "On this page" TOC injected into the left column of the
+               original neurakey impressum/rechtliches layout. Lives inside
+               .rechtliches_texts-wrap so it inherits the position of the
+               left-column heading. Made sticky on desktop only. */
+            .legal-toc-inline {
+                margin-top: 1.5rem;
+                padding: 1.25rem 1.25rem 1rem;
+                background: rgba(255, 255, 255, 0.03);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                border-radius: .75rem;
+                font-size: .85rem;
+                line-height: 1.55;
+            }
+            .legal-toc-title {
+                font-weight: 700;
+                color: #fff;
+                font-size: .72rem;
+                letter-spacing: .1em;
+                text-transform: uppercase;
+                margin: 0 0 .75rem;
+                padding-bottom: .5rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            }
+            .legal-toc-inline ol {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+            .legal-toc-inline li { margin: .2rem 0; }
+            .legal-toc-inline a {
+                display: block;
+                color: rgba(255, 255, 255, 0.62);
+                text-decoration: none;
+                padding: .25rem .55rem;
+                border-left: 2px solid transparent;
+                margin-left: -.55rem;
+                transition: color .15s ease, border-color .15s ease, background .15s ease;
+                border-radius: 0 .25rem .25rem 0;
+            }
+            .legal-toc-inline a:hover,
+            .legal-toc-inline a.is-current {
+                color: #E86222;
+                border-left-color: #E86222;
+                background: rgba(232, 98, 34, 0.06);
+            }
+
+            /* Make the left-column wrap sticky on desktop so the TOC follows
+               the user as they scroll the right-column content. */
+            @media (min-width: 992px) {
+                .rechtliches-block > .rechtliches_texts-wrap {
+                    position: sticky;
+                    top: 6rem;
+                    align-self: start;
+                }
+            }
+            @media (max-width: 991px) {
+                .legal-toc-inline { font-size: .9rem; }
+            }
+
+            /* Anchor scroll offset — sticky header takes ~5.5rem. */
+            .rechtliches_texts-rechts-wrap [id] {
+                scroll-margin-top: 6rem;
+            }
+
+            /* Callout block used for the short-version summary + accessibility
+               commitment block. Lives inside the right column. */
+            .legal-callout {
+                padding: 1.25rem 1.5rem;
+                border-left: 3px solid #E86222;
+                background: rgba(232, 98, 34, 0.06);
+                border-radius: 0 .5rem .5rem 0;
+                margin: 1.5rem 0;
+                font-size: .98rem;
+                color: rgba(255,255,255,0.92);
+            }
+            .legal-callout strong { color: #fff; }
+            .legal-callout a {
+                color: #ffb286;
+                text-decoration: underline;
+            }
+
+            /* Cookie Preferences inline button — wired to consent banner. */
+            .legal-cookie-prefs {
+                display: inline-flex;
+                align-items: center;
+                gap: .4rem;
+                padding: .25rem .65rem;
+                background: rgba(232, 98, 34, 0.12);
+                color: #ffb286 !important;
+                border: 1px solid rgba(232, 98, 34, 0.32);
+                border-radius: .35rem;
+                font-size: .9rem;
+                font-weight: 600;
+                cursor: pointer;
+                text-decoration: none !important;
+                transition: background .15s ease, border-color .15s ease;
+            }
+            .legal-cookie-prefs:hover {
+                background: rgba(232, 98, 34, 0.2);
+                border-color: rgba(232, 98, 34, 0.5);
+            }
+
+            /* Cookie category table — reused from the prior pass. */
+            .legal-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 1rem 0 1.5rem;
+                font-size: .9rem;
+            }
+            .legal-table th,
+            .legal-table td {
+                padding: .7rem .85rem;
+                border-bottom: 1px solid rgba(255,255,255,0.08);
+                text-align: left;
+                vertical-align: top;
+            }
+            .legal-table th {
+                font-weight: 600;
+                color: #fff;
+                background: rgba(255,255,255,0.04);
+                font-size: .82rem;
+                letter-spacing: .02em;
+                text-transform: uppercase;
+            }
+            .legal-table td:nth-child(2) {
+                color: rgba(244,245,249,0.78);
+                font-size: .85rem;
+            }
+
+            .legal-effective {
+                font-size: .9rem;
+                color: rgba(255,255,255,0.65);
+                margin: 0 0 1.5rem;
+            }
+            .legal-effective strong { color: #fff; }
+
+            /* Body-content link styling.
+               The global `a { color: inherit; text-decoration: none; }`
+               from the w-embed block strips everything. Re-apply Pyramid
+               orange + underline ONLY inside the policy body so headers,
+               footers, and the Cookie Preferences pill keep their own
+               styling. Covers <a href>, mailto:, tel:, and cross-links.
+               :not(.legal-cookie-prefs) keeps the orange pill button visually
+               distinct from inline links. */
+            .rechtliches_texts-rechts-wrap a:not(.legal-cookie-prefs) {
+                color: #E86222 !important;
+                text-decoration: underline !important;
+                text-underline-offset: 3px;
+                text-decoration-thickness: 1px;
+                transition: color 0.2s ease, text-decoration-thickness 0.2s ease;
+            }
+            .rechtliches_texts-rechts-wrap a:not(.legal-cookie-prefs):hover {
+                color: #ffffff !important;
+                text-decoration-thickness: 2px;
+            }
+        </style>
+
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Terms of Use | Pyramid Systems",
+            "description": "Pyramid Systems terms of use governing access to and use of pyramidsystems.com.",
+            "url": "https://pyramidsystems.com/terms-of-use/",
+            "isPartOf": {
+                "@type": "WebSite",
+                "name": "Pyramid Systems",
+                "url": "https://pyramidsystems.com/"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "Pyramid Systems",
+                "url": "https://pyramidsystems.com/",
+                "logo": "https://pyramidsystems.com/images/orangeLogo.png"
+            },
+            "inLanguage": "en-US",
+            "dateModified": "2026-06-02"
+        }
+        </script>
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {"@type":"ListItem","position":1,"name":"Home","item":"https://pyramidsystems.com/"},
+                {"@type":"ListItem","position":2,"name":"Terms of Use","item":"https://pyramidsystems.com/terms-of-use/"}
+            ]
+        }
+        </script>
+    </head>
+    <body>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WSMBQZDP"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+        <!-- Global section + anchor + responsive-html font-size baseline.
+             This block lives at the top of every other Pyramid page; without
+             it the privacy page suffers three regressions:
+              1) `<a>` tags default to browser blue/purple instead of
+                 inheriting the page color (which is orange via styles.css).
+              2) `<section>` doesn't get `overflow: clip`, so the absolutely
+                 positioned `.footer_vector` background logo bleeds past the
+                 page container at the sides.
+              3) The responsive `html { font-size: calc(...) }` baseline is
+                 missing, so the entire page renders at the browser-default
+                 16px root instead of the project's viewport-scaled size —
+                 which is why the nav looked smaller/tighter than other pages. -->
+        <div class="w-embed">
+            <style>
+                section {
+                    position: relative;
+                    max-width: 100vw;
+                    overflow: clip;
+                    z-index: 2;
+                    background-color: var(--_tokenization---bg-main);
+                }
+
+                a {
+                    color: inherit;
+                    text-decoration: none;
+                    user-select: none;
+                    transition-property: opacity, background-color, border, color, border-radius;
+                    transition-timing-function: ease;
+                    transition-duration: 0.45s;
+                }
+
+                button {
+                    background-color: unset;
+                    padding: unset;
+                    text-align: inherit;
+                    transition-property: opacity, background-color, border, color, border-radius;
+                    transition-timing-function: ease;
+                    transition-duration: 0.45s;
+                }
+
+                .accordion.is--opened .accordion_icon { color: var(--_tokenization---text-black); }
+                .accordion.is--opened .vertical_faq-icon { transform: rotate(90deg); }
+                .arrow-animation:hover .button-arrow { transform: rotate(45deg); }
+
+                @keyframes rotate {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+                .gradient-animation { animation: rotate 10s ease infinite !important; }
+
+                html { font-size: calc(0.625rem + 0.41666666666666663vw); }
+                @media screen and (max-width: 1920px) { html { font-size: calc(0.625rem + 0.41666666666666674vw); } }
+                @media screen and (max-width: 1440px) { html { font-size: calc(-0.5rem + 1.6666666666666665vw); } }
+                @media screen and (max-width: 1200px) { html { font-size: calc(0.39114832535885163rem + 0.47846889952153115vw); } }
+                @media screen and (max-width: 991px)  { html { font-size: calc(0.758056640625rem + 0.390625vw); } }
+                @media screen and (max-width: 479px)  { html { font-size: calc(0.7494769874476988rem + 0.8368200836820083vw); } }
+            </style>
+        </div>
+
+        <!-- TEMPLATE:header:START -->
+        <style>
+            /* Nav dropdown alignment fix.
+               .header_dd-link is a flex container. When an item has only ONE
+               child (a single <div> of text — no icon, like our Contract
+               Vehicles items), a long label that wraps to two lines doesn't
+               anchor the wrapped lines to the left edge of the parent. The
+               flex item shrinks to the wrap width and sits in the default
+               position. Force the inner text div to expand to fill the
+               available space and left-align — covers both single-child and
+               icon-prefixed dropdown items. */
+            .header_dd-link > div:not(.header-dd_icon) {
+                flex: 1 1 auto;
+                min-width: 0;
+                text-align: left;
+            }
+
+            /* Logo aspect-ratio fix.
+               .header-logo is a fixed-width (10.1875rem ≈ 163px) flex
+               container. .logo has height:44px but no width rule, so it
+               inherits flex-shrink:1 and gets horizontally compressed when
+               its natural width at 44px height exceeds the parent's width.
+               Lock flex-shrink to 0 and let width grow to the intrinsic size
+               of the image. The wordmark is "Pyramid Systems" so its natural
+               aspect ratio is wider than tall and we want it to overflow the
+               parent box rather than squish. */
+            .header-logo .logo {
+                width: auto;
+                flex-shrink: 0;
+                object-fit: contain;
+            }
+
+            /* AIR-Quire flagship-product nav icon.
+               Prepends the AIR-Quire product mark to its top-level navlink
+               via a ::before pseudo-element. Done via CSS (not an <img>) so
+               it survives template re-stamping cleanly. The ../
+               placeholder resolves to "", "../", "../../" etc. depending on
+               page depth, mirroring how the script handles every other
+               asset path in the template. */
+            a.navlink[href$="solutions/air-quire.html"] {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            a.navlink[href$="solutions/air-quire.html"]::before {
+                content: "";
+                width: 1.125rem;
+                height: 1.125rem;
+                background-image: url("../images/air-quire-Icon.png");
+                background-size: 95% 95%;
+                background-repeat: no-repeat;
+                background-position: center;
+                flex-shrink: 0;
+            }
+        </style>
+        <header class="header">
+        <link rel="icon" type="image/png" href="../images/newPyramidLogoIcon.png"/>
+        <link rel="apple-touch-icon" href="../images/newPyramidLogoIcon.png"/>
+
+            <div class="header_overlay"></div>
+            <div class="w-layout-blockcontainer container-copy is--header w-container">
+                <div class="header_content-wrap">
+                    <a href="../index.html" class="header-logo w-inline-block">
+                        <img class="logo" src="../images/orangeLogo.png" alt="Pyramid Systems" >
+                        
+                    </a>
+                    <div class="menu-wrap">
+                        <div class="header_navigation-wrap">
+                            <a href="../solutions/air-quire.html" class="navlink w-inline-block"><div>AIR-Quire</div></a>
+
+                            <div class="menu_divider-dot"></div>
+                            <div data-hover="false" data-delay="0" data-w-id="4d1d8a72-dee5-ca16-c1c5-51ab9bc6dsrv" class="navlink is-dd w-dropdown">
+                                <div class="navlink is--dd w-dropdown-toggle">
+                                    <div class="text-block">Services</div>
+                                    <div class="dd-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 10 10" fill="none">
+                                            <path d="M2.08674 4.41326L4.70508 7.0316L7.32342 4.41326" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <nav class="header_dd-list w-dropdown-list">
+                                    <a href="../services/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-layout-grid">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M4 4h6v6h-6z"/>
+                                                <path d="M14 4h6v6h-6z"/>
+                                                <path d="M4 14h6v6h-6z"/>
+                                                <path d="M14 14h6v6h-6z"/>
+                                            </svg>
+                                        </div>
+                                        <div>All Services</div>
+                                    </a>
+                                    <a href="../services/modernization.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-stack-2">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M12 4l-8 4l8 4l8 -4l-8 -4"/>
+                                                <path d="M4 12l8 4l8 -4"/>
+                                                <path d="M4 16l8 4l8 -4"/>
+                                            </svg>
+                                        </div>
+                                        <div>Modernization</div>
+                                    </a>
+                                    <a href="../services/cloud.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-cloud">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M6.657 18c-2.572 0 -4.657 -2.007 -4.657 -4.483c0 -2.475 2.085 -4.482 4.657 -4.482c.393 -1.762 1.794 -3.2 3.675 -3.773c1.88 -.572 3.956 -.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.913 0 3.464 1.56 3.464 3.486c0 1.927 -1.551 3.486 -3.465 3.486h-11.878"/>
+                                            </svg>
+                                        </div>
+                                        <div>Cloud</div>
+                                    </a>
+                                    <a href="../services/cybersecurity.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-shield-lock">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3"/>
+                                                <path d="M12 11m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/>
+                                                <path d="M12 12l0 2.5"/>
+                                            </svg>
+                                        </div>
+                                        <div>Cybersecurity</div>
+                                    </a>
+                                    <a href="../services/devsecops.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-infinity">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M9.828 9.172a4 4 0 1 0 0 5.656a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828"/>
+                                            </svg>
+                                        </div>
+                                        <div>DevSecOps</div>
+                                    </a>
+                                    <a href="../services/analytics-ai.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chart-line">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M4 19l16 0"/>
+                                                <path d="M4 15l4 -6l4 2l4 -5l4 4"/>
+                                            </svg>
+                                        </div>
+                                        <div>Analytics &amp; AI</div>
+                                    </a>
+                                </nav>
+                            </div>
+
+                            <!-- WHO WE SERVE NAV — HIDDEN 2026-05-22.
+                                 Rationale: no underlying agency-segment content exists on the current
+                                 pyramidsystems.com site, and no past-performance proof for the
+                                 "Department of War" segment. Restore this block when dedicated
+                                 Civilian / Financial Regulators (etc.) pages are written and the
+                                 segmentation is backed by real named past performance.
+                            <div class="menu_divider-dot"></div>
+                            <div data-hover="false" data-delay="0" data-w-id="4d1d8a72-dee5-ca16-c1c5-51ab9bc6dbcc" class="navlink is-dd w-dropdown">
+                                <div class="navlink is--dd w-dropdown-toggle">
+                                    <div class="text-block">Who We Serve</div>
+                                    <div class="dd-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 10 10" fill="none">
+                                            <path d="M2.08674 4.41326L4.70508 7.0316L7.32342 4.41326" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <nav class="header_dd-list w-dropdown-list">
+                                    <a data-cta="vertical_federal_civilian" data-cta-location="nav_dropdown" href="../services/index.html?utm_source=site_nav&utm_medium=vertical_link&utm_campaign=federal_civilian" class="header_dd-link w-inline-block">
+                                        <div>Federal Civilian</div>
+                                    </a>
+                                    <a data-cta="vertical_financial_regulators" data-cta-location="nav_dropdown" href="../services/index.html?utm_source=site_nav&utm_medium=vertical_link&utm_campaign=financial_regulators" class="header_dd-link w-inline-block">
+                                        <div>Financial Regulators</div>
+                                    </a>
+                                    <a data-cta="vertical_department_of_war" data-cta-location="nav_dropdown" href="../services/index.html?utm_source=site_nav&utm_medium=vertical_link&utm_campaign=department_of_war" class="header_dd-link w-inline-block">
+                                        <div>Department of War</div>
+                                    </a>
+                                </nav>
+                            </div>
+                            -->
+
+                            <div class="menu_divider-dot"></div>
+                            <div data-hover="false" data-delay="0" data-w-id="4d1d8a72-dee5-ca16-c1c5-51ab9bc6dcvv" class="navlink is-dd w-dropdown">
+                                <div class="navlink is--dd w-dropdown-toggle">
+                                    <div class="text-block">Contract Vehicles</div>
+                                    <div class="dd-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 10 10" fill="none">
+                                            <path d="M2.08674 4.41326L4.70508 7.0316L7.32342 4.41326" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <nav class="header_dd-list w-dropdown-list">
+                                    <a href="../contract-vehicles/index.html" class="header_dd-link w-inline-block">
+                                        <div>How to procure us</div>
+                                    </a>
+                                    <a href="../contract-vehicles/gsa-it-schedule-70.html" class="header_dd-link w-inline-block">
+                                        <div>GSA IT Schedule 70</div>
+                                    </a>
+                                    <a href="../contract-vehicles/gsa-oasis-plus.html" class="header_dd-link w-inline-block">
+                                        <div>GSA OASIS+ Unrestricted</div>
+                                    </a>
+                                    <a href="../contract-vehicles/hhs-cms-sparc.html" class="header_dd-link w-inline-block">
+                                        <div>HHS CMS SPARC</div>
+                                    </a>
+                                    <a href="../contract-vehicles/sec-one-it.html" class="header_dd-link w-inline-block">
+                                        <div>SEC ONE IT</div>
+                                    </a>
+                                    <a href="../contract-vehicles/gsa-8a-stars-iii.html" class="header_dd-link w-inline-block">
+                                        <div>GSA 8(a) STARS III</div>
+                                    </a>
+                                    <a href="../contract-vehicles/fdic-itas-iii.html" class="header_dd-link w-inline-block">
+                                        <div>FDIC ITAS III Next Gen BOA</div>
+                                    </a>
+                                    <a href="../contract-vehicles/hud-om-bpa.html" class="header_dd-link w-inline-block">
+                                        <div>HUD O&amp;M BPA</div>
+                                    </a>
+                                </nav>
+                            </div>
+                            <div class="menu_divider-dot"></div>
+                            <div data-hover="false" data-delay="0" data-w-id="4d1d8a72-dee5-ca16-c1c5-51ab9bc6dbcc" class="navlink is-dd w-dropdown">
+                                <div class="navlink is--dd w-dropdown-toggle">
+                                    <div class="text-block">About Pyramid</div>
+                                    <div class="dd-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 10 10" fill="none">
+                                            <path d="M2.08674 4.41326L4.70508 7.0316L7.32342 4.41326" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <nav class="header_dd-list w-dropdown-list">
+                                    <a href="../about-us/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-pyramid">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M11.105 21.788a1.994 1.994 0 0 0 1.789 0l8.092 -4.054c.538 -.27 .718 -.951 .385 -1.452l-8.54 -13.836a.999 .999 0 0 0 -1.664 0l-8.54 13.836a1.005 1.005 0 0 0 .386 1.452l8.092 4.054" />
+                                                <path d="M12 2v20" />
+                                            </svg>
+                                        </div>
+                                        <div>Who We Are</div>
+                                    </a>
+                                    <a href="../about-us/certifications/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-certificate">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M12 15a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                                                <path d="M13 17.5v4.5l2 -1.5l2 1.5v-4.5" />
+                                                <path d="M10 19h-5a2 2 0 0 1 -2 -2v-10c0 -1.1 .9 -2 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -1 1.73" />
+                                                <path d="M6 9l12 0" />
+                                                <path d="M6 12l3 0" />
+                                                <path d="M6 15l2 0" />
+                                            </svg>                                        
+                                        </div>
+                                        <div>Certifications</div>
+                                    </a>
+                                    <a href="../about-us/partners/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-affiliate">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M5.931 6.936l1.275 4.249m5.607 5.609l4.251 1.275" />
+                                                <path d="M11.683 12.317l5.759 -5.759" />
+                                                <path d="M4 5.5a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0" />
+                                                <path d="M17 5.5a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0" />
+                                                <path d="M17 18.5a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0" />
+                                                <path d="M4 15.5a4.5 4.5 0 1 0 9 0a4.5 4.5 0 1 0 -9 0" />
+                                            </svg>                                        
+                                        </div>
+                                        <div>Partners</div>
+                                    </a>
+                                    <a href="../careers/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-briefcase">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
+                                                <path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2" />
+                                                <path d="M12 12l0 .01" />
+                                                <path d="M3 13a20 20 0 0 0 18 0" />
+                                            </svg>
+                                        </div>
+                                        <div>Careers</div>
+                                    </a>
+                                    </nav>
+                            </div>
+
+                            <div class="menu_divider-dot"></div>
+                            <div data-hover="false" data-delay="0" data-w-id="4d1d8a72-dee5-ca16-c1c5-51ab9bc6dbcc" class="navlink is-dd w-dropdown">
+                                <div class="navlink is--dd w-dropdown-toggle">
+                                    <div class="text-block">Insights</div>
+                                    <div class="dd-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 10 10" fill="none">
+                                            <path d="M2.08674 4.41326L4.70508 7.0316L7.32342 4.41326" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <nav class="header_dd-list w-dropdown-list">
+                                    <a href="../insights/blog/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-article">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
+                                                <path d="M7 8h10" />
+                                                <path d="M7 12h10" />
+                                                <path d="M7 16h7" />
+                                            </svg>
+                                        </div>
+                                        <div>Blog</div>
+                                    </a>
+                                    <a href="../insights/case-studies/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-clipboard-data">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
+                                                <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                                                <path d="M9 17l0 -4" />
+                                                <path d="M12 17l0 -1" />
+                                                <path d="M15 17l0 -2" />
+                                            </svg>
+                                        </div>
+                                        <div>Case Studies</div>
+                                    </a>
+                                    <a href="../insights/news/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-news">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M16 6h3a1 1 0 0 1 1 1v11a2 2 0 0 1 -4 0v-13a1 1 0 0 0 -1 -1h-11a1 1 0 0 0 -1 1v12a3 3 0 0 0 3 3h14" />
+                                                <path d="M8 8l4 0" />
+                                                <path d="M8 12l4 0" />
+                                                <path d="M8 16l4 0" />
+                                            </svg>
+                                        </div>
+                                        <div>News</div>
+                                    </a>
+                                </nav>
+                            </div>
+                        </div>
+                        <a href="../contact/index.html" class="header_button-wrap arrow-animation w-inline-block">
+                            <div class="menu_inner-button">
+                                <div>Contact</div>
+                                <div class="button-arrow is--header">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 14 14" fill="none">
+                                        <path d="M10.5005 3.49997L3.03375 10.9667" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="round"></path>
+                                        <path d="M11.2002 8.79087V2.80003H5.20936" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="hero-dots is--1">
+                        <img src="../images/heroDots.avif" loading="eager" width="286" height="163" alt="" class="i-100"/>
+                    </div>
+                    <button data-w-id="4d1d8a72-dee5-ca16-c1c5-51ab9bc6dc0b" fs-scrolldisable-element="toggle" class="menu">
+                        <div class="menu_inner">
+                            <div class="menu_lines-wrap">
+                                <div class="menu-line is--upper"></div>
+                                <div class="menu-line is--middle"></div>
+                                <div class="menu-line is--bottom"></div>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="floating-badge"><img src="../images/winner.png" loading="lazy" alt="" class="german-web-aw"></div>
+
+            <script>
+                /* Active nav state.
+                   The header is stamped identically on every page, so there's no
+                   per-page hardcoded current-link marker. This runtime script reads
+                   window.location and applies Webflow's `w--current` class (plus
+                   aria-current="page") to:
+                     a) the exact-matching nav link, AND
+                     b) its parent dropdown toggle if the link is inside a dropdown.
+                   If no exact match is found (e.g., a deep blog post), we fall
+                   back to prefix-matching the URL section against a list of
+                   dropdown labels — so /insights/blog/foo.html still highlights
+                   "Insights" in the top nav. */
+                (function () {
+                    function normalize(p) {
+                        return (p || "").toLowerCase().replace(/\/$/, "").replace(/\/index\.html$/, "");
+                    }
+                    function resolve(href) {
+                        try { return normalize(new URL(href, window.location.href).pathname); }
+                        catch (e) { return null; }
+                    }
+                    function apply() {
+                        var current = normalize(window.location.pathname);
+                        var navRoot = document.querySelector(".header_navigation-wrap");
+                        if (!navRoot) return;
+
+                        // Pass 1: exact-match link hrefs.
+                        var matched = false;
+                        navRoot.querySelectorAll("a[href]").forEach(function (link) {
+                            var p = resolve(link.getAttribute("href"));
+                            if (p !== null && p === current) {
+                                link.classList.add("w--current");
+                                link.setAttribute("aria-current", "page");
+                                var dd = link.closest(".navlink.is-dd");
+                                if (dd) {
+                                    var toggle = dd.querySelector(".navlink.is--dd");
+                                    if (toggle) {
+                                        toggle.classList.add("w--current");
+                                        toggle.setAttribute("aria-current", "page");
+                                    }
+                                }
+                                matched = true;
+                            }
+                        });
+                        if (matched) return;
+
+                        // Pass 2: URL-prefix → dropdown label fallback for descendant pages.
+                        var sectionMap = [
+                            { prefix: "/contract-vehicles", label: "Contract Vehicles" },
+                            { prefix: "/about-us",          label: "About Pyramid" },
+                            { prefix: "/careers",           label: "About Pyramid" },
+                            { prefix: "/insights",          label: "Insights" },
+                            { prefix: "/services",          label: "Services" }
+                        ];
+                        sectionMap.forEach(function (section) {
+                            if (current.indexOf(section.prefix) === 0) {
+                                navRoot.querySelectorAll(".navlink.is--dd").forEach(function (toggle) {
+                                    var lbl = toggle.querySelector(".text-block");
+                                    if (lbl && lbl.textContent.trim() === section.label) {
+                                        toggle.classList.add("w--current");
+                                        toggle.setAttribute("aria-current", "page");
+                                    }
+                                });
+                            }
+                        });
+                    }
+                    if (document.readyState === "loading") {
+                        document.addEventListener("DOMContentLoaded", apply);
+                    } else {
+                        apply();
+                    }
+                })();
+            </script>
+
+        </header>
+
+        <!-- === PYRAMID MOBILE MENU OVERLAY (begin) === -->
+        <!-- Self-contained mobile menu loader. Builds the overlay HTML at
+             runtime and only activates at viewport ≤991px. On desktop it
+             does nothing — the existing nav is untouched. To roll back:
+             remove this block, run scripts/apply_templates.py, delete
+             js/pyramid-mobile-menu.js, and remove the CSS block bounded
+             by "PYRAMID MOBILE MENU OVERLAY — BEGIN/END" markers in
+             css/styles.css. See MOBILE_MENU_ROLLBACK.md. -->
+        <script src="../js/pyramid-mobile-menu.js" defer></script>
+        <!-- === PYRAMID MOBILE MENU OVERLAY (end) === -->
+        <!-- TEMPLATE:header:END -->
+
+        <main>
+            <!-- ===== HERO BLOCK ===== -->
+            <section>
+                <div class="w-layout-blockcontainer container position--static w-container">
+                    <div class="impressum_hero-block">
+                        <div class="impressum-hero_blue-card">
+                            <div class="cases_texts-wrap">
+                                <div class="upheader text--white">
+                                    <div class="upheader_icon">
+                                        <img src="../images/newPyramidLogoIcon.png" alt="" style="width:100%; height:100%; object-fit:contain;" />
+                                    </div>
+                                    <p lines-animation="">Legal</p>
+                                </div>
+                                <h2 lines-animation="" class="heading-12"><strong>Terms of Use</strong></h2>
+                            </div>
+                            <div class="section-blue--right-rect is--blog-copy">
+                                <div class="corner-rect--inner"></div>
+                                <div class="gradient-animation_wrap is---white">
+                                    <div class="gradient-animation is---white"></div>
+                                </div>
+                            </div>
+                            <div class="impressum_gradient-wrap">
+                                <img src="../images/cta_gradient_transparent.png" loading="lazy" alt="" class="i-100" onerror="this.style.display='none'"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== POLICY BODY ===== -->
+            <section>
+                <div class="section-rechtliches_wrap-copy">
+                    <div class="w-layout-blockcontainer container-1-rem w-container">
+                        <div class="rechtliches-block">
+
+                            <!-- LEFT COLUMN: title + sticky TOC -->
+                            <div class="rechtliches_texts-wrap">
+                                <h3 lines-animation="" class="heading-14"><strong class="bold-text-3">Terms of Use</strong></h3>
+                                <aside class="legal-toc-inline" aria-label="On this page">
+                                    <div class="legal-toc-title">On this page</div>
+                                    <ol>
+                                        <li><a href="#acceptance">I. Acceptance of Terms</a></li>
+                                        <li><a href="#governing-law">II. Governing Law</a></li>
+                                        <li><a href="#license">III. License to Use the Site</a></li>
+                                        <li><a href="#ip">IV. Intellectual Property</a></li>
+                                        <li><a href="#user-conduct">V. User Conduct</a></li>
+                                        <li><a href="#linking">VI. Linking &amp; Third-Party Sites</a></li>
+                                        <li><a href="#email">VII. Email Communications</a></li>
+                                        <li><a href="#privacy">VIII. Privacy</a></li>
+                                        <li><a href="#disclaimers">IX. Disclaimers &amp; Limitation of Liability</a></li>
+                                        <li><a href="#indemnification">X. Indemnification</a></li>
+                                        <li><a href="#dmca">XI. DMCA &amp; Copyright Complaints</a></li>
+                                        <li><a href="#federal">XII. Federal Contractor Notice</a></li>
+                                        <li><a href="#changes">XIII. Changes to These Terms</a></li>
+                                        <li><a href="#severability">XIV. Severability &amp; Entire Agreement</a></li>
+                                        <li><a href="#contact">XV. Contact</a></li>
+                                    </ol>
+                                </aside>
+                            </div>
+
+                            <!-- RIGHT COLUMN: terms content -->
+                            <div class="rechtliches_texts-rechts-wrap">
+                                <p class="legal-effective"><strong>Effective Date:</strong> June 2, 2026 &middot; <strong>Last Updated:</strong> June 2, 2026</p>
+
+                                <div class="legal-callout">
+                                    <strong>The short version.</strong> By using pyramidsystems.com, you agree to these Terms. Pyramid Systems owns the content on this site; you can read and share it but not copy or repurpose it commercially without our permission. The site is provided "as is" with no warranties. These Terms are governed by the laws of the Commonwealth of Virginia.
+                                </div>
+
+                                <h6 id="acceptance" lines-animation="" class="h2--24">I. Acceptance of Terms</h6>
+                                <p lines-animation="" class="t--result-subheading-1rem">By accessing or using pyramidsystems.com and its sub-pages (the "<strong>Site</strong>"), you agree to be bound by these Terms of Use (the "<strong>Terms</strong>"). If you do not agree to these Terms, do not use the Site.<br/><br/>These Terms apply to all visitors, users, and others who access or use the Site. You must be at least eighteen (18) years old to use the Site. If you are using the Site on behalf of an organization, you represent that you have the authority to bind that organization to these Terms.</p>
+
+                                <h6 id="governing-law" lines-animation="" class="h2--24">II. Governing Law &amp; Jurisdiction</h6>
+                                <p lines-animation="" class="t--result-subheading-1rem">These Terms shall be governed by and construed in accordance with the laws of the <strong>Commonwealth of Virginia</strong>, without regard to its conflict of laws principles. You agree that any dispute arising out of or relating to these Terms or your use of the Site shall be brought exclusively in the state or federal courts located in Fairfax County, Virginia, and you consent to the personal jurisdiction of those courts.<br/><br/>If you are a U.S. government agency accessing the Site in your official capacity, these Terms are subject to applicable federal law and any contracting instrument in place between you and Pyramid Systems.</p>
+
+                                <h6 id="license" lines-animation="" class="h2--24">III. License to Use the Site</h6>
+                                <p lines-animation="" class="t--result-subheading-1rem">Subject to your compliance with these Terms, Pyramid Systems grants you a limited, non-exclusive, non-transferable, revocable license to access and use the Site for personal, non-commercial informational purposes. You may download or print individual pages for your own reference, provided that you do not modify the content and you preserve all copyright, trademark, and proprietary notices.<br/><br/>No license to copy, reproduce, modify, distribute, transmit, display, publish, sell, license, create derivative works of, or otherwise commercially exploit any content on the Site is granted, except as expressly provided above or with our prior written permission.</p>
+
+                                <h6 id="ip" lines-animation="" class="h2--24">IV. Intellectual Property</h6>
+                                <p lines-animation="" class="t--result-subheading-1rem">The Site and all content on it, including text, graphics, logos, icons, images, audio, video, software, page layout, "look and feel," and trademarks (collectively, "<strong>Content</strong>") are owned by or licensed to Pyramid Systems, Inc. and are protected by U.S. and international copyright, trademark, and other intellectual property laws.<br/><br/>"Pyramid Systems," "AIR-Quire," the Pyramid Systems logo, and other Pyramid marks displayed on the Site are trademarks or service marks of Pyramid Systems, Inc. Other product and company names mentioned on the Site may be the trademarks of their respective owners. Nothing in these Terms grants you any right to use any Pyramid Systems trademark or any third-party trademark.<br/><br/>You retain ownership of any content you submit to the Site (e.g., information in a contact form or job application). By submitting it, you grant Pyramid Systems a worldwide, non-exclusive, royalty-free license to use that content for the purposes for which you submitted it (e.g., to respond to your inquiry or evaluate your application) and as otherwise permitted by our <a href="../privacy/index.html">Privacy Policy</a>.</p>
+
+                                <h6 id="user-conduct" lines-animation="" class="h2--24">V. User Conduct</h6>
+                                <p lines-animation="" class="t--result-subheading-1rem">You agree not to use the Site to:</p>
+                                <ul role="list" class="list-2">
+                                    <li>Violate any applicable federal, state, local, or international law or regulation.</li>
+                                    <li>Impersonate Pyramid Systems, its employees, or any other person or entity.</li>
+                                    <li>Transmit unauthorized advertising, spam, chain letters, or solicitations of any kind.</li>
+                                    <li>Upload or transmit viruses, malware, or any malicious code.</li>
+                                    <li>Attempt to gain unauthorized access to the Site, the server on which the Site is stored, or any related systems or networks.</li>
+                                    <li>Conduct any automated use of the Site, including scraping, harvesting, or framing, except as expressly permitted by our robots.txt or as agreed in writing.</li>
+                                    <li>Interfere with or disrupt the Site, servers, or networks connected to the Site, or violate any requirements, procedures, policies, or regulations of such networks.</li>
+                                </ul>
+
+                                <h6 id="linking" lines-animation="" class="h2--24">VI. Linking &amp; Third-Party Sites</h6>
+                                <p lines-animation="" class="t--result-subheading-1rem">You may link to the Site from another website, provided that the link is in good faith, does not falsely suggest endorsement or affiliation, and does not present the Site or our content in a misleading or disparaging context. We reserve the right to withdraw permission to link without notice.<br/><br/>The Site may contain links to third-party websites or services that are not owned or controlled by Pyramid Systems. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party websites or services. You acknowledge and agree that Pyramid Systems shall not be responsible or liable, directly or indirectly, for any damage or loss caused by or in connection with use of or reliance on any such content, goods, or services available on or through any such third-party websites.</p>
+
+                                <h6 id="email" lines-animation="" class="h2--24">VII. Email Communications</h6>
+                                <p lines-animation="" class="t--result-subheading-1rem">If you provide your email address to receive communications from Pyramid Systems (for example, by submitting a contact form, applying for a position, or subscribing to a newsletter), you consent to receive emails relating to that purpose.<br/><br/>Marketing communications include a one-click unsubscribe link in every message. You can also email <a href="mailto:info@pyramidsystems.com?subject=%5BPrivacy%20Request%5D">info@pyramidsystems.com</a> (subject line: [Privacy Request]) to be removed from all marketing lists. Transactional communications (e.g., responses to your inquiry, application status updates) may continue even after you opt out of marketing.</p>
+
+                                <h6 id="privacy" lines-animation="" class="h2--24">VIII. Privacy</h6>
+                                <p lines-animation="" class="t--result-subheading-1rem">Our collection and use of personal information in connection with the Site is described in our <a href="../privacy/index.html">Privacy Policy</a>, which is incorporated into these Terms by reference. Please review it carefully.</p>
+
+                                <h6 id="disclaimers" lines-animation="" class="h2--24">IX. Disclaimers &amp; Limitation of Liability</h6>
+                                <p lines-animation="" class="t--result-subheading-1rem" style="text-transform:uppercase;font-size:.85rem;letter-spacing:.02em;line-height:1.7;">The Site and all content on it are provided "as is" and "as available," without warranty of any kind, either express or implied. To the fullest extent permitted by law, Pyramid Systems disclaims all warranties, including without limitation the implied warranties of title, non-infringement, merchantability, and fitness for a particular purpose. Pyramid Systems makes no representations or warranties that the Site will be uninterrupted, error-free, secure, or free of viruses or other harmful components, or that the information on the Site is accurate, complete, or current.</p>
+                                <p lines-animation="" class="t--result-subheading-1rem" style="text-transform:uppercase;font-size:.85rem;letter-spacing:.02em;line-height:1.7;">To the fullest extent permitted by applicable law, in no event shall Pyramid Systems, its affiliates, officers, directors, employees, agents, suppliers, or licensors be liable for any indirect, incidental, special, consequential, exemplary, or punitive damages, including without limitation loss of profits, data, use, goodwill, or other intangible losses, resulting from (a) your access to or use of, or inability to access or use, the Site; (b) any conduct or content of any third party on the Site; (c) any content obtained from the Site; or (d) unauthorized access, use, or alteration of your transmissions or content. Some jurisdictions do not allow the exclusion of certain warranties or the limitation or exclusion of liability for incidental or consequential damages, so the above limitations may not apply to you.</p>
+
+                                <h6 id="indemnification" lines-animation="" class="h2--24">X. Indemnification</h6>
+                                <p lines-animation="" class="t--result-subheading-1rem">You agree to indemnify, defend, and hold harmless Pyramid Systems, its affiliates, and their respective officers, directors, employees, agents, suppliers, and licensors from and against any and all claims, damages, obligations, losses, liabilities, costs, debt, and expenses (including attorneys' fees) arising from: (a) your use of and access to the Site; (b) your violation of any term of these Terms; (c) your violation of any third-party right, including without limitation any copyright, property, or privacy right; or (d) any claim that your use of the Site caused damage to a third party. This indemnification obligation will survive these Terms and your use of the Site.</p>
+
+                                <h6 id="dmca" lines-animation="" class="h2--24">XI. DMCA &amp; Copyright Complaints</h6>
+                                <p lines-animation="" class="t--result-subheading-1rem">Pyramid Systems respects the intellectual property rights of others. If you believe that any content on the Site infringes your copyright, please send a written notice to our designated agent that includes:</p>
+                                <ul role="list" class="list-2">
+                                    <li>A physical or electronic signature of the copyright owner or a person authorized to act on their behalf;</li>
+                                    <li>Identification of the copyrighted work claimed to have been infringed;</li>
+                                    <li>Identification of the material that is claimed to be infringing and where it is located on the Site;</li>
+                                    <li>Your contact information (address, phone number, email);</li>
+                                    <li>A statement that you have a good-faith belief that the use is not authorized by the copyright owner, its agent, or the law;</li>
+                                    <li>A statement, under penalty of perjury, that the information in your notice is accurate and that you are the copyright owner or authorized to act on the copyright owner's behalf.</li>
+                                </ul>
+                                <p lines-animation="" class="t--result-subheading-1rem">Send DMCA notices to <a href="mailto:info@pyramidsystems.com?subject=%5BDMCA%20Notice%5D">info@pyramidsystems.com</a> with the subject line <strong>[DMCA Notice]</strong>, or by mail to Pyramid Systems, Inc., Attn: DMCA Agent, 2677 Prosperity Ave, Suite 250, Fairfax, VA 22031.</p>
+
+                                <h6 id="federal" lines-animation="" class="h2--24">XII. Federal Contractor Notice</h6>
+                                <p lines-animation="" class="t--result-subheading-1rem">Pyramid Systems is a federal contractor providing services to U.S. government agencies. Nothing on the Site constitutes a commitment to deliver any specific product, service, schedule, or pricing outside the express terms of a written agreement or task order. Past performance examples and case studies are illustrative and do not guarantee future results. All federal-contracting communications are governed by the relevant contract, the Federal Acquisition Regulation (FAR), and any agency-specific supplements (e.g., DFARS).</p>
+
+                                <h6 id="changes" lines-animation="" class="h2--24">XIII. Changes to These Terms</h6>
+                                <p lines-animation="" class="t--result-subheading-1rem">We may revise these Terms from time to time. The "Last Updated" date at the top of this page reflects the most recent change. Material changes will be announced via a prominent notice on the Site or, where we have your email address, by email. Your continued use of the Site after the effective date of a revision constitutes your acceptance of the revised Terms.</p>
+
+                                <h6 id="severability" lines-animation="" class="h2--24">XIV. Severability &amp; Entire Agreement</h6>
+                                <p lines-animation="" class="t--result-subheading-1rem">If any provision of these Terms is found to be unlawful, void, or unenforceable, that provision shall be deemed severable and shall not affect the validity and enforceability of the remaining provisions.<br/><br/>These Terms, together with our <a href="../privacy/index.html">Privacy Policy</a> and any other legal notices published by us on the Site, constitute the entire agreement between you and Pyramid Systems concerning the Site. Our failure to enforce any right or provision of these Terms shall not be deemed a waiver of such right or provision.</p>
+
+                                <h6 id="contact" lines-animation="" class="h2--24">XV. Contact</h6>
+                                <p lines-animation="" class="t--result-subheading-1rem">Questions about these Terms of Use:</p>
+                                <p lines-animation="" class="t--result-subheading-1rem">Email <a href="mailto:info@pyramidsystems.com">info@pyramidsystems.com</a> or call <a href="tel:+17035530800">703.553.0800</a>. Our mailing address is Pyramid Systems, Inc., 2677 Prosperity Ave, Suite 250, Fairfax, VA 22031.</p>
+                                <p lines-animation="" class="t--result-subheading-1rem">For copyright takedown requests under the DMCA, please use the subject line <strong>[DMCA Notice]</strong> so we can route the request to our designated agent.</p>
+                                <p lines-animation="" class="t--result-subheading-1rem" style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.08);font-size:.88rem;">See also: <a href="../privacy/index.html">Privacy Policy</a></p>
+                            </div>
+                        </div>
+                        <div class="rechtliches-dots-container">
+                            <img src="../images/heroDots.avif" loading="eager" width="286" height="163" alt="" class="i-100"/>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- TOC scroll-spy: marks current section in the sticky TOC -->
+        <script>
+            (function () {
+                var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                if (prefersReduced || !('IntersectionObserver' in window)) return;
+                var headings = document.querySelectorAll('.rechtliches_texts-rechts-wrap h6[id]');
+                var tocLinks = document.querySelectorAll('.legal-toc-inline a[href^="#"]');
+                var byHref = {};
+                tocLinks.forEach(function (a) { byHref[a.getAttribute('href').slice(1)] = a; });
+                var io = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (e) {
+                        if (!e.isIntersecting) return;
+                        tocLinks.forEach(function (a) { a.classList.remove('is-current'); });
+                        var link = byHref[e.target.id];
+                        if (link) link.classList.add('is-current');
+                    });
+                }, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
+                headings.forEach(function (h) { io.observe(h); });
+            })();
+        </script>
+
+        <!-- TEMPLATE:footer:START -->
+        <footer class="footer">
+            <div class="w-layout-blockcontainer container w-container">
+                <div class="footer_navigation-wrap">
+                    
+                    
+                    <div class="footer_navigation-row is--contact">
+                        <div class="footer_navigation-title">
+                            <div class="navigation-dot"></div>
+                            <p>Contact</p>
+                        </div>
+                        <div class="footer_navigation-links">
+                            
+                            <a href="tel:+1703.553.0800" class="footer_navigation-link is--contact w-inline-block">
+                                <div class="contact-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 20 20" fill="none">
+                                        <path d="M3.14737 9.95229C2.35735 8.57475 1.97589 7.44989 1.74588 6.30967C1.4057 4.62331 2.18419 2.976 3.47383 1.92489C4.01889 1.48064 4.64371 1.63242 4.96602 2.21066L5.69367 3.51608C6.27042 4.5508 6.5588 5.06815 6.5016 5.61665C6.4444 6.16515 6.05549 6.61188 5.27766 7.50533L3.14737 9.95229Z" fill="#F4F5F9" fill-opacity="0.04"></path>
+                                        <path d="M10.0474 16.8523C11.4249 17.6423 12.5498 18.0238 13.69 18.2538C15.3764 18.594 17.0237 17.8155 18.0748 16.5258C18.519 15.9808 18.3673 15.356 17.789 15.0337L16.4836 14.306C15.4489 13.7293 14.9315 13.4409 14.383 13.4981C13.8345 13.5553 13.3878 13.9442 12.4943 14.722L10.0474 16.8523Z" fill="#F4F5F9" fill-opacity="0.04"></path>
+                                        <path d="M3.14737 9.95229C2.35735 8.57475 1.97589 7.44989 1.74588 6.30967C1.4057 4.62331 2.18419 2.976 3.47383 1.92489C4.01889 1.48064 4.64371 1.63242 4.96602 2.21066L5.69367 3.51608C6.27042 4.5508 6.5588 5.06815 6.5016 5.61665C6.4444 6.16515 6.05549 6.61188 5.27766 7.50533L3.14737 9.95229ZM3.14737 9.95229C4.74644 12.7406 7.25588 15.2514 10.0474 16.8523M10.0474 16.8523C11.4249 17.6423 12.5498 18.0238 13.69 18.2538C15.3764 18.594 17.0237 17.8155 18.0748 16.5258C18.519 15.9808 18.3673 15.356 17.789 15.0337L16.4836 14.306C15.4489 13.7293 14.9315 13.4409 14.383 13.4981C13.8345 13.5553 13.3878 13.9442 12.4943 14.722L10.0474 16.8523Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"></path>
+                                    </svg>
+                                </div>
+                                <div>703.553.0800</div>
+                            </a>
+                            <a href="mailto:info@pyramidsystems.com" class="footer_navigation-link is--contact w-inline-block">
+                                <div class="contact-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 20 20" fill="none">
+                                        <path d="M14.166 17.0837H5.83268C3.33268 17.0837 1.66602 15.8337 1.66602 12.917V7.08366C1.66602 4.16699 3.33268 2.91699 5.83268 2.91699H14.166C16.666 2.91699 18.3327 4.16699 18.3327 7.08366V12.917C18.3327 15.8337 16.666 17.0837 14.166 17.0837Z" fill="#F4F5F9" fill-opacity="0.04" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M14.1673 7.5L11.559 9.58333C10.7006 10.2667 9.29231 10.2667 8.43398 9.58333L5.83398 7.5" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>
+                                </div>
+                                <div>info@pyramidsystems.com</div>
+                            </a>
+                            <a href="https://www.google.com/maps/place/Pyramid+Systems+Inc/@38.8807463,-77.2358008,17z/data=!3m1!4b1!4m6!3m5!1s0x89b64bf53ceee7af:0x708f2f1b368b631b!8m2!3d38.8807422!4d-77.2332259!16s%2Fg%2F1v_z9sv0?entry=ttu&g_ep=EgoyMDI2MDQwNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="footer_navigation-link is--contact w-inline-block">
+                                <div class="contact-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 20 20" fill="none">
+                                        <path d="M10.0004 11.1912C11.4363 11.1912 12.6004 10.0272 12.6004 8.59121C12.6004 7.15527 11.4363 5.99121 10.0004 5.99121C8.56445 5.99121 7.40039 7.15527 7.40039 8.59121C7.40039 10.0272 8.56445 11.1912 10.0004 11.1912Z" stroke="currentColor" stroke-width="1.2"></path>
+                                        <path d="M3.01675 7.07533C4.65842 -0.141339 15.3501 -0.133006 16.9834 7.08366C17.9418 11.317 15.3084 14.9003 13.0001 17.117C11.3251 18.7337 8.67508 18.7337 6.99175 17.117C4.69175 14.9003 2.05842 11.3087 3.01675 7.07533Z" fill="#F4F5F9" fill-opacity="0.04" stroke="currentColor" stroke-width="1.2"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    2677 Prosperity Ave, <br/>Suite 250, Fairfax, VA 22031
+                                </div>
+                            </a>
+
+                        </div>
+                        
+                        
+                    </div>
+                    
+                    <!-- WHO WE SERVE FOOTER COLUMN — HIDDEN 2026-05-22.
+                         Rationale: no agency-segment content exists yet, and the
+                         "Department of War" bucket isn't backed by past performance.
+                         Restore when dedicated segment pages are written.
+                    <div class="footer_navigation-row">
+                        <div class="footer_navigation-title">
+                            <div class="navigation-dot"></div>
+                            <p>Who We Serve</p>
+                        </div>
+                        <div class="footer_navigation-links">
+                            <a data-cta="vertical_financial_regulators" data-cta-location="nav_dropdown" href="../services/index.html?utm_source=site_nav&utm_medium=vertical_link&utm_campaign=federal_civilian" aria-current="page" class="footer_navigation-link w-inline-block w--current">
+                                <div>Federal Civilian Agencies</div>
+                            </a>
+                            <a data-cta="vertical_department_of_war" data-cta-location="nav_dropdown" href="../services/index.html?utm_source=site_nav&utm_medium=vertical_link&utm_campaign=financial_regulators" class="footer_navigation-link w-inline-block">
+                                <div>Financial Regulators</div>
+                            </a>
+                            <a href="../services/index.html?utm_source=site_nav&utm_medium=vertical_link&utm_campaign=department_of_war" class="footer_navigation-link w-inline-block">
+                                <div>Department of War</div>
+                            </a>
+                            <a href="../contract-vehicles/index.html" class="footer_navigation-link w-inline-block">
+                                <div>Contract Vehicles</div>
+                            </a>
+                        </div>
+                    </div>
+                    -->
+                    <div class="footer_navigation-row">
+                        <div class="footer_navigation-title">
+                            <div class="navigation-dot"></div>
+                            <p>Services</p>
+                        </div>
+                        <div class="footer_navigation-links">
+                            <a href="../services/index.html" class="footer_navigation-link w-inline-block">
+                                <div>All Services</div>
+                            </a>
+                            <a href="../services/modernization.html" class="footer_navigation-link w-inline-block">
+                                <div>Modernization</div>
+                            </a>
+                            <a href="../services/cloud.html" class="footer_navigation-link w-inline-block">
+                                <div>Cloud</div>
+                            </a>
+                            <a href="../services/cybersecurity.html" class="footer_navigation-link w-inline-block">
+                                <div>Cybersecurity</div>
+                            </a>
+                            <a href="../services/devsecops.html" class="footer_navigation-link w-inline-block">
+                                <div>DevSecOps</div>
+                            </a>
+                            <a href="../services/analytics-ai.html" class="footer_navigation-link w-inline-block">
+                                <div>Analytics &amp; AI</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer_navigation-row">
+                        <div class="footer_navigation-title">
+                            <div class="navigation-dot"></div>
+                            <p>Contract Vehicles</p>
+                        </div>
+                        <div class="footer_navigation-links">
+                            <a href="../contract-vehicles/index.html" class="footer_navigation-link w-inline-block">
+                                <div>How to procure us</div>
+                            </a>
+                            <a href="../contract-vehicles/gsa-it-schedule-70.html" class="footer_navigation-link w-inline-block">
+                                <div>GSA IT Schedule 70</div>
+                            </a>
+                            <a href="../contract-vehicles/gsa-oasis-plus.html" class="footer_navigation-link w-inline-block">
+                                <div>GSA OASIS+ Unrestricted</div>
+                            </a>
+                            <a href="../contract-vehicles/gsa-8a-stars-iii.html" class="footer_navigation-link w-inline-block">
+                                <div>GSA 8(a) STARS III</div>
+                            </a>
+                            <a href="../contract-vehicles/hhs-cms-sparc.html" class="footer_navigation-link w-inline-block">
+                                <div>HHS CMS SPARC</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer_navigation-row">
+                        <div class="footer_navigation-title">
+                            <div class="navigation-dot"></div>
+                            <p>Company</p>
+                        </div>
+                        <div class="footer_navigation-links">
+                            <a href="../about-us/index.html" class="footer_navigation-link w-inline-block">
+                                <div>About Pyramid</div>
+                            </a>
+                            <a href="../about-us/partners/index.html" class="footer_navigation-link w-inline-block">
+                                <div>Partners</div>
+                            </a>
+                            <a href="../about-us/certifications/index.html" class="footer_navigation-link w-inline-block">
+                                <div>Certifications</div>
+                            </a>
+                            <a href="../careers/index.html" class="footer_navigation-link w-inline-block">
+                                <div>Careers</div>
+                            </a>
+                            <a href="../insights/news/index.html" class="footer_navigation-link w-inline-block">
+                                <div>News</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer_navigation-row is--social">
+                        <div class="footer_navigation-title">
+                            <div class="navigation-dot"></div>
+                            <p>Lets Get Social</p>
+                        </div>
+                        <div class="footer_social-wrap">
+                            <a href="https://x.com/PyramidSystems" target="_blank" rel="noopener" aria-label="Pyramid Systems on X" class="footer_social w-inline-block">
+                                <div class="footer-social_icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-x"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 4l11.733 16h4.267l-11.733 -16l-4.267 0" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg>
+                                </div>
+                            </a>
+                            <div class="footer-social_divider-dot"></div>
+                            <a href="https://www.facebook.com/pyramidsystems" target="_blank" rel="noopener" aria-label="Pyramid Systems on Facebook" class="footer_social w-inline-block">
+                                <div class="footer-social_icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-facebook"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg>
+                                </div>
+                            </a>
+                            <div class="footer-social_divider-dot"></div>
+                            <a href="https://www.instagram.com/pyramidsystemsinc/" target="_blank" rel="noopener" aria-label="Pyramid Systems on Instagram" class="footer_social w-inline-block">
+                                <div class="footer-social_icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4l0 -8" /><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M16.5 7.5v.01" /></svg>
+                                </div>
+                            </a>
+                            <div class="footer-social_divider-dot"></div>
+                            <a href="https://www.linkedin.com/company/pyramidsystems/" target="_blank" rel="noopener" aria-label="Pyramid Systems on LinkedIn" class="footer_social w-inline-block">
+                                <div class="footer-social_icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-linkedin"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4l0 -10" /></svg>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer_copyright-text">
+                        Copyright 2026
+                        <a href="../index.html" class="w--current">
+                            <span class="text-span-27">Pyramid Systems</span>
+                        </a>
+                        <div class="footer_legal-links">
+                            <a href="../privacy/index.html">Privacy Policy</a>
+                            <span aria-hidden="true">&middot;</span>
+                            <a href="../terms-of-use/index.html">Terms of Use</a>
+                        <span aria-hidden="true">&middot;</span>
+                        <a href="#" data-pc-action="open-prefs" onclick="if(window.PyramidConsent&amp;&amp;window.PyramidConsent.open){window.PyramidConsent.open();}return false;">Cookie Preferences</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_vector">
+                <img src="../images/footerLogoCenter.png" loading="lazy" alt="" class="i-100"/>
+            </div>
+        </footer>
+        <!-- TEMPLATE:footer:END -->
+
+        <!-- ===== Core site scripts (matches every other Pyramid page) =====
+             jQuery + Webflow runtime → restores nav dropdowns, link hover
+             styling, w--current state, footer image containment.
+             GSAP + ScrollTrigger + SplitText → drives the `lines-animation`
+             attribute (text fades up on scroll-in).
+             Lenis → smooth scroll. -->
+        <script src="../js/jquery-3.5.1.min.dc5e7f18c8.js" type="text/javascript" crossorigin="anonymous"></script>
+        <script src="../js/schunk.36b8fb49256177c8.js" type="text/javascript" crossorigin="anonymous"></script>
+        <script src="../js/6204f98b.merged.js" type="text/javascript"></script>
+        <script src="../js/gsap.min.js" type="text/javascript"></script>
+        <script src="../js/ScrollTrigger.min.js" type="text/javascript"></script>
+        <script src="../js/SplitText.min.js" type="text/javascript"></script>
+        <script type="text/javascript">gsap.registerPlugin(ScrollTrigger, SplitText);</script>
+        <script src="../js/lenis.min.js"></script>
+        <script>
+            /* Lenis smooth scroll — identical init to every other page. */
+            let lenis;
+            if (typeof Webflow !== "undefined" && Webflow.env("editor") === undefined) {
+                lenis = new Lenis({
+                    lerp: 0.1,
+                    wheelMultiplier: 0.7,
+                    gestureOrientation: "vertical",
+                    normalizeWheel: false,
+                    smoothTouch: false
+                });
+                function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+                requestAnimationFrame(raf);
+            }
+        </script>
+        <script>
+            /* lines-animation + transparent-animation drivers.
+               Same code that powers every other page's scroll-reveal text. */
+            gsap.registerPlugin(ScrollTrigger, SplitText);
+
+            // Wait for custom fonts to load before SplitText measures text.
+            // Otherwise SplitText picks fallback-font widths, the real font
+            // swaps in, and the pre-computed line wrappers lock in the wrong
+            // widths — text mid-paragraph wraps at random word boundaries.
+            (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(function () {
+
+            document.querySelectorAll('[lines-animation]').forEach(el => {
+                gsap.from(el, {
+                    scrollTrigger: { trigger: el, start: 'top 80%', toggleActions: 'play none none none' },
+                    y: 80,
+                    opacity: 0,
+                    ease: 'power3.out',
+                    duration: 0.8
+                });
+            });
+
+            document.querySelectorAll('[transparent-animation]').forEach(el => {
+                const split = SplitText.create(el, { type: 'words' });
+                gsap.set(split.words, { opacity: 0.3 });
+                split.words.forEach(word => {
+                    ScrollTrigger.create({
+                        trigger: word,
+                        start: 'top 90%',
+                        end: 'top 40%',
+                        scrub: true,
+                        onUpdate: self => {
+                            gsap.to(word, {
+                                opacity: gsap.utils.mapRange(0, 1, 0.3, 1, self.progress),
+                                ease: 'none',
+                                overwrite: 'auto'
+                            });
+                        }
+                    });
+                });
+            });
+
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,2210 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <!-- Consent Mode v2 defaults MUST push to dataLayer BEFORE
+         the GTM head script runs. Loaded synchronously (no defer)
+         so gtag('consent','default',...) lands at dataLayer
+         index 0, before gtm.js. -->
+    <script src="../js/pyramid-consent.js"></script>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WSMBQZDP');</script>
+<!-- End Google Tag Manager -->
+
+        <link rel="icon" type="image/png" href="../images/newPyramidLogoIcon.png"/>
+        <link rel="apple-touch-icon" href="../images/newPyramidLogoIcon.png"/>
+
+        <!-- TEMPLATE:a11y_widget:START -->
+        <!-- Pyramid Systems accessibility widget — custom replacement for UserWay -->
+        <link rel="stylesheet" href="../css/pyramid-a11y.css">
+        <script>
+          /* Early-load: apply saved a11y settings before first paint so the page
+             doesn't flash unfiltered content when the user navigates between pages. */
+          (function () {
+            try {
+              var s = JSON.parse(localStorage.getItem('pyramid-a11y-settings') || '{}');
+              var c = document.documentElement.classList;
+              Object.keys(s).forEach(function (k) {
+                var v = s[k];
+                if (!v) return;
+                if (k === 'oversized') c.add('pa11y-oversized');
+                else if (typeof v === 'string') c.add('pa11y-' + k + '-' + v);
+                else c.add('pa11y-' + k);
+              });
+            } catch (e) {}
+          })();
+        </script>
+        <script src="../js/pyramid-a11y.js" defer></script>
+        <!-- TEMPLATE:a11y_widget:END -->
+
+                <!-- TEMPLATE:consent:START -->
+        <link rel="stylesheet" href="../css/pyramid-consent.css">
+        <!-- TEMPLATE:consent:END -->
+
+                <!-- TEMPLATE:attribution:START -->
+        <script src="../js/pyramid-attribution.js"></script>
+        <!-- TEMPLATE:attribution:END -->
+
+                <!-- TEMPLATE:ac_tracking:START -->
+        <script src="../js/pyramid-ac-tracking.js"></script>
+        <!-- TEMPLATE:ac_tracking:END -->
+        <!-- TEMPLATE:analytics:START -->
+        <!-- Pyramid Systems analytics layer.
+             Central dataLayer push for GTM: form_step, form_submit,
+             generate_lead, form_error, cta_click, page_view_attribution.
+             Also pre-checks the contact form's inquiry checkbox from
+             ?inquiry= deep links so vertical-CTA traffic lands in the
+             right inquiry context. -->
+        <script src="../js/pyramid-analytics.js" defer></script>
+        <!-- TEMPLATE:analytics:END -->
+
+        <!-- TEMPLATE:engagement:START -->
+        <!-- Pyramid Systems engagement tracking — captures popups,
+             cookie modal, FAQ, mobile menu, search, accessibility. -->
+        <script src="../js/pyramid-engagement.js" defer></script>
+        <!-- TEMPLATE:engagement:END -->
+
+        <!-- TEMPLATE:web_vitals:START -->
+        <!-- Core Web Vitals (LCP, INP, CLS) → dataLayer → GA4. -->
+        <script src="../js/pyramid-web-vitals.js" defer></script>
+        <!-- TEMPLATE:web_vitals:END -->
+
+
+        <!-- Webflow w-mod-js bootstrap. Marks <html> with .w-mod-js so the
+             interaction CSS that gates animations on .w-mod-js applies. Also
+             tags .w-mod-touch on touch devices. Must run before paint. -->
+        <script type="text/javascript">
+            !function(o, c) {
+                var n = c.documentElement
+                  , t = " w-mod-";
+                n.className += t + "js",
+                ("ontouchstart"in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch")
+            }(window, document);
+        </script>
+        <script>document.documentElement.setAttribute("data-wf-page","68b0b16eeab74bec787faa10");document.documentElement.setAttribute("data-wf-site","67ffbeb3c6d67519154ab9f3");</script>
+        <meta charset="utf-8"/>
+        <title>Cybersecurity and Compliance | Pyramid Systems</title>
+        <meta content="FISMA, FedRAMP, and ATO-ready security from day one. Zero-trust architecture and DevSecOps from a CMMI Level 3 partner. Built for federal agencies and regulated enterprises across financial, healthcare, and critical infrastructure." name="description"/>
+        <link rel="canonical" href="https://pyramidsystems.com/services/cybersecurity"/>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+
+        <!-- OpenGraph -->
+        <meta property="og:title" content="Cybersecurity and Compliance | Pyramid Systems"/>
+        <meta property="og:description" content="FISMA, FedRAMP, and ATO-ready security from day one. Zero-trust architecture and DevSecOps from a CMMI Level 3 partner. Built for federal agencies and regulated enterprises across financial, healthcare, and critical infrastructure."/>
+        <meta property="og:url" content="https://pyramidsystems.com/services/cybersecurity.html"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:site_name" content="Pyramid Systems"/>
+        <meta property="og:image" content="https://pyramidsystems.com/images/orangeLogo.png"/>
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:title" content="Cybersecurity and Compliance | Pyramid Systems"/>
+        <meta name="twitter:description" content="FISMA, FedRAMP, and ATO-ready security from day one. Zero-trust architecture and DevSecOps from a CMMI Level 3 partner. Built for federal agencies and regulated enterprises across financial, healthcare, and critical infrastructure."/>
+        <meta name="twitter:image" content="https://pyramidsystems.com/images/orangeLogo.png"/>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+        <!-- Shared Webflow / neurakey base CSS that powers the glossar 2-col layout, the popups,
+             and the contact form section. Hashed integrity copy lives on the CDN. -->
+        <link href="https://cdn.prod.website-files.com/67ffbeb3c6d67519154ab9f3/css/neurakey.webflow.shared.6005fb4e8.css" rel="stylesheet" type="text/css" integrity="sha384-YAX7ToYn4yzo7mWTlBz2bG3fT2O7Shcg4NiD0JruypcCk6qRUvmmdGI5PdUajEJl" crossorigin="anonymous"/>
+        <link href="../css/styles.css" rel="stylesheet" type="text/css" crossorigin="anonymous"/>
+        <!-- air-quire-mocks.css powers the contact form's right-side preview panel
+             (the agency-readiness mockup). The embedded contact form section relies
+             on .aq-form-mock, .aq-form-chart, .eng-progress, .aq-form-donut. -->
+        <link href="../css/air-quire-mocks.css" rel="stylesheet" type="text/css"/>
+
+        <!-- Pyramid orange overrides for the neurakey-blue CTA card and minor glossar polish.
+             These targeted rules win on specificity without editing shared CSS. -->
+        <style>
+            /* Pyramid brand: re-color the glossar sticky CTA from neurakey-blue to Pyramid orange. */
+            .glossar_blue-cta-wrap {
+                background: linear-gradient(160deg, #E86222 0%, #C9531C 60%, #A8431A 100%) !important;
+            }
+            .glossar_blue-cta-wrap .button_inner-wrap.is--white {
+                color: #E86222 !important;
+            }
+            /* The sticky CTA's gradient halo asset is brand-blue. Hide it under the orange surface. */
+            .glossar_blue-cta-wrap .cta_gradient-wrap.is--glossar { display: none; }
+            /* Tag pill: replace neurakey gradient with Pyramid orange tint. */
+            .glossar-inner_tag-wrap {
+                background: rgba(232, 98, 34, 0.14) !important;
+                border: 1px solid rgba(232, 98, 34, 0.35) !important;
+            }
+            .glossar-inner_tag-wrap p {
+                color: #E86222 !important;
+            }
+            /* Full portfolio grid: fixed 3 columns desktop, 2 mid, 1 mobile.
+               With 5 cards, desktop renders as 3 on top + 2 on bottom row.
+               The bottom two anchor to the left (default grid auto-placement),
+               matching the reference layout. */
+            .other-services-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.25rem;
+                margin-top: 2.5rem;
+            }
+            @media (max-width: 991px) {
+                .other-services-grid { grid-template-columns: repeat(2, 1fr); }
+            }
+            @media (max-width: 599px) {
+                .other-services-grid { grid-template-columns: 1fr; }
+            }
+            .other-services-card {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                gap: .75rem;
+                padding: 1.5rem;
+                border-radius: 1rem;
+                background: rgba(255, 255, 255, 0.025);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                color: #f4f5f9;
+                text-decoration: none;
+                transition: transform .18s ease, border-color .18s ease, background .18s ease;
+            }
+            .other-services-card:hover {
+                transform: translateY(-3px);
+                border-color: rgba(232, 98, 34, 0.45);
+                background: rgba(232, 98, 34, 0.05);
+            }
+            .other-services-card_icon { width: 2.5rem; height: 2.5rem; }
+            .other-services-card_title { font-size: 1.25rem; font-weight: 600; margin: 0; }
+            .other-services-card_blurb {
+                font-size: .95rem;
+                line-height: 1.5;
+                color: rgba(244, 245, 249, 0.75);
+                margin: 0;
+            }
+            .other-services-card_arrow {
+                position: absolute;
+                top: 1.25rem;
+                right: 1.25rem;
+                width: 1.25rem;
+                height: 1.25rem;
+                color: rgba(244, 245, 249, 0.55);
+                transition: color .18s ease, transform .18s ease;
+            }
+            .other-services-card:hover .other-services-card_arrow {
+                color: #E86222;
+                transform: rotate(45deg);
+            }
+            /* Current-page card: subdued surface, no hover lift, "You are here" pill. */
+            .other-services-card.is--current {
+                background: rgba(232, 98, 34, 0.06);
+                border-color: rgba(232, 98, 34, 0.35);
+                cursor: default;
+            }
+            .other-services-card.is--current:hover {
+                transform: none;
+                background: rgba(232, 98, 34, 0.06);
+                border-color: rgba(232, 98, 34, 0.35);
+            }
+            .other-services-card_here {
+                position: absolute;
+                top: 1.1rem;
+                right: 1.1rem;
+                padding: 0.25rem 0.625rem;
+                border-radius: 999px;
+                background: rgba(232, 98, 34, 0.18);
+                border: 1px solid rgba(232, 98, 34, 0.45);
+                color: #E86222;
+                font-size: 0.7rem;
+                font-weight: 600;
+                letter-spacing: 0.02em;
+                line-height: 1;
+                white-space: nowrap;
+            }
+            /* Popups: start hidden until the JS controller decides to show them */
+            .popup-leave, .popup-magnet { opacity: 0; display: none; }
+
+            /* Keep the site-wide sticky-reveal footer behavior. The footer is
+               position: sticky; bottom: 0 . as you scroll, main slides up over it
+               and the footer is "revealed" from below. To prevent the footer's
+               transparent rendering from bleeding through gaps in the page body,
+               give <main> a solid bg color and lift it above the footer in the
+               stacking context. */
+            main {
+                position: relative;
+                z-index: 1;
+                background-color: var(--_tokenization---bg-main, #0E0E12);
+            }
+
+            /* +/- accordion icon toggle. When an accordion opens, fade out the
+               vertical bar so only the horizontal remains, forming a minus icon. */
+            .accordion_icon .vertical_faq-line,
+            .accordion_icon .horizontal_faq-line {
+                transition: opacity .25s ease, transform .25s ease;
+            }
+            .accordion.is--opened .vertical_faq-line {
+                opacity: 0;
+                transform: rotate(90deg);
+            }
+
+            /* Sticky right-rail CTA position: stretch the column and pin the CTA. */
+            .glossar-content_additional-info { align-self: stretch; }
+            .glossar_blue-cta-wrap { position: sticky; top: 7rem; }
+
+            /* Contact form side preview: hide on mobile, collapse to full-width form.
+               Matches the rule in services/index.html so the form section behaves the
+               same way here as on the services hub. */
+            @media (max-width: 991px) {
+                .form-image_wrap,
+                .aq-form-mock { display: none !important; }
+                .form-block__form-image {
+                    grid-template-columns: 1fr !important;
+                    display: flex !important;
+                    flex-direction: column !important;
+                }
+            }
+        </style>
+
+        <!-- Finsweet Attributes (local copy on the Pyramid site for offline-safe loads) -->
+        <script async type="module" src="../js/attributes.js" fs-scrolldisable></script>
+
+        <!-- Structured data: Service schema -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Federal IT Cybersecurity and Compliance",
+            "serviceType": "Cybersecurity, FISMA and FedRAMP compliance, ATO support, zero-trust architecture",
+            "description": "FISMA, FedRAMP, and ATO-ready security from day one. Zero-trust architecture and DevSecOps from a CMMI Level 3 partner. Built for federal agencies and regulated enterprises across financial, healthcare, and critical infrastructure.",
+            "url": "https://pyramidsystems.com/services/cybersecurity.html",
+            "provider": {
+                "@type": "Organization",
+                "name": "Pyramid Systems",
+                "url": "https://pyramidsystems.com/",
+                "logo": "https://pyramidsystems.com/images/orangeLogo.png",
+                "telephone": "+1-703-553-0800",
+                "sameAs": ["https://www.linkedin.com/company/pyramid-systems-inc-"]
+            },
+            "areaServed": [
+                {"@type":"Country","name":"United States"},
+                {"@type":"GovernmentOrganization","name":"U.S. Department of Housing and Urban Development"},
+                {"@type":"GovernmentOrganization","name":"U.S. Securities and Exchange Commission"},
+                {"@type":"GovernmentOrganization","name":"Centers for Medicare and Medicaid Services"},
+                {"@type":"GovernmentOrganization","name":"U.S. Department of Agriculture"},
+                {"@type":"GovernmentOrganization","name":"Federal Deposit Insurance Corporation"},
+                {"@type":"GovernmentOrganization","name":"U.S. Citizenship and Immigration Services"}
+            ],
+            "audience": {
+                "@type": "Audience",
+                "audienceType": "Federal civilian agencies"
+            }
+        }
+        </script>
+        <!-- Structured data: FAQPage schema -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+        {"@type":"Question","name":"Do you handle the full ATO process end-to-end?","acceptedAnswer":{"@type":"Answer","text":"Yes. We have walked agencies through ATO from initial categorization through SSP, SAR, POA&M, and authorizing-official decision. We work the way your ISSM and authorizing official work, not the way a textbook says it should go."}},
+        {"@type":"Question","name":"What is your approach to zero-trust for federal systems?","acceptedAnswer":{"@type":"Answer","text":"We align to OMB M-22-09 and the CISA Zero Trust Maturity Model. Identity is the new perimeter: every workload, every user, every device, every request authenticated and authorized. We implement in stages so you reach optimal maturity in pillars where the mission depends on it first."}},
+        {"@type":"Question","name":"How do you keep continuous compliance after go-live?","acceptedAnswer":{"@type":"Answer","text":"We bake evidence generation into the pipeline itself: control attestations from IaC, SBOMs from every build, scan results from every deploy. Your continuous-monitoring posture is a query, not a quarterly scramble."}},
+        {"@type":"Question","name":"Can you brief our agency CIO and ISSM on the security posture?","acceptedAnswer":{"@type":"Answer","text":"Yes. We deliver formal posture briefings, risk dashboards, and walk-through sessions tuned to the audience. CIO gets the strategic view; ISSM gets the control-level detail; both leave knowing what is green, what is amber, and what is being done about it."}},
+        {"@type":"Question","name":"What is a realistic timeline to ATO with Pyramid?","acceptedAnswer":{"@type":"Answer","text":"A new moderate-impact system typically reaches ATO in 6 to 12 months from kickoff when we start with the security categorization. A re-authorization on a known boundary runs 3 to 6 months. We can compress these timelines using a continuous ATO model where evidence is generated by the pipeline rather than written at the end. The Authorizing Official still owns the decision."}},
+        {"@type":"Question","name":"Does Pyramid hold a contract vehicle for federal cybersecurity work?","acceptedAnswer":{"@type":"Answer","text":"Yes. Cybersecurity scope is covered under GSA IT Schedule 70 (HACS SIN), GSA OASIS+ Unrestricted, HHS CMS SPARC, SEC ONE IT, GSA 8(a) STARS III, FDIC ITAS III, and the HUD O&M BPA. CMMI-DEV Maturity Level 3 and CMMI-SVC Maturity Level 3 appraisals are current."}},
+        {"@type":"Question","name":"How do you align to EO 14028 and OMB M-22-09?","acceptedAnswer":{"@type":"Answer","text":"EO 14028 logging (M-21-31) and SBOM requirements (NTIA minimum elements) are wired into our pipelines so every build emits the artifacts. M-22-09 zero-trust pillars are implemented in priority order tied to the mission, with identity-first as the default starting line. We track maturity against the CISA Zero Trust Maturity Model and report progress quarterly."}},
+        {"@type":"Question","name":"Do you only work with federal agencies?","acceptedAnswer":{"@type":"Answer","text":"Federal agencies are the majority of our delivery experience, and that's the rigor our commercial clients hire us for too. Pyramid serves federal agencies and regulated enterprises (financial services, healthcare networks, utilities, regulated technology platforms) that demand the same audit posture, uptime, and compliance discipline we built for federal mission systems. If your environment is regulated, audited, or relied on by people who notice when it breaks, you are our audience."}}
+            ]
+        }
+        </script>
+        <!-- Structured data: Breadcrumbs -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+        {"@type":"ListItem","position":1,"name":"Home","item":"https://pyramidsystems.com/"},
+        {"@type":"ListItem","position":2,"name":"Services","item":"https://pyramidsystems.com/services/"},
+        {"@type":"ListItem","position":3,"name":"Cybersecurity and Compliance","item":"https://pyramidsystems.com/services/cybersecurity.html"}
+            ]
+        }
+        </script>
+        <!-- Structured data: WebPage with Speakable specification for voice assistants. -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "url": "https://pyramidsystems.com/services/cybersecurity.html",
+            "name": "Cybersecurity and Compliance",
+            "speakable": {
+                "@type": "SpeakableSpecification",
+                "cssSelector": [".glossar-inner_rt p", ".blogs_faq-text p"]
+            },
+            "isPartOf": {"@type":"WebSite","url":"https://pyramidsystems.com/","name":"Pyramid Systems"}
+        }
+        </script>
+    </head>
+    <body>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WSMBQZDP"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+        <!-- w-embed inline reset. Restores link/button defaults and the +/- /
+             arrow accordion-icon rotations the rest of the site relies on. -->
+        <div class="w-embed">
+            <style>
+                section {
+                    position: relative;
+                    max-width: 100vw;
+                    overflow: clip;
+                    z-index: 2;
+                    background-color: var(--_tokenization---bg-main);
+                }
+                a {
+                    color: inherit;
+                    text-decoration: none;
+                    user-select: none;
+                    transition-property: opacity, background-color, border, color, border-radius;
+                    transition-timing-function: ease;
+                    transition-duration: 0.45s;
+                }
+                button {
+                    background-color: unset;
+                    padding: unset;
+                    text-align: inherit;
+                    transition-property: opacity, background-color, border, color, border-radius;
+                    transition-timing-function: ease;
+                    transition-duration: 0.45s;
+                }
+                .accordion.is--opened .accordion_icon {
+                    color: var(--_tokenization---text-black);
+                }
+                .accordion.is--opened .vertical_faq-icon {
+                    transform: rotate(90deg);
+                }
+                .arrow-animation:hover .button-arrow {
+                    transform: rotate(45deg);
+                }
+                @keyframes rotate {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+                .gradient-animation {
+                    animation: rotate 10s ease infinite !important;
+                }
+                html {
+                    font-size: calc(0.625rem + 0.41666666666666663vw);
+                }
+                @media screen and (max-width: 1920px) {
+                    html { font-size: calc(0.625rem + 0.41666666666666674vw); }
+                }
+                @media screen and (max-width: 1440px) {
+                    html { font-size: calc(-0.5rem + 1.6666666666666665vw); }
+                }
+                @media screen and (max-width: 1200px) {
+                    html { font-size: calc(0.39114832535885163rem + 0.47846889952153115vw); }
+                }
+                @media screen and (max-width: 991px) {
+                    html { font-size: calc(0.758056640625rem + 0.390625vw); }
+                }
+                @media screen and (max-width: 479px) {
+                    html { font-size: calc(0.7494769874476988rem + 0.8368200836820083vw); }
+                }
+            </style>
+        </div>
+        <!-- TEMPLATE:header:START -->
+        <style>
+            /* Nav dropdown alignment fix.
+               .header_dd-link is a flex container. When an item has only ONE
+               child (a single <div> of text — no icon, like our Contract
+               Vehicles items), a long label that wraps to two lines doesn't
+               anchor the wrapped lines to the left edge of the parent. The
+               flex item shrinks to the wrap width and sits in the default
+               position. Force the inner text div to expand to fill the
+               available space and left-align — covers both single-child and
+               icon-prefixed dropdown items. */
+            .header_dd-link > div:not(.header-dd_icon) {
+                flex: 1 1 auto;
+                min-width: 0;
+                text-align: left;
+            }
+
+            /* Logo aspect-ratio fix.
+               .header-logo is a fixed-width (10.1875rem ≈ 163px) flex
+               container. .logo has height:44px but no width rule, so it
+               inherits flex-shrink:1 and gets horizontally compressed when
+               its natural width at 44px height exceeds the parent's width.
+               Lock flex-shrink to 0 and let width grow to the intrinsic size
+               of the image. The wordmark is "Pyramid Systems" so its natural
+               aspect ratio is wider than tall and we want it to overflow the
+               parent box rather than squish. */
+            .header-logo .logo {
+                width: auto;
+                flex-shrink: 0;
+                object-fit: contain;
+            }
+
+            /* AIR-Quire flagship-product nav icon.
+               Prepends the AIR-Quire product mark to its top-level navlink
+               via a ::before pseudo-element. Done via CSS (not an <img>) so
+               it survives template re-stamping cleanly. The ../
+               placeholder resolves to "", "../", "../../" etc. depending on
+               page depth, mirroring how the script handles every other
+               asset path in the template. */
+            a.navlink[href$="solutions/air-quire.html"] {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            a.navlink[href$="solutions/air-quire.html"]::before {
+                content: "";
+                width: 1.125rem;
+                height: 1.125rem;
+                background-image: url("../images/air-quire-Icon.png");
+                background-size: 95% 95%;
+                background-repeat: no-repeat;
+                background-position: center;
+                flex-shrink: 0;
+            }
+        </style>
+        <header class="header">
+        <link rel="icon" type="image/png" href="../images/newPyramidLogoIcon.png"/>
+        <link rel="apple-touch-icon" href="../images/newPyramidLogoIcon.png"/>
+
+            <div class="header_overlay"></div>
+            <div class="w-layout-blockcontainer container-copy is--header w-container">
+                <div class="header_content-wrap">
+                    <a href="../index.html" class="header-logo w-inline-block">
+                        <img class="logo" src="../images/orangeLogo.png" alt="Pyramid Systems" >
+                        
+                    </a>
+                    <div class="menu-wrap">
+                        <div class="header_navigation-wrap">
+                            <a href="../solutions/air-quire.html" class="navlink w-inline-block"><div>AIR-Quire</div></a>
+
+                            <div class="menu_divider-dot"></div>
+                            <div data-hover="false" data-delay="0" data-w-id="4d1d8a72-dee5-ca16-c1c5-51ab9bc6dsrv" class="navlink is-dd w-dropdown">
+                                <div class="navlink is--dd w-dropdown-toggle">
+                                    <div class="text-block">Services</div>
+                                    <div class="dd-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 10 10" fill="none">
+                                            <path d="M2.08674 4.41326L4.70508 7.0316L7.32342 4.41326" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <nav class="header_dd-list w-dropdown-list">
+                                    <a href="../services/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-layout-grid">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M4 4h6v6h-6z"/>
+                                                <path d="M14 4h6v6h-6z"/>
+                                                <path d="M4 14h6v6h-6z"/>
+                                                <path d="M14 14h6v6h-6z"/>
+                                            </svg>
+                                        </div>
+                                        <div>All Services</div>
+                                    </a>
+                                    <a href="../services/modernization.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-stack-2">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M12 4l-8 4l8 4l8 -4l-8 -4"/>
+                                                <path d="M4 12l8 4l8 -4"/>
+                                                <path d="M4 16l8 4l8 -4"/>
+                                            </svg>
+                                        </div>
+                                        <div>Modernization</div>
+                                    </a>
+                                    <a href="../services/cloud.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-cloud">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M6.657 18c-2.572 0 -4.657 -2.007 -4.657 -4.483c0 -2.475 2.085 -4.482 4.657 -4.482c.393 -1.762 1.794 -3.2 3.675 -3.773c1.88 -.572 3.956 -.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.913 0 3.464 1.56 3.464 3.486c0 1.927 -1.551 3.486 -3.465 3.486h-11.878"/>
+                                            </svg>
+                                        </div>
+                                        <div>Cloud</div>
+                                    </a>
+                                    <a href="../services/cybersecurity.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-shield-lock">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3"/>
+                                                <path d="M12 11m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/>
+                                                <path d="M12 12l0 2.5"/>
+                                            </svg>
+                                        </div>
+                                        <div>Cybersecurity</div>
+                                    </a>
+                                    <a href="../services/devsecops.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-infinity">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M9.828 9.172a4 4 0 1 0 0 5.656a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828"/>
+                                            </svg>
+                                        </div>
+                                        <div>DevSecOps</div>
+                                    </a>
+                                    <a href="../services/analytics-ai.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chart-line">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M4 19l16 0"/>
+                                                <path d="M4 15l4 -6l4 2l4 -5l4 4"/>
+                                            </svg>
+                                        </div>
+                                        <div>Analytics &amp; AI</div>
+                                    </a>
+                                </nav>
+                            </div>
+
+                            <!-- WHO WE SERVE NAV — HIDDEN 2026-05-22.
+                                 Rationale: no underlying agency-segment content exists on the current
+                                 pyramidsystems.com site, and no past-performance proof for the
+                                 "Department of War" segment. Restore this block when dedicated
+                                 Civilian / Financial Regulators (etc.) pages are written and the
+                                 segmentation is backed by real named past performance.
+                            <div class="menu_divider-dot"></div>
+                            <div data-hover="false" data-delay="0" data-w-id="4d1d8a72-dee5-ca16-c1c5-51ab9bc6dbcc" class="navlink is-dd w-dropdown">
+                                <div class="navlink is--dd w-dropdown-toggle">
+                                    <div class="text-block">Who We Serve</div>
+                                    <div class="dd-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 10 10" fill="none">
+                                            <path d="M2.08674 4.41326L4.70508 7.0316L7.32342 4.41326" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <nav class="header_dd-list w-dropdown-list">
+                                    <a data-cta="vertical_federal_civilian" data-cta-location="nav_dropdown" href="../services/index.html?utm_source=site_nav&utm_medium=vertical_link&utm_campaign=federal_civilian" class="header_dd-link w-inline-block">
+                                        <div>Federal Civilian</div>
+                                    </a>
+                                    <a data-cta="vertical_financial_regulators" data-cta-location="nav_dropdown" href="../services/index.html?utm_source=site_nav&utm_medium=vertical_link&utm_campaign=financial_regulators" class="header_dd-link w-inline-block">
+                                        <div>Financial Regulators</div>
+                                    </a>
+                                    <a data-cta="vertical_department_of_war" data-cta-location="nav_dropdown" href="../services/index.html?utm_source=site_nav&utm_medium=vertical_link&utm_campaign=department_of_war" class="header_dd-link w-inline-block">
+                                        <div>Department of War</div>
+                                    </a>
+                                </nav>
+                            </div>
+                            -->
+
+                            <div class="menu_divider-dot"></div>
+                            <div data-hover="false" data-delay="0" data-w-id="4d1d8a72-dee5-ca16-c1c5-51ab9bc6dcvv" class="navlink is-dd w-dropdown">
+                                <div class="navlink is--dd w-dropdown-toggle">
+                                    <div class="text-block">Contract Vehicles</div>
+                                    <div class="dd-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 10 10" fill="none">
+                                            <path d="M2.08674 4.41326L4.70508 7.0316L7.32342 4.41326" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <nav class="header_dd-list w-dropdown-list">
+                                    <a href="../contract-vehicles/index.html" class="header_dd-link w-inline-block">
+                                        <div>How to procure us</div>
+                                    </a>
+                                    <a href="../contract-vehicles/gsa-it-schedule-70.html" class="header_dd-link w-inline-block">
+                                        <div>GSA IT Schedule 70</div>
+                                    </a>
+                                    <a href="../contract-vehicles/gsa-oasis-plus.html" class="header_dd-link w-inline-block">
+                                        <div>GSA OASIS+ Unrestricted</div>
+                                    </a>
+                                    <a href="../contract-vehicles/hhs-cms-sparc.html" class="header_dd-link w-inline-block">
+                                        <div>HHS CMS SPARC</div>
+                                    </a>
+                                    <a href="../contract-vehicles/sec-one-it.html" class="header_dd-link w-inline-block">
+                                        <div>SEC ONE IT</div>
+                                    </a>
+                                    <a href="../contract-vehicles/gsa-8a-stars-iii.html" class="header_dd-link w-inline-block">
+                                        <div>GSA 8(a) STARS III</div>
+                                    </a>
+                                    <a href="../contract-vehicles/fdic-itas-iii.html" class="header_dd-link w-inline-block">
+                                        <div>FDIC ITAS III Next Gen BOA</div>
+                                    </a>
+                                    <a href="../contract-vehicles/hud-om-bpa.html" class="header_dd-link w-inline-block">
+                                        <div>HUD O&amp;M BPA</div>
+                                    </a>
+                                </nav>
+                            </div>
+                            <div class="menu_divider-dot"></div>
+                            <div data-hover="false" data-delay="0" data-w-id="4d1d8a72-dee5-ca16-c1c5-51ab9bc6dbcc" class="navlink is-dd w-dropdown">
+                                <div class="navlink is--dd w-dropdown-toggle">
+                                    <div class="text-block">About Pyramid</div>
+                                    <div class="dd-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 10 10" fill="none">
+                                            <path d="M2.08674 4.41326L4.70508 7.0316L7.32342 4.41326" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <nav class="header_dd-list w-dropdown-list">
+                                    <a href="../about-us/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-pyramid">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M11.105 21.788a1.994 1.994 0 0 0 1.789 0l8.092 -4.054c.538 -.27 .718 -.951 .385 -1.452l-8.54 -13.836a.999 .999 0 0 0 -1.664 0l-8.54 13.836a1.005 1.005 0 0 0 .386 1.452l8.092 4.054" />
+                                                <path d="M12 2v20" />
+                                            </svg>
+                                        </div>
+                                        <div>Who We Are</div>
+                                    </a>
+                                    <a href="../about-us/certifications/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-certificate">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M12 15a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                                                <path d="M13 17.5v4.5l2 -1.5l2 1.5v-4.5" />
+                                                <path d="M10 19h-5a2 2 0 0 1 -2 -2v-10c0 -1.1 .9 -2 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -1 1.73" />
+                                                <path d="M6 9l12 0" />
+                                                <path d="M6 12l3 0" />
+                                                <path d="M6 15l2 0" />
+                                            </svg>                                        
+                                        </div>
+                                        <div>Certifications</div>
+                                    </a>
+                                    <a href="../about-us/partners/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-affiliate">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M5.931 6.936l1.275 4.249m5.607 5.609l4.251 1.275" />
+                                                <path d="M11.683 12.317l5.759 -5.759" />
+                                                <path d="M4 5.5a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0" />
+                                                <path d="M17 5.5a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0" />
+                                                <path d="M17 18.5a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0" />
+                                                <path d="M4 15.5a4.5 4.5 0 1 0 9 0a4.5 4.5 0 1 0 -9 0" />
+                                            </svg>                                        
+                                        </div>
+                                        <div>Partners</div>
+                                    </a>
+                                    <a href="../careers/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-briefcase">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
+                                                <path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2" />
+                                                <path d="M12 12l0 .01" />
+                                                <path d="M3 13a20 20 0 0 0 18 0" />
+                                            </svg>
+                                        </div>
+                                        <div>Careers</div>
+                                    </a>
+                                    </nav>
+                            </div>
+
+                            <div class="menu_divider-dot"></div>
+                            <div data-hover="false" data-delay="0" data-w-id="4d1d8a72-dee5-ca16-c1c5-51ab9bc6dbcc" class="navlink is-dd w-dropdown">
+                                <div class="navlink is--dd w-dropdown-toggle">
+                                    <div class="text-block">Insights</div>
+                                    <div class="dd-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 10 10" fill="none">
+                                            <path d="M2.08674 4.41326L4.70508 7.0316L7.32342 4.41326" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <nav class="header_dd-list w-dropdown-list">
+                                    <a href="../insights/blog/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-article">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
+                                                <path d="M7 8h10" />
+                                                <path d="M7 12h10" />
+                                                <path d="M7 16h7" />
+                                            </svg>
+                                        </div>
+                                        <div>Blog</div>
+                                    </a>
+                                    <a href="../insights/case-studies/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-clipboard-data">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
+                                                <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                                                <path d="M9 17l0 -4" />
+                                                <path d="M12 17l0 -1" />
+                                                <path d="M15 17l0 -2" />
+                                            </svg>
+                                        </div>
+                                        <div>Case Studies</div>
+                                    </a>
+                                    <a href="../insights/news/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-news">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M16 6h3a1 1 0 0 1 1 1v11a2 2 0 0 1 -4 0v-13a1 1 0 0 0 -1 -1h-11a1 1 0 0 0 -1 1v12a3 3 0 0 0 3 3h14" />
+                                                <path d="M8 8l4 0" />
+                                                <path d="M8 12l4 0" />
+                                                <path d="M8 16l4 0" />
+                                            </svg>
+                                        </div>
+                                        <div>News</div>
+                                    </a>
+                                </nav>
+                            </div>
+                        </div>
+                        <a href="../contact/index.html" class="header_button-wrap arrow-animation w-inline-block">
+                            <div class="menu_inner-button">
+                                <div>Contact</div>
+                                <div class="button-arrow is--header">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 14 14" fill="none">
+                                        <path d="M10.5005 3.49997L3.03375 10.9667" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="round"></path>
+                                        <path d="M11.2002 8.79087V2.80003H5.20936" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="hero-dots is--1">
+                        <img src="../images/heroDots.avif" loading="eager" width="286" height="163" alt="" class="i-100"/>
+                    </div>
+                    <button data-w-id="4d1d8a72-dee5-ca16-c1c5-51ab9bc6dc0b" fs-scrolldisable-element="toggle" class="menu">
+                        <div class="menu_inner">
+                            <div class="menu_lines-wrap">
+                                <div class="menu-line is--upper"></div>
+                                <div class="menu-line is--middle"></div>
+                                <div class="menu-line is--bottom"></div>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="floating-badge"><img src="../images/winner.png" loading="lazy" alt="" class="german-web-aw"></div>
+
+            <script>
+                /* Active nav state.
+                   The header is stamped identically on every page, so there's no
+                   per-page hardcoded current-link marker. This runtime script reads
+                   window.location and applies Webflow's `w--current` class (plus
+                   aria-current="page") to:
+                     a) the exact-matching nav link, AND
+                     b) its parent dropdown toggle if the link is inside a dropdown.
+                   If no exact match is found (e.g., a deep blog post), we fall
+                   back to prefix-matching the URL section against a list of
+                   dropdown labels — so /insights/blog/foo.html still highlights
+                   "Insights" in the top nav. */
+                (function () {
+                    function normalize(p) {
+                        return (p || "").toLowerCase().replace(/\/$/, "").replace(/\/index\.html$/, "");
+                    }
+                    function resolve(href) {
+                        try { return normalize(new URL(href, window.location.href).pathname); }
+                        catch (e) { return null; }
+                    }
+                    function apply() {
+                        var current = normalize(window.location.pathname);
+                        var navRoot = document.querySelector(".header_navigation-wrap");
+                        if (!navRoot) return;
+
+                        // Pass 1: exact-match link hrefs.
+                        var matched = false;
+                        navRoot.querySelectorAll("a[href]").forEach(function (link) {
+                            var p = resolve(link.getAttribute("href"));
+                            if (p !== null && p === current) {
+                                link.classList.add("w--current");
+                                link.setAttribute("aria-current", "page");
+                                var dd = link.closest(".navlink.is-dd");
+                                if (dd) {
+                                    var toggle = dd.querySelector(".navlink.is--dd");
+                                    if (toggle) {
+                                        toggle.classList.add("w--current");
+                                        toggle.setAttribute("aria-current", "page");
+                                    }
+                                }
+                                matched = true;
+                            }
+                        });
+                        if (matched) return;
+
+                        // Pass 2: URL-prefix → dropdown label fallback for descendant pages.
+                        var sectionMap = [
+                            { prefix: "/contract-vehicles", label: "Contract Vehicles" },
+                            { prefix: "/about-us",          label: "About Pyramid" },
+                            { prefix: "/careers",           label: "About Pyramid" },
+                            { prefix: "/insights",          label: "Insights" },
+                            { prefix: "/services",          label: "Services" }
+                        ];
+                        sectionMap.forEach(function (section) {
+                            if (current.indexOf(section.prefix) === 0) {
+                                navRoot.querySelectorAll(".navlink.is--dd").forEach(function (toggle) {
+                                    var lbl = toggle.querySelector(".text-block");
+                                    if (lbl && lbl.textContent.trim() === section.label) {
+                                        toggle.classList.add("w--current");
+                                        toggle.setAttribute("aria-current", "page");
+                                    }
+                                });
+                            }
+                        });
+                    }
+                    if (document.readyState === "loading") {
+                        document.addEventListener("DOMContentLoaded", apply);
+                    } else {
+                        apply();
+                    }
+                })();
+            </script>
+
+        </header>
+
+        <!-- === PYRAMID MOBILE MENU OVERLAY (begin) === -->
+        <!-- Self-contained mobile menu loader. Builds the overlay HTML at
+             runtime and only activates at viewport ≤991px. On desktop it
+             does nothing — the existing nav is untouched. To roll back:
+             remove this block, run scripts/apply_templates.py, delete
+             js/pyramid-mobile-menu.js, and remove the CSS block bounded
+             by "PYRAMID MOBILE MENU OVERLAY — BEGIN/END" markers in
+             css/styles.css. See MOBILE_MENU_ROLLBACK.md. -->
+        <script src="../js/pyramid-mobile-menu.js" defer></script>
+        <!-- === PYRAMID MOBILE MENU OVERLAY (end) === -->
+        <!-- TEMPLATE:header:END -->
+        <main>
+            <section>
+                <div class="w-layout-blockcontainer container w-container">
+                    <div class="glossar-inner_content-wrap">
+                        <div class="glossar-inner_breadcrumbs-wrap">
+                            <a href="../index.html" class="bc_link w-inline-block">
+                                <div>Home</div>
+                            </a>
+                            <div class="bc-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 12 12" fill="none">
+                                    <path d="M4.5 9L7.5 6L4.5 3" stroke="#F4F5F9" stroke-opacity="0.55"></path>
+                                </svg>
+                            </div>
+                            <a href="index.html" class="bc_link w-inline-block">
+                                <div>Services</div>
+                            </a>
+                            <div class="bc-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 12 12" fill="none">
+                                    <path d="M4.5 9L7.5 6L4.5 3" stroke="#F4F5F9" stroke-opacity="0.55"></path>
+                                </svg>
+                            </div>
+                            <p class="bc-current">Cybersecurity and Compliance</p>
+                        </div>
+                        <div class="glossar_content-block">
+                            <div class="glossar-content_body">
+                                <div class="glossar-inner_tag-wrap">
+                                    <p>Cybersecurity Services</p>
+                                </div>
+                                <div class="glossar-inner_h1--overview">
+                                    <h1 class="h1--h2-style">Cybersecurity and Compliance</h1>
+                                    <div class="glossar-inner_rt w-richtext">
+                                        <p>Pyramid runs FISMA-aligned, FedRAMP-aware, and ATO-ready security from day one of the program. We work alongside your ISSM, generate continuous-monitoring evidence in the pipeline, and brief the authorizing official in language they recognize. Built originally for federal mission systems, equally at home in regulated commercial environments under HIPAA, PCI, or SOC 2.</p>
+                                    </div>
+                                </div>
+                                <div class="glossar_second-rt">
+                                    <div class="glossar-inner_rt w-richtext">
+                                            <h2>What we do</h2>
+                                            <ul><li>Security architecture and zero-trust design</li><li>ATO authorization support</li><li>FedRAMP and FISMA compliance</li><li>Continuous monitoring</li><li>SOC integration</li></ul>
+                                            <h2>How we deliver</h2>
+                                            <ul><li>Security-by-design from day one, not bolted on at the end</li><li>DevSecOps pipelines with embedded SAST, DAST, and SCA scanning</li><li>SBOM generation and vulnerability management</li><li>NIST 800-53 and 800-171 controls implemented and evidenced, EO 14028 logging and SBOM requirements wired into the pipeline.</li><li>ICAM integration for federal identity</li></ul>
+                                            <h2>Outcomes we ship</h2>
+                                            <ul><li>Faster path to ATO</li><li>Reduced audit findings</li><li>Continuous compliance evidence, generated automatically</li><li>Mission systems hardened against active threats</li></ul>
+                                            <p>Production proof. Independently appraised at CMMI-DEV Maturity Level 3 and CMMI-SVC Maturity Level 3. <a href="../contract-vehicles/index.html">FedRAMP</a>-aware delivery, production-tested across <a href="../insights/case-studies/index.html">HUD, SEC, CMS, USDA, FDIC, and USCIS</a>.</p>
+                                    </div>
+                                </div>
+                                <div class="glossar-inner_faq-block">
+                                    <h2 class="h2-32">Frequently asked questions</h2>
+                                    <div class="glossar-faqs_wrap">
+                                            <div class="accordion is--blogs">
+                                                <div class="accordion_heading blogs">
+                                                    <h3 class="h3-faq-blogs">Do you handle the full ATO process end-to-end?</h3>
+                                                    <div class="accordion_icon">
+                                                        <div class="horizontal_faq-line"></div>
+                                                        <div class="vertical_faq-line"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="accordion_text-wrap">
+                                                    <div class="accordion-text">
+                                                        <div class="blogs_faq-text w-richtext"><p>Yes. We have walked agencies through ATO from initial categorization through SSP, SAR, POA&M, and authorizing-official decision. We work the way your ISSM and authorizing official work, not the way a textbook says it should go.</p></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="accordion is--blogs">
+                                                <div class="accordion_heading blogs">
+                                                    <h3 class="h3-faq-blogs">What is your approach to zero-trust for federal systems?</h3>
+                                                    <div class="accordion_icon">
+                                                        <div class="horizontal_faq-line"></div>
+                                                        <div class="vertical_faq-line"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="accordion_text-wrap">
+                                                    <div class="accordion-text">
+                                                        <div class="blogs_faq-text w-richtext"><p>We align to OMB M-22-09 and the CISA Zero Trust Maturity Model. Identity is the new perimeter: every workload, every user, every device, every request authenticated and authorized. We implement in stages so you reach optimal maturity in pillars where the mission depends on it first.</p></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="accordion is--blogs">
+                                                <div class="accordion_heading blogs">
+                                                    <h3 class="h3-faq-blogs">How do you keep continuous compliance after go-live?</h3>
+                                                    <div class="accordion_icon">
+                                                        <div class="horizontal_faq-line"></div>
+                                                        <div class="vertical_faq-line"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="accordion_text-wrap">
+                                                    <div class="accordion-text">
+                                                        <div class="blogs_faq-text w-richtext"><p>We bake evidence generation into the pipeline itself: control attestations from IaC, SBOMs from every build, scan results from every deploy. Your continuous-monitoring posture is a query, not a quarterly scramble.</p></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="accordion is--blogs">
+                                                <div class="accordion_heading blogs">
+                                                    <h3 class="h3-faq-blogs">Can you brief our agency CIO and ISSM on the security posture?</h3>
+                                                    <div class="accordion_icon">
+                                                        <div class="horizontal_faq-line"></div>
+                                                        <div class="vertical_faq-line"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="accordion_text-wrap">
+                                                    <div class="accordion-text">
+                                                        <div class="blogs_faq-text w-richtext"><p>Yes. We deliver formal posture briefings, risk dashboards, and walk-through sessions tuned to the audience. CIO gets the strategic view; ISSM gets the control-level detail; both leave knowing what is green, what is amber, and what is being done about it.</p></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="accordion is--blogs">
+                                                <div class="accordion_heading blogs">
+                                                    <h3 class="h3-faq-blogs">What is a realistic timeline to ATO with Pyramid?</h3>
+                                                    <div class="accordion_icon">
+                                                        <div class="horizontal_faq-line"></div>
+                                                        <div class="vertical_faq-line"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="accordion_text-wrap">
+                                                    <div class="accordion-text">
+                                                        <div class="blogs_faq-text w-richtext"><p>A new moderate-impact system typically reaches ATO in 6 to 12 months from kickoff when we start with the security categorization. A re-authorization on a known boundary runs 3 to 6 months. We can compress these timelines using a continuous ATO model where evidence is generated by the pipeline rather than written at the end. The Authorizing Official still owns the decision.</p></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="accordion is--blogs">
+                                                <div class="accordion_heading blogs">
+                                                    <h3 class="h3-faq-blogs">Does Pyramid hold a contract vehicle for federal cybersecurity work?</h3>
+                                                    <div class="accordion_icon">
+                                                        <div class="horizontal_faq-line"></div>
+                                                        <div class="vertical_faq-line"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="accordion_text-wrap">
+                                                    <div class="accordion-text">
+                                                        <div class="blogs_faq-text w-richtext"><p>Yes. Cybersecurity scope is covered under GSA IT Schedule 70 (HACS SIN), GSA OASIS+ Unrestricted, HHS CMS SPARC, SEC ONE IT, GSA 8(a) STARS III, FDIC ITAS III, and the HUD O&M BPA. CMMI-DEV Maturity Level 3 and CMMI-SVC Maturity Level 3 appraisals are current.</p></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="accordion is--blogs">
+                                                <div class="accordion_heading blogs">
+                                                    <h3 class="h3-faq-blogs">How do you align to EO 14028 and OMB M-22-09?</h3>
+                                                    <div class="accordion_icon">
+                                                        <div class="horizontal_faq-line"></div>
+                                                        <div class="vertical_faq-line"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="accordion_text-wrap">
+                                                    <div class="accordion-text">
+                                                        <div class="blogs_faq-text w-richtext"><p>EO 14028 logging (M-21-31) and SBOM requirements (NTIA minimum elements) are wired into our pipelines so every build emits the artifacts. M-22-09 zero-trust pillars are implemented in priority order tied to the mission, with identity-first as the default starting line. We track maturity against the CISA Zero Trust Maturity Model and report progress quarterly.</p></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="accordion is--blogs">
+                                                <div class="accordion_heading blogs">
+                                                    <h3 class="h3-faq-blogs">Do you only work with federal agencies?</h3>
+                                                    <div class="accordion_icon">
+                                                        <div class="horizontal_faq-line"></div>
+                                                        <div class="vertical_faq-line"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="accordion_text-wrap">
+                                                    <div class="accordion-text">
+                                                        <div class="blogs_faq-text w-richtext"><p>Federal agencies are the majority of our delivery experience, and that's the rigor our commercial clients hire us for too. Pyramid serves federal agencies and regulated enterprises (financial services, healthcare networks, utilities, regulated technology platforms) that demand the same audit posture, uptime, and compliance discipline we built for federal mission systems. If your environment is regulated, audited, or relied on by people who notice when it breaks, you are our audience.</p></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="glossar-content_additional-info">
+                                <div class="glossar_blue-cta-wrap">
+                                    <div class="glossar-blue_main-info">
+                                        <div class="upheader text--white">
+                                            <div class="upheader_icon-na">
+                                                <img src="../images/newPyramidLogoIcon.png" alt="" style="width:100%; height:100%; object-fit:contain;" />
+                                            </div>
+                                            <p>Free. No obligation.</p>
+                                        </div>
+                                        <h3 class="h3-24">30-min modernization consultation</h3>
+                                        <div class="glossar-blue_subheader">
+                                            <p>30 minutes with an engineer who has shipped at HUD, SEC, CMS, USDA, FDIC, and USCIS. Bring your problem, leave with a fit assessment.</p>
+                                        </div>
+                                    </div>
+                                    <div class="glossar-blue_button-wrap">
+                                        <a href="../services/index.html" class="button arrow-animation w-inline-block">
+                                            <div class="button_inner-wrap is--white">
+                                                <div>View All Services</div>
+                                                <div class="button-arrow is--main">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 14 14" fill="none">
+                                                        <path d="M10.5005 3.49997L3.03375 10.9667" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="round"></path>
+                                                        <path d="M11.2002 8.79087V2.80003H5.20936" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="glossar-blue_common-info-wrap">
+                                        <div class="glossar-common_text-block">
+                                            <div class="glossar-common_icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 16 16" fill="none">
+                                                    <g opacity="0.85"><path d="M8.00002 14.6667C8.00002 14.6667 13.3334 12 13.3334 8.00004V3.33337L8.00002 1.33337L2.66669 3.33337V8.00004C2.66669 12 8.00002 14.6667 8.00002 14.6667Z" stroke="white" stroke-opacity="0.8" stroke-width="1.16667"></path></g>
+                                                </svg>
+                                            </div>
+                                            <p>HUD, SEC, CMS, USDA, FDIC, USCIS deployments</p>
+                                        </div>
+                                        <div class="glossar-common_text-block">
+                                            <div class="glossar-common_icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 16 16" fill="none">
+                                                    <g opacity="0.85"><path d="M13.3334 4L6.00002 11.3333L2.66669 8" stroke="white" stroke-opacity="0.8" stroke-width="1.16667"></path></g>
+                                                </svg>
+                                            </div>
+                                            <p>CMMI Maturity Level 3 appraised</p>
+                                        </div>
+                                        <div class="glossar-common_text-block">
+                                            <div class="glossar-common_icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 16 16" fill="none">
+                                                    <g opacity="0.85"><rect x="2.5" y="3.33" width="11" height="10" rx="1.2" stroke="white" stroke-opacity="0.8" stroke-width="1.16667"></rect><path d="M2.5 6.67H13.5M5.5 2v2.67M10.5 2v2.67" stroke="white" stroke-opacity="0.8" stroke-width="1.16667" stroke-linecap="round"></path></g>
+                                                </svg>
+                                            </div>
+                                            <p>30 years modernizing mission-critical systems</p>
+                                        </div>
+                                    </div>
+                                    <div class="cta_gradient-wrap is--glossar">
+                                        <img src="../images/imported-from-webflow/680dce4e9bf5c7568927c86f_cta_gradient.svg" loading="lazy" alt="" class="i-100"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="section-form_wrap">
+                    <div class="w-layout-blockcontainer container w-container">
+                        <div class="blog_articles-block is--inner">
+                            <div class="content-wrap">
+                                <div class="blog-heading_wrap">
+                                    <div class="upheader">
+                                        <div class="upheader_icon">
+                                            <img src="../images/newPyramidLogoIcon.png" alt="" />
+                                        </div>
+                                        <p lines-animation="">The full Pyramid portfolio</p>
+                                    </div>
+                                    <h2 lines-animation="" class="heading-7">
+                                        Explore the <span class="text-gradient">Pyramid portfolio</span>
+                                    </h2>
+                                </div>
+                                <div class="other-services-grid">
+                            <a href="modernization.html" class="other-services-card">
+                                <div class="other-services-card_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#E86222" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="i-100"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 4v5h5"/><path d="M12 7v5l3 3"/></svg></div>
+                                <h3 class="other-services-card_title">Modernization</h3>
+                                <p class="other-services-card_blurb">Replace legacy systems without breaking the mission. Mainframe, SharePoint, Oracle, low-code.</p>
+                                <svg class="other-services-card_arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" fill="none"><path d="M10.5005 3.49997L3.03375 10.9667" stroke="currentColor" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="round"/><path d="M11.2002 8.79087V2.80003H5.20936" stroke="currentColor" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="bevel"/></svg>
+                            </a>
+                            <a href="cloud.html" class="other-services-card">
+                                <div class="other-services-card_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#E86222" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="i-100"><path d="M17.5 19a4.5 4.5 0 1 0-1.5-8.75A6 6 0 0 0 4 12a5 5 0 0 0 5 7h8.5"/></svg></div>
+                                <h3 class="other-services-card_title">Cloud</h3>
+                                <p class="other-services-card_blurb">Cloud Smart federal migrations across AWS, Azure, GCP, and Cloud.gov.</p>
+                                <svg class="other-services-card_arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" fill="none"><path d="M10.5005 3.49997L3.03375 10.9667" stroke="currentColor" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="round"/><path d="M11.2002 8.79087V2.80003H5.20936" stroke="currentColor" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="bevel"/></svg>
+                            </a>
+                            <a href="cybersecurity.html" class="other-services-card is--current" aria-current="page">
+                                <div class="other-services-card_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#E86222" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="i-100"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
+                                <h3 class="other-services-card_title">Cybersecurity and Compliance</h3>
+                                <p class="other-services-card_blurb">Zero-trust, FISMA, FedRAMP, and ATO support from a CMMI Level 3 partner.</p>
+                                <span class="other-services-card_here">You are here</span>
+                            </a>
+                            <a href="analytics-ai.html" class="other-services-card">
+                                <div class="other-services-card_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#E86222" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="i-100"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-7"/></svg></div>
+                                <h3 class="other-services-card_title">Analytics and AI</h3>
+                                <p class="other-services-card_blurb">Federal data platforms, dashboards, and explainable AI built for audit.</p>
+                                <svg class="other-services-card_arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" fill="none"><path d="M10.5005 3.49997L3.03375 10.9667" stroke="currentColor" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="round"/><path d="M11.2002 8.79087V2.80003H5.20936" stroke="currentColor" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="bevel"/></svg>
+                            </a>
+                            <a href="devsecops.html" class="other-services-card">
+                                <div class="other-services-card_icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#E86222" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="i-100"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><path d="M6 8v3a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V8"/><path d="M12 14v2"/></svg></div>
+                                <h3 class="other-services-card_title">DevSecOps</h3>
+                                <p class="other-services-card_blurb">CI/CD pipelines, security tooling, and SRE for federal mission systems.</p>
+                                <svg class="other-services-card_arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" fill="none"><path d="M10.5005 3.49997L3.03375 10.9667" stroke="currentColor" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="round"/><path d="M11.2002 8.79087V2.80003H5.20936" stroke="currentColor" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="bevel"/></svg>
+                            </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="cta_content-block">
+                    <div class="w-layout-blockcontainer container w-container">
+                        <div class="cta_content-wrap is--dark">
+                            <div class="cta_texts-wrap">
+                                <div class="cta_titles-wrap">
+                                    <h2 lines-animation="" class="heading-8">Ready to ship FISMA-aligned systems that pass the first ATO review?</h2>
+                                </div>
+                                <p lines-animation="" class="t--cta-text">
+                                    30 minutes with an engineer who has shipped at HUD, SEC, CMS, USDA, FDIC, and USCIS. Bring your problem, leave with a fit assessment.
+                                </p>
+                            </div>
+                            <div class="tripple-buttons-wrap">
+                                <a href="../services/index.html" class="button arrow-animation is--glossar-cta w-inline-block">
+                                    <div class="button_inner-wrap">
+                                        <div>View All Services</div>
+                                        <div class="button-arrow is--main">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 14 14" fill="none">
+                                                <path d="M10.5005 3.49997L3.03375 10.9667" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="round"></path>
+                                                <path d="M11.2002 8.79087V2.80003H5.20936" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="../contact/index.html" class="button arrow-animation is--glossar-cta w-inline-block">
+                                    <div class="button_inner-wrap is--white-dark">
+                                        <div>Talk to our team</div>
+                                        <div class="button-arrow is--main">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 14 14" fill="none">
+                                                <path d="M10.5005 3.49997L3.03375 10.9667" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="round"></path>
+                                                <path d="M11.2002 8.79087V2.80003H5.20936" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="cta_gradient-wrap">
+                                <img src="../images/imported-from-webflow/680dce4e9bf5c7568927c86f_cta_gradient.svg" loading="lazy" alt="" class="i-100"/>
+                            </div>
+                            <div class="cta_figure-wrap-bg is--dark">
+                                <img src="../images/imported-from-webflow/6878c0c361ff85992a2d05a1_bg.avif" loading="eager" alt="" class="i-100"/>
+                            </div>
+                            <div class="cta-dots is--2">
+                                <img src="../images/imported-from-webflow/680359143d96b2fa3c7c23a1_dots_3.avif" loading="lazy" alt="" class="i-100"/>
+                            </div>
+                            <div class="cta-dots">
+                                <img src="../images/imported-from-webflow/680359143d96b2fa3c7c23a1_dots_3.avif" loading="lazy" alt="" class="i-100"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- TEMPLATE:footer:START -->
+        <footer class="footer">
+            <div class="w-layout-blockcontainer container w-container">
+                <div class="footer_navigation-wrap">
+                    
+                    
+                    <div class="footer_navigation-row is--contact">
+                        <div class="footer_navigation-title">
+                            <div class="navigation-dot"></div>
+                            <p>Contact</p>
+                        </div>
+                        <div class="footer_navigation-links">
+                            
+                            <a href="tel:+1703.553.0800" class="footer_navigation-link is--contact w-inline-block">
+                                <div class="contact-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 20 20" fill="none">
+                                        <path d="M3.14737 9.95229C2.35735 8.57475 1.97589 7.44989 1.74588 6.30967C1.4057 4.62331 2.18419 2.976 3.47383 1.92489C4.01889 1.48064 4.64371 1.63242 4.96602 2.21066L5.69367 3.51608C6.27042 4.5508 6.5588 5.06815 6.5016 5.61665C6.4444 6.16515 6.05549 6.61188 5.27766 7.50533L3.14737 9.95229Z" fill="#F4F5F9" fill-opacity="0.04"></path>
+                                        <path d="M10.0474 16.8523C11.4249 17.6423 12.5498 18.0238 13.69 18.2538C15.3764 18.594 17.0237 17.8155 18.0748 16.5258C18.519 15.9808 18.3673 15.356 17.789 15.0337L16.4836 14.306C15.4489 13.7293 14.9315 13.4409 14.383 13.4981C13.8345 13.5553 13.3878 13.9442 12.4943 14.722L10.0474 16.8523Z" fill="#F4F5F9" fill-opacity="0.04"></path>
+                                        <path d="M3.14737 9.95229C2.35735 8.57475 1.97589 7.44989 1.74588 6.30967C1.4057 4.62331 2.18419 2.976 3.47383 1.92489C4.01889 1.48064 4.64371 1.63242 4.96602 2.21066L5.69367 3.51608C6.27042 4.5508 6.5588 5.06815 6.5016 5.61665C6.4444 6.16515 6.05549 6.61188 5.27766 7.50533L3.14737 9.95229ZM3.14737 9.95229C4.74644 12.7406 7.25588 15.2514 10.0474 16.8523M10.0474 16.8523C11.4249 17.6423 12.5498 18.0238 13.69 18.2538C15.3764 18.594 17.0237 17.8155 18.0748 16.5258C18.519 15.9808 18.3673 15.356 17.789 15.0337L16.4836 14.306C15.4489 13.7293 14.9315 13.4409 14.383 13.4981C13.8345 13.5553 13.3878 13.9442 12.4943 14.722L10.0474 16.8523Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"></path>
+                                    </svg>
+                                </div>
+                                <div>703.553.0800</div>
+                            </a>
+                            <a href="mailto:info@pyramidsystems.com" class="footer_navigation-link is--contact w-inline-block">
+                                <div class="contact-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 20 20" fill="none">
+                                        <path d="M14.166 17.0837H5.83268C3.33268 17.0837 1.66602 15.8337 1.66602 12.917V7.08366C1.66602 4.16699 3.33268 2.91699 5.83268 2.91699H14.166C16.666 2.91699 18.3327 4.16699 18.3327 7.08366V12.917C18.3327 15.8337 16.666 17.0837 14.166 17.0837Z" fill="#F4F5F9" fill-opacity="0.04" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M14.1673 7.5L11.559 9.58333C10.7006 10.2667 9.29231 10.2667 8.43398 9.58333L5.83398 7.5" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>
+                                </div>
+                                <div>info@pyramidsystems.com</div>
+                            </a>
+                            <a href="https://www.google.com/maps/place/Pyramid+Systems+Inc/@38.8807463,-77.2358008,17z/data=!3m1!4b1!4m6!3m5!1s0x89b64bf53ceee7af:0x708f2f1b368b631b!8m2!3d38.8807422!4d-77.2332259!16s%2Fg%2F1v_z9sv0?entry=ttu&g_ep=EgoyMDI2MDQwNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="footer_navigation-link is--contact w-inline-block">
+                                <div class="contact-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 20 20" fill="none">
+                                        <path d="M10.0004 11.1912C11.4363 11.1912 12.6004 10.0272 12.6004 8.59121C12.6004 7.15527 11.4363 5.99121 10.0004 5.99121C8.56445 5.99121 7.40039 7.15527 7.40039 8.59121C7.40039 10.0272 8.56445 11.1912 10.0004 11.1912Z" stroke="currentColor" stroke-width="1.2"></path>
+                                        <path d="M3.01675 7.07533C4.65842 -0.141339 15.3501 -0.133006 16.9834 7.08366C17.9418 11.317 15.3084 14.9003 13.0001 17.117C11.3251 18.7337 8.67508 18.7337 6.99175 17.117C4.69175 14.9003 2.05842 11.3087 3.01675 7.07533Z" fill="#F4F5F9" fill-opacity="0.04" stroke="currentColor" stroke-width="1.2"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    2677 Prosperity Ave, <br/>Suite 250, Fairfax, VA 22031
+                                </div>
+                            </a>
+
+                        </div>
+                        
+                        
+                    </div>
+                    
+                    <!-- WHO WE SERVE FOOTER COLUMN — HIDDEN 2026-05-22.
+                         Rationale: no agency-segment content exists yet, and the
+                         "Department of War" bucket isn't backed by past performance.
+                         Restore when dedicated segment pages are written.
+                    <div class="footer_navigation-row">
+                        <div class="footer_navigation-title">
+                            <div class="navigation-dot"></div>
+                            <p>Who We Serve</p>
+                        </div>
+                        <div class="footer_navigation-links">
+                            <a data-cta="vertical_financial_regulators" data-cta-location="nav_dropdown" href="../services/index.html?utm_source=site_nav&utm_medium=vertical_link&utm_campaign=federal_civilian" aria-current="page" class="footer_navigation-link w-inline-block w--current">
+                                <div>Federal Civilian Agencies</div>
+                            </a>
+                            <a data-cta="vertical_department_of_war" data-cta-location="nav_dropdown" href="../services/index.html?utm_source=site_nav&utm_medium=vertical_link&utm_campaign=financial_regulators" class="footer_navigation-link w-inline-block">
+                                <div>Financial Regulators</div>
+                            </a>
+                            <a href="../services/index.html?utm_source=site_nav&utm_medium=vertical_link&utm_campaign=department_of_war" class="footer_navigation-link w-inline-block">
+                                <div>Department of War</div>
+                            </a>
+                            <a href="../contract-vehicles/index.html" class="footer_navigation-link w-inline-block">
+                                <div>Contract Vehicles</div>
+                            </a>
+                        </div>
+                    </div>
+                    -->
+                    <div class="footer_navigation-row">
+                        <div class="footer_navigation-title">
+                            <div class="navigation-dot"></div>
+                            <p>Services</p>
+                        </div>
+                        <div class="footer_navigation-links">
+                            <a href="../services/index.html" class="footer_navigation-link w-inline-block">
+                                <div>All Services</div>
+                            </a>
+                            <a href="../services/modernization.html" class="footer_navigation-link w-inline-block">
+                                <div>Modernization</div>
+                            </a>
+                            <a href="../services/cloud.html" class="footer_navigation-link w-inline-block">
+                                <div>Cloud</div>
+                            </a>
+                            <a href="../services/cybersecurity.html" class="footer_navigation-link w-inline-block">
+                                <div>Cybersecurity</div>
+                            </a>
+                            <a href="../services/devsecops.html" class="footer_navigation-link w-inline-block">
+                                <div>DevSecOps</div>
+                            </a>
+                            <a href="../services/analytics-ai.html" class="footer_navigation-link w-inline-block">
+                                <div>Analytics &amp; AI</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer_navigation-row">
+                        <div class="footer_navigation-title">
+                            <div class="navigation-dot"></div>
+                            <p>Contract Vehicles</p>
+                        </div>
+                        <div class="footer_navigation-links">
+                            <a href="../contract-vehicles/index.html" class="footer_navigation-link w-inline-block">
+                                <div>How to procure us</div>
+                            </a>
+                            <a href="../contract-vehicles/gsa-it-schedule-70.html" class="footer_navigation-link w-inline-block">
+                                <div>GSA IT Schedule 70</div>
+                            </a>
+                            <a href="../contract-vehicles/gsa-oasis-plus.html" class="footer_navigation-link w-inline-block">
+                                <div>GSA OASIS+ Unrestricted</div>
+                            </a>
+                            <a href="../contract-vehicles/gsa-8a-stars-iii.html" class="footer_navigation-link w-inline-block">
+                                <div>GSA 8(a) STARS III</div>
+                            </a>
+                            <a href="../contract-vehicles/hhs-cms-sparc.html" class="footer_navigation-link w-inline-block">
+                                <div>HHS CMS SPARC</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer_navigation-row">
+                        <div class="footer_navigation-title">
+                            <div class="navigation-dot"></div>
+                            <p>Company</p>
+                        </div>
+                        <div class="footer_navigation-links">
+                            <a href="../about-us/index.html" class="footer_navigation-link w-inline-block">
+                                <div>About Pyramid</div>
+                            </a>
+                            <a href="../about-us/partners/index.html" class="footer_navigation-link w-inline-block">
+                                <div>Partners</div>
+                            </a>
+                            <a href="../about-us/certifications/index.html" class="footer_navigation-link w-inline-block">
+                                <div>Certifications</div>
+                            </a>
+                            <a href="../careers/index.html" class="footer_navigation-link w-inline-block">
+                                <div>Careers</div>
+                            </a>
+                            <a href="../insights/news/index.html" class="footer_navigation-link w-inline-block">
+                                <div>News</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer_navigation-row is--social">
+                        <div class="footer_navigation-title">
+                            <div class="navigation-dot"></div>
+                            <p>Lets Get Social</p>
+                        </div>
+                        <div class="footer_social-wrap">
+                            <a href="https://x.com/PyramidSystems" target="_blank" rel="noopener" aria-label="Pyramid Systems on X" class="footer_social w-inline-block">
+                                <div class="footer-social_icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-x"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 4l11.733 16h4.267l-11.733 -16l-4.267 0" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg>
+                                </div>
+                            </a>
+                            <div class="footer-social_divider-dot"></div>
+                            <a href="https://www.facebook.com/pyramidsystems" target="_blank" rel="noopener" aria-label="Pyramid Systems on Facebook" class="footer_social w-inline-block">
+                                <div class="footer-social_icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-facebook"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg>
+                                </div>
+                            </a>
+                            <div class="footer-social_divider-dot"></div>
+                            <a href="https://www.instagram.com/pyramidsystemsinc/" target="_blank" rel="noopener" aria-label="Pyramid Systems on Instagram" class="footer_social w-inline-block">
+                                <div class="footer-social_icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4l0 -8" /><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M16.5 7.5v.01" /></svg>
+                                </div>
+                            </a>
+                            <div class="footer-social_divider-dot"></div>
+                            <a href="https://www.linkedin.com/company/pyramidsystems/" target="_blank" rel="noopener" aria-label="Pyramid Systems on LinkedIn" class="footer_social w-inline-block">
+                                <div class="footer-social_icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-linkedin"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4l0 -10" /></svg>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer_copyright-text">
+                        Copyright 2026
+                        <a href="../index.html" class="w--current">
+                            <span class="text-span-27">Pyramid Systems</span>
+                        </a>
+                        <div class="footer_legal-links">
+                            <a href="../privacy/index.html">Privacy Policy</a>
+                            <span aria-hidden="true">&middot;</span>
+                            <a href="../terms-of-use/index.html">Terms of Use</a>
+                        <span aria-hidden="true">&middot;</span>
+                        <a href="#" data-pc-action="open-prefs" onclick="if(window.PyramidConsent&amp;&amp;window.PyramidConsent.open){window.PyramidConsent.open();}return false;">Cookie Preferences</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_vector">
+                <img src="../images/footerLogoCenter.png" loading="lazy" alt="" class="i-100"/>
+            </div>
+        </footer>
+        <!-- TEMPLATE:footer:END -->
+
+            <style>
+                /* Popup-leave dark-glass input styling. Webflow's .w-input base styling
+                   gives these inputs a white background and ~32px height; these rules
+                   override that to match the neurakey dark-glass aesthetic the rest of
+                   the popup uses and the contact form on services/index.html. */
+                /* User-specified spec: dark glass field with inset highlight. */
+                .popup-leave .leave-popup_input,
+                .popup-leave .leave-popup_input.w-input {
+                    height: 2.75rem !important;
+                    color: var(--_tokenization---text-white, #f4f5f9) !important;
+                    background-color: #f4f5f90a !important;
+                    border: 0.0625rem solid #fbfbfb14 !important;
+                    border-radius: 0.75rem !important;
+                    margin-bottom: 0 !important;
+                    padding: 0.75rem 0.875rem !important;
+                    font-size: 0.875rem !important;
+                    box-shadow: inset 0 5px 12px #f4f5f90f !important;
+                    transition: border-color .2s ease, background-color .2s ease;
+                }
+                .popup-leave .leave-popup_input::placeholder { color: rgba(244, 245, 249, 0.4); }
+                .popup-leave .leave-popup_input:focus,
+                .popup-leave .leave-popup_input.w-input:focus {
+                    outline: none;
+                    border-color: rgba(232, 98, 34, 0.65) !important;
+                    background-color: rgba(255, 255, 255, 0.06) !important;
+                }
+                .popup-leave .leave-popup_input:invalid:focus { border-color: rgba(232, 98, 34, 0.65) !important; }
+                /* Magnet popup email input: same dark glass with PDF-prefix room. */
+                .popup-magnet .pm-form_input-wrap { position: relative; }
+                .popup-magnet .magnet-popup_input,
+                .popup-magnet .magnet-popup_input.w-input {
+                    height: 2.75rem !important;
+                    color: var(--_tokenization---text-white, #f4f5f9) !important;
+                    background-color: #f4f5f90a !important;
+                    border: 0.0625rem solid #fbfbfb14 !important;
+                    border-radius: 0.75rem !important;
+                    margin-bottom: 0 !important;
+                    padding: 0.75rem 0.875rem 0.75rem 4rem !important;
+                    font-size: 0.875rem !important;
+                    box-shadow: inset 0 5px 12px #f4f5f90f !important;
+                    width: 100%;
+                    transition: border-color .2s ease;
+                }
+                .popup-magnet .magnet-popup_input::placeholder { color: rgba(244, 245, 249, 0.4); }
+                .popup-magnet .magnet-popup_input:focus { outline: none; border-color: rgba(232, 98, 34, 0.65) !important; }
+                .popup-magnet .magnet-input_prefix {
+                    position: absolute;
+                    left: 0.5rem;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 0.25rem;
+                    padding: 0.25rem 0.5rem;
+                    background: rgba(255, 255, 255, 0.06);
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    border-radius: 0.5rem;
+                    font-size: 0.6875rem;
+                    font-weight: 600;
+                    letter-spacing: 0.04em;
+                    color: rgba(244, 245, 249, 0.85);
+                    pointer-events: none;
+                    line-height: 1;
+                }
+                .popup-magnet .magnet-input_prefix svg { opacity: 0.85; }
+                /* Agency chips: pill-style rows mirroring the services hero partner
+                   treatment (small inverted icon + agency abbreviation in glassy pill).
+                   Selector chain matches neurakey specificity so width:auto on the
+                   chip actually sticks (previously chips inherited full column width). */
+                body .popup-leave .pll_partners .pll-partners_logos-wrap {
+                    display: flex !important;
+                    flex-direction: row !important;
+                    flex-wrap: wrap !important;
+                    align-items: center !important;
+                    gap: 0.5rem 0.5rem !important;
+                    width: 100% !important;
+                }
+                body .popup-leave .pll_partners .pll-partners_logos-wrap .pll-partner_logo {
+                    display: inline-flex !important;
+                    flex: 0 0 auto !important;
+                    width: auto !important;
+                    max-width: max-content !important;
+                    align-items: center !important;
+                    padding: 0.4rem 0.8rem !important;
+                    border-radius: 999px !important;
+                    background: rgba(255, 255, 255, 0.05) !important;
+                    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+                    height: auto !important;
+                    min-height: 0 !important;
+                    font-size: 0.8125rem !important;
+                    line-height: 1 !important;
+                    color: #f4f5f9 !important;
+                    white-space: nowrap !important;
+                    font-weight: 500;
+                    letter-spacing: 0.02em;
+                }
+                .popup-leave .pll-partner_logo span {
+                    font-weight: 500;
+                    letter-spacing: 0.02em;
+                }
+                /* Tighten label → input spacing per launch feedback */
+                .popup-leave .popul-leave_input {
+                    margin-bottom: 0.25rem !important;
+                    line-height: 1.2 !important;
+                    font-size: 0.8125rem;
+                    color: rgba(244, 245, 249, 0.7);
+                }
+                .popup-leave .leave-popup_labell-input { gap: 0.25rem !important; }
+                .popup-leave .leave-popup_inputs-wrap { gap: 0.75rem !important; }
+                /* Name row: side-by-side First + Last on desktop, stacked under 540px. */
+                .popup-leave .leave-popup_name-row {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 0.625rem;
+                }
+                @media (max-width: 539px) {
+                    .popup-leave .leave-popup_name-row { grid-template-columns: 1fr; }
+                }
+                /* Required-field asterisk: muted accent so it reads as helper info, not alarm. */
+                .popup-leave .popup-required-mark {
+                    color: rgba(232, 98, 34, 0.85);
+                    margin-left: 0.15rem;
+                    font-weight: 500;
+                }
+                .popup-magnet .popup-required-mark {
+                    color: rgba(232, 98, 34, 0.85);
+                    margin-left: 0.15rem;
+                    font-weight: 500;
+                }
+                /* Override Webflow's heavy pink alert box for any server-side error
+                   we couldn't catch client-side (network failure, surprise AC
+                   validation, etc). Renders as a small inline note matching the
+                   client-side .popup-inline-error style. */
+                .popup-leave .w-form-fail,
+                .popup-magnet .w-form-fail {
+                    margin-top: 0.5rem !important;
+                    padding: 0 !important;
+                    background: transparent !important;
+                    border: 0 !important;
+                    border-radius: 0 !important;
+                    box-shadow: none !important;
+                }
+                .popup-leave .w-form-fail > div,
+                .popup-magnet .w-form-fail > div {
+                    color: #ff7777 !important;
+                    font-size: 12px !important;
+                    line-height: 1.4 !important;
+                    text-align: left !important;
+                    padding: 0 !important;
+                    background: transparent !important;
+                }
+            </style>
+            <div class="popup-leave">
+                <div class="popup-bg leave-popup_close"></div>
+                <div class="popup-leave_content">
+                    <div class="popup-leave_side">
+                        <div class="pll_tag">
+                            <div class="pll-tag_dot"></div>
+                            <p>Free consultation</p>
+                        </div>
+                        <div class="pll_title">
+                            <p class="h2-32">
+                                <span>30 minutes with a </span><span class="text-gradient">senior engineer</span><span>. No slide deck.</span>
+                            </p>
+                        </div>
+                        <div class="pll_description">
+                            <p class="pll_description--desk">Bring a system, a procurement question, or an ATO problem. Leave with a fit assessment and a written next step.</p>
+                            <p class="pll_description--mob">Bring a system or an ATO problem. Leave with a fit assessment.</p>
+                        </div>
+                        <div class="pll_list">
+                            <ul role="list" class="pl-list">
+                                <li class="pl-li">
+                                    <div class="pl-li_icon"><div class="pl-check"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 11 11" fill="none"><path d="M9.16659 2.75L4.12492 7.79167L1.83325 5.5" stroke="currentColor" stroke-width="1.60417" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div>
+                                    <p>30 minutes, no obligation, no upsell</p>
+                                </li>
+                                <li class="pl-li">
+                                    <div class="pl-li_icon"><div class="pl-check"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 11 11" fill="none"><path d="M9.16659 2.75L4.12492 7.79167L1.83325 5.5" stroke="currentColor" stroke-width="1.60417" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div>
+                                    <p>Tailored to your agency mission and contract vehicle</p>
+                                </li>
+                                <li class="pl-li">
+                                    <div class="pl-li_icon"><div class="pl-check"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 11 11" fill="none"><path d="M9.16659 2.75L4.12492 7.79167L1.83325 5.5" stroke="currentColor" stroke-width="1.60417" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div>
+                                    <p>Production engineers on the call, not sales</p>
+                                </li>
+                                <li class="pl-li">
+                                    <div class="pl-li_icon"><div class="pl-check"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 11 11" fill="none"><path d="M9.16659 2.75L4.12492 7.79167L1.83325 5.5" stroke="currentColor" stroke-width="1.60417" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div>
+                                    <p>Fit assessment and scoping notes after</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="pll_partners">
+                            <p class="t--partners-title">Trusted by federal agencies</p>
+                            <div class="pll-partners_logos-wrap">
+                                <div class="pll-partner_logo"><span>HUD</span></div>
+                                <div class="pll-partner_logo"><span>SEC</span></div>
+                                <div class="pll-partner_logo"><span>CMS</span></div>
+                                <div class="pll-partner_logo"><span>USDA</span></div>
+                                <div class="pll-partner_logo"><span>FDIC</span></div>
+                                <div class="pll-partner_logo"><span>USCIS</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popup-leave_side">
+                        <div class="plr_tag">Get the consultation</div>
+                        <div class="plr_title">
+                            <p>Tell us where you sit. We will reply by tomorrow.</p>
+                        </div>
+                        <div class="plr_description">
+                            <p>One business day reply. Reach a federal engineer on the first call.</p>
+                        </div>
+                        <div class="plr_form--button">
+                            <div class="u---form-block w-form">
+                                <!-- Dedicated AC form: "Service Page Consultation Request" (u=7, f=7).
+                                     Created in AC with firstname + lastname + agency + email + phone +
+                                     attribution fields + marketing consent. The `or` UUID matches AC's
+                                     embed so AC's native form analytics see this submission as form 7. -->
+                                <form id="popup-leave-form" name="popup-leave-form" data-name="Popup Leave Form" method="POST" class="leave-popup_form" action="https://pyramidsystems.activehosted.com/proc.php">
+                                    <input type="hidden" name="u" value="7"/>
+                                    <input type="hidden" name="f" value="7"/>
+                                    <input type="hidden" name="s"/>
+                                    <input type="hidden" name="c" value="0"/>
+                                    <input type="hidden" name="m" value="0"/>
+                                    <input type="hidden" name="act" value="sub"/>
+                                    <input type="hidden" name="v" value="2"/>
+                                    <input type="hidden" name="or" value="f3e1a45a-e7ac-419a-9653-170725fb2bed"/>
+                                    <!-- Marketing consent (field[14]): implied opt-in on consultation
+                                         request. The user is asking for sales/engineering contact, which
+                                         constitutes consent for related communications. -->
+                                    <input type="hidden" name="field[14]" value="Yes"/>
+                                    <!-- UTM + attribution hidden fields. Pre-filled at page load from
+                                         window.PyramidAttribution.getStored(), then re-written at submit
+                                         time from getStoredAndIncrementSubmission() so submission_count
+                                         reflects THIS submission. Same field IDs as contact form. -->
+                                    <input type="hidden" name="field[18]" value="" id="popup-leave-first_utm_source"/>
+                                    <input type="hidden" name="field[19]" value="" id="popup-leave-first_utm_medium"/>
+                                    <input type="hidden" name="field[20]" value="" id="popup-leave-first_utm_campaign"/>
+                                    <input type="hidden" name="field[21]" value="" id="popup-leave-first_utm_content"/>
+                                    <input type="hidden" name="field[22]" value="" id="popup-leave-first_landing_page"/>
+                                    <input type="hidden" name="field[23]" value="" id="popup-leave-first_referrer_url"/>
+                                    <input type="hidden" name="field[25]" value="" id="popup-leave-last_utm_source"/>
+                                    <input type="hidden" name="field[26]" value="" id="popup-leave-last_utm_medium"/>
+                                    <input type="hidden" name="field[27]" value="" id="popup-leave-last_utm_campaign"/>
+                                    <input type="hidden" name="field[28]" value="" id="popup-leave-last_utm_content"/>
+                                    <input type="hidden" name="field[29]" value="" id="popup-leave-last_landing_page"/>
+                                    <input type="hidden" name="field[30]" value="" id="popup-leave-last_referrer_url"/>
+                                    <input type="hidden" name="field[33]" value="" id="popup-leave-session_count"/>
+                                    <input type="hidden" name="field[34]" value="" id="popup-leave-days_since_first_visit"/>
+                                    <input type="hidden" name="field[35]" value="" id="popup-leave-submission_count"/>
+                                    <!-- Submission page URL: the EXACT URL where the form was filled.
+                                         Distinct from last_landing_page (entry point for the session).
+                                         Set fresh at populate-time from window.location.href. -->
+                                    <input type="hidden" name="field[36]" value="" id="popup-leave-submission_page_url"/>
+                                    <input type="text" name="ac_hp_zz9" tabindex="-1" autocomplete="new-password" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;width:0;height:0;"/>
+                                    <div class="leave-popup_inputs-wrap">
+                                        <div class="leave-popup_name-row">
+                                            <div class="leave-popup_labell-input">
+                                                <label for="popup-leave-firstname" class="popul-leave_input">First name <span class="popup-required-mark" aria-hidden="true">*</span></label>
+                                                <input class="leave-popup_input w-input" maxlength="120" name="firstname" placeholder="Jane" type="text" id="popup-leave-firstname" required aria-required="true"/>
+                                            </div>
+                                            <div class="leave-popup_labell-input">
+                                                <label for="popup-leave-lastname" class="popul-leave_input">Last name <span class="popup-required-mark" aria-hidden="true">*</span></label>
+                                                <input class="leave-popup_input w-input" maxlength="120" name="lastname" placeholder="Smith" type="text" id="popup-leave-lastname" required aria-required="true"/>
+                                            </div>
+                                        </div>
+                                        <div class="leave-popup_labell-input">
+                                            <label for="popup-leave-agency" class="popul-leave_input">Agency or organization <span class="popup-required-mark" aria-hidden="true">*</span></label>
+                                            <input class="leave-popup_input w-input" maxlength="256" name="field[10]" placeholder="HUD, SEC, CMS, USDA..." type="text" id="popup-leave-agency" required aria-required="true"/>
+                                        </div>
+                                        <div class="leave-popup_labell-input">
+                                            <label for="popup-leave-email" class="popul-leave_input">Email <span class="popup-required-mark" aria-hidden="true">*</span></label>
+                                            <input class="leave-popup_input w-input" maxlength="256" name="email" placeholder="jane.smith@agency.gov" type="email" id="popup-leave-email" required aria-required="true"/>
+                                        </div>
+                                        <div class="leave-popup_labell-input">
+                                            <label for="popup-leave-phone" class="popul-leave_input">Phone</label>
+                                            <input class="leave-popup_input w-input" maxlength="256" name="phone" placeholder="+1 (202) 555 0123" type="tel" id="popup-leave-phone" autocomplete="tel"/>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="button arrow-animation is--mob-smaller">
+                                        <div class="button_inner-wrap is--mob-smaller">
+                                            <div>Get my 30-min consultation</div>
+                                            <div class="button-arrow is--main is--mob-smaller">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 14 14" fill="none"><path d="M10.5005 3.49997L3.03375 10.9667" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="round"></path><path d="M11.2002 8.79087V2.80003H5.20936" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path></svg>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </form>
+                                <div class="success-message w-form-done" style="display:none;">
+                                    <div>Thanks. We'll be in touch.</div>
+                                </div>
+                                <div class="w-form-fail" style="display:none;">
+                                    <div>Something went wrong. Please email <a href="mailto:info@pyramidsystems.com">info@pyramidsystems.com</a> or try again.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="plr_checks is--desk">
+                            <div class="plr-check">
+                                <div class="pl-check"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 11 11" fill="none"><path d="M9.16683 2.75L4.12516 7.79167L1.8335 5.5" stroke="#10B981" stroke-width="1.60417" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+                                <p>30 years modernizing mission-critical systems</p>
+                            </div>
+                            <div class="plr-check">
+                                <div class="pl-check"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 11 11" fill="none"><path d="M9.16683 2.75L4.12516 7.79167L1.8335 5.5" stroke="#10B981" stroke-width="1.60417" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+                                <p>CMMI Maturity Level 3 appraised</p>
+                            </div>
+                            <button type="button" class="plr-check is--underline leave-popup_close">
+                                <p>I will figure it out on my own</p>
+                            </button>
+                        </div>
+                    </div>
+                    <button type="button" class="popup_close-btn leave-popup_close">
+                        <div class="close-btn_icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 16 16" fill="none"><path d="M12 4L4 12M4 4L12 12" stroke="currentColor" stroke-width="1.66667" stroke-linecap="round"></path></svg>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <div class="popup-magnet">
+                <div class="popup-magnet_top-side">
+                    <div class="popup-magnet_icon-wrap">
+                        <div class="u---svg w-embed">
+                            <svg width="100%" height="100%" viewBox="0 0 72 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="72" height="96" rx="6" fill="#E86222"/>
+                                <rect opacity="0.18" width="72" height="96" rx="6" fill="white"/>
+                                <rect x="8" y="8" width="40" height="4" rx="2" fill="#fff" fill-opacity="0.9"/>
+                                <rect x="8" y="15" width="50" height="4" rx="2" fill="#fff" fill-opacity="0.6"/>
+                                <rect x="8" y="22" width="28" height="4" rx="2" fill="#fff" fill-opacity="0.6"/>
+                                <rect x="8" y="60" width="56" height="3" rx="1.5" fill="#fff" fill-opacity="0.55"/>
+                                <rect x="8" y="68" width="48" height="3" rx="1.5" fill="#fff" fill-opacity="0.45"/>
+                                <rect x="8" y="76" width="40" height="3" rx="1.5" fill="#fff" fill-opacity="0.45"/>
+                                <rect x="8" y="84" width="32" height="3" rx="1.5" fill="#fff" fill-opacity="0.45"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="popup-magnet_top--texts">
+                        <div class="pm_tag">
+                            <p>Free PDF, 1 page</p>
+                        </div>
+                        <div class="pm-title">
+                            <p>Get the Pyramid Capability Statement.</p>
+                        </div>
+                        <div class="pm_subheading">
+                            <p>1-page federal contractor snapshot: agencies served, contract vehicles, NAICS codes, past performance.</p>
+                        </div>
+                    </div>
+                    <button type="button" class="pm-popup_icon-close">
+                        <div class="cross-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 12 12" fill="none">
+                                <path d="M9 3L3 9" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M3 3L9 9" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </div>
+                    </button>
+                </div>
+                <div class="pm_ul-wrap">
+                    <ul role="list" class="pm-ul">
+                        <li class="pm-li"><div class="pl-li_icon"><div class="pl-check"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 11 11" fill="none"><path d="M9.16659 2.75L4.12492 7.79167L1.83325 5.5" stroke="currentColor" stroke-width="1.60417" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div><p>Agencies served and contract vehicles</p></li>
+                        <li class="pm-li"><div class="pl-li_icon"><div class="pl-check"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 11 11" fill="none"><path d="M9.16659 2.75L4.12492 7.79167L1.83325 5.5" stroke="currentColor" stroke-width="1.60417" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div><p>NAICS codes and core competencies</p></li>
+                        <li class="pm-li"><div class="pl-li_icon"><div class="pl-check"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 11 11" fill="none"><path d="M9.16659 2.75L4.12492 7.79167L1.83325 5.5" stroke="currentColor" stroke-width="1.60417" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div><p>Past performance highlights</p></li>
+                        <li class="pm-li"><div class="pl-li_icon"><div class="pl-check"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 11 11" fill="none"><path d="M9.16659 2.75L4.12492 7.79167L1.83325 5.5" stroke="currentColor" stroke-width="1.60417" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div><p>Ready to drop into a capture file</p></li>
+                    </ul>
+                </div>
+                <div class="pm_form--text">
+                    <div class="u---form-block w-form">
+                        <!-- PDF asset placeholder. The user will swap the real PDF in post-launch.
+                             Path: images/pyramid-capability-statement.pdf -->
+                        <!-- Dedicated AC form: "Service Page PDF Download" (u=5, f=5).
+                             Created in AC with email-only + attribution fields + marketing consent.
+                             The `or` UUID matches AC's embed so AC's native form analytics see
+                             this submission as belonging to form 5. -->
+                        <form id="popup-magnet-form" name="popup-magnet-form" data-name="Popup Magnet Form" method="POST" action="https://pyramidsystems.activehosted.com/proc.php" novalidate>
+                            <input type="hidden" name="u" value="5"/>
+                            <input type="hidden" name="f" value="5"/>
+                            <input type="hidden" name="s"/>
+                            <input type="hidden" name="c" value="0"/>
+                            <input type="hidden" name="m" value="0"/>
+                            <input type="hidden" name="act" value="sub"/>
+                            <input type="hidden" name="v" value="2"/>
+                            <input type="hidden" name="or" value="60a44107-a165-4d05-8fec-22ab75aa485d"/>
+                            <!-- Marketing consent (field[14]): implied opt-in on PDF download.
+                                 Standard B2B lead-magnet pattern. The user is initiating the
+                                 download action, which constitutes consent for related comms.
+                                 If you want explicit consent later, swap this for a visible
+                                 checkbox that posts the same value. -->
+                            <input type="hidden" name="field[14]" value="Yes"/>
+                            <!-- UTM + attribution hidden fields. Pre-filled on load + re-written
+                                 at submit time from PyramidAttribution. Same field IDs as the
+                                 contact form so AC's custom fields are reused. -->
+                            <input type="hidden" name="field[18]" value="" id="popup-magnet-first_utm_source"/>
+                            <input type="hidden" name="field[19]" value="" id="popup-magnet-first_utm_medium"/>
+                            <input type="hidden" name="field[20]" value="" id="popup-magnet-first_utm_campaign"/>
+                            <input type="hidden" name="field[21]" value="" id="popup-magnet-first_utm_content"/>
+                            <input type="hidden" name="field[22]" value="" id="popup-magnet-first_landing_page"/>
+                            <input type="hidden" name="field[23]" value="" id="popup-magnet-first_referrer_url"/>
+                            <input type="hidden" name="field[25]" value="" id="popup-magnet-last_utm_source"/>
+                            <input type="hidden" name="field[26]" value="" id="popup-magnet-last_utm_medium"/>
+                            <input type="hidden" name="field[27]" value="" id="popup-magnet-last_utm_campaign"/>
+                            <input type="hidden" name="field[28]" value="" id="popup-magnet-last_utm_content"/>
+                            <input type="hidden" name="field[29]" value="" id="popup-magnet-last_landing_page"/>
+                            <input type="hidden" name="field[30]" value="" id="popup-magnet-last_referrer_url"/>
+                            <input type="hidden" name="field[33]" value="" id="popup-magnet-session_count"/>
+                            <input type="hidden" name="field[34]" value="" id="popup-magnet-days_since_first_visit"/>
+                            <input type="hidden" name="field[35]" value="" id="popup-magnet-submission_count"/>
+                            <!-- Submission page URL: the EXACT URL where the form was filled.
+                                 Distinct from last_landing_page (entry point for the session).
+                                 Set fresh at populate-time from window.location.href. -->
+                            <input type="hidden" name="field[36]" value="" id="popup-magnet-submission_page_url"/>
+                            <input type="text" name="ac_hp_zz9" tabindex="-1" autocomplete="new-password" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;width:0;height:0;"/>
+                            <div class="pm-form_input--btn">
+                                <div class="pm-form_input-wrap">
+                                    <div class="magnet-input_prefix" aria-hidden="true">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+                                        <span>PDF</span>
+                                    </div>
+                                    <input class="magnet-popup_input w-input" maxlength="256" name="email" placeholder="you@agency.gov" type="email" id="popup-magnet-email" required aria-required="true"/>
+                                </div>
+                                <button type="submit" class="magnet-popup_button">
+                                    <p>PDF</p>
+                                    <div class="magnet-popu_icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 14 14" fill="none"><path d="M12.8334 1.16669L6.41675 7.58335" stroke="currentColor" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12.8334 1.16669L8.75008 12.8334L6.41675 7.58335L1.16675 5.25002L12.8334 1.16669Z" stroke="currentColor" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                    </div>
+                                </button>
+                            </div>
+                        </form>
+                        <div class="success-message smaller w-form-done" style="display:none;">
+                            <div>Thanks. Your download is on its way.</div>
+                        </div>
+                        <div class="w-form-fail" style="display:none;">
+                            <div>Something went wrong. Try again or email info@pyramidsystems.com.</div>
+                        </div>
+                    </div>
+                    <p class="t--form-wa">
+                        Federal contractor snapshot. PDF, 1 page.
+                    </p>
+                </div>
+            </div>
+
+        <script src="../js/jquery-3.5.1.min.dc5e7f18c8.js" type="text/javascript" crossorigin="anonymous"></script>
+        <script src="../js/webflow.schunk.36b8fb49256177c8.js" type="text/javascript" crossorigin="anonymous"></script>
+        <script src="../js/6204f98b.merged.js" type="text/javascript"></script>
+        <script src="../js/gsap.min.js" type="text/javascript"></script>
+        <script src="../js/ScrollTrigger.min.js" type="text/javascript"></script>
+        <script src="../js/SplitText.min.js" type="text/javascript"></script>
+        <script type="text/javascript">gsap.registerPlugin(ScrollTrigger, SplitText);</script>
+        <script src="../js/lenis.min.js"></script>
+        <script async src="../js/cmsfilter.js"></script>
+        <script>
+            let lenis;
+            if (typeof Webflow !== 'undefined' && Webflow.env("editor") === undefined) {
+                lenis = new Lenis({ lerp: 0.1, wheelMultiplier: 0.7, gestureOrientation: "vertical", normalizeWheel: false, smoothTouch: false });
+                function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+                requestAnimationFrame(raf);
+            }
+        </script>
+        <script>
+            gsap.registerPlugin(ScrollTrigger, SplitText);
+            (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(function () {
+                document.querySelectorAll('[lines-animation]').forEach(function (el) {
+                    SplitText.create(el, {
+                        type: 'lines',
+                        autoSplit: true,
+                        onSplit: function (self) {
+                            return gsap.from(self.lines, {
+                                scrollTrigger: { trigger: el, start: 'top 80%', toggleActions: 'play none none none' },
+                                y: 80, opacity: 0, ease: 'power3.out', duration: 0.8,
+                                stagger: { each: 0.1 }
+                            });
+                        }
+                    });
+                });
+            });
+        </script>
+        <!-- FAQ accordion: .accordion.is--blogs pattern. Click-to-toggle with smooth
+             height transition, one open at a time inside each .glossar-faqs_wrap. -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var wrappers = document.querySelectorAll('.glossar-faqs_wrap');
+                wrappers.forEach(function (wrap) {
+                    var accs = wrap.querySelectorAll('.accordion.is--blogs');
+                    if (!accs.length) return;
+                    accs.forEach(function (acc) {
+                        var tw = acc.querySelector('.accordion_text-wrap');
+                        if (!tw) return;
+                        acc.classList.remove('is--opened');
+                        tw.style.overflow = 'hidden';
+                        tw.style.height = '0px';
+                        tw.style.transition = 'height 0.35s cubic-bezier(0.2, 0.8, 0.2, 1)';
+                        var heading = acc.querySelector('.accordion_heading');
+                        if (heading) heading.style.cursor = 'pointer';
+                    });
+                    wrap.addEventListener('click', function (e) {
+                        var heading = e.target.closest('.accordion_heading');
+                        if (!heading || !wrap.contains(heading)) return;
+                        var cur = heading.closest('.accordion');
+                        var curTw = cur && cur.querySelector('.accordion_text-wrap');
+                        if (!curTw) return;
+                        var isOpen = cur.classList.contains('is--opened');
+                        if (isOpen) {
+                            curTw.style.height = curTw.scrollHeight + 'px';
+                            requestAnimationFrame(function () { curTw.style.height = '0px'; });
+                            cur.classList.remove('is--opened');
+                        } else {
+                            accs.forEach(function (a) {
+                                if (a !== cur && a.classList.contains('is--opened')) {
+                                    var oTw = a.querySelector('.accordion_text-wrap');
+                                    if (oTw) {
+                                        oTw.style.height = oTw.scrollHeight + 'px';
+                                        requestAnimationFrame(function () { oTw.style.height = '0px'; });
+                                    }
+                                    a.classList.remove('is--opened');
+                                }
+                            });
+                            curTw.style.height = curTw.scrollHeight + 'px';
+                            cur.classList.add('is--opened');
+                            setTimeout(function () {
+                                if (cur.classList.contains('is--opened')) curTw.style.height = 'auto';
+                            }, 380);
+                        }
+                    });
+                });
+            });
+        </script>
+        <link rel="stylesheet" href="../css/swiper-bundle.min.css"/>
+        <script src="../js/swiper-bundle.min.js"></script>
+        <script src="../js/proof-stats.js" defer></script>
+        <!-- Contact form side-preview animation engine. Drives the agency-readiness
+             mockup (rotating focus card, progress bars, donut percentages). -->
+        <script src="../js/air-quire-mocks.js" defer></script>
+
+        <!-- Site-wide popup controller: exit-intent leave popup + 8s sticky capability magnet.
+             Both forms submit to AC via the same JSONP pattern as the contact form. -->
+        <script>
+            (function () {
+                /* === Attribution helpers . populate the hidden field[18-35]
+                       inputs that match AC's custom fields. Called twice:
+                       once on page load with the stored state, again at
+                       submit time after bumping submission_count so the
+                       value sent to AC reflects THIS submission. */
+                function setACField(prefix, id, v) {
+                    var el = document.getElementById(prefix + '-' + id);
+                    if (el) el.value = (v == null ? '' : String(v));
+                }
+                function populateAttribution(prefix, state) {
+                    state = state || {};
+                    setACField(prefix, 'first_utm_source',   state.first_utm_source);
+                    setACField(prefix, 'first_utm_medium',   state.first_utm_medium);
+                    setACField(prefix, 'first_utm_campaign', state.first_utm_campaign);
+                    setACField(prefix, 'first_utm_content',  state.first_utm_content);
+                    setACField(prefix, 'first_landing_page', state.first_landing_page);
+                    setACField(prefix, 'first_referrer_url', state.first_referrer_url);
+                    setACField(prefix, 'last_utm_source',    state.last_utm_source);
+                    setACField(prefix, 'last_utm_medium',    state.last_utm_medium);
+                    setACField(prefix, 'last_utm_campaign',  state.last_utm_campaign);
+                    setACField(prefix, 'last_utm_content',   state.last_utm_content);
+                    setACField(prefix, 'last_landing_page',  state.last_landing_page);
+                    setACField(prefix, 'last_referrer_url',  state.last_referrer_url);
+                    setACField(prefix, 'session_count',      state.session_count);
+                    setACField(prefix, 'submission_count',   state.submission_count);
+                    var days = (window.PyramidAttribution && window.PyramidAttribution.getDaysSinceFirstVisit)
+                        ? window.PyramidAttribution.getDaysSinceFirstVisit()
+                        : 0;
+                    setACField(prefix, 'days_since_first_visit', days);
+                    /* submission_page_url is captured fresh from window.location.href
+                       (not from PyramidAttribution state) so it always reflects the
+                       EXACT page the popup is rendering on. Set at both prefill and
+                       submit time, but in practice both happen on the same page so
+                       both calls produce the same value. */
+                    setACField(prefix, 'submission_page_url', window.location.href);
+                }
+                function prefillAttribution(prefix) {
+                    var stored = (window.PyramidAttribution && window.PyramidAttribution.getStored && window.PyramidAttribution.getStored()) || {};
+                    populateAttribution(prefix, stored);
+                }
+
+                /* === Phone helpers (mirrors air-quire form pattern) ===
+                       AC's server requires E.164 format (+XXXXXXXXXXX). We normalize
+                       client-side so users can type "(202) 555-0123" and get +12025550123
+                       sent. If we can't normalize, show an inline error under the field
+                       and block submit so AC never rejects the form. */
+                function normalizePhoneToE164(raw) {
+                    if (!raw) return '';
+                    var trimmed = String(raw).trim();
+                    if (!trimmed) return '';
+                    var hasPlus = trimmed.charAt(0) === '+';
+                    var digits = trimmed.replace(/[^\d]/g, '');
+                    if (!digits) return null;
+                    if (hasPlus) {
+                        if (digits.length < 7 || digits.length > 15) return null;
+                        return '+' + digits;
+                    }
+                    /* No + → assume US/Canada */
+                    if (digits.length === 10) return '+1' + digits;
+                    if (digits.length === 11 && digits.charAt(0) === '1') return '+' + digits;
+                    return null;
+                }
+                function showPhoneError(form, msg) {
+                    var phoneEl = form.querySelector('input[name="phone"], input[name="phone-iti"]');
+                    if (!phoneEl) return;
+                    var wrap = phoneEl.closest('.leave-popup_labell-input') || phoneEl.parentElement;
+                    showInlineError(wrap, msg, phoneEl);
+                }
+                /* Generic inline error helper: removes any prior error in the wrap,
+                   inserts a small dark-red note, focuses the offending field. Used
+                   for any client-side validation that needs to block submit without
+                   rendering Webflow's heavy pink alert box. */
+                function showInlineError(wrap, msg, focusEl) {
+                    var existing = wrap.querySelector('.popup-inline-error');
+                    if (existing) existing.remove();
+                    if (!msg) return;
+                    var err = document.createElement('div');
+                    err.className = 'popup-inline-error';
+                    err.style.cssText = 'color:#ff7777;font-size:12px;margin-top:4px;line-height:1.4;';
+                    err.textContent = msg;
+                    wrap.appendChild(err);
+                    if (focusEl && typeof focusEl.focus === 'function') focusEl.focus();
+                }
+                /* Email validation: empty or invalid format → inline error, block submit.
+                   Prevents AC's server-side "email-or-phone-required" translation error
+                   from ever firing on an empty form. */
+                var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+                function validateEmail(form) {
+                    var emailEl = form.querySelector('input[type="email"], input[name="email"]');
+                    if (!emailEl) return true;
+                    /* Pick a wrap so the error renders below the field, not beside it.
+                       popup-leave: email's column container . error stacks below input.
+                       popup-magnet: the form itself . error appended at end of form
+                         renders visually below the horizontal email+button row, since
+                         that row is the form's only visible child. */
+                    var wrap = emailEl.closest('.leave-popup_labell-input') || form;
+                    var val = (emailEl.value || '').trim();
+                    if (!val) {
+                        showInlineError(wrap, 'Enter your email to receive the PDF.', emailEl);
+                        return false;
+                    }
+                    if (!EMAIL_RE.test(val)) {
+                        showInlineError(wrap, 'That email address looks off. Double-check the format.', emailEl);
+                        return false;
+                    }
+                    showInlineError(wrap, null); /* clear */
+                    return true;
+                }
+
+                /* === AC form submission helper === */
+                function wireAcForm(form, prefix) {
+                    if (!form) return;
+                    var wrap = form.closest('.w-form') || form.parentNode;
+                    var doneEl = wrap.querySelector('.w-form-done');
+                    var failEl = wrap.querySelector('.w-form-fail');
+
+                    function showDone() {
+                        if (window.PyramidAnalytics) {
+                            try {
+                                window.PyramidAnalytics.formEvent('form_submit', prefix, { form_source: prefix });
+                                window.PyramidAnalytics.generateLead(prefix, prefix === 'popup-magnet' ? 'pdf_download' : 'consultation_request');
+                                var _pe = form.querySelector('input[type="email"]');
+                                if (_pe && _pe.value) window.PyramidAnalytics.identifyLead(_pe.value);
+                            } catch (e) {}
+                        }
+                        form.style.display = 'none';
+                        if (doneEl) doneEl.style.display = 'block';
+                        if (failEl) failEl.style.display = 'none';
+                    }
+                    function showFail(msg) {
+                        if (window.PyramidAnalytics) {
+                            try { window.PyramidAnalytics.formEvent('form_error', prefix, { error_type: 'submit_failure', error_msg: (msg || '').slice(0,200) }); } catch (e) {}
+                        }
+                        if (failEl) {
+                            failEl.style.display = 'block';
+                            var d = failEl.querySelector('div');
+                            if (d && msg) d.textContent = msg;
+                        }
+                    }
+
+                    /* Pre-fill attribution fields at page load so they're present
+                       even if the form serializes earlier than our submit handler. */
+                    prefillAttribution(prefix);
+
+                    form.addEventListener('submit', function (e) {
+                        e.preventDefault();
+                        e.stopImmediatePropagation();
+
+                        /* Honeypot */
+                        var hp = form.querySelector('input[name="ac_hp_zz9"]');
+                        if (hp && hp.value.trim() !== '') { showDone(); return false; }
+
+                        /* Email validation. Block submit on empty/invalid so AC's
+                           server-side validator never returns its translation-error
+                           message through the pink fail box. */
+                        if (!validateEmail(form)) return false;
+
+                        /* Phone normalization (E.164). If user typed a US 10-digit
+                           number, prepend +1; if they used +country format already,
+                           strip formatting and validate length. Block submit on
+                           invalid input so AC never returns its red-box error. */
+                        var phoneEl = form.querySelector('input[name="phone"]');
+                        if (phoneEl) {
+                            showPhoneError(form, null); /* clear any prior */
+                            var raw = phoneEl.value;
+                            if (raw && raw.trim()) {
+                                var normalized = normalizePhoneToE164(raw);
+                                if (normalized === null) {
+                                    showPhoneError(form, 'Enter a valid phone number, e.g. (202) 555-0123 or +44 20 7946 0958.');
+                                    return false;
+                                }
+                                phoneEl.value = normalized; /* overwrite for serialization */
+                            }
+                        }
+
+                        /* Refresh attribution + bump submission_count THIS submit */
+                        try {
+                            if (window.PyramidAttribution && window.PyramidAttribution.getStoredAndIncrementSubmission) {
+                                populateAttribution(prefix, window.PyramidAttribution.getStoredAndIncrementSubmission());
+                            }
+                        } catch (err) {}
+
+                        /* AC identify */
+                        try {
+                            var emailEl = form.querySelector('input[type="email"]');
+                            if (window.PyramidACTracking && emailEl && emailEl.value) {
+                                window.PyramidACTracking.identify(emailEl.value);
+                            }
+                        } catch (err) {}
+
+                        /* Serialize and JSONP-submit */
+                        var pairs = [];
+                        var elements = form.elements;
+                        for (var i = 0; i < elements.length; i++) {
+                            var el = elements[i];
+                            if (!el.name || el.disabled) continue;
+                            if (el.name === 'ac_hp_zz9') continue;
+                            if ((el.type === 'checkbox' || el.type === 'radio') && !el.checked) continue;
+                            if (el.type === 'submit' || el.type === 'button') continue;
+                            pairs.push(encodeURIComponent(el.name) + '=' + encodeURIComponent(el.value));
+                        }
+                        var serialized = pairs.join('&').replace(/%0A/g, '\\n');
+
+                        window._show_thank_you = showDone;
+                        window._show_error = function (id, msg) { showFail(msg); };
+
+                        var s = document.createElement('script');
+                        s.src = 'https://pyramidsystems.activehosted.com/proc.php?' + serialized + '&jsonp=true';
+                        s.onerror = function () { showFail('Network error. Please try again or email info@pyramidsystems.com.'); };
+                        document.body.appendChild(s);
+                        return false;
+                    }, true);
+                }
+
+                wireAcForm(document.getElementById('popup-leave-form'), 'popup-leave');
+                wireAcForm(document.getElementById('popup-magnet-form'), 'popup-magnet');
+
+                /* === Popup show/hide controller === */
+                var leavePopup = document.querySelector('.popup-leave');
+                var magnetPopup = document.querySelector('.popup-magnet');
+                var leaveCloseBtns = document.querySelectorAll('.leave-popup_close');
+                var magnetCloseBtn = document.querySelector('.pm-popup_icon-close');
+
+                /* Session storage so a closed popup stays closed for the rest of the session. */
+                var STORAGE_KEY_LEAVE = 'pyramid-popup-leave-dismissed';
+                var STORAGE_KEY_MAGNET = 'pyramid-popup-magnet-dismissed';
+
+                var leaveShown = sessionStorage.getItem(STORAGE_KEY_LEAVE) === '1';
+                var magnetShown = sessionStorage.getItem(STORAGE_KEY_MAGNET) === '1';
+                var leaveOpen = false;
+                var magnetTimer = null;
+
+                var isDesktop = window.matchMedia('(min-width: 992px)').matches;
+
+                function showPopup(p) {
+                    p.style.display = 'flex';
+                    setTimeout(function () { p.style.opacity = '1'; }, 0);
+                }
+                function hidePopup(p, cb) {
+                    p.style.opacity = '0';
+                    p.addEventListener('transitionend', function once() {
+                        p.style.display = 'none';
+                        p.removeEventListener('transitionend', once);
+                        if (cb) cb();
+                    });
+                    /* Fallback in case transitionend never fires */
+                    setTimeout(function () { p.style.display = 'none'; if (cb) cb(); }, 500);
+                }
+
+                function scheduleMagnet() {
+                    if (!magnetPopup || magnetShown) return;
+                    clearTimeout(magnetTimer);
+                    magnetTimer = setTimeout(function () {
+                        if (leaveOpen || magnetShown) return;
+                        magnetShown = true;
+                        showPopup(magnetPopup);
+                    }, 12000);
+                }
+                function showLeave() {
+                    if (!leavePopup || leaveShown) return;
+                    leaveShown = true;
+                    leaveOpen = true;
+                    clearTimeout(magnetTimer);
+                    if (magnetPopup && magnetPopup.style.display === 'flex') {
+                        hidePopup(magnetPopup, function () { showPopup(leavePopup); });
+                    } else {
+                        showPopup(leavePopup);
+                    }
+                }
+
+                scheduleMagnet();
+
+                if (isDesktop) {
+                    document.documentElement.addEventListener('mouseleave', function (e) {
+                        if (e.clientY < 5) showLeave();
+                    });
+                }
+
+                leaveCloseBtns.forEach(function (btn) {
+                    btn.addEventListener('click', function () {
+                        leaveOpen = false;
+                        sessionStorage.setItem(STORAGE_KEY_LEAVE, '1');
+                        if (leavePopup) hidePopup(leavePopup, scheduleMagnet);
+                    });
+                });
+                if (magnetCloseBtn) {
+                    magnetCloseBtn.addEventListener('click', function () {
+                        sessionStorage.setItem(STORAGE_KEY_MAGNET, '1');
+                        if (magnetPopup) hidePopup(magnetPopup);
+                    });
+                }
+            })();
+        </script>
+    </body>
+</html>

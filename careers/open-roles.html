@@ -1,0 +1,2085 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <!-- Consent Mode v2 defaults MUST push to dataLayer BEFORE
+         the GTM head script runs. Loaded synchronously (no defer)
+         so gtag('consent','default',...) lands at dataLayer
+         index 0, before gtm.js. -->
+    <script src="../js/pyramid-consent.js"></script>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WSMBQZDP');</script>
+<!-- End Google Tag Manager -->
+
+        <link rel="icon" type="image/png" href="../images/newPyramidLogoIcon.png"/>
+        <link rel="apple-touch-icon" href="../images/newPyramidLogoIcon.png"/>
+
+        <!-- TEMPLATE:a11y_widget:START -->
+        <!-- Pyramid Systems accessibility widget — custom replacement for UserWay -->
+        <link rel="stylesheet" href="../css/pyramid-a11y.css">
+        <script>
+          /* Early-load: apply saved a11y settings before first paint so the page
+             doesn't flash unfiltered content when the user navigates between pages. */
+          (function () {
+            try {
+              var s = JSON.parse(localStorage.getItem('pyramid-a11y-settings') || '{}');
+              var c = document.documentElement.classList;
+              Object.keys(s).forEach(function (k) {
+                var v = s[k];
+                if (!v) return;
+                if (k === 'oversized') c.add('pa11y-oversized');
+                else if (typeof v === 'string') c.add('pa11y-' + k + '-' + v);
+                else c.add('pa11y-' + k);
+              });
+            } catch (e) {}
+          })();
+        </script>
+        <script src="../js/pyramid-a11y.js" defer></script>
+        <!-- TEMPLATE:a11y_widget:END -->
+
+        <!-- TEMPLATE:consent:START -->
+        <!-- Pyramid Systems cookie consent (Consent Mode v2 / GTM-ready).
+             Loads BEFORE any future GTM tag so default consent state
+             reaches the dataLayer first. Public API: window.PyramidConsent. -->
+        <link rel="stylesheet" href="../css/pyramid-consent.css">
+        <!-- TEMPLATE:consent:END -->
+
+        <!-- TEMPLATE:attribution:START -->
+        <!-- Pyramid Systems UTM + attribution capture.
+             Loads on every page so when a visitor lands via a UTM-tagged
+             ad/email/QR, the params are stored in localStorage for 30
+             days. Any form on the site can then read them via
+             window.PyramidAttribution.getStored() at submit time. -->
+        <script src="../js/pyramid-attribution.js"></script>
+        <!-- TEMPLATE:attribution:END -->
+
+        <!-- TEMPLATE:ac_tracking:START -->
+        <!-- Pyramid Systems ActiveCampaign Site Tracking.
+             Wraps AC's vgo() snippet behind our consent system: only fires
+             when analytics consent is granted (default ON, user can opt out
+             via the Cookie Preferences modal). Form submit handlers call
+             window.PyramidACTracking.identify(email) to link the anonymous
+             session to the AC contact. -->
+        <script src="../js/pyramid-ac-tracking.js"></script>
+        <!-- TEMPLATE:ac_tracking:END -->
+        <!-- TEMPLATE:analytics:START -->
+        <!-- Pyramid Systems analytics layer.
+             Central dataLayer push for GTM: form_step, form_submit,
+             generate_lead, form_error, cta_click, page_view_attribution.
+             Also pre-checks the contact form's inquiry checkbox from
+             ?inquiry= deep links so vertical-CTA traffic lands in the
+             right inquiry context. -->
+        <script src="../js/pyramid-analytics.js" defer></script>
+        <!-- TEMPLATE:analytics:END -->
+
+        <!-- TEMPLATE:engagement:START -->
+        <!-- Pyramid Systems engagement tracking — captures popups,
+             cookie modal, FAQ, mobile menu, search, accessibility. -->
+        <script src="../js/pyramid-engagement.js" defer></script>
+        <!-- TEMPLATE:engagement:END -->
+
+        <!-- TEMPLATE:web_vitals:START -->
+        <!-- Core Web Vitals (LCP, INP, CLS) → dataLayer → GA4. -->
+        <script src="../js/pyramid-web-vitals.js" defer></script>
+        <!-- TEMPLATE:web_vitals:END -->
+
+
+        <script>document.documentElement.setAttribute("data-wf-page","68b0b16eeab74bec787faa10");document.documentElement.setAttribute("data-wf-site","67ffbeb3c6d67519154ab9f3");</script>
+        <meta charset="utf-8"/>
+        <title>Open Roles at Pyramid Systems | Federal IT Careers</title>
+        <meta content="Open roles at Pyramid Systems, an employee-owned federal IT firm. Engineering, cybersecurity, cloud, AI/ML, and program management on civilian-agency programs." name="description"/>
+        <meta content="Open Roles at Pyramid Systems | Federal IT Careers" property="og:title"/>
+        <meta content="Open roles at Pyramid Systems, an employee-owned federal IT firm. Engineering, cybersecurity, cloud, AI/ML, and program management on civilian-agency programs." property="og:description"/>
+        <meta content="Open Roles at Pyramid Systems | Federal IT Careers" property="twitter:title"/>
+        <meta content="Open roles at Pyramid Systems, an employee-owned federal IT firm. Engineering, cybersecurity, cloud, AI/ML, and program management on civilian-agency programs." property="twitter:description"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:url" content="https://pyramidsystems.com/careers/job-postings.html"/>
+        <meta property="og:image" content="https://pyramidsystems.com/images/newPyramidLogoIcon.png"/>
+        <meta property="og:site_name" content="Pyramid Systems"/>
+        <meta content="summary_large_image" name="twitter:card"/>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+        <link rel="canonical" href="https://pyramidsystems.com/careers/open-roles"/>
+
+        <!-- JSON-LD schema for the careers landing page.
+             We deliberately do NOT use JobPosting schema here because the
+             individual postings live on iCIMS (different domain) and their
+             pages should carry their own JobPosting markup. Claiming jobs
+             we don't host would violate Google's accuracy guidelines.
+             Instead we mark up: WebPage (this aggregator) + BreadcrumbList
+             (home → careers → open roles) + Organization (hiring entity). -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "WebPage",
+                    "@id": "https://pyramidsystems.com/careers/job-postings.html#webpage",
+                    "url": "https://pyramidsystems.com/careers/job-postings.html",
+                    "name": "Open Roles at Pyramid Systems",
+                    "description": "Open roles at Pyramid Systems, an employee-owned federal IT firm. Engineering, cybersecurity, cloud, AI/ML, and program management on civilian-agency programs.",
+                    "inLanguage": "en-US",
+                    "isPartOf": {
+                        "@type": "WebSite",
+                        "@id": "https://pyramidsystems.com/#website",
+                        "url": "https://pyramidsystems.com/",
+                        "name": "Pyramid Systems",
+                        "publisher": { "@id": "https://pyramidsystems.com/#organization" }
+                    },
+                    "about": { "@id": "https://pyramidsystems.com/#organization" },
+                    "breadcrumb": { "@id": "https://pyramidsystems.com/careers/job-postings.html#breadcrumb" }
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "@id": "https://pyramidsystems.com/careers/job-postings.html#breadcrumb",
+                    "itemListElement": [
+                        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pyramidsystems.com/" },
+                        { "@type": "ListItem", "position": 2, "name": "Careers", "item": "https://pyramidsystems.com/careers/" },
+                        { "@type": "ListItem", "position": 3, "name": "Open Roles", "item": "https://pyramidsystems.com/careers/job-postings.html" }
+                    ]
+                },
+                {
+                    "@type": "Organization",
+                    "@id": "https://pyramidsystems.com/#organization",
+                    "name": "Pyramid Systems",
+                    "alternateName": "Pyramid Systems Inc.",
+                    "url": "https://pyramidsystems.com/",
+                    "logo": "https://pyramidsystems.com/images/newPyramidLogoIcon.png",
+                    "description": "Employee-owned federal IT firm with three decades of mission-critical delivery for civilian agencies and regulated enterprises.",
+                    "foundingDate": "1996",
+                    "numberOfEmployees": { "@type": "QuantitativeValue", "minValue": 200 },
+                    "sameAs": [
+                        "https://www.linkedin.com/company/pyramidsystems/",
+                        "https://x.com/PyramidSystems",
+                        "https://www.facebook.com/pyramidsystems",
+                        "https://www.instagram.com/pyramidsystemsinc/"
+                    ],
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressCountry": "US"
+                    },
+                    "areaServed": [
+                        { "@type": "Country", "name": "United States" },
+                        { "@type": "AdministrativeArea", "name": "United States federal agencies" },
+                        { "@type": "AdministrativeArea", "name": "United States regulated industries" }
+                    ]
+                }
+            ]
+        }
+        </script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+       
+ 
+        <link href="../css/styles.css" rel="stylesheet" type="text/css" crossorigin="anonymous"/>
+        <link href="../css/air-quire-mocks.css" rel="stylesheet" type="text/css"/>
+        <style>
+            @media (min-width: 992px) {
+                html.w-mod-js:not(.w-mod-ix) [data-w-id="bc87fe6b-8aec-3ff1-ccec-46df22b7b428"] {
+                    -webkit-transform:translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    -moz-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    -ms-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                }
+
+                html.w-mod-js:not(.w-mod-ix) [data-w-id="bc87fe6b-8aec-3ff1-ccec-46df22b7b43c"] {
+                    -webkit-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    -moz-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    -ms-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                }
+
+                html.w-mod-js:not(.w-mod-ix) [data-w-id="bc87fe6b-8aec-3ff1-ccec-46df22b7b451"] {
+                    -webkit-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    -moz-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    -ms-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                }
+
+                html.w-mod-js:not(.w-mod-ix) [data-w-id="bc87fe6b-8aec-3ff1-ccec-46df22b7b467"] {
+                    -webkit-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    -moz-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    -ms-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                }
+
+                html.w-mod-js:not(.w-mod-ix) [data-w-id="bc87fe6b-8aec-3ff1-ccec-46df22b7b47e"] {
+                    -webkit-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    -moz-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    -ms-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                }
+
+                html.w-mod-js:not(.w-mod-ix) [data-w-id="711106ca-7d66-21d3-8731-12c713cce745"] {
+                    -webkit-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    -moz-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    -ms-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                }
+
+                html.w-mod-js:not(.w-mod-ix) [data-w-id="603f1c36-5694-5775-0a24-52c885b56f78"] {
+                    -webkit-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    -moz-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    -ms-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                }
+            }
+
+            @media (max-width: 991px) and (min-width:768px) {
+                html.w-mod-js:not(.w-mod-ix) [data-w-id="bc87fe6b-8aec-3ff1-ccec-46df22b7b428"] {
+                    -webkit-transform:translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    -moz-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    -ms-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                }
+
+                html.w-mod-js:not(.w-mod-ix) [data-w-id="bc87fe6b-8aec-3ff1-ccec-46df22b7b43c"] {
+                    -webkit-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    -moz-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    -ms-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                }
+
+                html.w-mod-js:not(.w-mod-ix) [data-w-id="bc87fe6b-8aec-3ff1-ccec-46df22b7b451"] {
+                    -webkit-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    -moz-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    -ms-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                }
+
+                html.w-mod-js:not(.w-mod-ix) [data-w-id="bc87fe6b-8aec-3ff1-ccec-46df22b7b467"] {
+                    -webkit-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    -moz-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    -ms-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                }
+
+                html.w-mod-js:not(.w-mod-ix) [data-w-id="bc87fe6b-8aec-3ff1-ccec-46df22b7b47e"] {
+                    -webkit-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    -moz-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    -ms-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                }
+
+                html.w-mod-js:not(.w-mod-ix) [data-w-id="711106ca-7d66-21d3-8731-12c713cce745"] {
+                    -webkit-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    -moz-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    -ms-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                }
+
+                html.w-mod-js:not(.w-mod-ix) [data-w-id="603f1c36-5694-5775-0a24-52c885b56f78"] {
+                    -webkit-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    -moz-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    -ms-transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                    transform: translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                }
+            }
+        </style>
+        <script type="text/javascript">
+            !function(o, c) {
+                var n = c.documentElement
+                  , t = " w-mod-";
+                n.className += t + "js",
+                ("ontouchstart"in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch")
+            }(window, document);
+        </script>
+        
+        <script src="https://www.google.com/recaptcha/api.js" type="text/javascript"></script>
+    
+        <style>
+            html.lenis {
+                height: auto;
+            }
+
+            .lenis.lenis-smooth {
+                scroll-behavior: auto;
+            }
+
+            .lenis.lenis-smooth [data-lenis-prevent] {
+                overscroll-behavior: contain;
+            }
+
+            .lenis.lenis-stopped {
+                overflow: hidden;
+            }
+
+            /* Vehicle card icon — sits at the top of each .social-card */
+            .cv-card-icon {
+                width: 56px;
+                height: 56px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: linear-gradient(135deg, rgba(255, 122, 58, 0.12), rgba(255, 77, 109, 0.08));
+                border: 1px solid rgba(255, 122, 58, 0.25);
+                border-radius: 14px;
+                color: #E86222;
+                margin-bottom: 1.25rem;
+                flex-shrink: 0;
+            }
+            .cv-card-icon svg { width: 28px; height: 28px; }
+
+            /* Stretched-link overlay: makes the whole .social-card_wrapp clickable
+               without changing its layout. The <a> sits as an invisible absolute
+               overlay covering the entire card surface. Since .social-card_wrapp
+               already has position: relative (in styles.css), this anchor's
+               inset: 0 anchors to the wrapp's box. z-index keeps it above the
+               card content for click capture, but the card's own links
+               (like internal Read more anchors, if any) would need higher z-index
+               to stay clickable — we don't have any nested links per card, so
+               this is safe. */
+            .social-card_wrapp .cv-card-link {
+                position: absolute;
+                inset: 0;
+                z-index: 5;
+                border-radius: 1.5rem;
+                cursor: pointer;
+            }
+
+            /* Inner article info wrapper: flex column so Read more pins to card bottom */
+            .social-card .article-card_info-wrap {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                flex: 1;
+            }
+            .social-card .article-card_info-wrap > a.button-text {
+                margin-top: auto;
+                justify-content: flex-start;
+                align-self: flex-start;
+            }
+
+            /* Agency-logo marquee: seamless infinite loop. Two identical 9-logo sets sit
+               side-by-side; track shifts left by -50% (one full set width) for continuous loop. */
+            .partner-icons_wrap.is--inner { overflow: hidden; }
+            .partner-icons_line.is--inner {
+                width: max-content;
+                animation: cv-marquee 60s linear infinite;
+            }
+            .partner-icons_wrap.is--inner:hover .partner-icons_line.is--inner {
+                animation-play-state: paused;
+            }
+            @keyframes cv-marquee {
+                0%   { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+            }
+            @media (prefers-reduced-motion: reduce) {
+                .partner-icons_line.is--inner { animation: none; }
+            }
+
+            /* FAQ section: 2x2 grid layout on desktop, single column on mobile */
+            .faq_content-block .accordions-row {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+                align-items: start;
+            }
+            @media (max-width: 768px) {
+                .faq_content-block .accordions-row {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
+        <!-- Finsweet Attributes -->
+        <script async type="module" src="../js/attributes.js" fs-scrolldisable></script>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+    </head>
+    <body>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WSMBQZDP"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+        <div class="w-embed">
+            <style>
+                section {
+                    position: relative;
+                    max-width: 100vw;
+                    overflow: clip;
+                    z-index: 2;
+                    background-color: var(--_tokenization---bg-main);
+                }
+
+                a {
+                    color: inherit;
+                    text-decoration: none;
+                    user-select: none;
+                    transition-property: opacity, background-color, border, color, border-radius;
+                    transition-timing-function: ease;
+                    transition-duration: 0.45s;
+                }
+
+                button {
+                    background-color: unset;
+                    padding: unset;
+                    text-align: inherit;
+                    transition-property: opacity, background-color, border, color, border-radius;
+                    transition-timing-function: ease;
+                    transition-duration: 0.45s;
+                }
+
+                .accordion.is--opened .accordion_icon {
+                    color: var(--_tokenization---text-black);
+                }
+
+                .accordion.is--opened .vertical_faq-icon {
+                    transform: rotate(90deg);
+                }
+
+                .arrow-animation:hover .button-arrow {
+                    transform: rotate(45deg);
+                }
+
+                @keyframes rotate {
+                    0% {
+                        transform: rotate(0deg);
+                    }
+
+                    100% {
+                        transform: rotate(360deg);
+                    }
+                }
+
+                .gradient-animation {
+                    animation: rotate 10s ease infinite !important;
+                }
+
+                html {
+                    font-size: calc(0.625rem + 0.41666666666666663vw);
+                }
+
+                @media screen and (max-width: 1920px) {
+                    html {
+                        font-size: calc(0.625rem + 0.41666666666666674vw);
+                    }
+                }
+
+                @media screen and (max-width: 1440px) {
+                    html {
+                        font-size: calc(-0.5rem + 1.6666666666666665vw);
+                    }
+                }
+
+                @media screen and (max-width: 1200px) {
+                    html {
+                        font-size: calc(0.39114832535885163rem + 0.47846889952153115vw);
+                    }
+                }
+
+                @media screen and (max-width: 991px) {
+                    html {
+                        font-size: calc(0.758056640625rem + 0.390625vw);
+                    }
+                }
+
+                @media screen and (max-width: 479px) {
+                    html {
+                        font-size: calc(0.7494769874476988rem + 0.8368200836820083vw);
+                    }
+                }
+            </style>
+        </div>
+        
+        
+        <!-- TEMPLATE:header:START -->
+        <style>
+            /* Nav dropdown alignment fix.
+               .header_dd-link is a flex container. When an item has only ONE
+               child (a single <div> of text — no icon, like our Contract
+               Vehicles items), a long label that wraps to two lines doesn't
+               anchor the wrapped lines to the left edge of the parent. The
+               flex item shrinks to the wrap width and sits in the default
+               position. Force the inner text div to expand to fill the
+               available space and left-align — covers both single-child and
+               icon-prefixed dropdown items. */
+            .header_dd-link > div:not(.header-dd_icon) {
+                flex: 1 1 auto;
+                min-width: 0;
+                text-align: left;
+            }
+
+            /* Logo aspect-ratio fix.
+               .header-logo is a fixed-width (10.1875rem ≈ 163px) flex
+               container. .logo has height:44px but no width rule, so it
+               inherits flex-shrink:1 and gets horizontally compressed when
+               its natural width at 44px height exceeds the parent's width.
+               Lock flex-shrink to 0 and let width grow to the intrinsic size
+               of the image. The wordmark is "Pyramid Systems" so its natural
+               aspect ratio is wider than tall and we want it to overflow the
+               parent box rather than squish. */
+            .header-logo .logo {
+                width: auto;
+                flex-shrink: 0;
+                object-fit: contain;
+            }
+
+            /* AIR-Quire flagship-product nav icon.
+               Prepends the AIR-Quire product mark to its top-level navlink
+               via a ::before pseudo-element. Done via CSS (not an <img>) so
+               it survives template re-stamping cleanly. The ../
+               placeholder resolves to "", "../", "../../" etc. depending on
+               page depth, mirroring how the script handles every other
+               asset path in the template. */
+            a.navlink[href$="solutions/air-quire.html"] {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            a.navlink[href$="solutions/air-quire.html"]::before {
+                content: "";
+                width: 1.125rem;
+                height: 1.125rem;
+                background-image: url("../images/air-quire-Icon.png");
+                background-size: 95% 95%;
+                background-repeat: no-repeat;
+                background-position: center;
+                flex-shrink: 0;
+            }
+        </style>
+        <header class="header">
+        <link rel="icon" type="image/png" href="../images/newPyramidLogoIcon.png"/>
+        <link rel="apple-touch-icon" href="../images/newPyramidLogoIcon.png"/>
+
+            <div class="header_overlay"></div>
+            <div class="w-layout-blockcontainer container-copy is--header w-container">
+                <div class="header_content-wrap">
+                    <a href="../index.html" class="header-logo w-inline-block">
+                        <img class="logo" src="../images/orangeLogo.png" alt="Pyramid Systems" >
+                        
+                    </a>
+                    <div class="menu-wrap">
+                        <div class="header_navigation-wrap">
+                            <a href="../solutions/air-quire.html" class="navlink w-inline-block"><div>AIR-Quire</div></a>
+
+                            <div class="menu_divider-dot"></div>
+                            <div data-hover="false" data-delay="0" data-w-id="4d1d8a72-dee5-ca16-c1c5-51ab9bc6dsrv" class="navlink is-dd w-dropdown">
+                                <div class="navlink is--dd w-dropdown-toggle">
+                                    <div class="text-block">Services</div>
+                                    <div class="dd-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 10 10" fill="none">
+                                            <path d="M2.08674 4.41326L4.70508 7.0316L7.32342 4.41326" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <nav class="header_dd-list w-dropdown-list">
+                                    <a href="../services/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-layout-grid">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M4 4h6v6h-6z"/>
+                                                <path d="M14 4h6v6h-6z"/>
+                                                <path d="M4 14h6v6h-6z"/>
+                                                <path d="M14 14h6v6h-6z"/>
+                                            </svg>
+                                        </div>
+                                        <div>All Services</div>
+                                    </a>
+                                    <a href="../services/modernization.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-stack-2">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M12 4l-8 4l8 4l8 -4l-8 -4"/>
+                                                <path d="M4 12l8 4l8 -4"/>
+                                                <path d="M4 16l8 4l8 -4"/>
+                                            </svg>
+                                        </div>
+                                        <div>Modernization</div>
+                                    </a>
+                                    <a href="../services/cloud.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-cloud">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M6.657 18c-2.572 0 -4.657 -2.007 -4.657 -4.483c0 -2.475 2.085 -4.482 4.657 -4.482c.393 -1.762 1.794 -3.2 3.675 -3.773c1.88 -.572 3.956 -.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.913 0 3.464 1.56 3.464 3.486c0 1.927 -1.551 3.486 -3.465 3.486h-11.878"/>
+                                            </svg>
+                                        </div>
+                                        <div>Cloud</div>
+                                    </a>
+                                    <a href="../services/cybersecurity.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-shield-lock">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3"/>
+                                                <path d="M12 11m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/>
+                                                <path d="M12 12l0 2.5"/>
+                                            </svg>
+                                        </div>
+                                        <div>Cybersecurity</div>
+                                    </a>
+                                    <a href="../services/devsecops.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-infinity">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M9.828 9.172a4 4 0 1 0 0 5.656a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828"/>
+                                            </svg>
+                                        </div>
+                                        <div>DevSecOps</div>
+                                    </a>
+                                    <a href="../services/analytics-ai.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chart-line">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M4 19l16 0"/>
+                                                <path d="M4 15l4 -6l4 2l4 -5l4 4"/>
+                                            </svg>
+                                        </div>
+                                        <div>Analytics &amp; AI</div>
+                                    </a>
+                                </nav>
+                            </div>
+
+                            <!-- WHO WE SERVE NAV — HIDDEN 2026-05-22.
+                                 Rationale: no underlying agency-segment content exists on the current
+                                 pyramidsystems.com site, and no past-performance proof for the
+                                 "Department of War" segment. Restore this block when dedicated
+                                 Civilian / Financial Regulators (etc.) pages are written and the
+                                 segmentation is backed by real named past performance.
+                            <div class="menu_divider-dot"></div>
+                            <div data-hover="false" data-delay="0" data-w-id="4d1d8a72-dee5-ca16-c1c5-51ab9bc6dbcc" class="navlink is-dd w-dropdown">
+                                <div class="navlink is--dd w-dropdown-toggle">
+                                    <div class="text-block">Who We Serve</div>
+                                    <div class="dd-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 10 10" fill="none">
+                                            <path d="M2.08674 4.41326L4.70508 7.0316L7.32342 4.41326" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <nav class="header_dd-list w-dropdown-list">
+                                    <a data-cta="vertical_federal_civilian" data-cta-location="nav_dropdown" href="../services/index.html?utm_source=site_nav&utm_medium=vertical_link&utm_campaign=federal_civilian" class="header_dd-link w-inline-block">
+                                        <div>Federal Civilian</div>
+                                    </a>
+                                    <a data-cta="vertical_financial_regulators" data-cta-location="nav_dropdown" href="../services/index.html?utm_source=site_nav&utm_medium=vertical_link&utm_campaign=financial_regulators" class="header_dd-link w-inline-block">
+                                        <div>Financial Regulators</div>
+                                    </a>
+                                    <a data-cta="vertical_department_of_war" data-cta-location="nav_dropdown" href="../services/index.html?utm_source=site_nav&utm_medium=vertical_link&utm_campaign=department_of_war" class="header_dd-link w-inline-block">
+                                        <div>Department of War</div>
+                                    </a>
+                                </nav>
+                            </div>
+                            -->
+
+                            <div class="menu_divider-dot"></div>
+                            <div data-hover="false" data-delay="0" data-w-id="4d1d8a72-dee5-ca16-c1c5-51ab9bc6dcvv" class="navlink is-dd w-dropdown">
+                                <div class="navlink is--dd w-dropdown-toggle">
+                                    <div class="text-block">Contract Vehicles</div>
+                                    <div class="dd-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 10 10" fill="none">
+                                            <path d="M2.08674 4.41326L4.70508 7.0316L7.32342 4.41326" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <nav class="header_dd-list w-dropdown-list">
+                                    <a href="../contract-vehicles/index.html" class="header_dd-link w-inline-block">
+                                        <div>How to procure us</div>
+                                    </a>
+                                    <a href="../contract-vehicles/gsa-it-schedule-70.html" class="header_dd-link w-inline-block">
+                                        <div>GSA IT Schedule 70</div>
+                                    </a>
+                                    <a href="../contract-vehicles/gsa-oasis-plus.html" class="header_dd-link w-inline-block">
+                                        <div>GSA OASIS+ Unrestricted</div>
+                                    </a>
+                                    <a href="../contract-vehicles/hhs-cms-sparc.html" class="header_dd-link w-inline-block">
+                                        <div>HHS CMS SPARC</div>
+                                    </a>
+                                    <a href="../contract-vehicles/sec-one-it.html" class="header_dd-link w-inline-block">
+                                        <div>SEC ONE IT</div>
+                                    </a>
+                                    <a href="../contract-vehicles/gsa-8a-stars-iii.html" class="header_dd-link w-inline-block">
+                                        <div>GSA 8(a) STARS III</div>
+                                    </a>
+                                    <a href="../contract-vehicles/fdic-itas-iii.html" class="header_dd-link w-inline-block">
+                                        <div>FDIC ITAS III Next Gen BOA</div>
+                                    </a>
+                                    <a href="../contract-vehicles/hud-om-bpa.html" class="header_dd-link w-inline-block">
+                                        <div>HUD O&amp;M BPA</div>
+                                    </a>
+                                </nav>
+                            </div>
+                            <div class="menu_divider-dot"></div>
+                            <div data-hover="false" data-delay="0" data-w-id="4d1d8a72-dee5-ca16-c1c5-51ab9bc6dbcc" class="navlink is-dd w-dropdown">
+                                <div class="navlink is--dd w-dropdown-toggle">
+                                    <div class="text-block">About Pyramid</div>
+                                    <div class="dd-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 10 10" fill="none">
+                                            <path d="M2.08674 4.41326L4.70508 7.0316L7.32342 4.41326" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <nav class="header_dd-list w-dropdown-list">
+                                    <a href="../about-us/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-pyramid">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M11.105 21.788a1.994 1.994 0 0 0 1.789 0l8.092 -4.054c.538 -.27 .718 -.951 .385 -1.452l-8.54 -13.836a.999 .999 0 0 0 -1.664 0l-8.54 13.836a1.005 1.005 0 0 0 .386 1.452l8.092 4.054" />
+                                                <path d="M12 2v20" />
+                                            </svg>
+                                        </div>
+                                        <div>Who We Are</div>
+                                    </a>
+                                    <a href="../about-us/certifications/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-certificate">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M12 15a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                                                <path d="M13 17.5v4.5l2 -1.5l2 1.5v-4.5" />
+                                                <path d="M10 19h-5a2 2 0 0 1 -2 -2v-10c0 -1.1 .9 -2 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -1 1.73" />
+                                                <path d="M6 9l12 0" />
+                                                <path d="M6 12l3 0" />
+                                                <path d="M6 15l2 0" />
+                                            </svg>                                        
+                                        </div>
+                                        <div>Certifications</div>
+                                    </a>
+                                    <a href="../about-us/partners/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-affiliate">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M5.931 6.936l1.275 4.249m5.607 5.609l4.251 1.275" />
+                                                <path d="M11.683 12.317l5.759 -5.759" />
+                                                <path d="M4 5.5a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0" />
+                                                <path d="M17 5.5a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0" />
+                                                <path d="M17 18.5a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0" />
+                                                <path d="M4 15.5a4.5 4.5 0 1 0 9 0a4.5 4.5 0 1 0 -9 0" />
+                                            </svg>                                        
+                                        </div>
+                                        <div>Partners</div>
+                                    </a>
+                                    <a href="../careers/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-briefcase">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
+                                                <path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2" />
+                                                <path d="M12 12l0 .01" />
+                                                <path d="M3 13a20 20 0 0 0 18 0" />
+                                            </svg>
+                                        </div>
+                                        <div>Careers</div>
+                                    </a>
+                                    </nav>
+                            </div>
+
+                            <div class="menu_divider-dot"></div>
+                            <div data-hover="false" data-delay="0" data-w-id="4d1d8a72-dee5-ca16-c1c5-51ab9bc6dbcc" class="navlink is-dd w-dropdown">
+                                <div class="navlink is--dd w-dropdown-toggle">
+                                    <div class="text-block">Insights</div>
+                                    <div class="dd-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 10 10" fill="none">
+                                            <path d="M2.08674 4.41326L4.70508 7.0316L7.32342 4.41326" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <nav class="header_dd-list w-dropdown-list">
+                                    <a href="../insights/blog/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-article">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
+                                                <path d="M7 8h10" />
+                                                <path d="M7 12h10" />
+                                                <path d="M7 16h7" />
+                                            </svg>
+                                        </div>
+                                        <div>Blog</div>
+                                    </a>
+                                    <a href="../insights/case-studies/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-clipboard-data">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
+                                                <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                                                <path d="M9 17l0 -4" />
+                                                <path d="M12 17l0 -1" />
+                                                <path d="M15 17l0 -2" />
+                                            </svg>
+                                        </div>
+                                        <div>Case Studies</div>
+                                    </a>
+                                    <a href="../insights/news/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-news">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M16 6h3a1 1 0 0 1 1 1v11a2 2 0 0 1 -4 0v-13a1 1 0 0 0 -1 -1h-11a1 1 0 0 0 -1 1v12a3 3 0 0 0 3 3h14" />
+                                                <path d="M8 8l4 0" />
+                                                <path d="M8 12l4 0" />
+                                                <path d="M8 16l4 0" />
+                                            </svg>
+                                        </div>
+                                        <div>News</div>
+                                    </a>
+                                </nav>
+                            </div>
+                        </div>
+                        <a href="../contact/index.html" class="header_button-wrap arrow-animation w-inline-block">
+                            <div class="menu_inner-button">
+                                <div>Contact</div>
+                                <div class="button-arrow is--header">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 14 14" fill="none">
+                                        <path d="M10.5005 3.49997L3.03375 10.9667" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="round"></path>
+                                        <path d="M11.2002 8.79087V2.80003H5.20936" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="hero-dots is--1">
+                        <img src="../images/heroDots.avif" loading="eager" width="286" height="163" alt="" class="i-100"/>
+                    </div>
+                    <button data-w-id="4d1d8a72-dee5-ca16-c1c5-51ab9bc6dc0b" fs-scrolldisable-element="toggle" class="menu">
+                        <div class="menu_inner">
+                            <div class="menu_lines-wrap">
+                                <div class="menu-line is--upper"></div>
+                                <div class="menu-line is--middle"></div>
+                                <div class="menu-line is--bottom"></div>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="floating-badge"><img src="../images/winner.png" loading="lazy" alt="" class="german-web-aw"></div>
+
+            <script>
+                /* Active nav state.
+                   The header is stamped identically on every page, so there's no
+                   per-page hardcoded current-link marker. This runtime script reads
+                   window.location and applies Webflow's `w--current` class (plus
+                   aria-current="page") to:
+                     a) the exact-matching nav link, AND
+                     b) its parent dropdown toggle if the link is inside a dropdown.
+                   If no exact match is found (e.g., a deep blog post), we fall
+                   back to prefix-matching the URL section against a list of
+                   dropdown labels — so /insights/blog/foo.html still highlights
+                   "Insights" in the top nav. */
+                (function () {
+                    function normalize(p) {
+                        return (p || "").toLowerCase().replace(/\/$/, "").replace(/\/index\.html$/, "");
+                    }
+                    function resolve(href) {
+                        try { return normalize(new URL(href, window.location.href).pathname); }
+                        catch (e) { return null; }
+                    }
+                    function apply() {
+                        var current = normalize(window.location.pathname);
+                        var navRoot = document.querySelector(".header_navigation-wrap");
+                        if (!navRoot) return;
+
+                        // Pass 1: exact-match link hrefs.
+                        var matched = false;
+                        navRoot.querySelectorAll("a[href]").forEach(function (link) {
+                            var p = resolve(link.getAttribute("href"));
+                            if (p !== null && p === current) {
+                                link.classList.add("w--current");
+                                link.setAttribute("aria-current", "page");
+                                var dd = link.closest(".navlink.is-dd");
+                                if (dd) {
+                                    var toggle = dd.querySelector(".navlink.is--dd");
+                                    if (toggle) {
+                                        toggle.classList.add("w--current");
+                                        toggle.setAttribute("aria-current", "page");
+                                    }
+                                }
+                                matched = true;
+                            }
+                        });
+                        if (matched) return;
+
+                        // Pass 2: URL-prefix → dropdown label fallback for descendant pages.
+                        var sectionMap = [
+                            { prefix: "/contract-vehicles", label: "Contract Vehicles" },
+                            { prefix: "/about-us",          label: "About Pyramid" },
+                            { prefix: "/careers",           label: "About Pyramid" },
+                            { prefix: "/insights",          label: "Insights" },
+                            { prefix: "/services",          label: "Services" }
+                        ];
+                        sectionMap.forEach(function (section) {
+                            if (current.indexOf(section.prefix) === 0) {
+                                navRoot.querySelectorAll(".navlink.is--dd").forEach(function (toggle) {
+                                    var lbl = toggle.querySelector(".text-block");
+                                    if (lbl && lbl.textContent.trim() === section.label) {
+                                        toggle.classList.add("w--current");
+                                        toggle.setAttribute("aria-current", "page");
+                                    }
+                                });
+                            }
+                        });
+                    }
+                    if (document.readyState === "loading") {
+                        document.addEventListener("DOMContentLoaded", apply);
+                    } else {
+                        apply();
+                    }
+                })();
+            </script>
+
+        </header>
+
+        <!-- === PYRAMID MOBILE MENU OVERLAY (begin) === -->
+        <!-- Self-contained mobile menu loader. Builds the overlay HTML at
+             runtime and only activates at viewport ≤991px. On desktop it
+             does nothing — the existing nav is untouched. To roll back:
+             remove this block, run scripts/apply_templates.py, delete
+             js/pyramid-mobile-menu.js, and remove the CSS block bounded
+             by "PYRAMID MOBILE MENU OVERLAY — BEGIN/END" markers in
+             css/styles.css. See MOBILE_MENU_ROLLBACK.md. -->
+        <script src="../js/pyramid-mobile-menu.js" defer></script>
+        <!-- === PYRAMID MOBILE MENU OVERLAY (end) === -->
+        <!-- TEMPLATE:header:END -->
+        <main>
+            
+             
+            <section data-w-id="c65c44b5-a0f9-4bc9-b145-a93023e5ed9e">
+                <div class="w-layout-blockcontainer container w-container">
+                    <div data-w-id="bd342041-b33e-7362-d09c-7ae80db03d5e" class="social-hero_content-block">
+                        <div class="hero_text-button is--social-hero">
+                            <div class="hero_texts-wrap is--inner">
+                                <div class="upheader">
+                                    <div class="upheader_icon">
+                                        <img src="../images/newPyramidLogoIcon.png" />
+                                    </div>
+                                    <p>We're hiring</p>
+                                </div>
+                                <h1 lines-animation="" class="h1-hero"><span>Pick your</span><br/><span class="text-gradient">next mission.</span></h1>
+                                <div class="hero_subheader is--social">
+                                    <p lines-animation="">
+                                        Pyramid is an <span class="text-span-19">employee-owned federal IT firm</span>
+                                        with three decades of mission-critical delivery for civilian agencies. Open roles span <span class="text-span-20">engineering, cybersecurity, cloud, AI/ML, and program management</span>.
+                                        <br/><br/>Listings update live below. Applications go straight to a Pyramid hiring manager, not a bot.
+                                    </p>
+                                </div>
+                            </div>
+                            <a href="#open-positions" class="button arrow-animation w-inline-block" id="hero-browse-roles-cta">
+                                <div class="button_inner-wrap">
+                                    <div>Browse open roles</div>
+                                    <div class="button-arrow is--main">
+                                        <!-- Down-arrow (south) to signal the CTA scrolls down to the
+                                             jobs section below. Matches the upper-right arrow visual
+                                             system used site-wide, but pointed toward "south" so it
+                                             reads as a scroll-to-section affordance rather than an
+                                             outbound link. -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 14 14" fill="none">
+                                            <path d="M3.49997 3.49997L10.9667 10.9667" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="round"></path>
+                                            <path d="M11.2002 5.20936V11.2002H5.20936" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="hero-dots is--4">
+                            <img src="../images/imported-from-webflow/680359144aaf391f45e21aec_dots_4.avif" loading="eager" width="286" height="163" alt="" class="i-100"/>
+                        </div>
+                        <div class="hero_bg-wrap">
+                            <img src="../images/heroBGTest.png" loading="lazy" sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"  alt="" class="i-100"/>
+                        </div>
+                    </div>
+                </div>
+            </section>
+       
+            
+            
+            <section>
+                <div class="w-layout-blockcontainer container w-container">
+                    <div class="process_content-block">
+                        <div class="reviews_texts-wrap">
+                            <div class="upheader">
+                                <div class="upheader_icon">
+                                    <img src="../images/pyramidIcon.png" />
+                                </div>
+                                <p lines-animation="">What happens next</p>
+                            </div>
+                            <h2 lines-animation="" class="h2--system">
+                                Our hiring <span class="text-gradient">process.</span>
+                            </h2>
+                            <div class="process--subheading">
+                                <p lines-animation="">
+                                    Four steps. Three to four weeks for most roles. You'll talk to humans, not chatbots at every stage. 
+                                </p>
+                            </div>
+                            <div class="review_dots">
+                                <img src="../images/wf/680359143d96b2fa3c7c23a1_dots 3.avif" loading="lazy" width="286" height="163" alt="" class="image-2"/>
+                            </div>
+                        </div>
+                        <div data-w-id="bc87fe6b-8aec-3ff1-ccec-46df22b7b41b" class="process_content-wrap-copy">
+                            <div class="process_card-wrap">
+                                <div class="process-card_number-line">
+                                    <div class="process_number-wrap">
+                                        <div class="process-number">
+                                            <div class="text-gradient">01</div>
+                                        </div>
+                                        <div class="process-number_circles">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 98 98" fill="none">
+                                                <rect x="1" y="1" width="96" height="96" rx="48" stroke="#F4F5F9" stroke-opacity="0.08" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.01 10.01"></rect>
+                                                <circle cx="1" cy="49" r="1" fill="#F4F5F9"></circle>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="process-card_line">
+                                        <div data-w-id="bc87fe6b-8aec-3ff1-ccec-46df22b7b428" class="process-line_gradient-line is--1"></div>
+                                    </div>
+                                </div>
+                                <div class="process-card_texts-wrap">
+                                    <h2 lines-animation="" class="h2--32">Apply</h2>
+                                    <p lines-animation="">Submit your resume through the listing above. No cover letter required. LinkedIn link is fine.</p>
+                                </div>
+                            </div>
+                            <div class="process_card-wrap">
+                                <div class="process-card_number-line">
+                                    <div class="process_number-wrap">
+                                        <div class="process-number">
+                                            <div class="text-gradient">02</div>
+                                        </div>
+                                        <div class="process-number_circles">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 98 98" fill="none">
+                                                <rect x="1" y="1" width="96" height="96" rx="48" stroke="#F4F5F9" stroke-opacity="0.08" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.01 10.01"></rect>
+                                                <circle cx="1.6665" cy="50" r="1" fill="#F4F5F9"></circle>
+                                                <circle cx="15.6665" cy="16" r="1" fill="#F4F5F9"></circle>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="process-card_line">
+                                        <div data-w-id="bc87fe6b-8aec-3ff1-ccec-46df22b7b43c" class="process-line_gradient-line is--2"></div>
+                                    </div>
+                                </div>
+                                <div class="process-card_texts-wrap">
+                                    <h2 lines-animation="" class="h2--32">Recruiter call</h2>
+                                    <p lines-animation="">A 30-minute conversation with our talent team about the role, the work, comp, and what you're looking for next.</p>
+                                </div>
+                            </div>
+                            <div class="process_card-wrap">
+                                <div class="process-card_number-line">
+                                    <div class="process_number-wrap">
+                                        <div class="process-number">
+                                            <div class="text-gradient">03</div>
+                                        </div>
+                                        <div class="process-number_circles">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 98 98" fill="none">
+                                                <rect x="1" y="1" width="96" height="96" rx="48" stroke="#F4F5F9" stroke-opacity="0.08" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.01 10.01"></rect>
+                                                <circle cx="1" cy="49" r="1" fill="#F4F5F9"></circle>
+                                                <circle cx="15" cy="15" r="1" fill="#F4F5F9"></circle>
+                                                <circle cx="49" cy="1" r="1" fill="#F4F5F9"></circle>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="process-card_line">
+                                        <div data-w-id="bc87fe6b-8aec-3ff1-ccec-46df22b7b451" class="process-line_gradient-line is--3"></div>
+                                    </div>
+                                </div>
+                                <div class="process-card_texts-wrap">
+                                    <h2 lines-animation="" class="h2--32">Team interview</h2>
+                                    <p lines-animation="">Meet your future hiring manager and one or two teammates. Technical discussion, project walk-through, and Q&amp;A on both sides.</p>
+                                </div>
+                            </div>
+                            <div class="process_card-wrap">
+                                <div class="process-card_number-line">
+                                    <div class="process_number-wrap">
+                                        <div class="process-number">
+                                            <div class="text-gradient">04</div>
+                                        </div>
+                                        <div class="process-number_circles">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 98 98" fill="none">
+                                                <rect x="1" y="1" width="96" height="96" rx="48" stroke="#F4F5F9" stroke-opacity="0.08" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.01 10.01"></rect>
+                                                <path d="M84 15C84 15.5523 83.5523 16 83 16C82.4477 16 82 15.5523 82 15C82 14.4477 82.4477 14 83 14C83.5523 14 84 14.4477 84 15Z" fill="#F4F5F9"></path>
+                                                <circle cx="1" cy="49" r="1" fill="#F4F5F9"></circle>
+                                                <circle cx="15" cy="15" r="1" fill="#F4F5F9"></circle>
+                                                <circle cx="49" cy="1" r="1" fill="#F4F5F9"></circle>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="process-card_line">
+                                        <div data-w-id="bc87fe6b-8aec-3ff1-ccec-46df22b7b467" class="process-line_gradient-line is--4"></div>
+                                    </div>
+                                </div>
+                                <div class="process-card_texts-wrap">
+                                    <h2 lines-animation="" class="h2--32">Offer</h2>
+                                    <p lines-animation="">If we're a fit, you'll have an offer within a few business days. We share total comp clearly, including ESOP value.</p>
+                                </div>
+                            </div>
+                            
+                           
+                          
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+
+            <section id="open-positions" class="section-white" style="scroll-margin-top: 90px;">
+                <div class="w-layout-blockcontainer container w-container">
+                    <div class="faq_content-block">
+                        <div class="faq_texts-wrap">
+                            <div class="upheader">
+                                <div class="upheader_icon is--black">
+                                    <img src="../images/pyramidIcon.png" />
+                                </div>
+                                <p lines-animation="">Current openings</p>
+                            </div>
+                            <h2 lines-animation="" class="heading-9">
+                                <span class="t-color_blue">Find your</span>
+                                next role
+                            </h2>
+                            <p lines-animation="" class="t--faq-subheading">
+                                Live listings from our recruiting system. Filter by team, location, or clearance level. Applications are reviewed by a Pyramid hiring manager, not a bot.
+                            </p>
+                        </div>
+
+                        <!-- iCIMS jobs board: wrapped in a pure-white card to hide the
+                             seam between section-white (#f4f5f9) and the iframe's white
+                             body, and width-capped so the listings are comfortably
+                             readable on wide desktops. -->
+                        <div class="jobs-board_card">
+                           <iframe id="icims_content_iframe" name="icims_content_iframe" src="https://careers-pyramidsystems.icims.com/jobs/search?ss=1&hashed=-435624414&mobile=false&width=1903&height=500&bga=true&needsRedirect=false&jan1offset=-300&jun1offset=-240&in_iframe=1" style="width: 100%;border: none;margin: 0px;display:block;" height="817" title="Open positions at Pyramid Systems" spellcheck="false"></iframe>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Smooth-scroll for the hero CTA. Scoped to #hero-browse-roles-cta
+                 only so it doesn't touch any other in-page anchor behavior site-wide.
+                 Falls back to the browser's default jump if JS is disabled. -->
+            <script>
+                (function () {
+                    document.addEventListener('DOMContentLoaded', function () {
+                        var cta = document.getElementById('hero-browse-roles-cta');
+                        var target = document.getElementById('open-positions');
+                        if (!cta || !target) return;
+                        cta.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            // Keep the URL hash in sync so a back-button click returns to the top.
+                            if (history.pushState) {
+                                history.pushState(null, '', '#open-positions');
+                            }
+                        });
+                    });
+                })();
+            </script>
+        </main>
+        <!-- TEMPLATE:footer:START -->
+        <footer class="footer">
+            <div class="w-layout-blockcontainer container w-container">
+                <div class="footer_navigation-wrap">
+                    
+                    
+                    <div class="footer_navigation-row is--contact">
+                        <div class="footer_navigation-title">
+                            <div class="navigation-dot"></div>
+                            <p>Contact</p>
+                        </div>
+                        <div class="footer_navigation-links">
+                            
+                            <a href="tel:+1703.553.0800" class="footer_navigation-link is--contact w-inline-block">
+                                <div class="contact-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 20 20" fill="none">
+                                        <path d="M3.14737 9.95229C2.35735 8.57475 1.97589 7.44989 1.74588 6.30967C1.4057 4.62331 2.18419 2.976 3.47383 1.92489C4.01889 1.48064 4.64371 1.63242 4.96602 2.21066L5.69367 3.51608C6.27042 4.5508 6.5588 5.06815 6.5016 5.61665C6.4444 6.16515 6.05549 6.61188 5.27766 7.50533L3.14737 9.95229Z" fill="#F4F5F9" fill-opacity="0.04"></path>
+                                        <path d="M10.0474 16.8523C11.4249 17.6423 12.5498 18.0238 13.69 18.2538C15.3764 18.594 17.0237 17.8155 18.0748 16.5258C18.519 15.9808 18.3673 15.356 17.789 15.0337L16.4836 14.306C15.4489 13.7293 14.9315 13.4409 14.383 13.4981C13.8345 13.5553 13.3878 13.9442 12.4943 14.722L10.0474 16.8523Z" fill="#F4F5F9" fill-opacity="0.04"></path>
+                                        <path d="M3.14737 9.95229C2.35735 8.57475 1.97589 7.44989 1.74588 6.30967C1.4057 4.62331 2.18419 2.976 3.47383 1.92489C4.01889 1.48064 4.64371 1.63242 4.96602 2.21066L5.69367 3.51608C6.27042 4.5508 6.5588 5.06815 6.5016 5.61665C6.4444 6.16515 6.05549 6.61188 5.27766 7.50533L3.14737 9.95229ZM3.14737 9.95229C4.74644 12.7406 7.25588 15.2514 10.0474 16.8523M10.0474 16.8523C11.4249 17.6423 12.5498 18.0238 13.69 18.2538C15.3764 18.594 17.0237 17.8155 18.0748 16.5258C18.519 15.9808 18.3673 15.356 17.789 15.0337L16.4836 14.306C15.4489 13.7293 14.9315 13.4409 14.383 13.4981C13.8345 13.5553 13.3878 13.9442 12.4943 14.722L10.0474 16.8523Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"></path>
+                                    </svg>
+                                </div>
+                                <div>703.553.0800</div>
+                            </a>
+                            <a href="mailto:info@pyramidsystems.com" class="footer_navigation-link is--contact w-inline-block">
+                                <div class="contact-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 20 20" fill="none">
+                                        <path d="M14.166 17.0837H5.83268C3.33268 17.0837 1.66602 15.8337 1.66602 12.917V7.08366C1.66602 4.16699 3.33268 2.91699 5.83268 2.91699H14.166C16.666 2.91699 18.3327 4.16699 18.3327 7.08366V12.917C18.3327 15.8337 16.666 17.0837 14.166 17.0837Z" fill="#F4F5F9" fill-opacity="0.04" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M14.1673 7.5L11.559 9.58333C10.7006 10.2667 9.29231 10.2667 8.43398 9.58333L5.83398 7.5" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>
+                                </div>
+                                <div>info@pyramidsystems.com</div>
+                            </a>
+                            <a href="https://www.google.com/maps/place/Pyramid+Systems+Inc/@38.8807463,-77.2358008,17z/data=!3m1!4b1!4m6!3m5!1s0x89b64bf53ceee7af:0x708f2f1b368b631b!8m2!3d38.8807422!4d-77.2332259!16s%2Fg%2F1v_z9sv0?entry=ttu&g_ep=EgoyMDI2MDQwNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="footer_navigation-link is--contact w-inline-block">
+                                <div class="contact-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 20 20" fill="none">
+                                        <path d="M10.0004 11.1912C11.4363 11.1912 12.6004 10.0272 12.6004 8.59121C12.6004 7.15527 11.4363 5.99121 10.0004 5.99121C8.56445 5.99121 7.40039 7.15527 7.40039 8.59121C7.40039 10.0272 8.56445 11.1912 10.0004 11.1912Z" stroke="currentColor" stroke-width="1.2"></path>
+                                        <path d="M3.01675 7.07533C4.65842 -0.141339 15.3501 -0.133006 16.9834 7.08366C17.9418 11.317 15.3084 14.9003 13.0001 17.117C11.3251 18.7337 8.67508 18.7337 6.99175 17.117C4.69175 14.9003 2.05842 11.3087 3.01675 7.07533Z" fill="#F4F5F9" fill-opacity="0.04" stroke="currentColor" stroke-width="1.2"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    2677 Prosperity Ave, <br/>Suite 250, Fairfax, VA 22031
+                                </div>
+                            </a>
+
+                        </div>
+                        
+                        
+                    </div>
+                    
+                    <!-- WHO WE SERVE FOOTER COLUMN — HIDDEN 2026-05-22.
+                         Rationale: no agency-segment content exists yet, and the
+                         "Department of War" bucket isn't backed by past performance.
+                         Restore when dedicated segment pages are written.
+                    <div class="footer_navigation-row">
+                        <div class="footer_navigation-title">
+                            <div class="navigation-dot"></div>
+                            <p>Who We Serve</p>
+                        </div>
+                        <div class="footer_navigation-links">
+                            <a data-cta="vertical_financial_regulators" data-cta-location="nav_dropdown" href="../services/index.html?utm_source=site_nav&utm_medium=vertical_link&utm_campaign=federal_civilian" aria-current="page" class="footer_navigation-link w-inline-block w--current">
+                                <div>Federal Civilian Agencies</div>
+                            </a>
+                            <a data-cta="vertical_department_of_war" data-cta-location="nav_dropdown" href="../services/index.html?utm_source=site_nav&utm_medium=vertical_link&utm_campaign=financial_regulators" class="footer_navigation-link w-inline-block">
+                                <div>Financial Regulators</div>
+                            </a>
+                            <a href="../services/index.html?utm_source=site_nav&utm_medium=vertical_link&utm_campaign=department_of_war" class="footer_navigation-link w-inline-block">
+                                <div>Department of War</div>
+                            </a>
+                            <a href="../contract-vehicles/index.html" class="footer_navigation-link w-inline-block">
+                                <div>Contract Vehicles</div>
+                            </a>
+                        </div>
+                    </div>
+                    -->
+                    <div class="footer_navigation-row">
+                        <div class="footer_navigation-title">
+                            <div class="navigation-dot"></div>
+                            <p>Services</p>
+                        </div>
+                        <div class="footer_navigation-links">
+                            <a href="../services/index.html" class="footer_navigation-link w-inline-block">
+                                <div>All Services</div>
+                            </a>
+                            <a href="../services/modernization.html" class="footer_navigation-link w-inline-block">
+                                <div>Modernization</div>
+                            </a>
+                            <a href="../services/cloud.html" class="footer_navigation-link w-inline-block">
+                                <div>Cloud</div>
+                            </a>
+                            <a href="../services/cybersecurity.html" class="footer_navigation-link w-inline-block">
+                                <div>Cybersecurity</div>
+                            </a>
+                            <a href="../services/devsecops.html" class="footer_navigation-link w-inline-block">
+                                <div>DevSecOps</div>
+                            </a>
+                            <a href="../services/analytics-ai.html" class="footer_navigation-link w-inline-block">
+                                <div>Analytics &amp; AI</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer_navigation-row">
+                        <div class="footer_navigation-title">
+                            <div class="navigation-dot"></div>
+                            <p>Contract Vehicles</p>
+                        </div>
+                        <div class="footer_navigation-links">
+                            <a href="../contract-vehicles/index.html" class="footer_navigation-link w-inline-block">
+                                <div>How to procure us</div>
+                            </a>
+                            <a href="../contract-vehicles/gsa-it-schedule-70.html" class="footer_navigation-link w-inline-block">
+                                <div>GSA IT Schedule 70</div>
+                            </a>
+                            <a href="../contract-vehicles/gsa-oasis-plus.html" class="footer_navigation-link w-inline-block">
+                                <div>GSA OASIS+ Unrestricted</div>
+                            </a>
+                            <a href="../contract-vehicles/gsa-8a-stars-iii.html" class="footer_navigation-link w-inline-block">
+                                <div>GSA 8(a) STARS III</div>
+                            </a>
+                            <a href="../contract-vehicles/hhs-cms-sparc.html" class="footer_navigation-link w-inline-block">
+                                <div>HHS CMS SPARC</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer_navigation-row">
+                        <div class="footer_navigation-title">
+                            <div class="navigation-dot"></div>
+                            <p>Company</p>
+                        </div>
+                        <div class="footer_navigation-links">
+                            <a href="../about-us/index.html" class="footer_navigation-link w-inline-block">
+                                <div>About Pyramid</div>
+                            </a>
+                            <a href="../about-us/partners/index.html" class="footer_navigation-link w-inline-block">
+                                <div>Partners</div>
+                            </a>
+                            <a href="../about-us/certifications/index.html" class="footer_navigation-link w-inline-block">
+                                <div>Certifications</div>
+                            </a>
+                            <a href="../careers/index.html" class="footer_navigation-link w-inline-block">
+                                <div>Careers</div>
+                            </a>
+                            <a href="../insights/news/index.html" class="footer_navigation-link w-inline-block">
+                                <div>News</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer_navigation-row is--social">
+                        <div class="footer_navigation-title">
+                            <div class="navigation-dot"></div>
+                            <p>Lets Get Social</p>
+                        </div>
+                        <div class="footer_social-wrap">
+                            <a href="https://x.com/PyramidSystems" target="_blank" rel="noopener" aria-label="Pyramid Systems on X" class="footer_social w-inline-block">
+                                <div class="footer-social_icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-x"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 4l11.733 16h4.267l-11.733 -16l-4.267 0" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg>
+                                </div>
+                            </a>
+                            <div class="footer-social_divider-dot"></div>
+                            <a href="https://www.facebook.com/pyramidsystems" target="_blank" rel="noopener" aria-label="Pyramid Systems on Facebook" class="footer_social w-inline-block">
+                                <div class="footer-social_icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-facebook"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg>
+                                </div>
+                            </a>
+                            <div class="footer-social_divider-dot"></div>
+                            <a href="https://www.instagram.com/pyramidsystemsinc/" target="_blank" rel="noopener" aria-label="Pyramid Systems on Instagram" class="footer_social w-inline-block">
+                                <div class="footer-social_icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4l0 -8" /><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M16.5 7.5v.01" /></svg>
+                                </div>
+                            </a>
+                            <div class="footer-social_divider-dot"></div>
+                            <a href="https://www.linkedin.com/company/pyramidsystems/" target="_blank" rel="noopener" aria-label="Pyramid Systems on LinkedIn" class="footer_social w-inline-block">
+                                <div class="footer-social_icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-linkedin"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4l0 -10" /></svg>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer_copyright-text">
+                        Copyright 2026
+                        <a href="../index.html" class="w--current">
+                            <span class="text-span-27">Pyramid Systems</span>
+                        </a>
+                        <div class="footer_legal-links">
+                            <a href="../privacy/index.html">Privacy Policy</a>
+                            <span aria-hidden="true">&middot;</span>
+                            <a href="../terms-of-use/index.html">Terms of Use</a>
+                        <span aria-hidden="true">&middot;</span>
+                        <a href="#" data-pc-action="open-prefs" onclick="if(window.PyramidConsent&amp;&amp;window.PyramidConsent.open){window.PyramidConsent.open();}return false;">Cookie Preferences</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_vector">
+                <img src="../images/footerLogoCenter.png" loading="lazy" alt="" class="i-100"/>
+            </div>
+        </footer>
+        <!-- TEMPLATE:footer:END -->
+        <script src="../js/jquery-3.5.1.min.dc5e7f18c8.js" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        <script src="../js/webflow.schunk.36b8fb49256177c8.js" type="text/javascript" integrity="sha384-4abIlA5/v7XaW1HMXKBgnUuhnjBYJ/Z9C1OSg4OhmVw9O3QeHJ/qJqFBERCDPv7G" crossorigin="anonymous"></script>
+        <script src="../js/6204f98b.merged.js" type="text/javascript"></script>
+        <script src="../js/gsap.min.js" type="text/javascript"></script>
+        <script src="../js/ScrollTrigger.min.js" type="text/javascript"></script>
+        <script src="../js/SplitText.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            gsap.registerPlugin(ScrollTrigger, SplitText);
+        </script>
+  
+        <script src="../js/lenis.min.js"></script>
+        <script async src="../js/cmsfilter.js"></script>
+        <script>
+            // LENIS SMOOTH SCROLL
+            let lenis;
+            if (Webflow.env("editor") === undefined) {
+                lenis = new Lenis({
+                    lerp: 0.1,
+                    wheelMultiplier: 0.7,
+                    gestureOrientation: "vertical",
+                    normalizeWheel: false,
+                    smoothTouch: false
+                });
+                function raf(time) {
+                    lenis.raf(time);
+                    requestAnimationFrame(raf);
+                }
+                requestAnimationFrame(raf);
+            }
+            $("[data-lenis-start]").on("click", function() {
+                lenis.start();
+            });
+            $("[data-lenis-stop]").on("click", function() {
+                lenis.stop();
+            });
+            $("[data-lenis-toggle]").on("click", function() {
+                $(this).toggleClass("stop-scroll");
+                if ($(this).hasClass("stop-scroll")) {
+                    lenis.stop();
+                } else {
+                    lenis.start();
+                }
+            });
+        </script>
+        <script>
+            gsap.registerPlugin(ScrollTrigger, SplitText);
+
+            // Wait for custom fonts to load before SplitText measures text.
+            // Otherwise SplitText picks fallback-font widths, the real font
+            // swaps in, and the pre-computed line wrappers lock in the wrong
+            // widths — text mid-paragraph wraps at random word boundaries.
+            (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(function () {
+
+            // 1. Lines animation (from bottom to top)
+            // autoSplit: true uses ResizeObserver to RECOMPUTE line breaks when
+            // the container width changes or fonts finish loading after the
+            // initial split. Without this, SplitText calculates line widths
+            // ONCE at page load and locks in the wrong breaks — producing the
+            // recurring "weird-wrap" bug where prose mid-paragraph breaks at
+            // random spots like "— not / a sales pitch".
+            // onSplit returns the animation so SplitText can clean up and
+            // re-run it on every re-split. mask:'lines' clips each line so
+            // there's no FOUC during the animation.
+            document.querySelectorAll('[lines-animation]').forEach(el => {
+                SplitText.create(el, {
+                    type: 'lines',
+                    autoSplit: true,
+                    onSplit: function (self) {
+                        return gsap.from(self.lines, {
+                            scrollTrigger: {
+                                trigger: el,
+                                start: 'top 80%',
+                                toggleActions: 'play none none none',
+                            },
+                            y: 80,
+                            opacity: 0,
+                            ease: 'power3.out',
+                            duration: 0.8,
+                            stagger: { each: 0.1 }
+                        });
+                    }
+                });
+            });
+
+            // 2. Transparent word-by-word scroll-dependent animation
+            document.querySelectorAll('[transparent-animation]').forEach(el => {
+                const split = SplitText.create(el, {
+                    type: 'words'
+                });
+
+                // Set initial semi-transparent state
+                gsap.set(split.words, {
+                    opacity: 0.3
+                });
+
+                // Animate each word based on scroll progress
+                split.words.forEach(word => {
+                    ScrollTrigger.create({
+                        trigger: word,
+                        start: 'top 90%',
+                        end: 'top 40%',
+                        scrub: true,
+                        onUpdate: self => {
+                            gsap.to(word, {
+                                opacity: gsap.utils.mapRange(0, 1, 0.3, 1, self.progress),
+                                ease: 'none',
+                                overwrite: 'auto'
+                            });
+                        }
+                    });
+                }
+                );
+            }
+            );
+
+            });
+        </script>
+        <link rel="stylesheet" href="../css/swiper-bundle.min.css"/>
+        <script src="../js/swiper-bundle.min.js"></script>
+        <script>
+            const swiper = new Swiper('.swiper.is--reviews',{
+                slidesPerView: 1,
+                spaceBetween: 0,
+                speed: 750,
+                loop: true,
+                grabCursor: true,
+                allowTouchMove: true,
+
+                effect: 'creative',
+                creativeEffect: {
+                    prev: {
+                        translate: ['-30%', '-10%', -100],
+                        opacity: 0,
+                        scale: 0.9,
+                    },
+                    next: {
+                        translate: ['30%', '10%', -100],
+                        opacity: 0,
+                        scale: 1.1,
+                    },
+                },
+
+                navigation: {
+                    nextEl: '.review-btn---next',
+                    prevEl: '.review-btn---prev',
+                    disabledClass: 'is--disabled',
+                },
+
+                pagination: {
+                    el: '.review-slider_pagination',
+                    clickable: true,
+                    bulletClass: 'slider-pagination',
+                    bulletActiveClass: 'pagination--active',
+                },
+            });
+        </script>
+        <script>
+            let caseSwiper;
+
+            function initCaseSwiper() {
+                const isMobile = window.innerWidth < 991;
+
+                if (isMobile && !caseSwiper) {
+                    caseSwiper = new Swiper('.swiper.is--case',{
+                        slidesPerView: 1,
+                        spaceBetween: 0,
+                        speed: 500,
+                        loop: false,
+                        allowTouchMove: true,
+                        grabCursor: true,
+
+                        navigation: {
+                            nextEl: '.case-btn--next',
+                            prevEl: '.case-btn--prev',
+                            disabledClass: 'is--disabled',
+                        },
+                    });
+                }
+
+                if (!isMobile && caseSwiper) {
+                    caseSwiper.destroy(true, true);
+                    caseSwiper = undefined;
+                }
+            }
+
+            window.addEventListener('load', initCaseSwiper);
+            window.addEventListener('resize', initCaseSwiper);
+        </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const accordionWrapper = document.querySelector('.accordions_content-wrap');
+                if (!accordionWrapper) {
+                    /* FAQ accordion not on this page — exit silently */
+                    return;
+                }
+                const accordions = accordionWrapper.querySelectorAll('.accordion');
+
+                // INITIAL SETUP
+                accordions.forEach(acc => {
+                    const textWrap = acc.querySelector('.accordion_text-wrap');
+                    if (textWrap) {
+                        if (acc.classList.contains('is--opened')) {
+                            textWrap.style.height = textWrap.scrollHeight + 'px';
+                            // After a short delay, set height to auto
+                            setTimeout( () => {
+                                textWrap.style.height = 'auto';
+                            }
+                            , 10);
+                        } else {
+                            textWrap.style.height = '0px';
+                        }
+                    }
+                }
+                );
+
+                accordionWrapper.addEventListener('click', function(event) {
+                    const heading = event.target.closest('.accordion_heading');
+                    if (heading) {
+                        const currentAccordion = heading.closest('.accordion');
+
+                        if (currentAccordion) {
+                            const currentTextWrap = currentAccordion.querySelector('.accordion_text-wrap');
+
+                            if (currentAccordion.classList.contains('is--opened')) {
+                                // Closing current opened accordion
+                                currentAccordion.classList.remove('is--opened');
+                                if (currentTextWrap) {
+                                    currentTextWrap.style.height = currentTextWrap.scrollHeight + 'px';
+                                    // Reset to exact px before collapsing
+                                    requestAnimationFrame( () => {
+                                        currentTextWrap.style.height = '0px';
+                                    }
+                                    );
+                                }
+                            } else {
+                                // Close all other accordions
+                                accordions.forEach(acc => {
+                                    if (acc !== currentAccordion) {
+                                        acc.classList.remove('is--opened');
+                                        const otherTextWrap = acc.querySelector('.accordion_text-wrap');
+                                        if (otherTextWrap) {
+                                            otherTextWrap.style.height = otherTextWrap.scrollHeight + 'px';
+                                            // Reset height from auto to px
+                                            requestAnimationFrame( () => {
+                                                otherTextWrap.style.height = '0px';
+                                            }
+                                            );
+                                        }
+                                    }
+                                }
+                                );
+
+                                // Open clicked accordion
+                                currentAccordion.classList.add('is--opened');
+                                if (currentTextWrap) {
+                                    currentTextWrap.style.height = '0px';
+                                    // reset first
+                                    requestAnimationFrame( () => {
+                                        currentTextWrap.style.height = currentTextWrap.scrollHeight + 'px';
+                                    }
+                                    );
+
+                                    // After transition end, set height to auto
+                                    currentTextWrap.addEventListener('transitionend', function handleTransitionEnd() {
+                                        if (currentAccordion.classList.contains('is--opened')) {
+                                            currentTextWrap.style.height = 'auto';
+                                        }
+                                        currentTextWrap.removeEventListener('transitionend', handleTransitionEnd);
+                                    });
+                                }
+                            }
+                        }
+                    }
+                });
+            });
+        </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                // === UTILS ===
+                function getPercentFromValue(value, min, max) {
+                    return ((value - min) / (max - min)) * 100;
+                }
+
+                function getValueFromPercent(percent, min, max) {
+                    const raw = (percent / 100) * (max - min) + min;
+                    return Math.round(raw / 10) * 10;
+                    // ❗ округлення до найближчого десятка
+                }
+
+                function getPercentFromPosition(x, element) {
+                    const rect = element.getBoundingClientRect();
+                    let percent = ((x - rect.left) / rect.width) * 100;
+                    return Math.min(100, Math.max(0, percent));
+                }
+
+                function formatEuro(val) {
+                    return "$" + val.toLocaleString("en-US");
+                }
+
+                // === EMPLOYEES SLIDER ===
+                const empMinInput = document.querySelector(".empl-min");
+                const empMaxInput = document.querySelector(".empl-max");
+                const empActiveLine = document.querySelector(".range_line-active");
+                const empMinTrigger = document.querySelector(".empl--trig-min");
+                const empMaxTrigger = document.querySelector(".empl--trig-max");
+                if (!empActiveLine || !empMinInput || !empMaxInput || !empMinTrigger || !empMaxTrigger) {
+                    /* Slider DOM not present on this page — exit silently */
+                    return;
+                }
+                const empWrapper = empActiveLine.parentElement;
+
+                let empDragging = null;
+                const empMin = 1;
+                const empMax = 999;
+
+                function updateEmployees(min, max) {
+                    const minP = getPercentFromValue(min, empMin, empMax);
+                    const maxP = getPercentFromValue(max, empMin, empMax);
+
+                    empActiveLine.style.left = `${minP}%`;
+                    empActiveLine.style.width = `${maxP - minP}%`;
+
+                    empMinTrigger.style.left = `0%`;
+                    empMaxTrigger.style.right = `0%`;
+
+                    empMinInput.value = min;
+                    empMaxInput.value = max;
+
+                    const output = document.querySelector("#employee-output");
+                    if (output)
+                        output.textContent = `${min}–${max} Mitarbeiter`;
+                }
+
+                function moveEmployees(e) {
+                    if (!empDragging)
+                        return;
+                    const x = e.clientX || (e.touches && e.touches[0].clientX);
+                    const percent = getPercentFromPosition(x, empWrapper);
+                    const value = getValueFromPercent(percent, empMin, empMax);
+                    const currentMin = parseInt(empMinInput.value);
+                    const currentMax = parseInt(empMaxInput.value);
+
+                    if (empDragging === "min" && value < currentMax)
+                        updateEmployees(value, currentMax);
+                    if (empDragging === "max" && value > currentMin)
+                        updateEmployees(currentMin, value);
+                }
+
+                function stopEmpDrag() {
+                    empDragging = null;
+                    document.removeEventListener("mousemove", moveEmployees);
+                    document.removeEventListener("touchmove", moveEmployees);
+                    document.removeEventListener("mouseup", stopEmpDrag);
+                    document.removeEventListener("touchend", stopEmpDrag);
+                }
+
+                function startEmpDrag(which) {
+                    empDragging = which;
+                    document.addEventListener("mousemove", moveEmployees);
+                    document.addEventListener("touchmove", moveEmployees);
+                    document.addEventListener("mouseup", stopEmpDrag);
+                    document.addEventListener("touchend", stopEmpDrag);
+                }
+
+                empMinTrigger.addEventListener("mousedown", () => startEmpDrag("min"));
+                empMaxTrigger.addEventListener("mousedown", () => startEmpDrag("max"));
+                empMinTrigger.addEventListener("touchstart", () => startEmpDrag("min"));
+                empMaxTrigger.addEventListener("touchstart", () => startEmpDrag("max"));
+
+                updateEmployees(10, 100);
+
+                // === BUDGET SLIDER ===
+                const budgMinInput = document.querySelector(".budg-min");
+                const budgMaxInput = document.querySelector(".budg-max");
+                const budgActiveLine = document.querySelector(".budget_line-active");
+                const budgMinTrigger = document.querySelector(".budg-trig--min");
+                const budgMaxTrigger = document.querySelector(".budg-trig--max");
+                const budgWrapper = budgActiveLine.parentElement;
+
+                let budgDragging = null;
+                const budgMin = 1000;
+                const budgMax = 50000;
+
+                function updateBudget(min, max) {
+                    const minP = getPercentFromValue(min, budgMin, budgMax);
+                    const maxP = getPercentFromValue(max, budgMin, budgMax);
+
+                    budgActiveLine.style.left = `${minP}%`;
+                    budgActiveLine.style.width = `${maxP - minP}%`;
+
+                    budgMinTrigger.style.left = `0%`;
+                    budgMaxTrigger.style.right = `0%`;
+
+                    budgMinInput.value = min;
+                    budgMaxInput.value = max;
+
+                    const output = document.querySelector("#budget-output");
+                    if (output)
+                        output.textContent = `${formatEuro(min)}–${formatEuro(max)}`;
+                }
+
+                function moveBudget(e) {
+                    if (!budgDragging)
+                        return;
+                    const x = e.clientX || (e.touches && e.touches[0].clientX);
+                    const percent = getPercentFromPosition(x, budgWrapper);
+                    const value = getValueFromPercent(percent, budgMin, budgMax);
+                    const currentMin = parseInt(budgMinInput.value);
+                    const currentMax = parseInt(budgMaxInput.value);
+
+                    if (budgDragging === "min" && value < currentMax)
+                        updateBudget(value, currentMax);
+                    if (budgDragging === "max" && value > currentMin)
+                        updateBudget(currentMin, value);
+                }
+
+                function stopBudgDrag() {
+                    budgDragging = null;
+                    document.removeEventListener("mousemove", moveBudget);
+                    document.removeEventListener("touchmove", moveBudget);
+                    document.removeEventListener("mouseup", stopBudgDrag);
+                    document.removeEventListener("touchend", stopBudgDrag);
+                }
+
+                function startBudgDrag(which) {
+                    budgDragging = which;
+                    document.addEventListener("mousemove", moveBudget);
+                    document.addEventListener("touchmove", moveBudget);
+                    document.addEventListener("mouseup", stopBudgDrag);
+                    document.addEventListener("touchend", stopBudgDrag);
+                }
+
+                budgMinTrigger.addEventListener("mousedown", () => startBudgDrag("min"));
+                budgMaxTrigger.addEventListener("mousedown", () => startBudgDrag("max"));
+                budgMinTrigger.addEventListener("touchstart", () => startBudgDrag("min"));
+                budgMaxTrigger.addEventListener("touchstart", () => startBudgDrag("max"));
+
+                updateBudget(1000, 20000);
+            });
+        </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const nextBtn = document.querySelector(".form--next");
+                const backBtn = document.querySelector(".form-back");
+
+                const firstStep = document.querySelector(".form-wrap--first");
+                const secondStep = document.querySelector(".form-wrap--second");
+
+                const progressNumber = document.querySelector(".form-progress---number");
+                const progressBar = document.querySelector(".form-progress_active");
+
+                const doubleButtons = document.querySelector(".buttons--double");
+
+                // → NEXT STEP
+                if (!nextBtn) {
+                    /* Multi-step form not on this page — exit silently */
+                    return;
+                }
+                nextBtn.addEventListener("click", function(e) {
+                    e.preventDefault();
+
+                    firstStep.style.display = "none";
+                    secondStep.style.display = "flex";
+
+                    progressNumber.textContent = "2";
+                    progressBar.style.width = "100%";
+
+                    doubleButtons.style.display = "flex";
+                    nextBtn.style.display = "none";
+                });
+
+                // ← BACK TO STEP 1
+                backBtn.addEventListener("click", function(e) {
+                    e.preventDefault();
+
+                    firstStep.style.display = "flex";
+                    secondStep.style.display = "none";
+
+                    progressNumber.textContent = "1";
+                    progressBar.style.width = "50%";
+
+                    doubleButtons.style.display = "none";
+                    nextBtn.style.display = "block";
+                });
+            });
+        </script>
+        <script>
+            window.addEventListener('load', () => {
+                const wraps = document.querySelectorAll('.gradient-animation_wrap');
+                wraps.forEach( (wrap) => {
+                    wrap.style.animation = 'none';
+                    // Перезапуск анімації
+                    void wrap.offsetWidth;
+                    // trigger reflow
+                    wrap.style.animation = 'rotate 15s ease infinite';
+                }
+                );
+            }
+            );
+        </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var wraps = document.querySelectorAll(".u-drag-scroll");
+                if (!wraps.length)
+                    return;
+
+                var isDesktop = window.matchMedia("(min-width: 992px)");
+
+                wraps.forEach(function(wrap) {
+                    var track = wrap.querySelector(".u-drag-scroll_track");
+                    if (!track) {
+                        track = wrap.firstElementChild;
+                        if (!track)
+                            return;
+                        track.classList.add("u-drag-scroll_track");
+                    }
+
+                    var content = null;
+                    var dIsDown = false;
+                    var dStartX = 0;
+                    var dScrollStart = 0;
+
+                    function init() {
+                        if (isDesktop.matches) {
+                            setupDesktop();
+                        } else {
+                            setupMobile();
+                        }
+                    }
+
+                    function createWrapper() {
+                        content = track.querySelector(".u-drag-scroll_content");
+                        if (!content) {
+                            content = document.createElement("div");
+                            content.className = "u-drag-scroll_content";
+                            while (track.firstChild)
+                                content.appendChild(track.firstChild);
+                            track.appendChild(content);
+                        }
+                    }
+
+                    function destroyWrapper() {
+                        content = track.querySelector(".u-drag-scroll_content");
+                        if (content) {
+                            while (content.firstChild)
+                                track.appendChild(content.firstChild);
+                            content.remove();
+                            content = null;
+                        }
+                    }
+
+                    function setupDesktop() {
+                        createWrapper();
+
+                        content.style.display = "flex";
+                        content.style.width = "max-content";
+                        content.style.height = "auto";
+                        content.style.willChange = "transform";
+                        content.style.paddingLeft = "15vw";
+                        content.style.paddingRight = "15vw";
+                        content.style.boxSizing = "border-box";
+
+                        var contentWidth = content.scrollWidth;
+                        var viewWidth = window.innerWidth;
+                        var viewHeight = window.innerHeight;
+
+                        var scrollDist = contentWidth - viewWidth;
+                        if (scrollDist < 0)
+                            scrollDist = 0;
+
+                        wrap.style.height = (scrollDist + viewHeight) + "px";
+                        wrap.style.position = "relative";
+
+                        track.style.position = "sticky";
+                        track.style.top = "0";
+                        track.style.height = "100vh";
+                        track.style.width = "100%";
+                        track.style.overflow = "hidden";
+                        track.style.display = "flex";
+                        track.style.flexDirection = "column";
+                        track.style.justifyContent = "center";
+
+                        updateDesktopTransform();
+                        window.addEventListener("scroll", updateDesktopTransform, {
+                            passive: true
+                        });
+                        window.addEventListener("resize", onResizeDesktop);
+
+                        track.addEventListener("pointerdown", onDesktopDown);
+                        track.addEventListener("wheel", onDesktopWheel, {
+                            passive: false
+                        });
+                    }
+
+                    function setupMobile() {
+                        window.removeEventListener("scroll", updateDesktopTransform);
+                        window.removeEventListener("resize", onResizeDesktop);
+                        track.removeEventListener("pointerdown", onDesktopDown);
+                        track.removeEventListener("wheel", onDesktopWheel);
+
+                        destroyWrapper();
+
+                        wrap.style.height = "";
+                        wrap.style.position = "";
+
+                        track.style.position = "";
+                        track.style.top = "";
+                        track.style.height = "";
+                        track.style.width = "";
+                        track.style.overflow = "";
+                        track.style.display = "";
+                        track.style.flexDirection = "";
+                        track.style.justifyContent = "";
+                        track.style.cursor = "";
+                        track.style.transform = "";
+                    }
+
+                    function onResizeDesktop() {
+                        if (!isDesktop.matches)
+                            return;
+                        if (!content)
+                            return;
+
+                        var contentWidth = content.scrollWidth;
+                        var viewWidth = window.innerWidth;
+                        var viewHeight = window.innerHeight;
+                        var scrollDist = contentWidth - viewWidth;
+                        if (scrollDist < 0)
+                            scrollDist = 0;
+                        wrap.style.height = (scrollDist + viewHeight) + "px";
+                        updateDesktopTransform();
+                    }
+
+                    function updateDesktopTransform() {
+                        if (!isDesktop.matches || !content)
+                            return;
+
+                        var rect = wrap.getBoundingClientRect();
+                        var raw = -rect.top;
+
+                        var contentWidth = content.scrollWidth;
+                        var trackWidth = track.offsetWidth;
+                        var maxScroll = contentWidth - trackWidth;
+
+                        var x = Math.max(0, Math.min(raw, maxScroll));
+
+                        content.style.transform = "translate3d(" + (-x) + "px, 0, 0)";
+                    }
+
+                    function onDesktopWheel(e) {
+                        if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+                            e.preventDefault();
+                            window.scrollBy(0, e.deltaX);
+                        }
+                    }
+
+                    function onDesktopDown(e) {
+                        dIsDown = true;
+                        dStartX = e.clientX;
+                        dScrollStart = window.scrollY;
+                        track.setPointerCapture(e.pointerId);
+                        track.style.cursor = "grabbing";
+
+                        track.addEventListener("pointermove", onDesktopMove);
+                        track.addEventListener("pointerup", onDesktopUp);
+                        track.addEventListener("pointercancel", onDesktopUp);
+                    }
+
+                    function onDesktopMove(e) {
+                        if (!dIsDown)
+                            return;
+                        e.preventDefault();
+                        var dx = e.clientX - dStartX;
+                        window.scrollTo(0, dScrollStart - dx);
+                    }
+
+                    function onDesktopUp(e) {
+                        dIsDown = false;
+                        track.style.cursor = "";
+                        track.releasePointerCapture(e.pointerId);
+                        track.removeEventListener("pointermove", onDesktopMove);
+                        track.removeEventListener("pointerup", onDesktopUp);
+                        track.removeEventListener("pointercancel", onDesktopUp);
+                    }
+
+                    isDesktop.addListener(init);
+                    init();
+                });
+            });
+        </script>
+        <script src="../js/air-quire-mocks.js"></script>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+    </body>
+</<html>

@@ -1,0 +1,20 @@
+        <!-- Pyramid Systems accessibility widget — custom replacement for UserWay -->
+        <link rel="stylesheet" href="{{PREFIX}}css/pyramid-a11y.css">
+        <script>
+          /* Early-load: apply saved a11y settings before first paint so the page
+             doesn't flash unfiltered content when the user navigates between pages. */
+          (function () {
+            try {
+              var s = JSON.parse(localStorage.getItem('pyramid-a11y-settings') || '{}');
+              var c = document.documentElement.classList;
+              Object.keys(s).forEach(function (k) {
+                var v = s[k];
+                if (!v) return;
+                if (k === 'oversized') c.add('pa11y-oversized');
+                else if (typeof v === 'string') c.add('pa11y-' + k + '-' + v);
+                else c.add('pa11y-' + k);
+              });
+            } catch (e) {}
+          })();
+        </script>
+        <script src="{{PREFIX}}js/pyramid-a11y.js" defer></script>

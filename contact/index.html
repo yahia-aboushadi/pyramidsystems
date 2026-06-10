@@ -1,0 +1,1868 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <!-- Consent Mode v2 defaults MUST push to dataLayer BEFORE
+         the GTM head script runs. Loaded synchronously (no defer)
+         so gtag('consent','default',...) lands at dataLayer
+         index 0, before gtm.js. -->
+    <script src="../js/pyramid-consent.js"></script>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WSMBQZDP');</script>
+<!-- End Google Tag Manager -->
+
+        <link rel="icon" type="image/png" href="../images/newPyramidLogoIcon.png"/>
+        <link rel="apple-touch-icon" href="../images/newPyramidLogoIcon.png"/>
+
+        <!-- TEMPLATE:a11y_widget:START -->
+        <!-- Pyramid Systems accessibility widget — custom replacement for UserWay -->
+        <link rel="stylesheet" href="../css/pyramid-a11y.css">
+        <script>
+          /* Early-load: apply saved a11y settings before first paint so the page
+             doesn't flash unfiltered content when the user navigates between pages. */
+          (function () {
+            try {
+              var s = JSON.parse(localStorage.getItem('pyramid-a11y-settings') || '{}');
+              var c = document.documentElement.classList;
+              Object.keys(s).forEach(function (k) {
+                var v = s[k];
+                if (!v) return;
+                if (k === 'oversized') c.add('pa11y-oversized');
+                else if (typeof v === 'string') c.add('pa11y-' + k + '-' + v);
+                else c.add('pa11y-' + k);
+              });
+            } catch (e) {}
+          })();
+        </script>
+        <script src="../js/pyramid-a11y.js" defer></script>
+        <!-- TEMPLATE:a11y_widget:END -->
+
+        <!-- TEMPLATE:consent:START -->
+        <link rel="stylesheet" href="../css/pyramid-consent.css">
+        <!-- TEMPLATE:consent:END -->
+
+        <!-- TEMPLATE:attribution:START -->
+        <!-- Pyramid Systems UTM + attribution capture.
+             Loads on every page so when a visitor lands via a UTM-tagged
+             ad/email/QR, the params are stored in localStorage for 30
+             days. Any form on the site can then read them via
+             window.PyramidAttribution.getStored() at submit time. -->
+        <script src="../js/pyramid-attribution.js"></script>
+        <!-- TEMPLATE:attribution:END -->
+
+        <!-- TEMPLATE:ac_tracking:START -->
+        <!-- Pyramid Systems ActiveCampaign Site Tracking.
+             Wraps AC's vgo() snippet behind our consent system: only fires
+             when analytics consent is granted (default ON, user can opt out
+             via the Cookie Preferences modal). Form submit handlers call
+             window.PyramidACTracking.identify(email) to link the anonymous
+             session to the AC contact. -->
+        <script src="../js/pyramid-ac-tracking.js"></script>
+        <!-- TEMPLATE:ac_tracking:END -->
+        <!-- TEMPLATE:analytics:START -->
+        <!-- Pyramid Systems analytics layer.
+             Central dataLayer push for GTM: form_step, form_submit,
+             generate_lead, form_error, cta_click, page_view_attribution.
+             Also pre-checks the contact form's inquiry checkbox from
+             ?inquiry= deep links so vertical-CTA traffic lands in the
+             right inquiry context. -->
+        <script src="../js/pyramid-analytics.js" defer></script>
+        <!-- TEMPLATE:analytics:END -->
+
+        <!-- TEMPLATE:engagement:START -->
+        <!-- Pyramid Systems engagement tracking — captures popups,
+             cookie modal, FAQ, mobile menu, search, accessibility. -->
+        <script src="../js/pyramid-engagement.js" defer></script>
+        <!-- TEMPLATE:engagement:END -->
+
+        <!-- TEMPLATE:web_vitals:START -->
+        <!-- Core Web Vitals (LCP, INP, CLS) → dataLayer → GA4. -->
+        <script src="../js/pyramid-web-vitals.js" defer></script>
+        <!-- TEMPLATE:web_vitals:END -->
+
+
+        <meta charset="utf-8"/>
+        <title>Contact Us | Pyramid Systems</title>
+        <meta content="Contact Pyramid Systems. General inquiries, contract vehicles, partnerships, press, and careers. Federal IT modernization since 1995." name="description"/>
+        <link rel="canonical" href="https://pyramidsystems.com/contact/"/>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+        <meta name="robots" content="index,follow"/>
+
+        <!-- OpenGraph -->
+        <meta property="og:title" content="Contact Us | Pyramid Systems"/>
+        <meta property="og:description" content="Get in touch with Pyramid Systems for inquiries about federal IT modernization, contract vehicles, partnerships, and careers."/>
+        <meta property="og:url" content="https://pyramidsystems.com/contact/"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:site_name" content="Pyramid Systems"/>
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:title" content="Contact Us | Pyramid Systems"/>
+        <meta name="twitter:description" content="Get in touch with Pyramid Systems for inquiries about federal IT modernization, contract vehicles, partnerships, and careers."/>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+        <link href="../css/styles.css" rel="stylesheet" type="text/css" crossorigin="anonymous"/>
+
+
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Contact Us | Pyramid Systems",
+            "description": "Contact Pyramid Systems for federal IT inquiries.",
+            "url": "https://pyramidsystems.com/contact/",
+            "isPartOf": {
+                "@type": "WebSite",
+                "name": "Pyramid Systems",
+                "url": "https://pyramidsystems.com/"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "Pyramid Systems",
+                "url": "https://pyramidsystems.com/",
+                "logo": "https://pyramidsystems.com/images/orangeLogo.png"
+            },
+            "inLanguage": "en-US",
+            "dateModified": "2026-06-02"
+        }
+        </script>
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {"@type":"ListItem","position":1,"name":"Home","item":"https://pyramidsystems.com/"},
+                {"@type":"ListItem","position":2,"name":"Contact Us","item":"https://pyramidsystems.com/contact/"}
+            ]
+        }
+        </script>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+    </head>
+    <body>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WSMBQZDP"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+        <!-- Global section + anchor + responsive-html font-size baseline.
+             This block lives at the top of every other Pyramid page; without
+             it the privacy page suffers three regressions:
+              1) `<a>` tags default to browser blue/purple instead of
+                 inheriting the page color (which is orange via styles.css).
+              2) `<section>` doesn't get `overflow: clip`, so the absolutely
+                 positioned `.footer_vector` background logo bleeds past the
+                 page container at the sides.
+              3) The responsive `html { font-size: calc(...) }` baseline is
+                 missing, so the entire page renders at the browser-default
+                 16px root instead of the project's viewport-scaled size —
+                 which is why the nav looked smaller/tighter than other pages. -->
+        <div class="w-embed">
+            <style>
+                section {
+                    position: relative;
+                    max-width: 100vw;
+                    overflow: clip;
+                    z-index: 2;
+                    background-color: var(--_tokenization---bg-main);
+                }
+
+                a {
+                    color: inherit;
+                    text-decoration: none;
+                    user-select: none;
+                    transition-property: opacity, background-color, border, color, border-radius;
+                    transition-timing-function: ease;
+                    transition-duration: 0.45s;
+                }
+
+                button {
+                    background-color: unset;
+                    padding: unset;
+                    text-align: inherit;
+                    transition-property: opacity, background-color, border, color, border-radius;
+                    transition-timing-function: ease;
+                    transition-duration: 0.45s;
+                }
+
+                .accordion.is--opened .accordion_icon { color: var(--_tokenization---text-black); }
+                .accordion.is--opened .vertical_faq-icon { transform: rotate(90deg); }
+                .arrow-animation:hover .button-arrow { transform: rotate(45deg); }
+
+                @keyframes rotate {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+                .gradient-animation { animation: rotate 10s ease infinite !important; }
+
+                html { font-size: calc(0.625rem + 0.41666666666666663vw); }
+                @media screen and (max-width: 1920px) { html { font-size: calc(0.625rem + 0.41666666666666674vw); } }
+                @media screen and (max-width: 1440px) { html { font-size: calc(-0.5rem + 1.6666666666666665vw); } }
+                @media screen and (max-width: 1200px) { html { font-size: calc(0.39114832535885163rem + 0.47846889952153115vw); } }
+                @media screen and (max-width: 991px)  { html { font-size: calc(0.758056640625rem + 0.390625vw); } }
+                @media screen and (max-width: 479px)  { html { font-size: calc(0.7494769874476988rem + 0.8368200836820083vw); } }
+            </style>
+        </div>
+
+        <!-- TEMPLATE:header:START -->
+        <style>
+            /* Nav dropdown alignment fix.
+               .header_dd-link is a flex container. When an item has only ONE
+               child (a single <div> of text — no icon, like our Contract
+               Vehicles items), a long label that wraps to two lines doesn't
+               anchor the wrapped lines to the left edge of the parent. The
+               flex item shrinks to the wrap width and sits in the default
+               position. Force the inner text div to expand to fill the
+               available space and left-align — covers both single-child and
+               icon-prefixed dropdown items. */
+            .header_dd-link > div:not(.header-dd_icon) {
+                flex: 1 1 auto;
+                min-width: 0;
+                text-align: left;
+            }
+
+            /* Logo aspect-ratio fix.
+               .header-logo is a fixed-width (10.1875rem ≈ 163px) flex
+               container. .logo has height:44px but no width rule, so it
+               inherits flex-shrink:1 and gets horizontally compressed when
+               its natural width at 44px height exceeds the parent's width.
+               Lock flex-shrink to 0 and let width grow to the intrinsic size
+               of the image. The wordmark is "Pyramid Systems" so its natural
+               aspect ratio is wider than tall and we want it to overflow the
+               parent box rather than squish. */
+            .header-logo .logo {
+                width: auto;
+                flex-shrink: 0;
+                object-fit: contain;
+            }
+
+            /* AIR-Quire flagship-product nav icon.
+               Prepends the AIR-Quire product mark to its top-level navlink
+               via a ::before pseudo-element. Done via CSS (not an <img>) so
+               it survives template re-stamping cleanly. The ../
+               placeholder resolves to "", "../", "../../" etc. depending on
+               page depth, mirroring how the script handles every other
+               asset path in the template. */
+            a.navlink[href$="solutions/air-quire.html"] {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            a.navlink[href$="solutions/air-quire.html"]::before {
+                content: "";
+                width: 1.125rem;
+                height: 1.125rem;
+                background-image: url("../images/air-quire-Icon.png");
+                background-size: 95% 95%;
+                background-repeat: no-repeat;
+                background-position: center;
+                flex-shrink: 0;
+            }
+        </style>
+        <header class="header">
+        <link rel="icon" type="image/png" href="../images/newPyramidLogoIcon.png"/>
+        <link rel="apple-touch-icon" href="../images/newPyramidLogoIcon.png"/>
+
+            <div class="header_overlay"></div>
+            <div class="w-layout-blockcontainer container-copy is--header w-container">
+                <div class="header_content-wrap">
+                    <a href="../index.html" class="header-logo w-inline-block">
+                        <img class="logo" src="../images/orangeLogo.png" alt="Pyramid Systems" >
+                        
+                    </a>
+                    <div class="menu-wrap">
+                        <div class="header_navigation-wrap">
+                            <a href="../solutions/air-quire.html" class="navlink w-inline-block"><div>AIR-Quire</div></a>
+
+                            <div class="menu_divider-dot"></div>
+                            <div data-hover="false" data-delay="0" data-w-id="4d1d8a72-dee5-ca16-c1c5-51ab9bc6dsrv" class="navlink is-dd w-dropdown">
+                                <div class="navlink is--dd w-dropdown-toggle">
+                                    <div class="text-block">Services</div>
+                                    <div class="dd-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 10 10" fill="none">
+                                            <path d="M2.08674 4.41326L4.70508 7.0316L7.32342 4.41326" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <nav class="header_dd-list w-dropdown-list">
+                                    <a href="../services/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-layout-grid">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M4 4h6v6h-6z"/>
+                                                <path d="M14 4h6v6h-6z"/>
+                                                <path d="M4 14h6v6h-6z"/>
+                                                <path d="M14 14h6v6h-6z"/>
+                                            </svg>
+                                        </div>
+                                        <div>All Services</div>
+                                    </a>
+                                    <a href="../services/modernization.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-stack-2">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M12 4l-8 4l8 4l8 -4l-8 -4"/>
+                                                <path d="M4 12l8 4l8 -4"/>
+                                                <path d="M4 16l8 4l8 -4"/>
+                                            </svg>
+                                        </div>
+                                        <div>Modernization</div>
+                                    </a>
+                                    <a href="../services/cloud.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-cloud">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M6.657 18c-2.572 0 -4.657 -2.007 -4.657 -4.483c0 -2.475 2.085 -4.482 4.657 -4.482c.393 -1.762 1.794 -3.2 3.675 -3.773c1.88 -.572 3.956 -.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.913 0 3.464 1.56 3.464 3.486c0 1.927 -1.551 3.486 -3.465 3.486h-11.878"/>
+                                            </svg>
+                                        </div>
+                                        <div>Cloud</div>
+                                    </a>
+                                    <a href="../services/cybersecurity.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-shield-lock">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3"/>
+                                                <path d="M12 11m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/>
+                                                <path d="M12 12l0 2.5"/>
+                                            </svg>
+                                        </div>
+                                        <div>Cybersecurity</div>
+                                    </a>
+                                    <a href="../services/devsecops.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-infinity">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M9.828 9.172a4 4 0 1 0 0 5.656a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828"/>
+                                            </svg>
+                                        </div>
+                                        <div>DevSecOps</div>
+                                    </a>
+                                    <a href="../services/analytics-ai.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chart-line">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M4 19l16 0"/>
+                                                <path d="M4 15l4 -6l4 2l4 -5l4 4"/>
+                                            </svg>
+                                        </div>
+                                        <div>Analytics &amp; AI</div>
+                                    </a>
+                                </nav>
+                            </div>
+
+                            <!-- WHO WE SERVE NAV — HIDDEN 2026-05-22.
+                                 Rationale: no underlying agency-segment content exists on the current
+                                 pyramidsystems.com site, and no past-performance proof for the
+                                 "Department of War" segment. Restore this block when dedicated
+                                 Civilian / Financial Regulators (etc.) pages are written and the
+                                 segmentation is backed by real named past performance.
+                            <div class="menu_divider-dot"></div>
+                            <div data-hover="false" data-delay="0" data-w-id="4d1d8a72-dee5-ca16-c1c5-51ab9bc6dbcc" class="navlink is-dd w-dropdown">
+                                <div class="navlink is--dd w-dropdown-toggle">
+                                    <div class="text-block">Who We Serve</div>
+                                    <div class="dd-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 10 10" fill="none">
+                                            <path d="M2.08674 4.41326L4.70508 7.0316L7.32342 4.41326" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <nav class="header_dd-list w-dropdown-list">
+                                    <a data-cta="vertical_federal_civilian" data-cta-location="nav_dropdown" href="../services/index.html?utm_source=site_nav&utm_medium=vertical_link&utm_campaign=federal_civilian" class="header_dd-link w-inline-block">
+                                        <div>Federal Civilian</div>
+                                    </a>
+                                    <a data-cta="vertical_financial_regulators" data-cta-location="nav_dropdown" href="../services/index.html?utm_source=site_nav&utm_medium=vertical_link&utm_campaign=financial_regulators" class="header_dd-link w-inline-block">
+                                        <div>Financial Regulators</div>
+                                    </a>
+                                    <a data-cta="vertical_department_of_war" data-cta-location="nav_dropdown" href="../services/index.html?utm_source=site_nav&utm_medium=vertical_link&utm_campaign=department_of_war" class="header_dd-link w-inline-block">
+                                        <div>Department of War</div>
+                                    </a>
+                                </nav>
+                            </div>
+                            -->
+
+                            <div class="menu_divider-dot"></div>
+                            <div data-hover="false" data-delay="0" data-w-id="4d1d8a72-dee5-ca16-c1c5-51ab9bc6dcvv" class="navlink is-dd w-dropdown">
+                                <div class="navlink is--dd w-dropdown-toggle">
+                                    <div class="text-block">Contract Vehicles</div>
+                                    <div class="dd-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 10 10" fill="none">
+                                            <path d="M2.08674 4.41326L4.70508 7.0316L7.32342 4.41326" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <nav class="header_dd-list w-dropdown-list">
+                                    <a href="../contract-vehicles/index.html" class="header_dd-link w-inline-block">
+                                        <div>How to procure us</div>
+                                    </a>
+                                    <a href="../contract-vehicles/gsa-it-schedule-70.html" class="header_dd-link w-inline-block">
+                                        <div>GSA IT Schedule 70</div>
+                                    </a>
+                                    <a href="../contract-vehicles/gsa-oasis-plus.html" class="header_dd-link w-inline-block">
+                                        <div>GSA OASIS+ Unrestricted</div>
+                                    </a>
+                                    <a href="../contract-vehicles/hhs-cms-sparc.html" class="header_dd-link w-inline-block">
+                                        <div>HHS CMS SPARC</div>
+                                    </a>
+                                    <a href="../contract-vehicles/sec-one-it.html" class="header_dd-link w-inline-block">
+                                        <div>SEC ONE IT</div>
+                                    </a>
+                                    <a href="../contract-vehicles/gsa-8a-stars-iii.html" class="header_dd-link w-inline-block">
+                                        <div>GSA 8(a) STARS III</div>
+                                    </a>
+                                    <a href="../contract-vehicles/fdic-itas-iii.html" class="header_dd-link w-inline-block">
+                                        <div>FDIC ITAS III Next Gen BOA</div>
+                                    </a>
+                                    <a href="../contract-vehicles/hud-om-bpa.html" class="header_dd-link w-inline-block">
+                                        <div>HUD O&amp;M BPA</div>
+                                    </a>
+                                </nav>
+                            </div>
+                            <div class="menu_divider-dot"></div>
+                            <div data-hover="false" data-delay="0" data-w-id="4d1d8a72-dee5-ca16-c1c5-51ab9bc6dbcc" class="navlink is-dd w-dropdown">
+                                <div class="navlink is--dd w-dropdown-toggle">
+                                    <div class="text-block">About Pyramid</div>
+                                    <div class="dd-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 10 10" fill="none">
+                                            <path d="M2.08674 4.41326L4.70508 7.0316L7.32342 4.41326" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <nav class="header_dd-list w-dropdown-list">
+                                    <a href="../about-us/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-pyramid">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M11.105 21.788a1.994 1.994 0 0 0 1.789 0l8.092 -4.054c.538 -.27 .718 -.951 .385 -1.452l-8.54 -13.836a.999 .999 0 0 0 -1.664 0l-8.54 13.836a1.005 1.005 0 0 0 .386 1.452l8.092 4.054" />
+                                                <path d="M12 2v20" />
+                                            </svg>
+                                        </div>
+                                        <div>Who We Are</div>
+                                    </a>
+                                    <a href="../about-us/certifications/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-certificate">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M12 15a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                                                <path d="M13 17.5v4.5l2 -1.5l2 1.5v-4.5" />
+                                                <path d="M10 19h-5a2 2 0 0 1 -2 -2v-10c0 -1.1 .9 -2 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -1 1.73" />
+                                                <path d="M6 9l12 0" />
+                                                <path d="M6 12l3 0" />
+                                                <path d="M6 15l2 0" />
+                                            </svg>                                        
+                                        </div>
+                                        <div>Certifications</div>
+                                    </a>
+                                    <a href="../about-us/partners/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-affiliate">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M5.931 6.936l1.275 4.249m5.607 5.609l4.251 1.275" />
+                                                <path d="M11.683 12.317l5.759 -5.759" />
+                                                <path d="M4 5.5a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0" />
+                                                <path d="M17 5.5a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0" />
+                                                <path d="M17 18.5a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0" />
+                                                <path d="M4 15.5a4.5 4.5 0 1 0 9 0a4.5 4.5 0 1 0 -9 0" />
+                                            </svg>                                        
+                                        </div>
+                                        <div>Partners</div>
+                                    </a>
+                                    <a href="../careers/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-briefcase">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
+                                                <path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2" />
+                                                <path d="M12 12l0 .01" />
+                                                <path d="M3 13a20 20 0 0 0 18 0" />
+                                            </svg>
+                                        </div>
+                                        <div>Careers</div>
+                                    </a>
+                                    </nav>
+                            </div>
+
+                            <div class="menu_divider-dot"></div>
+                            <div data-hover="false" data-delay="0" data-w-id="4d1d8a72-dee5-ca16-c1c5-51ab9bc6dbcc" class="navlink is-dd w-dropdown">
+                                <div class="navlink is--dd w-dropdown-toggle">
+                                    <div class="text-block">Insights</div>
+                                    <div class="dd-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 10 10" fill="none">
+                                            <path d="M2.08674 4.41326L4.70508 7.0316L7.32342 4.41326" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <nav class="header_dd-list w-dropdown-list">
+                                    <a href="../insights/blog/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-article">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
+                                                <path d="M7 8h10" />
+                                                <path d="M7 12h10" />
+                                                <path d="M7 16h7" />
+                                            </svg>
+                                        </div>
+                                        <div>Blog</div>
+                                    </a>
+                                    <a href="../insights/case-studies/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-clipboard-data">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
+                                                <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                                                <path d="M9 17l0 -4" />
+                                                <path d="M12 17l0 -1" />
+                                                <path d="M15 17l0 -2" />
+                                            </svg>
+                                        </div>
+                                        <div>Case Studies</div>
+                                    </a>
+                                    <a href="../insights/news/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-news">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M16 6h3a1 1 0 0 1 1 1v11a2 2 0 0 1 -4 0v-13a1 1 0 0 0 -1 -1h-11a1 1 0 0 0 -1 1v12a3 3 0 0 0 3 3h14" />
+                                                <path d="M8 8l4 0" />
+                                                <path d="M8 12l4 0" />
+                                                <path d="M8 16l4 0" />
+                                            </svg>
+                                        </div>
+                                        <div>News</div>
+                                    </a>
+                                </nav>
+                            </div>
+                        </div>
+                        <a href="../contact/index.html" class="header_button-wrap arrow-animation w-inline-block">
+                            <div class="menu_inner-button">
+                                <div>Contact</div>
+                                <div class="button-arrow is--header">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 14 14" fill="none">
+                                        <path d="M10.5005 3.49997L3.03375 10.9667" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="round"></path>
+                                        <path d="M11.2002 8.79087V2.80003H5.20936" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="hero-dots is--1">
+                        <img src="../images/heroDots.avif" loading="eager" width="286" height="163" alt="" class="i-100"/>
+                    </div>
+                    <button data-w-id="4d1d8a72-dee5-ca16-c1c5-51ab9bc6dc0b" fs-scrolldisable-element="toggle" class="menu">
+                        <div class="menu_inner">
+                            <div class="menu_lines-wrap">
+                                <div class="menu-line is--upper"></div>
+                                <div class="menu-line is--middle"></div>
+                                <div class="menu-line is--bottom"></div>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="floating-badge"><img src="../images/winner.png" loading="lazy" alt="" class="german-web-aw"></div>
+
+            <script>
+                /* Active nav state.
+                   The header is stamped identically on every page, so there's no
+                   per-page hardcoded current-link marker. This runtime script reads
+                   window.location and applies Webflow's `w--current` class (plus
+                   aria-current="page") to:
+                     a) the exact-matching nav link, AND
+                     b) its parent dropdown toggle if the link is inside a dropdown.
+                   If no exact match is found (e.g., a deep blog post), we fall
+                   back to prefix-matching the URL section against a list of
+                   dropdown labels — so /insights/blog/foo.html still highlights
+                   "Insights" in the top nav. */
+                (function () {
+                    function normalize(p) {
+                        return (p || "").toLowerCase().replace(/\/$/, "").replace(/\/index\.html$/, "");
+                    }
+                    function resolve(href) {
+                        try { return normalize(new URL(href, window.location.href).pathname); }
+                        catch (e) { return null; }
+                    }
+                    function apply() {
+                        var current = normalize(window.location.pathname);
+                        var navRoot = document.querySelector(".header_navigation-wrap");
+                        if (!navRoot) return;
+
+                        // Pass 1: exact-match link hrefs.
+                        var matched = false;
+                        navRoot.querySelectorAll("a[href]").forEach(function (link) {
+                            var p = resolve(link.getAttribute("href"));
+                            if (p !== null && p === current) {
+                                link.classList.add("w--current");
+                                link.setAttribute("aria-current", "page");
+                                var dd = link.closest(".navlink.is-dd");
+                                if (dd) {
+                                    var toggle = dd.querySelector(".navlink.is--dd");
+                                    if (toggle) {
+                                        toggle.classList.add("w--current");
+                                        toggle.setAttribute("aria-current", "page");
+                                    }
+                                }
+                                matched = true;
+                            }
+                        });
+                        if (matched) return;
+
+                        // Pass 2: URL-prefix → dropdown label fallback for descendant pages.
+                        var sectionMap = [
+                            { prefix: "/contract-vehicles", label: "Contract Vehicles" },
+                            { prefix: "/about-us",          label: "About Pyramid" },
+                            { prefix: "/careers",           label: "About Pyramid" },
+                            { prefix: "/insights",          label: "Insights" },
+                            { prefix: "/services",          label: "Services" }
+                        ];
+                        sectionMap.forEach(function (section) {
+                            if (current.indexOf(section.prefix) === 0) {
+                                navRoot.querySelectorAll(".navlink.is--dd").forEach(function (toggle) {
+                                    var lbl = toggle.querySelector(".text-block");
+                                    if (lbl && lbl.textContent.trim() === section.label) {
+                                        toggle.classList.add("w--current");
+                                        toggle.setAttribute("aria-current", "page");
+                                    }
+                                });
+                            }
+                        });
+                    }
+                    if (document.readyState === "loading") {
+                        document.addEventListener("DOMContentLoaded", apply);
+                    } else {
+                        apply();
+                    }
+                })();
+            </script>
+
+        </header>
+
+        <!-- === PYRAMID MOBILE MENU OVERLAY (begin) === -->
+        <!-- Self-contained mobile menu loader. Builds the overlay HTML at
+             runtime and only activates at viewport ≤991px. On desktop it
+             does nothing — the existing nav is untouched. To roll back:
+             remove this block, run scripts/apply_templates.py, delete
+             js/pyramid-mobile-menu.js, and remove the CSS block bounded
+             by "PYRAMID MOBILE MENU OVERLAY — BEGIN/END" markers in
+             css/styles.css. See MOBILE_MENU_ROLLBACK.md. -->
+        <script src="../js/pyramid-mobile-menu.js" defer></script>
+        <!-- === PYRAMID MOBILE MENU OVERLAY (end) === -->
+        <!-- TEMPLATE:header:END -->
+
+        <main>
+            <section id="Contact-form" data-w-id="b67c0847-2efb-58ce-0e9c-ea1e7f6dd9c5">
+                <div class="section-form_wrap">
+                    <div class="w-layout-blockcontainer container w-container">
+                        <div class="form-block__form-image">
+                            <div class="form-wrap">
+                                <div class="w-form">
+                                    <form id="contact-form" name="_form_3" data-name="Contact Form" method="POST" class="form-inner" action="https://pyramidsystems.activehosted.com/proc.php" novalidate>
+                                        <!-- ActiveCampaign form-control hidden fields -->
+                                        <input type="hidden" name="u" value="3"/>
+                                        <input type="hidden" name="f" value="3"/>
+                                        <input type="hidden" name="s"/>
+                                        <input type="hidden" name="c" value="0"/>
+                                        <input type="hidden" name="m" value="0"/>
+                                        <input type="hidden" name="act" value="sub"/>
+                                        <input type="hidden" name="v" value="2"/>
+                                        <input type="hidden" name="or" value="e535dd8e-762f-4cf7-90f3-5390b23d0f4d"/>
+                                        <!-- Marketing consent. Synced to the optional opt-in checkbox in
+                                             Step 2 via syncMarketingConsent() (Yes if checked, No if not).
+                                             ID lets the JS handler target this hidden input. -->
+                                        <input type="hidden" name="field[14]" id="ac-marketing-consent-value" value="No"/>
+                                        <!-- UTM + attribution hidden fields. Pre-filled on DOMContentLoaded from
+                                             window.PyramidAttribution.getStored(), then re-written at submit time
+                                             from getStoredAndIncrementSubmission() so the bumped submission_count
+                                             reflects THIS submission. -->
+                                        <!-- First touch (locked after first visit, never overwritten) -->
+                                        <input type="hidden" name="field[18]" value="" id="ac_first_utm_source"/>
+                                        <input type="hidden" name="field[19]" value="" id="ac_first_utm_medium"/>
+                                        <input type="hidden" name="field[20]" value="" id="ac_first_utm_campaign"/>
+                                        <input type="hidden" name="field[21]" value="" id="ac_first_utm_content"/>
+                                        <input type="hidden" name="field[22]" value="" id="ac_first_landing_page"/>
+                                        <input type="hidden" name="field[23]" value="" id="ac_first_referrer_url"/>
+                                        <!-- Last touch (refreshed on new session boundary or new UTM-tagged visit) -->
+                                        <input type="hidden" name="field[25]" value="" id="ac_last_utm_source"/>
+                                        <input type="hidden" name="field[26]" value="" id="ac_last_utm_medium"/>
+                                        <input type="hidden" name="field[27]" value="" id="ac_last_utm_campaign"/>
+                                        <input type="hidden" name="field[28]" value="" id="ac_last_utm_content"/>
+                                        <input type="hidden" name="field[29]" value="" id="ac_last_landing_page"/>
+                                        <input type="hidden" name="field[30]" value="" id="ac_last_referrer_url"/>
+                                        <!-- Engagement counters -->
+                                        <input type="hidden" name="field[33]" value="" id="ac_session_count"/>
+                                        <input type="hidden" name="field[34]" value="" id="ac_days_since_first_visit"/>
+                                        <input type="hidden" name="field[35]" value="" id="ac_submission_count"/>
+                                        <!-- Submission page URL: the EXACT URL where the form was filled.
+                                             Distinct from last_landing_page (entry point for the session).
+                                             Set fresh at populate-time from window.location.href. -->
+                                        <input type="hidden" name="field[36]" value="" id="ac_submission_page_url"/>
+                                        <!-- Honeypot — hidden from real users but visible to spam bots. Renamed from ac_hp_company to avoid Chrome autofill. -->
+                                        <input type="text" name="ac_hp_zz9" tabindex="-1" autocomplete="new-password" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;width:0;height:0;"/>
+                                        <div class="form_content-wrap">
+
+                                            <!-- ============ STEP 1: inquiry type + Pyramid services ============ -->
+                                            <div class="form---inputs-wrapper form-wrap--first">
+                                                <div class="cases_text-button">
+                                                    <div class="cases_texts-wrap">
+                                                        <div class="upheader">
+                                                            <div class="upheader_icon">
+                                                                <img src="../images/newPyramidLogoIcon.png" />
+                                                            </div>
+                                                            <p lines-animation="">Get in touch</p>
+                                                        </div>
+                                                        <h2 lines-animation="">
+                                                            <span class="text-gradient">Tell us about</span>
+                                                            <br/>your mission
+                                                        </h2>
+                                                        <p lines-animation="" class="t--result-subheading is--form">
+                                                            Tell us briefly what you need. <span class="subheader-white">Whether you are a federal agency, an industry partner, press, or applying for a role,</span>
+                                                            we read every message that comes through and route it to the right team.
+                                                            Most replies go out within 1 to 2 business days.
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                <!-- 6 inquiry-type checkboxes (replaces neurakey's service marketing checkboxes) -->
+                                                <div class="form-inner_inputs-content">
+                                                    <p class="t--form-label">What is your inquiry about?</p>
+                                                    <div class="form-inner_inputs-wrap">
+                                                                                                                <!-- ActiveCampaign requires a hidden seed input for checkbox arrays. -->
+                                                        <input type="hidden" name="field[17][]" value="~|" data-autofill="false"/>
+                                                        <label class="w-checkbox form-inner_checkbox-wrap">
+                                                            <div class="w-checkbox-input w-checkbox-input--inputType-custom form-inner_checkbox-itself"></div>
+                                                            <input type="checkbox" name="field[17][]" id="inquiry-general" value="General inquiry" class="any" required style="opacity:0;position:absolute;z-index:-1"/>
+                                                            <div class="checkbox-icon">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                                                            </div>
+                                                            <span class="form-input_checkbox-label w-form-label" for="inquiry-general">General inquiry</span>
+                                                        </label>
+                                                        <label class="w-checkbox form-inner_checkbox-wrap">
+                                                            <div class="w-checkbox-input w-checkbox-input--inputType-custom form-inner_checkbox-itself"></div>
+                                                            <input type="checkbox" name="field[17][]" id="inquiry-services" value="Services" style="opacity:0;position:absolute;z-index:-1"/>
+                                                            <div class="checkbox-icon">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h6v6h-6z"/><path d="M14 4h6v6h-6z"/><path d="M4 14h6v6h-6z"/><path d="M14 14h6v6h-6z"/></svg>
+                                                            </div>
+                                                            <span class="form-input_checkbox-label w-form-label" for="inquiry-services">Services</span>
+                                                        </label>
+                                                        <label class="w-checkbox form-inner_checkbox-wrap">
+                                                            <div class="w-checkbox-input w-checkbox-input--inputType-custom form-inner_checkbox-itself"></div>
+                                                            <input type="checkbox" name="field[17][]" id="inquiry-vehicles" value="Contract vehicles &amp; procurement" style="opacity:0;position:absolute;z-index:-1"/>
+                                                            <div class="checkbox-icon">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+                                                            </div>
+                                                            <span class="form-input_checkbox-label w-form-label" for="inquiry-vehicles">Contract vehicles</span>
+                                                        </label>
+                                                        <label class="w-checkbox form-inner_checkbox-wrap">
+                                                            <div class="w-checkbox-input w-checkbox-input--inputType-custom form-inner_checkbox-itself"></div>
+                                                            <input type="checkbox" name="field[17][]" id="inquiry-partnership" value="Partnership or vendor" style="opacity:0;position:absolute;z-index:-1"/>
+                                                            <div class="checkbox-icon">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5.931 6.936l1.275 4.249m5.607 5.609l4.251 1.275"/><path d="M11.683 12.317l5.759 -5.759"/><circle cx="5.5" cy="5.5" r="1.5"/><circle cx="18.5" cy="5.5" r="1.5"/><circle cx="18.5" cy="18.5" r="1.5"/><circle cx="8.5" cy="15.5" r="4.5"/></svg>
+                                                            </div>
+                                                            <span class="form-input_checkbox-label w-form-label" for="inquiry-partnership">Partnership</span>
+                                                        </label>
+                                                        <label class="w-checkbox form-inner_checkbox-wrap">
+                                                            <div class="w-checkbox-input w-checkbox-input--inputType-custom form-inner_checkbox-itself"></div>
+                                                            <input type="checkbox" name="field[17][]" id="inquiry-press" value="Media or press" style="opacity:0;position:absolute;z-index:-1"/>
+                                                            <div class="checkbox-icon">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 6h3a1 1 0 0 1 1 1v11a2 2 0 0 1 -4 0v-13a1 1 0 0 0 -1 -1h-11a1 1 0 0 0 -1 1v12a3 3 0 0 0 3 3h14"/><line x1="8" y1="8" x2="12" y2="8"/><line x1="8" y1="12" x2="12" y2="12"/><line x1="8" y1="16" x2="12" y2="16"/></svg>
+                                                            </div>
+                                                            <span class="form-input_checkbox-label w-form-label" for="inquiry-press">Press</span>
+                                                        </label>
+                                                        <label class="w-checkbox form-inner_checkbox-wrap">
+                                                            <div class="w-checkbox-input w-checkbox-input--inputType-custom form-inner_checkbox-itself"></div>
+                                                            <input type="checkbox" name="field[17][]" id="inquiry-careers" value="Careers" style="opacity:0;position:absolute;z-index:-1"/>
+                                                            <div class="checkbox-icon">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"/><path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2"/><path d="M12 12l0 .01"/><path d="M3 13a20 20 0 0 0 18 0"/></svg>
+                                                            </div>
+                                                            <span class="form-input_checkbox-label w-form-label" for="inquiry-careers">Careers</span>
+                                                        </label>
+                                                        <label class="w-checkbox form-inner_checkbox-wrap">
+                                                            <div class="w-checkbox-input w-checkbox-input--inputType-custom form-inner_checkbox-itself"></div>
+                                                            <input type="checkbox" name="field[17][]" id="inquiry-other" value="Other" style="opacity:0;position:absolute;z-index:-1"/>
+                                                            <div class="checkbox-icon">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="13"/><circle cx="12" cy="16.5" r="0.7" fill="currentColor"/></svg>
+                                                            </div>
+                                                            <span class="form-input_checkbox-label w-form-label" for="inquiry-other">Other</span>
+                                                        </label>
+
+                                                    <!-- Conditional "Other" text input — appears only when Other is checked. -->
+                                                    <div class="form_label-input" id="inquiry-other-detail" style="display:none; margin-top: 1rem;">
+                                                        <label for="OtherDetail" class="label">Tell us what is on your mind</label>
+                                                        <input class="input w-input" maxlength="160" name="field[16]" data-name="OtherDetail" placeholder="One short line is fine. You can add more in Step 2." type="text" id="OtherDetail"/>
+                                                    </div>
+
+                                                    <!-- Inline validation error — shown when no checkbox is selected. -->
+                                                    <p class="form-inquiry-error" id="inquiry-error" role="alert" aria-live="polite" style="display:none; font-size:.85rem; margin-top:.85rem;">
+                                                        Please select at least one option so we can route your message.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            </div>
+                                            <!-- ^ closes form---inputs-wrapper form-wrap--first (was missing — caused form-image_wrap to render INSIDE form-wrap and overlap the form) -->
+
+                                            <!-- ============ STEP 2: contact info + consent ============ -->
+                                            <div class="form---inputs-wrapper form-wrap--second">
+                                                <div class="cases_text-button is--form">
+                                                    <div class="cases_texts-wrap">
+                                                        <div class="upheader">
+                                                            <div class="upheader_icon">
+                                                                <img src="../images/newPyramidLogoIcon.png" alt="" style="width:100%; height:100%; object-fit:contain;" />
+                                                            </div>
+                                                            <p lines-animation="">Your details</p>
+                                                        </div>
+                                                        <h2 lines-animation="">
+                                                            <span class="text-gradient">How can we</span>
+                                                            <br/>reach you?
+                                                        </h2>
+                                                        <p lines-animation="" class="t--result-subheading is--form">
+                                                            Federal contracting officers, please <span class="subheader-white">include your contract vehicle of interest</span>
+                                                            and any deadlines in the message field so we can route your request to the right delivery team.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="form-second_inputs-wrap">
+                                                    <div class="form_inputs-double">
+                                                        <div class="form_label-input">
+                                                            <label for="firstname" class="label">First name</label>
+                                                            <input class="input w-input" maxlength="256" name="firstname" data-name="firstname" placeholder="First name" type="text" id="firstname" required/>
+                                                        </div>
+                                                        <div class="form_label-input">
+                                                            <label for="lastname" class="label">Last name</label>
+                                                            <input class="input w-input" maxlength="256" name="lastname" data-name="lastname" placeholder="Last name" type="text" id="lastname" required/>
+                                                        </div>
+                                                        <div class="form_label-input">
+                                                            <label for="field-organization" class="label">Organization or agency</label>
+                                                            <input class="input w-input" maxlength="256" name="field[10]" data-name="agency" placeholder="Company, agency, or institution" type="text" id="field-organization" required/>
+                                                        </div>
+                                                        <div class="form_label-input">
+                                                            <label for="email" class="label">Email address</label>
+                                                            <input class="input w-input" maxlength="256" name="email" data-name="email" placeholder="name@example.com" type="email" id="email" required/>
+                                                        </div>
+                                                        <div class="form_label-input">
+                                                            <label for="phone" class="label">Phone number <span style="opacity:.55;font-weight:400">(optional)</span></label>
+                                                            <input class="input w-input" maxlength="256" name="phone" data-name="phone" placeholder="(123) 456-7890" type="tel" id="phone"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form_label-input">
+                                                        <label for="field-message" class="label">Tell us more</label>
+                                                        <textarea class="input w-input" maxlength="2000" name="field[6]" data-name="message" placeholder="What should we know? Contract vehicle, deadline, agency, etc." id="field-message" rows="2" style="min-height:3.5rem;resize:vertical" required></textarea>
+                                                    </div>
+                                                    <!-- (Removed: required Form-consent checkbox.
+                                                         Replaced by the Privacy / Terms notice rendered under the
+                                                         progress bar — same pattern as the AIR-Quire form. Submission
+                                                         of the form IS the visitor's consent to handle their data
+                                                         per the linked policies.) -->
+
+                                                    <!-- Optional: marketing opt-in. Defaults to unchecked. When checked,
+                                                         syncMarketingConsent() sets the hidden field[14] to "Yes" so AC
+                                                         can route the contact into the marketing nurture stream. When
+                                                         left unchecked the contact still goes to the Contact Form list
+                                                         for sales follow-up but is suppressed from marketing automation. -->
+                                                    <label class="w-checkbox checkbox" style="margin-top:1rem;">
+                                                        <input type="checkbox" id="ac-marketing-consent" name="ac_marketing_consent" class="w-checkbox-input checkbox-2"/>
+                                                        <span class="input-check w-form-label">
+                                                            I'd like to receive occasional emails from Pyramid Systems about federal IT insights, case studies, and contract vehicle updates. You can unsubscribe at any time.
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <!-- ============ Progress + nav buttons ============ -->
+                                            <div class="form-inner_buttons-progress">
+                                                <div class="form-inner_text-buttons">
+                                                    <div class="form--steps">
+                                                        <p class="t--form-label t--inline">Step </p>
+                                                        <p class="t--form-label t--inline form-progress---number">1</p>
+                                                        <p class="t--form-label t--inline">of 2</p>
+                                                    </div>
+                                                    <button class="button is--form form--next" type="button">
+                                                        <div class="button_inner-wrap is--form">
+                                                            <div>Next</div>
+                                                            <div class="button-arrow is--form">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 14 14" fill="none"><path d="M10.5005 3.49997L3.03375 10.9667" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="round"></path><path d="M11.2002 8.79087V2.80003H5.20936" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path></svg>
+                                                            </div>
+                                                        </div>
+                                                    </button>
+                                                    <div class="buttons--double">
+                                                        <button class="button_inner-wrap is--form form-back" type="button">
+                                                            <div class="button-arrow is--form is--reverse">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 14 14" fill="none"><path d="M10.5005 3.49997L3.03375 10.9667" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="round"></path><path d="M11.2002 8.79087V2.80003H5.20936" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path></svg>
+                                                            </div>
+                                                            <div>Back</div>
+                                                        </button>
+                                                        <button type="submit" class="button_inner-wrap is--form form-submit">
+                                                            <div>Send message</div>
+                                                            <div class="button-arrow is--form">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 14 14" fill="none"><path d="M10.5005 3.49997L3.03375 10.9667" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="round"></path><path d="M11.2002 8.79087V2.80003H5.20936" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path></svg>
+                                                            </div>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="form-progress">
+                                                    <div class="form-progress_active"></div>
+                                                </div>
+                                                <!-- Privacy / terms notice below the progress bar (replaces the
+                                                     required-checkbox UX). Submitting the form IS the consent —
+                                                     matches the AIR-Quire form's pattern. Same #E86222 orange
+                                                     used for the inline links, dialed back to 90% opacity so it
+                                                     reads as text rather than a primary CTA. -->
+                                                <p class="contact-privacy-notice" style="margin:14px 0 0 0; font-size:12px; line-height:1.5; color:rgba(255,255,255,0.55); text-align:left;">
+                                                    By submitting this form, you agree to our
+                                                    <a href="../privacy/index.html" target="_blank" rel="noopener" style="color:rgba(232,98,34,0.9); text-decoration:underline;">Privacy Policy</a>
+                                                    and
+                                                    <a href="../terms-of-use/index.html" target="_blank" rel="noopener" style="color:rgba(232,98,34,0.9); text-decoration:underline;">Terms of Use</a>.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="form-dots">
+                                            <img width="286" height="163" alt="" src="../images/heroDots.avif" loading="lazy" class="image"/>
+                                        </div>
+                                    </form>
+                                    <!-- Custom-styled success + failure states.
+                                         Inline-styled to override Webflow's default light-green
+                                         .w-form-done background and force the dark theme.
+                                         Padding gives the panel breathing room when shown,
+                                         and showSuccess() also locks the parent's height so
+                                         the section doesn't suddenly collapse when the form is hidden. -->
+                                    <div class="w-form-done" style="display:none;text-align:center;padding:48px 32px;background:transparent;color:#fff;border:0;">
+                                        <div style="font-size:24px;font-weight:700;color:#fff;margin-bottom:12px;">Thanks. Your message is in.</div>
+                                        <div style="color:rgba(255,255,255,0.75);line-height:1.6;font-size:1rem;">We'll get back to you as soon as we can.</div>
+                                    </div>
+                                    <div class="w-form-fail" style="display:none;text-align:center;padding:48px 32px;background:transparent;color:#fff;border:0;">
+                                        <div style="font-size:18px;font-weight:600;color:#fff;margin-bottom:8px;">Something went wrong sending your message.</div>
+                                        <div style="color:rgba(255,255,255,0.75);line-height:1.6;font-size:1rem;">Please try again, or email <a href="mailto:info@pyramidsystems.com" style="color:#E86222;text-decoration:underline;">info@pyramidsystems.com</a> directly.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-image_wrap">
+                                <div class="form-image_gradient-top"></div>
+                                <div class="form-image_gradient-bottom"></div>
+                                <div class="form-image_image-wrapper">
+                                    <!-- Lottie animation (lottie/contact3.json) -->
+                                    <div id="contact-lottie" class="contact-lottie" aria-hidden="true"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ FAQ accordion section ============ -->
+            <section class="section-white">
+                <div class="w-layout-blockcontainer container w-container">
+                    <div class="faq_content-block">
+                        <div class="faq_texts-wrap">
+                            <div class="upheader">
+                                <div class="upheader_icon is--black">
+                                    <img src="../images/newPyramidLogoIcon.png" />
+                                </div>
+                                <p lines-animation="">Common questions</p>
+                            </div>
+                            <h2 lines-animation="" class="heading-9">
+                                <span class="t-color_blue">Before</span>
+                                you reach out
+                            </h2>
+                            <p lines-animation="" class="t--faq-subheading">
+                                Quick answers to the things we get asked most. <span class="subheading-bold">If your question is here, you may not need to email at all.</span>
+                            </p>
+                        </div>
+                        <div class="accordions_content-wrap">
+                            <div class="accordions-row">
+                                <div class="accordion">
+                                    <div class="accordion_heading">
+                                        <p>How do I procure Pyramid Systems' services?</p>
+                                        <div class="accordion_icon">
+                                            <div class="horizontal_faq-line"></div>
+                                            <div class="vertical_faq-icon"></div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion_text-wrap">
+                                        <div class="accordion-text">
+                                            <p>
+                                                Pyramid holds active positions on several federal contract vehicles including <strong>GSA IT Schedule 70, GSA OASIS+ Unrestricted, GSA 8(a) STARS III, HHS CMS SPARC, SEC ONE IT, FDIC ITAS III, and HUD O&amp;M BPA</strong>. The fastest path is usually a direct task order against one of those vehicles. <br/><br/>
+                                                Our <a href="../contract-vehicles/index.html">Contract Vehicles</a> page has procurement steps for each one. If you are unsure which vehicle fits your acquisition, send a note and we will recommend a path within one business day.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion">
+                                    <div class="accordion_heading">
+                                        <p>Where can I find Pyramid's capability statement?</p>
+                                        <div class="accordion_icon">
+                                            <div class="horizontal_faq-line"></div>
+                                            <div class="vertical_faq-icon"></div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion_text-wrap">
+                                        <div class="accordion-text">
+                                            <p>
+                                                A current capability statement is available on request. Use the form above with the <strong>Contract vehicles &amp; procurement</strong> checkbox and we will email the latest version, including NAICS codes, set-aside status, agency past performance, and contract vehicle coverage. We can also tailor a statement to a specific opportunity if you share the solicitation number.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion">
+                                    <div class="accordion_heading">
+                                        <p>
+                                            <strong>How long does it take to get a response?</strong>
+                                        </p>
+                                        <div class="accordion_icon">
+                                            <div class="horizontal_faq-line"></div>
+                                            <div class="vertical_faq-icon"></div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion_text-wrap">
+                                        <div class="accordion-text">
+                                            <p>
+                                                Most inquiries get a substantive response within <strong>1 to 2 business days</strong>. Procurement requests with a stated deadline are flagged on arrival and routed to a delivery lead. Press inquiries on a same-day deadline should call <a href="tel:+17035530800">703.553.0800</a> to make sure the message is seen quickly.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion">
+                                    <div class="accordion_heading">
+                                        <p>
+                                            <strong>What agencies has Pyramid worked with?</strong>
+                                        </p>
+                                        <div class="accordion_icon">
+                                            <div class="horizontal_faq-line"></div>
+                                            <div class="vertical_faq-icon"></div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion_text-wrap">
+                                        <div class="accordion-text">
+                                            <p>
+                                                Pyramid has been delivering for federal civilian agencies since 1995. Named past performance spans <strong>HUD, SEC, CMS, USDA, FDIC, and USCIS</strong> with additional engagements across financial regulators and federal civilian missions. <br/><br/>
+                                                Public case studies are on the <a href="../insights/case-studies/index.html">Case Studies</a> page. For deeper past performance specific to an acquisition, request a custom capability statement.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordions-row">
+                                <div class="accordion">
+                                    <div class="accordion_heading">
+                                        <p>
+                                            <strong>I want to apply for a job. Where do I go?</strong>
+                                        </p>
+                                        <div class="accordion_icon">
+                                            <div class="horizontal_faq-line"></div>
+                                            <div class="vertical_faq-icon"></div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion_text-wrap">
+                                        <div class="accordion-text">
+                                            <p>
+                                                Active positions are posted on the <a href="../careers/index.html">Careers</a> page and applications are processed through our iCIMS-hosted applicant tracking system. If you have a general question about working at Pyramid, the security clearance process, or our internship program, you can also reach the team through the form above with the <strong>Careers</strong> checkbox. We do not accept resumes by email.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion">
+                                    <div class="accordion_heading">
+                                        <p>How do I report a security vulnerability or accessibility issue?</p>
+                                        <div class="accordion_icon">
+                                            <div class="horizontal_faq-line"></div>
+                                            <div class="vertical_faq-icon"></div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion_text-wrap">
+                                        <div class="accordion-text">
+                                            <p>
+                                                Email <a href="mailto:info@pyramidsystems.com?subject=%5BSecurity%5D">info@pyramidsystems.com</a> with subject line <strong>[Security]</strong> for vulnerability reports, or subject line <strong>[Accessibility]</strong> to report a barrier accessing the Site. Our team aims to acknowledge security reports within 1 business day and accessibility reports within 5 business days. Both response paths are documented in our <a href="../privacy/index.html">Privacy Policy</a>.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion">
+                                    <div class="accordion_heading">
+                                        <p>Are you a small business or 8(a) participant?</p>
+                                        <div class="accordion_icon">
+                                            <div class="horizontal_faq-line"></div>
+                                            <div class="vertical_faq-icon"></div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion_text-wrap">
+                                        <div class="accordion-text">
+                                            <p>
+                                                Pyramid Systems is a small business and an active participant in the GSA 8(a) STARS III program. Our SAM.gov registration includes current size standards by NAICS code. Specific certifications and corporate qualifications are listed on the <a href="../about-us/certifications/index.html">Certifications</a> page.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- TEMPLATE:footer:START -->
+        <footer class="footer">
+            <div class="w-layout-blockcontainer container w-container">
+                <div class="footer_navigation-wrap">
+                    
+                    
+                    <div class="footer_navigation-row is--contact">
+                        <div class="footer_navigation-title">
+                            <div class="navigation-dot"></div>
+                            <p>Contact</p>
+                        </div>
+                        <div class="footer_navigation-links">
+                            
+                            <a href="tel:+1703.553.0800" class="footer_navigation-link is--contact w-inline-block">
+                                <div class="contact-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 20 20" fill="none">
+                                        <path d="M3.14737 9.95229C2.35735 8.57475 1.97589 7.44989 1.74588 6.30967C1.4057 4.62331 2.18419 2.976 3.47383 1.92489C4.01889 1.48064 4.64371 1.63242 4.96602 2.21066L5.69367 3.51608C6.27042 4.5508 6.5588 5.06815 6.5016 5.61665C6.4444 6.16515 6.05549 6.61188 5.27766 7.50533L3.14737 9.95229Z" fill="#F4F5F9" fill-opacity="0.04"></path>
+                                        <path d="M10.0474 16.8523C11.4249 17.6423 12.5498 18.0238 13.69 18.2538C15.3764 18.594 17.0237 17.8155 18.0748 16.5258C18.519 15.9808 18.3673 15.356 17.789 15.0337L16.4836 14.306C15.4489 13.7293 14.9315 13.4409 14.383 13.4981C13.8345 13.5553 13.3878 13.9442 12.4943 14.722L10.0474 16.8523Z" fill="#F4F5F9" fill-opacity="0.04"></path>
+                                        <path d="M3.14737 9.95229C2.35735 8.57475 1.97589 7.44989 1.74588 6.30967C1.4057 4.62331 2.18419 2.976 3.47383 1.92489C4.01889 1.48064 4.64371 1.63242 4.96602 2.21066L5.69367 3.51608C6.27042 4.5508 6.5588 5.06815 6.5016 5.61665C6.4444 6.16515 6.05549 6.61188 5.27766 7.50533L3.14737 9.95229ZM3.14737 9.95229C4.74644 12.7406 7.25588 15.2514 10.0474 16.8523M10.0474 16.8523C11.4249 17.6423 12.5498 18.0238 13.69 18.2538C15.3764 18.594 17.0237 17.8155 18.0748 16.5258C18.519 15.9808 18.3673 15.356 17.789 15.0337L16.4836 14.306C15.4489 13.7293 14.9315 13.4409 14.383 13.4981C13.8345 13.5553 13.3878 13.9442 12.4943 14.722L10.0474 16.8523Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"></path>
+                                    </svg>
+                                </div>
+                                <div>703.553.0800</div>
+                            </a>
+                            <a href="mailto:info@pyramidsystems.com" class="footer_navigation-link is--contact w-inline-block">
+                                <div class="contact-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 20 20" fill="none">
+                                        <path d="M14.166 17.0837H5.83268C3.33268 17.0837 1.66602 15.8337 1.66602 12.917V7.08366C1.66602 4.16699 3.33268 2.91699 5.83268 2.91699H14.166C16.666 2.91699 18.3327 4.16699 18.3327 7.08366V12.917C18.3327 15.8337 16.666 17.0837 14.166 17.0837Z" fill="#F4F5F9" fill-opacity="0.04" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M14.1673 7.5L11.559 9.58333C10.7006 10.2667 9.29231 10.2667 8.43398 9.58333L5.83398 7.5" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>
+                                </div>
+                                <div>info@pyramidsystems.com</div>
+                            </a>
+                            <a href="https://www.google.com/maps/place/Pyramid+Systems+Inc/@38.8807463,-77.2358008,17z/data=!3m1!4b1!4m6!3m5!1s0x89b64bf53ceee7af:0x708f2f1b368b631b!8m2!3d38.8807422!4d-77.2332259!16s%2Fg%2F1v_z9sv0?entry=ttu&g_ep=EgoyMDI2MDQwNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="footer_navigation-link is--contact w-inline-block">
+                                <div class="contact-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 20 20" fill="none">
+                                        <path d="M10.0004 11.1912C11.4363 11.1912 12.6004 10.0272 12.6004 8.59121C12.6004 7.15527 11.4363 5.99121 10.0004 5.99121C8.56445 5.99121 7.40039 7.15527 7.40039 8.59121C7.40039 10.0272 8.56445 11.1912 10.0004 11.1912Z" stroke="currentColor" stroke-width="1.2"></path>
+                                        <path d="M3.01675 7.07533C4.65842 -0.141339 15.3501 -0.133006 16.9834 7.08366C17.9418 11.317 15.3084 14.9003 13.0001 17.117C11.3251 18.7337 8.67508 18.7337 6.99175 17.117C4.69175 14.9003 2.05842 11.3087 3.01675 7.07533Z" fill="#F4F5F9" fill-opacity="0.04" stroke="currentColor" stroke-width="1.2"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    2677 Prosperity Ave, <br/>Suite 250, Fairfax, VA 22031
+                                </div>
+                            </a>
+
+                        </div>
+                        
+                        
+                    </div>
+                    
+                    <!-- WHO WE SERVE FOOTER COLUMN — HIDDEN 2026-05-22.
+                         Rationale: no agency-segment content exists yet, and the
+                         "Department of War" bucket isn't backed by past performance.
+                         Restore when dedicated segment pages are written.
+                    <div class="footer_navigation-row">
+                        <div class="footer_navigation-title">
+                            <div class="navigation-dot"></div>
+                            <p>Who We Serve</p>
+                        </div>
+                        <div class="footer_navigation-links">
+                            <a data-cta="vertical_financial_regulators" data-cta-location="nav_dropdown" href="../services/index.html?utm_source=site_nav&utm_medium=vertical_link&utm_campaign=federal_civilian" aria-current="page" class="footer_navigation-link w-inline-block w--current">
+                                <div>Federal Civilian Agencies</div>
+                            </a>
+                            <a data-cta="vertical_department_of_war" data-cta-location="nav_dropdown" href="../services/index.html?utm_source=site_nav&utm_medium=vertical_link&utm_campaign=financial_regulators" class="footer_navigation-link w-inline-block">
+                                <div>Financial Regulators</div>
+                            </a>
+                            <a href="../services/index.html?utm_source=site_nav&utm_medium=vertical_link&utm_campaign=department_of_war" class="footer_navigation-link w-inline-block">
+                                <div>Department of War</div>
+                            </a>
+                            <a href="../contract-vehicles/index.html" class="footer_navigation-link w-inline-block">
+                                <div>Contract Vehicles</div>
+                            </a>
+                        </div>
+                    </div>
+                    -->
+                    <div class="footer_navigation-row">
+                        <div class="footer_navigation-title">
+                            <div class="navigation-dot"></div>
+                            <p>Services</p>
+                        </div>
+                        <div class="footer_navigation-links">
+                            <a href="../services/index.html" class="footer_navigation-link w-inline-block">
+                                <div>All Services</div>
+                            </a>
+                            <a href="../services/modernization.html" class="footer_navigation-link w-inline-block">
+                                <div>Modernization</div>
+                            </a>
+                            <a href="../services/cloud.html" class="footer_navigation-link w-inline-block">
+                                <div>Cloud</div>
+                            </a>
+                            <a href="../services/cybersecurity.html" class="footer_navigation-link w-inline-block">
+                                <div>Cybersecurity</div>
+                            </a>
+                            <a href="../services/devsecops.html" class="footer_navigation-link w-inline-block">
+                                <div>DevSecOps</div>
+                            </a>
+                            <a href="../services/analytics-ai.html" class="footer_navigation-link w-inline-block">
+                                <div>Analytics &amp; AI</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer_navigation-row">
+                        <div class="footer_navigation-title">
+                            <div class="navigation-dot"></div>
+                            <p>Contract Vehicles</p>
+                        </div>
+                        <div class="footer_navigation-links">
+                            <a href="../contract-vehicles/index.html" class="footer_navigation-link w-inline-block">
+                                <div>How to procure us</div>
+                            </a>
+                            <a href="../contract-vehicles/gsa-it-schedule-70.html" class="footer_navigation-link w-inline-block">
+                                <div>GSA IT Schedule 70</div>
+                            </a>
+                            <a href="../contract-vehicles/gsa-oasis-plus.html" class="footer_navigation-link w-inline-block">
+                                <div>GSA OASIS+ Unrestricted</div>
+                            </a>
+                            <a href="../contract-vehicles/gsa-8a-stars-iii.html" class="footer_navigation-link w-inline-block">
+                                <div>GSA 8(a) STARS III</div>
+                            </a>
+                            <a href="../contract-vehicles/hhs-cms-sparc.html" class="footer_navigation-link w-inline-block">
+                                <div>HHS CMS SPARC</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer_navigation-row">
+                        <div class="footer_navigation-title">
+                            <div class="navigation-dot"></div>
+                            <p>Company</p>
+                        </div>
+                        <div class="footer_navigation-links">
+                            <a href="../about-us/index.html" class="footer_navigation-link w-inline-block">
+                                <div>About Pyramid</div>
+                            </a>
+                            <a href="../about-us/partners/index.html" class="footer_navigation-link w-inline-block">
+                                <div>Partners</div>
+                            </a>
+                            <a href="../about-us/certifications/index.html" class="footer_navigation-link w-inline-block">
+                                <div>Certifications</div>
+                            </a>
+                            <a href="../careers/index.html" class="footer_navigation-link w-inline-block">
+                                <div>Careers</div>
+                            </a>
+                            <a href="../insights/news/index.html" class="footer_navigation-link w-inline-block">
+                                <div>News</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer_navigation-row is--social">
+                        <div class="footer_navigation-title">
+                            <div class="navigation-dot"></div>
+                            <p>Lets Get Social</p>
+                        </div>
+                        <div class="footer_social-wrap">
+                            <a href="https://x.com/PyramidSystems" target="_blank" rel="noopener" aria-label="Pyramid Systems on X" class="footer_social w-inline-block">
+                                <div class="footer-social_icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-x"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 4l11.733 16h4.267l-11.733 -16l-4.267 0" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg>
+                                </div>
+                            </a>
+                            <div class="footer-social_divider-dot"></div>
+                            <a href="https://www.facebook.com/pyramidsystems" target="_blank" rel="noopener" aria-label="Pyramid Systems on Facebook" class="footer_social w-inline-block">
+                                <div class="footer-social_icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-facebook"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg>
+                                </div>
+                            </a>
+                            <div class="footer-social_divider-dot"></div>
+                            <a href="https://www.instagram.com/pyramidsystemsinc/" target="_blank" rel="noopener" aria-label="Pyramid Systems on Instagram" class="footer_social w-inline-block">
+                                <div class="footer-social_icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4l0 -8" /><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M16.5 7.5v.01" /></svg>
+                                </div>
+                            </a>
+                            <div class="footer-social_divider-dot"></div>
+                            <a href="https://www.linkedin.com/company/pyramidsystems/" target="_blank" rel="noopener" aria-label="Pyramid Systems on LinkedIn" class="footer_social w-inline-block">
+                                <div class="footer-social_icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-linkedin"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4l0 -10" /></svg>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer_copyright-text">
+                        Copyright 2026
+                        <a href="../index.html" class="w--current">
+                            <span class="text-span-27">Pyramid Systems</span>
+                        </a>
+                        <div class="footer_legal-links">
+                            <a href="../privacy/index.html">Privacy Policy</a>
+                            <span aria-hidden="true">&middot;</span>
+                            <a href="../terms-of-use/index.html">Terms of Use</a>
+                        <span aria-hidden="true">&middot;</span>
+                        <a href="#" data-pc-action="open-prefs" onclick="if(window.PyramidConsent&amp;&amp;window.PyramidConsent.open){window.PyramidConsent.open();}return false;">Cookie Preferences</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_vector">
+                <img src="../images/footerLogoCenter.png" loading="lazy" alt="" class="i-100"/>
+            </div>
+        </footer>
+        <!-- TEMPLATE:footer:END -->
+
+        <!-- ===== Core site scripts (matches every other Pyramid page) =====
+             jQuery + Webflow runtime → restores nav dropdowns, link hover
+             styling, w--current state, footer image containment.
+             GSAP + ScrollTrigger + SplitText → drives the `lines-animation`
+             attribute (text fades up on scroll-in).
+             Lenis → smooth scroll. -->
+        <script src="../js/jquery-3.5.1.min.dc5e7f18c8.js" type="text/javascript" crossorigin="anonymous"></script>
+        <script src="../js/schunk.36b8fb49256177c8.js" type="text/javascript" crossorigin="anonymous"></script>
+        <script src="../js/6204f98b.merged.js" type="text/javascript"></script>
+        <script src="../js/gsap.min.js" type="text/javascript"></script>
+        <script src="../js/ScrollTrigger.min.js" type="text/javascript"></script>
+        <script src="../js/SplitText.min.js" type="text/javascript"></script>
+        <script type="text/javascript">gsap.registerPlugin(ScrollTrigger, SplitText);</script>
+        <script src="../js/lenis.min.js"></script>
+        <script>
+            /* Lenis smooth scroll — identical init to every other page. */
+            let lenis;
+            if (typeof Webflow !== "undefined" && Webflow.env("editor") === undefined) {
+                lenis = new Lenis({
+                    lerp: 0.1,
+                    wheelMultiplier: 0.7,
+                    gestureOrientation: "vertical",
+                    normalizeWheel: false,
+                    smoothTouch: false
+                });
+                function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+                requestAnimationFrame(raf);
+            }
+        </script>
+        <script>
+            /* lines-animation + transparent-animation drivers.
+               Same code that powers every other page's scroll-reveal text. */
+            gsap.registerPlugin(ScrollTrigger, SplitText);
+
+            // Wait for custom fonts to load before SplitText measures text.
+            // Otherwise SplitText picks fallback-font widths, the real font
+            // swaps in, and the pre-computed line wrappers lock in the wrong
+            // widths — text mid-paragraph wraps at random word boundaries.
+            (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(function () {
+
+            document.querySelectorAll('[lines-animation]').forEach(el => {
+                gsap.from(el, {
+                    scrollTrigger: { trigger: el, start: 'top 80%', toggleActions: 'play none none none' },
+                    y: 80,
+                    opacity: 0,
+                    ease: 'power3.out',
+                    duration: 0.8
+                });
+            });
+
+            document.querySelectorAll('[transparent-animation]').forEach(el => {
+                const split = SplitText.create(el, { type: 'words' });
+                gsap.set(split.words, { opacity: 0.3 });
+                split.words.forEach(word => {
+                    ScrollTrigger.create({
+                        trigger: word,
+                        start: 'top 90%',
+                        end: 'top 40%',
+                        scrub: true,
+                        onUpdate: self => {
+                            gsap.to(word, {
+                                opacity: gsap.utils.mapRange(0, 1, 0.3, 1, self.progress),
+                                ease: 'none',
+                                overwrite: 'auto'
+                            });
+                        }
+                    });
+                });
+            });
+
+            });
+        </script>
+
+        <!-- Multi-step contact form + ActiveCampaign submit.
+             - Switches between Step 1 (inquiry checkboxes) and Step 2 (contact info)
+             - Validates that at least one inquiry checkbox is selected before
+               advancing to Step 2
+             - Pre-checks inquiry checkbox(es) from URL ?inquiry=services,vehicles
+             - Toggles the "Other" detail input when Other is checked
+             - On submit:
+               * Reads attribution data from window.PyramidAttribution.getStored()
+                 and fills hidden UTM + landing_page + referrer_url + first_submitted_page
+               * Normalizes phone to E.164 (AC server validator requires it)
+               * Honeypot bot check (silently drop submissions where the trap field has a value)
+               * Bypasses Webflow's form interception (capture-phase listener +
+                 stopImmediatePropagation)
+               * Submits via JSONP to AC proc.php — same proven pattern as AIR-Quire
+               * Shows .w-form-done on success, .w-form-fail on error -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var form           = document.getElementById("contact-form");
+                var nextBtn        = document.querySelector(".form--next");
+                var backBtn        = document.querySelector(".form-back");
+                var firstStep      = document.querySelector(".form-wrap--first");
+                var secondStep     = document.querySelector(".form-wrap--second");
+                var progressNumber = document.querySelector(".form-progress---number");
+                var progressBar    = document.querySelector(".form-progress_active");
+                var doubleButtons  = document.querySelector(".buttons--double");
+                var errorEl        = document.querySelector(".form-inquiry-error");
+                var otherDetailEl  = document.getElementById("inquiry-other-detail");
+                var otherCheckbox  = document.getElementById("inquiry-other");
+                var doneEl         = document.querySelector(".w-form-done");
+                var failEl         = document.querySelector(".w-form-fail");
+                if (!form || !nextBtn || !firstStep || !secondStep) return;
+
+                /* All 7 inquiry checkboxes (now named field[17][] for AC). */
+                var inquiryBoxes = form.querySelectorAll('input[type="checkbox"][name="field[17][]"]');
+
+                /* ===== Attribution helpers =====
+                   populateAttribution() writes a PyramidAttribution state object
+                   into all the hidden field[N] inputs. Used twice:
+                     1. On DOMContentLoaded with the CURRENT stored state, so the
+                        fields are populated by the time anything serializes the form.
+                     2. In submitToAC(), after calling getStoredAndIncrementSubmission(),
+                        so the value sent to AC reflects the just-bumped submission_count
+                        (1 for first submit, 2 for second, etc.).
+                   Empty/null fields render as empty strings rather than the literal "null". */
+                function setACField(id, v) {
+                    var el = document.getElementById(id);
+                    if (el) el.value = (v == null ? "" : String(v));
+                }
+                function populateAttribution(state) {
+                    state = state || {};
+                    /* first touch */
+                    setACField("ac_first_utm_source",   state.first_utm_source);
+                    setACField("ac_first_utm_medium",   state.first_utm_medium);
+                    setACField("ac_first_utm_campaign", state.first_utm_campaign);
+                    setACField("ac_first_utm_content",  state.first_utm_content);
+                    setACField("ac_first_landing_page", state.first_landing_page);
+                    setACField("ac_first_referrer_url", state.first_referrer_url);
+                    /* last touch */
+                    setACField("ac_last_utm_source",    state.last_utm_source);
+                    setACField("ac_last_utm_medium",    state.last_utm_medium);
+                    setACField("ac_last_utm_campaign",  state.last_utm_campaign);
+                    setACField("ac_last_utm_content",   state.last_utm_content);
+                    setACField("ac_last_landing_page",  state.last_landing_page);
+                    setACField("ac_last_referrer_url",  state.last_referrer_url);
+                    /* counters */
+                    setACField("ac_session_count",    state.session_count);
+                    setACField("ac_submission_count", state.submission_count);
+                    var days = (window.PyramidAttribution && window.PyramidAttribution.getDaysSinceFirstVisit)
+                        ? window.PyramidAttribution.getDaysSinceFirstVisit()
+                        : 0;
+                    setACField("ac_days_since_first_visit", days);
+                    /* submission_page_url is captured fresh from window.location.href
+                       (not from PyramidAttribution state) so it always reflects the
+                       EXACT page the form is submitted from. */
+                    setACField("ac_submission_page_url", window.location.href);
+                }
+
+                /* ===== Pre-fill at page load (does NOT increment submission_count) ===== */
+                (function prefillAttribution() {
+                    var stored = (window.PyramidAttribution && window.PyramidAttribution.getStored && window.PyramidAttribution.getStored()) || {};
+                    populateAttribution(stored);
+                })();
+
+                /* ===== Marketing Consent sync =====
+                   The visible #ac-marketing-consent checkbox in Step 2 drives the hidden
+                   field[14] custom field (Marketing Consent) sent to AC. Checked → "Yes",
+                   unchecked → "No". Fires on change AND once at load for the default
+                   state. Without this hook, field[14] stays at the initial "No" value
+                   regardless of what the user picks. */
+                var marketingCb = document.getElementById("ac-marketing-consent");
+                var marketingConsentField = document.getElementById("ac-marketing-consent-value");
+                function syncMarketingConsent() {
+                    if (!marketingConsentField) return;
+                    marketingConsentField.value = (marketingCb && marketingCb.checked) ? "Yes" : "No";
+                }
+                if (marketingCb) marketingCb.addEventListener("change", syncMarketingConsent);
+                syncMarketingConsent(); /* initial state */
+
+                /* ===== Pre-check inquiry from URL ?inquiry=services,vehicles ===== */
+                (function preCheckFromURL() {
+                    try {
+                        var params = new URLSearchParams(window.location.search);
+                        var raw = params.get("inquiry");
+                        if (!raw) return;
+                        /* Map URL slugs to checkbox IDs */
+                        var slugToId = {
+                            "general": "inquiry-general",
+                            "services": "inquiry-services",
+                            "vehicles": "inquiry-vehicles",
+                            "partnership": "inquiry-partnership",
+                            "press": "inquiry-press",
+                            "careers": "inquiry-careers",
+                            "other": "inquiry-other"
+                        };
+                        raw.split(",").forEach(function (s) {
+                            var id = slugToId[s.trim().toLowerCase()];
+                            var box = id && document.getElementById(id);
+                            if (box) {
+                                box.checked = true;
+                                /* Sync the Webflow visual checkbox div */
+                                var custom = box.previousElementSibling;
+                                if (custom && custom.classList.contains("w-checkbox-input")) {
+                                    custom.classList.add("w--redirected-checked");
+                                }
+                            }
+                        });
+                        if (otherCheckbox && otherCheckbox.checked && otherDetailEl) {
+                            otherDetailEl.style.display = "block";
+                        }
+                    } catch (e) {}
+                })();
+
+                /* ===== Other detail toggle ===== */
+                if (otherCheckbox && otherDetailEl) {
+                    otherCheckbox.addEventListener("change", function () {
+                        otherDetailEl.style.display = otherCheckbox.checked ? "block" : "none";
+                    });
+                }
+
+                /* ===== Inquiry error auto-hide ===== */
+                inquiryBoxes.forEach(function (b) {
+                    b.addEventListener("change", function () {
+                        if (errorEl && form.querySelectorAll('input[type="checkbox"][name="field[17][]"]:checked').length > 0) {
+                            errorEl.style.display = "none";
+                        }
+                    });
+                });
+
+                /* ===== Next button — validate inquiry then advance =====
+                   Next button is always enabled. On click, we check
+                   whether at least one inquiry checkbox is selected;
+                   if not, show the inline error and stop here. Once
+                   the user picks an inquiry, the error is auto-hidden
+                   by the change listener above. */
+                nextBtn.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    var anyChecked = form.querySelectorAll('input[type="checkbox"][name="field[17][]"]:checked').length > 0;
+                    if (!anyChecked) {
+                        if (errorEl) {
+                            errorEl.style.display = "block";
+                            errorEl.scrollIntoView({ behavior: "smooth", block: "center" });
+                        }
+                        return;
+                    }
+                    firstStep.style.display = "none";
+                    secondStep.style.display = "flex";
+                    if (progressNumber) progressNumber.textContent = "2";
+                    if (progressBar) progressBar.style.width = "100%";
+                    if (doubleButtons) doubleButtons.style.display = "flex";
+                    nextBtn.style.display = "none";
+                });
+
+                /* ===== Back button ===== */
+                if (backBtn) {
+                    backBtn.addEventListener("click", function (e) {
+                        e.preventDefault();
+                        firstStep.style.display = "flex";
+                        secondStep.style.display = "none";
+                        if (progressNumber) progressNumber.textContent = "1";
+                        if (progressBar) progressBar.style.width = "50%";
+                        if (doubleButtons) doubleButtons.style.display = "none";
+                        nextBtn.style.display = "block";
+                    });
+                }
+
+                /* ===== Phone E.164 normalization =====
+                   AC server-side validates phone in E.164 format (+15551234567).
+                   Strip non-digits, prepend +1 for 10-digit US numbers. */
+                function normalizePhoneToE164(raw) {
+                    if (!raw) return "";
+                    var digits = raw.replace(/[^\d]/g, "");
+                    if (!digits) return "";
+                    if (digits.length === 10) return "+1" + digits;
+                    if (digits.length === 11 && digits[0] === "1") return "+" + digits;
+                    if (raw.trim().charAt(0) === "+") return "+" + digits;
+                    return "+" + digits;
+                }
+
+                /* ===== ActiveCampaign JSONP submit =====
+                   Uses the same pattern as solutions/air-quire.html.
+                   Capture-phase listener + stopImmediatePropagation defeats
+                   Webflow's form interception. Renames .w-form-done/fail at the
+                   end so Webflow can't reset them mid-flight. */
+                /* Lock the w-form parent's height to the form's pre-submit height so
+                   the contact section doesn't collapse from ~900px down to ~120px when
+                   we swap the form out for the thank-you message. Without this the page
+                   suddenly shortens, the footer races up, and the user has to scroll
+                   back up to see the confirmation. Then scrollIntoView centers the
+                   message in their viewport. */
+                function lockParentHeight() {
+                    if (!form) return null;
+                    var parent = form.parentElement; /* the .w-form container */
+                    if (!parent) return null;
+                    var h = form.offsetHeight;
+                    if (h > 0) {
+                        parent.style.minHeight = h + "px";
+                        parent.style.display = "flex";
+                        parent.style.flexDirection = "column";
+                        parent.style.justifyContent = "center";
+                    }
+                    return parent;
+                }
+                function scrollToFormSection() {
+                    var section = document.getElementById("Contact-form");
+                    if (!section) return;
+                    try { section.scrollIntoView({ behavior: "smooth", block: "start" }); }
+                    catch (scrollErr) { section.scrollIntoView(); }
+                }
+                function showSuccess() {
+                    if (window.PyramidAnalytics) {
+                        try {
+                            window.PyramidAnalytics.formEvent("form_submit", "contact", { form_source: "contact_general" });
+                            window.PyramidAnalytics.generateLead("contact", "general_inquiry");
+                            var _ce = document.getElementById("ac-email");
+                            if (_ce && _ce.value) window.PyramidAnalytics.identifyLead(_ce.value);
+                        } catch (e) {}
+                    }
+                    lockParentHeight();
+                    form.style.display = "none";
+                    if (doneEl) doneEl.style.display = "block";
+                    if (failEl) failEl.style.display = "none";
+                    scrollToFormSection();
+                }
+                function showFailure(reason) {
+                    if (window.PyramidAnalytics) {
+                        try { window.PyramidAnalytics.formEvent("form_error", "contact", { error_type: "submit_failure", error_msg: (reason || "").slice(0,200) }); } catch (e) {}
+                    }
+                    if (failEl) {
+                        lockParentHeight();
+                        form.style.display = "none";
+                        failEl.style.display = "block";
+                        var inner = failEl.querySelector("div");
+                        if (inner && reason) {
+                            inner.textContent = reason;
+                        }
+                        scrollToFormSection();
+                    }
+                }
+
+                function submitToAC(e) {
+                    if (e) {
+                        e.preventDefault();
+                        e.stopImmediatePropagation();
+                    }
+
+                    /* Honeypot — silently drop if filled */
+                    var hp = form.querySelector('input[name="ac_hp_zz9"]');
+                    if (hp && hp.value.trim() !== "") {
+                        showSuccess(); /* lie to the bot */
+                        return false;
+                    }
+
+                    /* Bump submission_count + re-populate all attribution fields.
+                       getStoredAndIncrementSubmission writes the bumped counter back
+                       to localStorage AND returns the state with the new value, so AC
+                       receives the correct N for THIS submission (1 for first, 2 for
+                       second, etc.). This also catches any UTM/session changes that
+                       happened after DOMContentLoaded (long-lived tabs, etc.). */
+                    if (window.PyramidAttribution && window.PyramidAttribution.getStoredAndIncrementSubmission) {
+                        var fresh = window.PyramidAttribution.getStoredAndIncrementSubmission();
+                        if (fresh) populateAttribution(fresh);
+                    }
+
+                    /* Phone E.164 */
+                    var phoneEl = form.querySelector('input[name="phone"]');
+                    if (phoneEl && phoneEl.value.trim()) {
+                        phoneEl.value = normalizePhoneToE164(phoneEl.value);
+                    }
+
+                    /* AC site-tracking identify. Links this anonymous browsing
+                       session to the contact identified by this email so AC's
+                       contact timeline shows their past + future pageviews on
+                       this browser. No-op if analytics consent is denied
+                       (PyramidACTracking guards against firing before vgo loads). */
+                    try {
+                        var emailEl = form.querySelector('input[name="email"]');
+                        if (window.PyramidACTracking && emailEl && emailEl.value) {
+                            window.PyramidACTracking.identify(emailEl.value);
+                        }
+                    } catch (acIdentifyErr) { /* defensive */ }
+
+                    /* Serialize form to query string (skip the honeypot) */
+                    var pairs = [];
+                    var elements = form.elements;
+                    for (var i = 0; i < elements.length; i++) {
+                        var el = elements[i];
+                        if (!el.name || el.disabled) continue;
+                        if (el.name === "ac_hp_zz9") continue;
+                        if ((el.type === "checkbox" || el.type === "radio") && !el.checked) continue;
+                        if (el.type === "submit" || el.type === "button") continue;
+                        pairs.push(encodeURIComponent(el.name) + "=" + encodeURIComponent(el.value));
+                    }
+                    var serialized = pairs.join("&").replace(/%0A/g, "\\n");
+
+                    /* JSONP submit — appends a <script> tag pointing to proc.php?jsonp=true.
+                       AC's response sets window._show_thank_you / _show_error which we
+                       override below to integrate with our own UI. */
+                    window._show_thank_you = function () { showSuccess(); };
+                    window._show_error = function (id, msg) { showFailure(msg || "Submission failed. Please try again."); };
+
+                    var jsonpUrl = "https://pyramidsystems.activehosted.com/proc.php?" + serialized + "&jsonp=true";
+                    var s = document.createElement("script");
+                    s.src = jsonpUrl;
+                    s.onerror = function () { showFailure("Network error. Please try again or email info@pyramidsystems.com."); };
+                    document.body.appendChild(s);
+
+                    return false;
+                }
+
+                /* Capture-phase listener — fires BEFORE Webflow's submit handler */
+                form.addEventListener("submit", submitToAC, true);
+            });
+        </script>
+
+        <!-- FAQ accordion expand/collapse. -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var wrap = document.querySelector(".accordions_content-wrap");
+                if (!wrap) return;
+                var accordions = wrap.querySelectorAll(".accordion");
+                accordions.forEach(function (acc) {
+                    var textWrap = acc.querySelector(".accordion_text-wrap");
+                    if (textWrap) textWrap.style.height = "0px";
+                });
+                wrap.addEventListener("click", function (e) {
+                    var heading = e.target.closest(".accordion_heading");
+                    if (!heading) return;
+                    var current = heading.closest(".accordion");
+                    if (!current) return;
+                    var currentText = current.querySelector(".accordion_text-wrap");
+                    if (current.classList.contains("is--opened")) {
+                        current.classList.remove("is--opened");
+                        if (currentText) {
+                            currentText.style.height = currentText.scrollHeight + "px";
+                            requestAnimationFrame(function () { currentText.style.height = "0px"; });
+                        }
+                    } else {
+                        accordions.forEach(function (a) {
+                            if (a === current) return;
+                            a.classList.remove("is--opened");
+                            var otherText = a.querySelector(".accordion_text-wrap");
+                            if (otherText) {
+                                otherText.style.height = otherText.scrollHeight + "px";
+                                requestAnimationFrame(function () { otherText.style.height = "0px"; });
+                            }
+                        });
+                        current.classList.add("is--opened");
+                        if (currentText) {
+                            currentText.style.height = "0px";
+                            requestAnimationFrame(function () {
+                                currentText.style.height = currentText.scrollHeight + "px";
+                            });
+                            currentText.addEventListener("transitionend", function handle() {
+                                if (current.classList.contains("is--opened")) currentText.style.height = "auto";
+                                currentText.removeEventListener("transitionend", handle);
+                            });
+                        }
+                    }
+                });
+            });
+        </script>
+
+        <!-- Lottie player for the contact-routing animation on the right
+             side of the form. Uses lottie_light (the renderer-only build)
+             since we do not need expression evaluation. -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie_light.min.js" defer></script>
+        <script>
+            window.addEventListener('load', function () {
+                var el = document.getElementById('contact-lottie');
+                if (!el || typeof lottie === 'undefined') return;
+                var anim = lottie.loadAnimation({
+                    container: el,
+                    renderer: 'svg',
+                    loop: true,
+                    autoplay: true,
+                    path: '../lottie/contact4.json',
+                    /* The template's image container is 600x1136 (portrait).
+                       Our Lottie is 1500x1500 (square). 'slice' scales the
+                       SVG to FILL the container along the larger dimension
+                       (height 1136), with 268px cropped on each side. The
+                       template's .form-image_gradient-top and .gradient-bottom
+                       divs fade the top/bottom edges, masking any overflow
+                       into surrounding sections when the form column is
+                       shorter than the 71rem image-wrapper. */
+                    rendererSettings: { preserveAspectRatio: 'xMidYMid slice' }
+                });
+                anim.setSpeed(1.6);
+
+                /* ===== Hybrid scroll-scrub + idle-autoplay =====
+                   Scroll moves the animation RELATIVELY (delta-based) so
+                   the handoff from idle/autoplay to scrub is seamless —
+                   the animation picks up from whatever frame it was on,
+                   instead of snapping to an absolute scroll-mapped frame.
+                   Wraps modulo totalFrames so reverse scroll past the
+                   start wraps to the end.
+
+                   Tunables:
+                   - SCRUB_ENABLED → flip to false to revert to plain autoplay
+                   - IDLE_DELAY    → ms of no scroll before autoplay resumes
+                   - SCRUB_SENSITIVITY → how many Lottie frames per pixel of
+                     scroll (0.3 = subtle, 0.7 = aggressive). */
+                var SCRUB_ENABLED = true;
+                var IDLE_DELAY = 220;
+                var SCRUB_SENSITIVITY = 0.5;
+                if (!SCRUB_ENABLED) return;
+
+                var scrollTimeout = null;
+                var isScrubbing = false;
+                var lastScrollY = window.scrollY || window.pageYOffset || 0;
+
+                function onScroll() {
+                    var currentY = window.scrollY || window.pageYOffset || 0;
+                    var scrollDelta = currentY - lastScrollY;
+                    lastScrollY = currentY;
+
+                    if (!isScrubbing) {
+                        /* Pause autoplay at CURRENT frame so the next scroll
+                           delta starts from there — no snap, no jump. */
+                        anim.pause();
+                        isScrubbing = true;
+                    }
+
+                    var total = anim.totalFrames;
+                    var current = anim.currentFrame || 0;
+                    var newFrame = current + (scrollDelta * SCRUB_SENSITIVITY);
+                    /* Wrap modulo total so scroll past either end loops. */
+                    newFrame = ((newFrame % total) + total) % total;
+                    anim.goToAndStop(newFrame, true);
+
+                    if (scrollTimeout) clearTimeout(scrollTimeout);
+                    scrollTimeout = setTimeout(function () {
+                        isScrubbing = false;
+                        anim.play(); /* resumes from current scrubbed frame */
+                    }, IDLE_DELAY);
+                }
+
+                /* passive: true lets the browser optimize — important
+                   because Lenis smooth-scroll fires scroll events at ~60fps. */
+                window.addEventListener('scroll', onScroll, { passive: true });
+            });
+        </script>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+    </body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <!-- Consent Mode v2 defaults MUST push to dataLayer BEFORE
+         the GTM head script runs. Loaded synchronously (no defer)
+         so gtag('consent','default',...) lands at dataLayer
+         index 0, before gtm.js. -->
+    <script src="../../js/pyramid-consent.js"></script>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WSMBQZDP');</script>
+<!-- End Google Tag Manager -->
+
+        <link rel="icon" type="image/png" href="../../images/newPyramidLogoIcon.png"/>
+        <link rel="apple-touch-icon" href="../../images/newPyramidLogoIcon.png"/>
+
+        <!-- TEMPLATE:a11y_widget:START -->
+        <!-- Pyramid Systems accessibility widget — custom replacement for UserWay -->
+        <link rel="stylesheet" href="../../css/pyramid-a11y.css">
+        <script>
+          /* Early-load: apply saved a11y settings before first paint so the page
+             doesn't flash unfiltered content when the user navigates between pages. */
+          (function () {
+            try {
+              var s = JSON.parse(localStorage.getItem('pyramid-a11y-settings') || '{}');
+              var c = document.documentElement.classList;
+              Object.keys(s).forEach(function (k) {
+                var v = s[k];
+                if (!v) return;
+                if (k === 'oversized') c.add('pa11y-oversized');
+                else if (typeof v === 'string') c.add('pa11y-' + k + '-' + v);
+                else c.add('pa11y-' + k);
+              });
+            } catch (e) {}
+          })();
+        </script>
+        <script src="../../js/pyramid-a11y.js" defer></script>
+        <!-- TEMPLATE:a11y_widget:END -->
+
+        <!-- TEMPLATE:consent:START -->
+        <!-- Pyramid Systems cookie consent (Consent Mode v2 / GTM-ready).
+             Loads BEFORE any future GTM tag so default consent state
+             reaches the dataLayer first. Public API: window.PyramidConsent. -->
+        <link rel="stylesheet" href="../../css/pyramid-consent.css">
+        <!-- TEMPLATE:consent:END -->
+
+        <!-- TEMPLATE:attribution:START -->
+        <!-- Pyramid Systems UTM + attribution capture.
+             Loads on every page so when a visitor lands via a UTM-tagged
+             ad/email/QR, the params are stored in localStorage for 30
+             days. Any form on the site can then read them via
+             window.PyramidAttribution.getStored() at submit time. -->
+        <script src="../../js/pyramid-attribution.js"></script>
+        <!-- TEMPLATE:attribution:END -->
+
+        <!-- TEMPLATE:ac_tracking:START -->
+        <!-- Pyramid Systems ActiveCampaign Site Tracking.
+             Wraps AC's vgo() snippet behind our consent system: only fires
+             when analytics consent is granted (default ON, user can opt out
+             via the Cookie Preferences modal). Form submit handlers call
+             window.PyramidACTracking.identify(email) to link the anonymous
+             session to the AC contact. -->
+        <script src="../../js/pyramid-ac-tracking.js"></script>
+        <!-- TEMPLATE:ac_tracking:END -->
+        <!-- TEMPLATE:analytics:START -->
+        <!-- Pyramid Systems analytics layer.
+             Central dataLayer push for GTM: form_step, form_submit,
+             generate_lead, form_error, cta_click, page_view_attribution.
+             Also pre-checks the contact form's inquiry checkbox from
+             ?inquiry= deep links so vertical-CTA traffic lands in the
+             right inquiry context. -->
+        <script src="../../js/pyramid-analytics.js" defer></script>
+        <!-- TEMPLATE:analytics:END -->
+
+        <!-- TEMPLATE:engagement:START -->
+        <!-- Pyramid Systems engagement tracking — captures popups,
+             cookie modal, FAQ, mobile menu, search, accessibility. -->
+        <script src="../../js/pyramid-engagement.js" defer></script>
+        <!-- TEMPLATE:engagement:END -->
+
+        <!-- TEMPLATE:web_vitals:START -->
+        <!-- Core Web Vitals (LCP, INP, CLS) → dataLayer → GA4. -->
+        <script src="../../js/pyramid-web-vitals.js" defer></script>
+        <!-- TEMPLATE:web_vitals:END -->
+
+
+<meta charset="UTF-8">
+<title>Reserving a Seat at the Top for the Solutions Architect — Pyramid Systems</title>
+<meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="0; url=../../about-us/leadership/index.html">
+<link rel="canonical" href="https://pyramidsystems.com/insights/blog/solutions-architect-executive-seat"/>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0a0a0f; color: #fff; margin: 0; padding: 4rem 2rem; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+  .card { max-width: 560px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; padding: 2.5rem; text-align: center; }
+  h1 { font-size: 1.5rem; margin: 0 0 0.75rem 0; line-height: 1.3; }
+  p { color: rgba(255,255,255,0.78); line-height: 1.55; margin: 0 0 1.5rem 0; }
+  a { display: inline-block; background: linear-gradient(135deg, #E86222, #ff4d6d); color: white; padding: 0.85rem 1.5rem; border-radius: 999px; text-decoration: none; font-weight: 600; }
+  a:hover { opacity: 0.92; }
+  .small { display: block; margin-top: 1rem; font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+</style>
+<script>setTimeout(function(){ window.location.replace("../../about-us/index.html"); }, 50);</script>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WSMBQZDP"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="card">
+<h1>Reserving a Seat at the Top for the Solutions Architect</h1>
+<p>Pyramid's leadership approach is now covered on the Leadership page.</p>
+<a href="../../about-us/index.html">Continue &rarr;</a>
+<span class="small">Redirecting automatically…</span>
+</div>
+</body>
+</html>

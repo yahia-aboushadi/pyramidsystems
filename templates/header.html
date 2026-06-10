@@ -1,0 +1,442 @@
+        <style>
+            /* Nav dropdown alignment fix.
+               .header_dd-link is a flex container. When an item has only ONE
+               child (a single <div> of text — no icon, like our Contract
+               Vehicles items), a long label that wraps to two lines doesn't
+               anchor the wrapped lines to the left edge of the parent. The
+               flex item shrinks to the wrap width and sits in the default
+               position. Force the inner text div to expand to fill the
+               available space and left-align — covers both single-child and
+               icon-prefixed dropdown items. */
+            .header_dd-link > div:not(.header-dd_icon) {
+                flex: 1 1 auto;
+                min-width: 0;
+                text-align: left;
+            }
+
+            /* Logo aspect-ratio fix.
+               .header-logo is a fixed-width (10.1875rem ≈ 163px) flex
+               container. .logo has height:44px but no width rule, so it
+               inherits flex-shrink:1 and gets horizontally compressed when
+               its natural width at 44px height exceeds the parent's width.
+               Lock flex-shrink to 0 and let width grow to the intrinsic size
+               of the image. The wordmark is "Pyramid Systems" so its natural
+               aspect ratio is wider than tall and we want it to overflow the
+               parent box rather than squish. */
+            .header-logo .logo {
+                width: auto;
+                flex-shrink: 0;
+                object-fit: contain;
+            }
+
+            /* AIR-Quire flagship-product nav icon.
+               Prepends the AIR-Quire product mark to its top-level navlink
+               via a ::before pseudo-element. Done via CSS (not an <img>) so
+               it survives template re-stamping cleanly. The {{PREFIX}}
+               placeholder resolves to "", "../", "../../" etc. depending on
+               page depth, mirroring how the script handles every other
+               asset path in the template. */
+            a.navlink[href$="solutions/air-quire.html"] {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            a.navlink[href$="solutions/air-quire.html"]::before {
+                content: "";
+                width: 1.125rem;
+                height: 1.125rem;
+                background-image: url("{{PREFIX}}images/air-quire-Icon.png");
+                background-size: 95% 95%;
+                background-repeat: no-repeat;
+                background-position: center;
+                flex-shrink: 0;
+            }
+        </style>
+        <header class="header">
+        <link rel="icon" type="image/png" href="../images/newPyramidLogoIcon.png"/>
+        <link rel="apple-touch-icon" href="../images/newPyramidLogoIcon.png"/>
+
+            <div class="header_overlay"></div>
+            <div class="w-layout-blockcontainer container-copy is--header w-container">
+                <div class="header_content-wrap">
+                    <a href="{{PREFIX}}index.html" class="header-logo w-inline-block">
+                        <img class="logo" src="{{PREFIX}}images/orangeLogo.png" alt="Pyramid Systems" >
+                        
+                    </a>
+                    <div class="menu-wrap">
+                        <div class="header_navigation-wrap">
+                            <a href="{{PREFIX}}solutions/air-quire.html" class="navlink w-inline-block"><div>AIR-Quire</div></a>
+
+                            <div class="menu_divider-dot"></div>
+                            <div data-hover="false" data-delay="0" data-w-id="4d1d8a72-dee5-ca16-c1c5-51ab9bc6dsrv" class="navlink is-dd w-dropdown">
+                                <div class="navlink is--dd w-dropdown-toggle">
+                                    <div class="text-block">Services</div>
+                                    <div class="dd-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 10 10" fill="none">
+                                            <path d="M2.08674 4.41326L4.70508 7.0316L7.32342 4.41326" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <nav class="header_dd-list w-dropdown-list">
+                                    <a href="{{PREFIX}}services/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-layout-grid">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M4 4h6v6h-6z"/>
+                                                <path d="M14 4h6v6h-6z"/>
+                                                <path d="M4 14h6v6h-6z"/>
+                                                <path d="M14 14h6v6h-6z"/>
+                                            </svg>
+                                        </div>
+                                        <div>All Services</div>
+                                    </a>
+                                    <a href="{{PREFIX}}services/modernization.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-stack-2">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M12 4l-8 4l8 4l8 -4l-8 -4"/>
+                                                <path d="M4 12l8 4l8 -4"/>
+                                                <path d="M4 16l8 4l8 -4"/>
+                                            </svg>
+                                        </div>
+                                        <div>Modernization</div>
+                                    </a>
+                                    <a href="{{PREFIX}}services/cloud.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-cloud">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M6.657 18c-2.572 0 -4.657 -2.007 -4.657 -4.483c0 -2.475 2.085 -4.482 4.657 -4.482c.393 -1.762 1.794 -3.2 3.675 -3.773c1.88 -.572 3.956 -.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.913 0 3.464 1.56 3.464 3.486c0 1.927 -1.551 3.486 -3.465 3.486h-11.878"/>
+                                            </svg>
+                                        </div>
+                                        <div>Cloud</div>
+                                    </a>
+                                    <a href="{{PREFIX}}services/cybersecurity.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-shield-lock">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3"/>
+                                                <path d="M12 11m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/>
+                                                <path d="M12 12l0 2.5"/>
+                                            </svg>
+                                        </div>
+                                        <div>Cybersecurity</div>
+                                    </a>
+                                    <a href="{{PREFIX}}services/devsecops.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-infinity">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M9.828 9.172a4 4 0 1 0 0 5.656a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828"/>
+                                            </svg>
+                                        </div>
+                                        <div>DevSecOps</div>
+                                    </a>
+                                    <a href="{{PREFIX}}services/analytics-ai.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chart-line">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M4 19l16 0"/>
+                                                <path d="M4 15l4 -6l4 2l4 -5l4 4"/>
+                                            </svg>
+                                        </div>
+                                        <div>Analytics &amp; AI</div>
+                                    </a>
+                                </nav>
+                            </div>
+
+                            <!-- WHO WE SERVE NAV — HIDDEN 2026-05-22.
+                                 Rationale: no underlying agency-segment content exists on the current
+                                 pyramidsystems.com site, and no past-performance proof for the
+                                 "Department of War" segment. Restore this block when dedicated
+                                 Civilian / Financial Regulators (etc.) pages are written and the
+                                 segmentation is backed by real named past performance.
+                            <div class="menu_divider-dot"></div>
+                            <div data-hover="false" data-delay="0" data-w-id="4d1d8a72-dee5-ca16-c1c5-51ab9bc6dbcc" class="navlink is-dd w-dropdown">
+                                <div class="navlink is--dd w-dropdown-toggle">
+                                    <div class="text-block">Who We Serve</div>
+                                    <div class="dd-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 10 10" fill="none">
+                                            <path d="M2.08674 4.41326L4.70508 7.0316L7.32342 4.41326" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <nav class="header_dd-list w-dropdown-list">
+                                    <a data-cta="vertical_federal_civilian" data-cta-location="nav_dropdown" href="{{PREFIX}}coming-soon.html" class="header_dd-link w-inline-block">
+                                        <div>Federal Civilian</div>
+                                    </a>
+                                    <a data-cta="vertical_financial_regulators" data-cta-location="nav_dropdown" href="{{PREFIX}}coming-soon.html" class="header_dd-link w-inline-block">
+                                        <div>Financial Regulators</div>
+                                    </a>
+                                    <a data-cta="vertical_department_of_war" data-cta-location="nav_dropdown" href="{{PREFIX}}coming-soon.html" class="header_dd-link w-inline-block">
+                                        <div>Department of War</div>
+                                    </a>
+                                </nav>
+                            </div>
+                            -->
+
+                            <div class="menu_divider-dot"></div>
+                            <div data-hover="false" data-delay="0" data-w-id="4d1d8a72-dee5-ca16-c1c5-51ab9bc6dcvv" class="navlink is-dd w-dropdown">
+                                <div class="navlink is--dd w-dropdown-toggle">
+                                    <div class="text-block">Contract Vehicles</div>
+                                    <div class="dd-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 10 10" fill="none">
+                                            <path d="M2.08674 4.41326L4.70508 7.0316L7.32342 4.41326" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <nav class="header_dd-list w-dropdown-list">
+                                    <a href="{{PREFIX}}contract-vehicles/index.html" class="header_dd-link w-inline-block">
+                                        <div>How to procure us</div>
+                                    </a>
+                                    <a href="{{PREFIX}}contract-vehicles/gsa-it-schedule-70.html" class="header_dd-link w-inline-block">
+                                        <div>GSA IT Schedule 70</div>
+                                    </a>
+                                    <a href="{{PREFIX}}contract-vehicles/gsa-oasis-plus.html" class="header_dd-link w-inline-block">
+                                        <div>GSA OASIS+ Unrestricted</div>
+                                    </a>
+                                    <a href="{{PREFIX}}contract-vehicles/hhs-cms-sparc.html" class="header_dd-link w-inline-block">
+                                        <div>HHS CMS SPARC</div>
+                                    </a>
+                                    <a href="{{PREFIX}}contract-vehicles/sec-one-it.html" class="header_dd-link w-inline-block">
+                                        <div>SEC ONE IT</div>
+                                    </a>
+                                    <a href="{{PREFIX}}contract-vehicles/gsa-8a-stars-iii.html" class="header_dd-link w-inline-block">
+                                        <div>GSA 8(a) STARS III</div>
+                                    </a>
+                                    <a href="{{PREFIX}}contract-vehicles/fdic-itas-iii.html" class="header_dd-link w-inline-block">
+                                        <div>FDIC ITAS III Next Gen BOA</div>
+                                    </a>
+                                    <a href="{{PREFIX}}contract-vehicles/hud-om-bpa.html" class="header_dd-link w-inline-block">
+                                        <div>HUD O&amp;M BPA</div>
+                                    </a>
+                                </nav>
+                            </div>
+                            <div class="menu_divider-dot"></div>
+                            <div data-hover="false" data-delay="0" data-w-id="4d1d8a72-dee5-ca16-c1c5-51ab9bc6dbcc" class="navlink is-dd w-dropdown">
+                                <div class="navlink is--dd w-dropdown-toggle">
+                                    <div class="text-block">About Pyramid</div>
+                                    <div class="dd-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 10 10" fill="none">
+                                            <path d="M2.08674 4.41326L4.70508 7.0316L7.32342 4.41326" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <nav class="header_dd-list w-dropdown-list">
+                                    <a href="{{PREFIX}}about-us/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-pyramid">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M11.105 21.788a1.994 1.994 0 0 0 1.789 0l8.092 -4.054c.538 -.27 .718 -.951 .385 -1.452l-8.54 -13.836a.999 .999 0 0 0 -1.664 0l-8.54 13.836a1.005 1.005 0 0 0 .386 1.452l8.092 4.054" />
+                                                <path d="M12 2v20" />
+                                            </svg>
+                                        </div>
+                                        <div>Who We Are</div>
+                                    </a>
+                                    <a href="{{PREFIX}}about-us/certifications/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-certificate">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M12 15a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                                                <path d="M13 17.5v4.5l2 -1.5l2 1.5v-4.5" />
+                                                <path d="M10 19h-5a2 2 0 0 1 -2 -2v-10c0 -1.1 .9 -2 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -1 1.73" />
+                                                <path d="M6 9l12 0" />
+                                                <path d="M6 12l3 0" />
+                                                <path d="M6 15l2 0" />
+                                            </svg>                                        
+                                        </div>
+                                        <div>Certifications</div>
+                                    </a>
+                                    <a href="{{PREFIX}}about-us/partners/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-affiliate">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M5.931 6.936l1.275 4.249m5.607 5.609l4.251 1.275" />
+                                                <path d="M11.683 12.317l5.759 -5.759" />
+                                                <path d="M4 5.5a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0" />
+                                                <path d="M17 5.5a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0" />
+                                                <path d="M17 18.5a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0" />
+                                                <path d="M4 15.5a4.5 4.5 0 1 0 9 0a4.5 4.5 0 1 0 -9 0" />
+                                            </svg>                                        
+                                        </div>
+                                        <div>Partners</div>
+                                    </a>
+                                    <a href="{{PREFIX}}careers/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-briefcase">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
+                                                <path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2" />
+                                                <path d="M12 12l0 .01" />
+                                                <path d="M3 13a20 20 0 0 0 18 0" />
+                                            </svg>
+                                        </div>
+                                        <div>Careers</div>
+                                    </a>
+                                    </nav>
+                            </div>
+
+                            <div class="menu_divider-dot"></div>
+                            <div data-hover="false" data-delay="0" data-w-id="4d1d8a72-dee5-ca16-c1c5-51ab9bc6dbcc" class="navlink is-dd w-dropdown">
+                                <div class="navlink is--dd w-dropdown-toggle">
+                                    <div class="text-block">Insights</div>
+                                    <div class="dd-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 10 10" fill="none">
+                                            <path d="M2.08674 4.41326L4.70508 7.0316L7.32342 4.41326" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <nav class="header_dd-list w-dropdown-list">
+                                    <a href="{{PREFIX}}insights/blog/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-article">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
+                                                <path d="M7 8h10" />
+                                                <path d="M7 12h10" />
+                                                <path d="M7 16h7" />
+                                            </svg>
+                                        </div>
+                                        <div>Blog</div>
+                                    </a>
+                                    <a href="{{PREFIX}}insights/case-studies/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-clipboard-data">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
+                                                <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                                                <path d="M9 17l0 -4" />
+                                                <path d="M12 17l0 -1" />
+                                                <path d="M15 17l0 -2" />
+                                            </svg>
+                                        </div>
+                                        <div>Case Studies</div>
+                                    </a>
+                                    <a href="{{PREFIX}}insights/news/index.html" class="header_dd-link w-inline-block">
+                                        <div class="header-dd_icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-news">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M16 6h3a1 1 0 0 1 1 1v11a2 2 0 0 1 -4 0v-13a1 1 0 0 0 -1 -1h-11a1 1 0 0 0 -1 1v12a3 3 0 0 0 3 3h14" />
+                                                <path d="M8 8l4 0" />
+                                                <path d="M8 12l4 0" />
+                                                <path d="M8 16l4 0" />
+                                            </svg>
+                                        </div>
+                                        <div>News</div>
+                                    </a>
+                                </nav>
+                            </div>
+                        </div>
+                        <a href="{{PREFIX}}contact/index.html" class="header_button-wrap arrow-animation w-inline-block">
+                            <div class="menu_inner-button">
+                                <div>Contact</div>
+                                <div class="button-arrow is--header">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 14 14" fill="none">
+                                        <path d="M10.5005 3.49997L3.03375 10.9667" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="round"></path>
+                                        <path d="M11.2002 8.79087V2.80003H5.20936" stroke="currentColor" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="bevel"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="hero-dots is--1">
+                        <img src="{{PREFIX}}images/heroDots.avif" loading="eager" width="286" height="163" alt="" class="i-100"/>
+                    </div>
+                    <button data-w-id="4d1d8a72-dee5-ca16-c1c5-51ab9bc6dc0b" fs-scrolldisable-element="toggle" class="menu">
+                        <div class="menu_inner">
+                            <div class="menu_lines-wrap">
+                                <div class="menu-line is--upper"></div>
+                                <div class="menu-line is--middle"></div>
+                                <div class="menu-line is--bottom"></div>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="floating-badge"><img src="{{PREFIX}}images/winner.png" loading="lazy" alt="" class="german-web-aw"></div>
+
+            <script>
+                /* Active nav state.
+                   The header is stamped identically on every page, so there's no
+                   per-page hardcoded current-link marker. This runtime script reads
+                   window.location and applies Webflow's `w--current` class (plus
+                   aria-current="page") to:
+                     a) the exact-matching nav link, AND
+                     b) its parent dropdown toggle if the link is inside a dropdown.
+                   If no exact match is found (e.g., a deep blog post), we fall
+                   back to prefix-matching the URL section against a list of
+                   dropdown labels — so /insights/blog/foo.html still highlights
+                   "Insights" in the top nav. */
+                (function () {
+                    function normalize(p) {
+                        return (p || "").toLowerCase().replace(/\/$/, "").replace(/\/index\.html$/, "");
+                    }
+                    function resolve(href) {
+                        try { return normalize(new URL(href, window.location.href).pathname); }
+                        catch (e) { return null; }
+                    }
+                    function apply() {
+                        var current = normalize(window.location.pathname);
+                        var navRoot = document.querySelector(".header_navigation-wrap");
+                        if (!navRoot) return;
+
+                        // Pass 1: exact-match link hrefs.
+                        var matched = false;
+                        navRoot.querySelectorAll("a[href]").forEach(function (link) {
+                            var p = resolve(link.getAttribute("href"));
+                            if (p !== null && p === current) {
+                                link.classList.add("w--current");
+                                link.setAttribute("aria-current", "page");
+                                var dd = link.closest(".navlink.is-dd");
+                                if (dd) {
+                                    var toggle = dd.querySelector(".navlink.is--dd");
+                                    if (toggle) {
+                                        toggle.classList.add("w--current");
+                                        toggle.setAttribute("aria-current", "page");
+                                    }
+                                }
+                                matched = true;
+                            }
+                        });
+                        if (matched) return;
+
+                        // Pass 2: URL-prefix → dropdown label fallback for descendant pages.
+                        var sectionMap = [
+                            { prefix: "/contract-vehicles", label: "Contract Vehicles" },
+                            { prefix: "/about-us",          label: "About Pyramid" },
+                            { prefix: "/careers",           label: "About Pyramid" },
+                            { prefix: "/insights",          label: "Insights" },
+                            { prefix: "/services",          label: "Services" }
+                        ];
+                        sectionMap.forEach(function (section) {
+                            if (current.indexOf(section.prefix) === 0) {
+                                navRoot.querySelectorAll(".navlink.is--dd").forEach(function (toggle) {
+                                    var lbl = toggle.querySelector(".text-block");
+                                    if (lbl && lbl.textContent.trim() === section.label) {
+                                        toggle.classList.add("w--current");
+                                        toggle.setAttribute("aria-current", "page");
+                                    }
+                                });
+                            }
+                        });
+                    }
+                    if (document.readyState === "loading") {
+                        document.addEventListener("DOMContentLoaded", apply);
+                    } else {
+                        apply();
+                    }
+                })();
+            </script>
+
+        </header>
+
+        <!-- === PYRAMID MOBILE MENU OVERLAY (begin) === -->
+        <!-- Self-contained mobile menu loader. Builds the overlay HTML at
+             runtime and only activates at viewport ≤991px. On desktop it
+             does nothing — the existing nav is untouched. To roll back:
+             remove this block, run scripts/apply_templates.py, delete
+             js/pyramid-mobile-menu.js, and remove the CSS block bounded
+             by "PYRAMID MOBILE MENU OVERLAY — BEGIN/END" markers in
+             css/styles.css. See MOBILE_MENU_ROLLBACK.md. -->
+        <script src="{{PREFIX}}js/pyramid-mobile-menu.js" defer></script>
+        <!-- === PYRAMID MOBILE MENU OVERLAY (end) === -->
+
