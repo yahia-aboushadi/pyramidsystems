@@ -1,0 +1,1590 @@
+/* ==========================================================================
+   AIR-Quire feature mockups (v37)
+   Replaces the 4 placeHolderAirQuire.png images on solutions/air-quire.html
+   with custom HTML/CSS animated mockups, one per content section:
+     .aq-mock--planning       AI-Powered Acquisition Planning
+     .aq-mock--solicitation   Streamlined Solicitation Management
+     .aq-mock--intelligence   Real-Time Acquisition Intelligence
+     .aq-mock--admin          Intelligent Contract Administration
+
+   All mockups share the .aq-mock base, and become animated when their
+   `.is-active` class is set by air-quire-mocks.js (IntersectionObserver).
+   ========================================================================== */
+
+.aq-mock {
+  position: relative;
+  width: 100%;
+  /* Aspect anchored so the mockup fills the same slot as the original image. */
+  aspect-ratio: 5 / 4;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(243, 107, 37, 0.10) 0%, transparent 55%),
+    linear-gradient(160deg, #1c1d24 0%, #161821 60%, #20180f 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  padding: 1.4rem;
+  overflow: hidden;
+  font-family: Mulish, Arial, sans-serif;
+  color: #f4f5f9;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 14px 32px rgba(0, 0, 0, 0.4);
+  isolation: isolate;
+}
+.aq-mock::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.04) 1px, transparent 0);
+  background-size: 16px 16px;
+  pointer-events: none;
+  mask-image: linear-gradient(180deg, #000 30%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, #000 30%, transparent 100%);
+}
+.aq-mock > * { position: relative; z-index: 1; }
+
+/* Common card chrome used inside several mockups */
+.aq-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.7rem;
+  padding: 0.7rem 0.85rem;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+.aq-card.is-accent {
+  background: linear-gradient(180deg, rgba(243, 107, 37, 0.18), rgba(243, 107, 37, 0.05));
+  border-color: rgba(243, 107, 37, 0.55);
+  box-shadow: 0 0 18px rgba(243, 107, 37, 0.18);
+}
+.aq-eyebrow {
+  font-size: 0.55rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #f36b25;
+}
+.aq-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.72rem;
+}
+.aq-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.18rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.aq-pill.is-orange { background: rgba(243, 107, 37, 0.18); border: 1px solid rgba(243, 107, 37, 0.5); color: #ffd1a8; }
+.aq-pill.is-green  { background: rgba(34, 197, 94, 0.18);  border: 1px solid rgba(34, 197, 94, 0.5);  color: #86efac; }
+.aq-pill.is-blue   { background: rgba(96, 165, 250, 0.18); border: 1px solid rgba(96, 165, 250, 0.5); color: #bfdbfe; }
+.aq-pill.is-amber  { background: rgba(251, 191, 36, 0.18); border: 1px solid rgba(251, 191, 36, 0.5); color: #fde68a; }
+.aq-pill.is-violet { background: rgba(168, 85, 247, 0.18); border: 1px solid rgba(168, 85, 247, 0.5); color: #ddd6fe; }
+.aq-pill .dot { width: 0.35rem; height: 0.35rem; border-radius: 50%; background: currentColor; }
+
+/* =========================================================================
+   1) AI-POWERED ACQUISITION PLANNING (.aq-mock--planning)
+   Inputs (Mission brief, Market intel, FAR refs) flow into an AI core,
+   which emits a generated Acquisition Plan with FAR clauses + checks.
+   ========================================================================= */
+.aq-mock--planning .aq-planning-inputs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+}
+.aq-mock--planning .aq-planning-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+  padding: 0.55rem 0.65rem;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.aq-mock--planning.is-active .aq-planning-input { opacity: 1; transform: translateY(0); }
+.aq-mock--planning.is-active .aq-planning-input:nth-child(1) { transition-delay: 0.10s; }
+.aq-mock--planning.is-active .aq-planning-input:nth-child(2) { transition-delay: 0.20s; }
+.aq-mock--planning.is-active .aq-planning-input:nth-child(3) { transition-delay: 0.30s; }
+.aq-mock--planning .aq-planning-input-label {
+  font-size: 0.5rem; color: #a8a9ab; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.aq-mock--planning .aq-planning-input-name {
+  font-size: 0.7rem; font-weight: 700; color: #f4f5f9;
+}
+.aq-mock--planning .aq-planning-flow {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.9rem 0;
+  height: 2.6rem;
+}
+.aq-mock--planning .aq-planning-flow-line {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  top: 50%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(243, 107, 37, 0.6), transparent);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.aq-mock--planning.is-active .aq-planning-flow-line { transform: scaleX(1); transition-delay: 0.4s; }
+.aq-mock--planning .aq-planning-core {
+  position: relative;
+  width: 2.4rem; height: 2.4rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #ffb286, #f36b25 60%, #b9501a);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+  box-shadow: 0 0 22px rgba(243, 107, 37, 0.5);
+  opacity: 0; transform: scale(0.6);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.aq-mock--planning.is-active .aq-planning-core { opacity: 1; transform: scale(1); transition-delay: 0.5s; }
+.aq-mock--planning .aq-planning-core::before,
+.aq-mock--planning .aq-planning-core::after {
+  content: "";
+  position: absolute;
+  inset: -10%;
+  border: 1px solid rgba(243, 107, 37, 0.5);
+  border-radius: 50%;
+  opacity: 0;
+  animation: aqPlanningPulse 2.8s ease-out infinite;
+}
+.aq-mock--planning .aq-planning-core::after { animation-delay: 1.4s; }
+@keyframes aqPlanningPulse {
+  0%   { transform: scale(0.85); opacity: 0.7; }
+  100% { transform: scale(1.7);  opacity: 0; }
+}
+.aq-mock--planning .aq-planning-core svg { width: 1.1rem; height: 1.1rem; }
+.aq-mock--planning .aq-planning-output {
+  margin-top: 0.4rem;
+  padding: 0.85rem 1rem;
+  border-radius: 0.7rem;
+  background: linear-gradient(180deg, rgba(243, 107, 37, 0.12), rgba(243, 107, 37, 0.04));
+  border: 1px solid rgba(243, 107, 37, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.aq-mock--planning.is-active .aq-planning-output { opacity: 1; transform: translateY(0); transition-delay: 0.7s; }
+.aq-mock--planning .aq-planning-output-head {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.aq-mock--planning .aq-planning-output-title {
+  font-size: 0.85rem; font-weight: 800; color: #f4f5f9; letter-spacing: -0.01em;
+}
+.aq-mock--planning .aq-planning-checks {
+  display: flex; flex-direction: column; gap: 0.35rem;
+}
+.aq-mock--planning .aq-planning-check {
+  display: flex; align-items: center; gap: 0.55rem;
+  font-size: 0.7rem; color: #cbd5e1;
+  opacity: 0; transform: translateX(-6px);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.aq-mock--planning.is-active .aq-planning-check { opacity: 1; transform: translateX(0); }
+.aq-mock--planning.is-active .aq-planning-check:nth-child(1) { transition-delay: 0.95s; }
+.aq-mock--planning.is-active .aq-planning-check:nth-child(2) { transition-delay: 1.10s; }
+.aq-mock--planning.is-active .aq-planning-check:nth-child(3) { transition-delay: 1.25s; }
+.aq-mock--planning.is-active .aq-planning-check:nth-child(4) { transition-delay: 1.40s; }
+.aq-mock--planning .aq-planning-check-tick {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 0.95rem; height: 0.95rem; border-radius: 50%;
+  background: rgba(34, 197, 94, 0.2); border: 1px solid rgba(34, 197, 94, 0.6);
+}
+.aq-mock--planning .aq-planning-check-tick svg { width: 0.55rem; height: 0.55rem; }
+
+/* =========================================================================
+   2) STREAMLINED SOLICITATION MANAGEMENT (.aq-mock--solicitation)
+   Vertical workflow: Draft → Review → Q&A → Receipt → Award. Each stage
+   advances over time with progress indicator + audit log on the right.
+   ========================================================================= */
+.aq-mock--solicitation .aq-sol-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 0.85rem;
+  height: 100%;
+}
+.aq-mock--solicitation .aq-sol-stages {
+  display: flex; flex-direction: column; gap: 0.45rem;
+}
+.aq-mock--solicitation .aq-sol-stage {
+  display: flex; align-items: center; gap: 0.65rem;
+  padding: 0.55rem 0.7rem;
+  border-radius: 0.55rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  position: relative;
+  opacity: 0; transform: translateX(-8px);
+  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s ease, border-color 0.4s ease;
+}
+.aq-mock--solicitation.is-active .aq-sol-stage { opacity: 1; transform: translateX(0); }
+.aq-mock--solicitation.is-active .aq-sol-stage:nth-child(1) { transition-delay: 0.10s; }
+.aq-mock--solicitation.is-active .aq-sol-stage:nth-child(2) { transition-delay: 0.25s; }
+.aq-mock--solicitation.is-active .aq-sol-stage:nth-child(3) { transition-delay: 0.40s; }
+.aq-mock--solicitation.is-active .aq-sol-stage:nth-child(4) { transition-delay: 0.55s; }
+.aq-mock--solicitation.is-active .aq-sol-stage:nth-child(5) { transition-delay: 0.70s; }
+
+/* Done states (3 stages complete) */
+.aq-mock--solicitation.is-active .aq-sol-stage.is-done {
+  background: rgba(34, 197, 94, 0.06);
+  border-color: rgba(34, 197, 94, 0.25);
+}
+/* Active state (current stage in progress) */
+.aq-mock--solicitation.is-active .aq-sol-stage.is-active {
+  background: rgba(243, 107, 37, 0.08);
+  border-color: rgba(243, 107, 37, 0.45);
+  box-shadow: 0 0 14px rgba(243, 107, 37, 0.12);
+}
+.aq-mock--solicitation .aq-sol-stage-status {
+  flex: none; width: 1.05rem; height: 1.05rem; border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  display: flex; align-items: center; justify-content: center;
+}
+.aq-mock--solicitation .aq-sol-stage.is-done .aq-sol-stage-status {
+  background: rgba(34, 197, 94, 0.4); border-color: #22c55e;
+}
+.aq-mock--solicitation .aq-sol-stage.is-active .aq-sol-stage-status {
+  background: rgba(243, 107, 37, 0.4); border-color: #f36b25;
+  animation: aqSolPulse 1.6s ease-in-out infinite;
+}
+@keyframes aqSolPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(243, 107, 37, 0.6); }
+  50%      { box-shadow: 0 0 0 6px rgba(243, 107, 37, 0); }
+}
+.aq-mock--solicitation .aq-sol-stage-status svg { width: 0.6rem; height: 0.6rem; color: #f4f5f9; }
+.aq-mock--solicitation .aq-sol-stage-meta { display: flex; flex-direction: column; gap: 0.05rem; min-width: 0; flex: 1; }
+.aq-mock--solicitation .aq-sol-stage-name { font-size: 0.72rem; font-weight: 700; color: #f4f5f9; }
+.aq-mock--solicitation .aq-sol-stage-sub  { font-size: 0.55rem; color: #a8a9ab; font-weight: 500; }
+.aq-mock--solicitation .aq-sol-stage-time { font-size: 0.5rem; color: #cbd5e1; font-weight: 600; }
+
+.aq-mock--solicitation .aq-sol-audit {
+  display: flex; flex-direction: column; gap: 0.45rem;
+  padding: 0.65rem 0.7rem;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0.55rem;
+  overflow: hidden;
+}
+.aq-mock--solicitation .aq-sol-audit-title {
+  font-size: 0.55rem; font-weight: 800; color: #a8a9ab;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.aq-mock--solicitation .aq-sol-audit-title .dot {
+  width: 0.4rem; height: 0.4rem; border-radius: 50%; background: #22c55e;
+  box-shadow: 0 0 6px rgba(34, 197, 94, 0.8);
+  animation: aqSolBlink 1.6s ease-in-out infinite;
+}
+@keyframes aqSolBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+.aq-mock--solicitation .aq-sol-audit-row {
+  display: flex; flex-direction: column; gap: 0.05rem;
+  font-size: 0.55rem; color: #cbd5e1;
+  padding: 0.35rem 0;
+  border-top: 1px dashed rgba(255, 255, 255, 0.07);
+  opacity: 0; transform: translateX(6px);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.aq-mock--solicitation .aq-sol-audit-row:first-of-type { border-top: none; padding-top: 0; }
+.aq-mock--solicitation.is-active .aq-sol-audit-row { opacity: 1; transform: translateX(0); }
+.aq-mock--solicitation.is-active .aq-sol-audit-row:nth-of-type(1) { transition-delay: 0.85s; }
+.aq-mock--solicitation.is-active .aq-sol-audit-row:nth-of-type(2) { transition-delay: 1.05s; }
+.aq-mock--solicitation.is-active .aq-sol-audit-row:nth-of-type(3) { transition-delay: 1.25s; }
+.aq-mock--solicitation.is-active .aq-sol-audit-row:nth-of-type(4) { transition-delay: 1.45s; }
+.aq-mock--solicitation .aq-sol-audit-actor { color: #f4f5f9; font-weight: 700; font-size: 0.6rem; }
+.aq-mock--solicitation .aq-sol-audit-action { font-size: 0.55rem; }
+.aq-mock--solicitation .aq-sol-audit-time   { font-size: 0.48rem; color: #6b7280; }
+
+/* =========================================================================
+   3) REAL-TIME ACQUISITION INTELLIGENCE (.aq-mock--intelligence)
+   Mini dashboard: 4 KPI cards on top, bar chart in the middle, live
+   activity feed at the bottom.
+   ========================================================================= */
+.aq-mock--intelligence .aq-intel-grid {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 0.7rem;
+  height: 100%;
+}
+.aq-mock--intelligence .aq-intel-kpis {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.55rem;
+}
+.aq-mock--intelligence .aq-intel-kpi {
+  padding: 0.55rem 0.55rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 0.5rem;
+  display: flex; flex-direction: column; gap: 0.1rem;
+  opacity: 0; transform: translateY(-6px);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.aq-mock--intelligence.is-active .aq-intel-kpi { opacity: 1; transform: translateY(0); }
+.aq-mock--intelligence.is-active .aq-intel-kpi:nth-child(1) { transition-delay: 0.10s; }
+.aq-mock--intelligence.is-active .aq-intel-kpi:nth-child(2) { transition-delay: 0.20s; }
+.aq-mock--intelligence.is-active .aq-intel-kpi:nth-child(3) { transition-delay: 0.30s; }
+.aq-mock--intelligence.is-active .aq-intel-kpi:nth-child(4) { transition-delay: 0.40s; }
+.aq-mock--intelligence .aq-intel-kpi-label {
+  font-size: 0.5rem; color: #a8a9ab; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700;
+}
+.aq-mock--intelligence .aq-intel-kpi-value {
+  font-size: 1.2rem; font-weight: 800; color: #f4f5f9; line-height: 1.05;
+  font-variant-numeric: tabular-nums;
+  background: linear-gradient(180deg, #fff, #f36b25 200%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.aq-mock--intelligence .aq-intel-kpi-trend {
+  font-size: 0.55rem; font-weight: 700; color: #86efac;
+  display: inline-flex; align-items: center; gap: 0.2rem;
+}
+.aq-mock--intelligence .aq-intel-kpi-trend.is-down { color: #fca5a5; }
+
+.aq-mock--intelligence .aq-intel-chart {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0.55rem;
+  padding: 0.7rem 0.85rem 0.55rem;
+  display: flex; flex-direction: column; gap: 0.5rem;
+  min-height: 6rem;
+}
+.aq-mock--intelligence .aq-intel-chart-head {
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 0.55rem; color: #a8a9ab; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700;
+}
+.aq-mock--intelligence .aq-intel-chart-bars {
+  display: flex; gap: 0.45rem; align-items: flex-end; flex: 1; min-height: 3.6rem;
+}
+.aq-mock--intelligence .aq-intel-chart-bar {
+  flex: 1;
+  background: linear-gradient(180deg, #f36b25, rgba(243, 107, 37, 0.4));
+  border-radius: 0.18rem 0.18rem 0 0;
+  position: relative;
+  height: 0;
+  transition: height 1s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 12px rgba(243, 107, 37, 0.25);
+}
+.aq-mock--intelligence .aq-intel-chart-bar.is-blue {
+  background: linear-gradient(180deg, #60a5fa, rgba(96, 165, 250, 0.35));
+  box-shadow: 0 0 12px rgba(96, 165, 250, 0.25);
+}
+.aq-mock--intelligence .aq-intel-chart-bar::after {
+  content: attr(data-label);
+  position: absolute; left: 50%; transform: translateX(-50%);
+  bottom: -1rem;
+  font-size: 0.45rem; color: #a8a9ab; letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+.aq-mock--intelligence.is-active .aq-intel-chart-bar:nth-child(1) { height: 35%; transition-delay: 0.55s; }
+.aq-mock--intelligence.is-active .aq-intel-chart-bar:nth-child(2) { height: 70%; transition-delay: 0.65s; }
+.aq-mock--intelligence.is-active .aq-intel-chart-bar:nth-child(3) { height: 50%; transition-delay: 0.75s; }
+.aq-mock--intelligence.is-active .aq-intel-chart-bar:nth-child(4) { height: 85%; transition-delay: 0.85s; }
+.aq-mock--intelligence.is-active .aq-intel-chart-bar:nth-child(5) { height: 60%; transition-delay: 0.95s; }
+.aq-mock--intelligence.is-active .aq-intel-chart-bar:nth-child(6) { height: 95%; transition-delay: 1.05s; }
+.aq-mock--intelligence.is-active .aq-intel-chart-bar:nth-child(7) { height: 45%; transition-delay: 1.15s; }
+
+.aq-mock--intelligence .aq-intel-feed {
+  display: flex; flex-direction: column; gap: 0.3rem;
+  padding: 0.5rem 0.6rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0.5rem;
+}
+.aq-mock--intelligence .aq-intel-feed-row {
+  display: flex; align-items: center; gap: 0.45rem;
+  font-size: 0.55rem; color: #cbd5e1;
+  opacity: 0; transform: translateY(4px);
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.aq-mock--intelligence.is-active .aq-intel-feed-row { opacity: 1; transform: translateY(0); }
+.aq-mock--intelligence.is-active .aq-intel-feed-row:nth-child(1) { transition-delay: 1.10s; }
+.aq-mock--intelligence.is-active .aq-intel-feed-row:nth-child(2) { transition-delay: 1.25s; }
+.aq-mock--intelligence.is-active .aq-intel-feed-row:nth-child(3) { transition-delay: 1.40s; }
+.aq-mock--intelligence .aq-intel-feed-dot { width: 0.4rem; height: 0.4rem; border-radius: 50%; background: #f36b25; flex: none; box-shadow: 0 0 6px currentColor; }
+.aq-mock--intelligence .aq-intel-feed-dot.is-green { background: #22c55e; color: #22c55e; }
+.aq-mock--intelligence .aq-intel-feed-dot.is-blue  { background: #60a5fa; color: #60a5fa; }
+.aq-mock--intelligence .aq-intel-feed-name { color: #f4f5f9; font-weight: 700; font-size: 0.58rem; }
+
+/* =========================================================================
+   4) INTELLIGENT CONTRACT ADMINISTRATION (.aq-mock--admin)
+   Contract lifecycle timeline + deliverables checklist + performance score.
+   ========================================================================= */
+.aq-mock--admin .aq-admin-grid {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  gap: 0.7rem;
+  height: 100%;
+}
+.aq-mock--admin .aq-admin-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.55rem 0.7rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 0.55rem;
+}
+.aq-mock--admin .aq-admin-contract-name {
+  font-size: 0.7rem; font-weight: 800; color: #f4f5f9;
+  display: flex; align-items: center; gap: 0.4rem;
+}
+.aq-mock--admin .aq-admin-contract-meta {
+  font-size: 0.5rem; color: #a8a9ab; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700;
+}
+
+.aq-mock--admin .aq-admin-timeline {
+  display: flex; flex-direction: column; gap: 0.45rem;
+}
+.aq-mock--admin .aq-admin-timeline-bar {
+  position: relative; height: 0.4rem;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.aq-mock--admin .aq-admin-timeline-bar > span {
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 0;
+  background: linear-gradient(90deg, #f36b25, #ffb286);
+  border-radius: 999px;
+  transition: width 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.aq-mock--admin.is-active .aq-admin-timeline-bar > span { width: 62%; transition-delay: 0.4s; }
+.aq-mock--admin .aq-admin-timeline-points {
+  display: flex; justify-content: space-between;
+  font-size: 0.45rem; color: #a8a9ab; letter-spacing: 0.04em;
+}
+.aq-mock--admin .aq-admin-timeline-points span.is-current { color: #f36b25; font-weight: 800; }
+
+.aq-mock--admin .aq-admin-cols {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 0.7rem;
+  min-height: 0;
+}
+
+.aq-mock--admin .aq-admin-deliverables {
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0.55rem;
+  padding: 0.6rem 0.7rem;
+  display: flex; flex-direction: column; gap: 0.35rem;
+  overflow: hidden;
+}
+.aq-mock--admin .aq-admin-deliverables-title {
+  font-size: 0.5rem; font-weight: 800; color: #a8a9ab;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  margin-bottom: 0.15rem;
+}
+.aq-mock--admin .aq-admin-deliverable {
+  display: flex; align-items: center; gap: 0.45rem;
+  font-size: 0.6rem; color: #cbd5e1;
+  opacity: 0; transform: translateX(-6px);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.aq-mock--admin.is-active .aq-admin-deliverable { opacity: 1; transform: translateX(0); }
+.aq-mock--admin.is-active .aq-admin-deliverable:nth-of-type(1) { transition-delay: 0.55s; }
+.aq-mock--admin.is-active .aq-admin-deliverable:nth-of-type(2) { transition-delay: 0.70s; }
+.aq-mock--admin.is-active .aq-admin-deliverable:nth-of-type(3) { transition-delay: 0.85s; }
+.aq-mock--admin.is-active .aq-admin-deliverable:nth-of-type(4) { transition-delay: 1.00s; }
+.aq-mock--admin .aq-admin-check {
+  width: 0.85rem; height: 0.85rem; flex: none;
+  border-radius: 0.18rem;
+  background: rgba(34, 197, 94, 0.25); border: 1px solid rgba(34, 197, 94, 0.6);
+  display: flex; align-items: center; justify-content: center;
+}
+.aq-mock--admin .aq-admin-check svg { width: 0.5rem; height: 0.5rem; color: #22c55e; }
+.aq-mock--admin .aq-admin-check.is-pending {
+  background: rgba(251, 191, 36, 0.18); border-color: rgba(251, 191, 36, 0.6);
+}
+.aq-mock--admin .aq-admin-check.is-pending svg { color: #fbbf24; }
+.aq-mock--admin .aq-admin-deliverable-meta { color: #a8a9ab; font-size: 0.5rem; margin-left: auto; flex: none; }
+
+.aq-mock--admin .aq-admin-side {
+  display: flex; flex-direction: column; gap: 0.55rem;
+}
+.aq-mock--admin .aq-admin-cpars {
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0.55rem;
+  padding: 0.6rem 0.7rem;
+  display: flex; flex-direction: column; gap: 0.35rem;
+}
+.aq-mock--admin .aq-admin-cpars-label {
+  font-size: 0.5rem; font-weight: 800; color: #a8a9ab;
+  text-transform: uppercase; letter-spacing: 0.1em;
+}
+.aq-mock--admin .aq-admin-cpars-score {
+  font-size: 1.5rem; font-weight: 800; color: #22c55e; line-height: 1;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 16px rgba(34, 197, 94, 0.35);
+}
+.aq-mock--admin .aq-admin-cpars-stars {
+  display: inline-flex; gap: 0.1rem; color: #fbbf24;
+}
+.aq-mock--admin .aq-admin-cpars-stars svg { width: 0.7rem; height: 0.7rem; }
+.aq-mock--admin .aq-admin-mods {
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(243, 107, 37, 0.25);
+  border-radius: 0.55rem;
+  padding: 0.6rem 0.7rem;
+  display: flex; flex-direction: column; gap: 0.25rem;
+}
+.aq-mock--admin .aq-admin-mods-label {
+  font-size: 0.5rem; font-weight: 800; color: #ffd1a8;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.aq-mock--admin .aq-admin-mods-list {
+  display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.55rem; color: #cbd5e1;
+}
+.aq-mock--admin .aq-admin-mods-list span { display: flex; align-items: center; gap: 0.35rem; }
+.aq-mock--admin .aq-admin-mods-list .dot { width: 0.3rem; height: 0.3rem; border-radius: 50%; background: #f36b25; flex: none; }
+
+/* =========================================================================
+   5) FORM-SECTION VERTICAL MOCKUP (.aq-form-mock)
+   Tall portrait stack (~ 592×1136) of animated AIR-Quire dashboard cards
+   shown next to the "See AIR-Quire In Action" sign-up form.
+   ========================================================================= */
+.aq-form-mock {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-family: Mulish, Arial, sans-serif;
+  color: #f4f5f9;
+}
+.aq-form-card {
+  position: relative;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(243, 107, 37, 0.08) 0%, transparent 55%),
+    linear-gradient(160deg, #1c1d24 0%, #161821 60%, #20180f 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  padding: 1.2rem 1.3rem;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.aq-form-mock.is-active .aq-form-card { opacity: 1; transform: translateY(0); }
+.aq-form-mock.is-active .aq-form-card:nth-child(1) { transition-delay: 0.05s; }
+.aq-form-mock.is-active .aq-form-card:nth-child(2) { transition-delay: 0.20s; }
+.aq-form-mock.is-active .aq-form-card:nth-child(3) { transition-delay: 0.35s; }
+.aq-form-mock.is-active .aq-form-card:nth-child(4) { transition-delay: 0.50s; }
+.aq-form-mock.is-active .aq-form-card:nth-child(5) { transition-delay: 0.65s; }
+.aq-form-card-eyebrow {
+  font-size: 0.55rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #a8a9ab;
+  display: flex; align-items: center; gap: 0.45rem;
+  margin-bottom: 0.5rem;
+}
+.aq-form-card-eyebrow .dot { width: 0.45rem; height: 0.45rem; border-radius: 50%; background: #f36b25; box-shadow: 0 0 6px rgba(243, 107, 37, 0.7); }
+.aq-form-card-title {
+  font-size: 1.1rem; font-weight: 800; letter-spacing: -0.02em; color: #f4f5f9;
+  display: flex; align-items: baseline; gap: 0.6rem;
+}
+.aq-form-card-title small {
+  font-size: 0.6rem; font-weight: 700; color: #86efac;
+  background: rgba(34,197,94,0.16); border: 1px solid rgba(34,197,94,0.4);
+  padding: 0.12rem 0.45rem; border-radius: 999px;
+}
+
+/* --- Analytics card (portfolio value + area chart) --- */
+.aq-form-analytics .aq-form-chart {
+  position: relative; height: 5rem; margin-top: 0.7rem;
+}
+.aq-form-analytics .aq-form-chart svg { width: 100%; height: 100%; overflow: visible; }
+.aq-form-analytics .aq-form-chart-line {
+  fill: none;
+  stroke: #f36b25;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 6px rgba(243, 107, 37, 0.6));
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  transition: stroke-dashoffset 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.aq-form-mock.is-active .aq-form-analytics .aq-form-chart-line { stroke-dashoffset: 0; transition-delay: 0.5s; }
+.aq-form-analytics .aq-form-chart-fill {
+  fill: url(#aqFormFill);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.aq-form-mock.is-active .aq-form-analytics .aq-form-chart-fill { opacity: 1; transition-delay: 1.6s; }
+.aq-form-analytics .aq-form-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem;
+  margin-top: 0.9rem;
+}
+.aq-form-analytics .aq-form-stat {
+  padding: 0.5rem 0.55rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 0.5rem;
+}
+.aq-form-analytics .aq-form-stat-label {
+  font-size: 0.5rem; color: #a8a9ab; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700;
+}
+.aq-form-analytics .aq-form-stat-value {
+  font-size: 0.95rem; font-weight: 800; color: #f4f5f9; margin-top: 0.15rem;
+}
+.aq-form-analytics .aq-form-stat-trend {
+  font-size: 0.55rem; font-weight: 700; color: #86efac;
+}
+.aq-form-analytics .aq-form-stat-trend.is-down { color: #fca5a5; }
+
+/* --- Readiness Review card (vertical timeline of stages) --- */
+.aq-form-readiness .aq-form-readiness-list {
+  display: flex; flex-direction: column; gap: 0.55rem;
+  margin-top: 0.6rem;
+}
+.aq-form-readiness .aq-form-readiness-row {
+  display: flex; align-items: center; gap: 0.65rem;
+  padding: 0.45rem 0.55rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 0.5rem;
+  opacity: 0; transform: translateX(-6px);
+  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.aq-form-mock.is-active .aq-form-readiness .aq-form-readiness-row { opacity: 1; transform: translateX(0); }
+.aq-form-mock.is-active .aq-form-readiness .aq-form-readiness-row:nth-child(1) { transition-delay: 0.55s; }
+.aq-form-mock.is-active .aq-form-readiness .aq-form-readiness-row:nth-child(2) { transition-delay: 0.65s; }
+.aq-form-mock.is-active .aq-form-readiness .aq-form-readiness-row:nth-child(3) { transition-delay: 0.75s; }
+.aq-form-mock.is-active .aq-form-readiness .aq-form-readiness-row:nth-child(4) { transition-delay: 0.85s; }
+.aq-form-readiness .aq-form-readiness-icon {
+  width: 1.4rem; height: 1.4rem; flex: none;
+  border-radius: 0.35rem;
+  background: rgba(243, 107, 37, 0.15);
+  border: 1px solid rgba(243, 107, 37, 0.4);
+  display: inline-flex; align-items: center; justify-content: center;
+  color: #f36b25;
+}
+.aq-form-readiness .aq-form-readiness-icon svg { width: 0.8rem; height: 0.8rem; }
+.aq-form-readiness .aq-form-readiness-meta { display: flex; flex-direction: column; gap: 0.05rem; flex: 1; min-width: 0; }
+.aq-form-readiness .aq-form-readiness-name { font-size: 0.7rem; font-weight: 700; color: #f4f5f9; }
+.aq-form-readiness .aq-form-readiness-sub  { font-size: 0.55rem; color: #a8a9ab; }
+.aq-form-readiness .aq-form-readiness-tag {
+  font-size: 0.5rem; font-weight: 800; letter-spacing: 0.06em;
+  padding: 0.16rem 0.45rem; border-radius: 0.3rem;
+}
+.aq-form-readiness .aq-form-readiness-tag.is-full    { color: #86efac; background: rgba(34,197,94,0.16); border: 1px solid rgba(34,197,94,0.4); }
+.aq-form-readiness .aq-form-readiness-tag.is-pending { color: #fde68a; background: rgba(251,191,36,0.16); border: 1px solid rgba(251,191,36,0.4); }
+.aq-form-readiness .aq-form-readiness-tag.is-review  { color: #ffd1a8; background: rgba(243,107,37,0.18); border: 1px solid rgba(243,107,37,0.5); }
+
+/* --- Portfolio donut card --- */
+.aq-form-portfolio .aq-form-donut-wrap {
+  display: flex; align-items: center; gap: 1.1rem;
+  margin-top: 0.7rem;
+}
+.aq-form-portfolio .aq-form-donut {
+  position: relative; width: 7.5rem; height: 7.5rem; flex: none;
+}
+.aq-form-portfolio .aq-form-donut svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.aq-form-portfolio .aq-form-donut-track { fill: none; stroke: rgba(255, 255, 255, 0.08); stroke-width: 14; }
+.aq-form-portfolio .aq-form-donut-arc {
+  fill: none; stroke-width: 14; stroke-linecap: butt;
+  stroke-dasharray: 251.3;
+  stroke-dashoffset: 251.3;
+  transition: stroke-dashoffset 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.aq-form-portfolio .aq-form-donut-center {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.aq-form-portfolio .aq-form-donut-label { font-size: 0.5rem; color: #a8a9ab; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; }
+.aq-form-portfolio .aq-form-donut-value { font-size: 1.4rem; font-weight: 800; color: #f4f5f9; }
+.aq-form-portfolio .aq-form-donut-legend {
+  display: flex; flex-direction: column; gap: 0.45rem; flex: 1;
+}
+.aq-form-portfolio .aq-form-donut-legend-row {
+  display: flex; align-items: center; gap: 0.45rem;
+  font-size: 0.65rem; color: #cbd5e1;
+}
+.aq-form-portfolio .aq-form-donut-legend-row .swatch { width: 0.55rem; height: 0.55rem; border-radius: 50%; flex: none; }
+.aq-form-portfolio .aq-form-donut-legend-row strong { color: #f4f5f9; font-weight: 800; }
+.aq-form-portfolio .aq-form-donut-legend-row .pct { color: #a8a9ab; font-size: 0.55rem; margin-left: auto; }
+
+/* --- AIR assistant chat card --- */
+.aq-form-air {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(243, 107, 37, 0.18) 0%, transparent 50%),
+    linear-gradient(160deg, #1c1d24 0%, #161821 60%, #20180f 100%);
+}
+.aq-form-air .aq-form-air-head {
+  display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.65rem;
+}
+.aq-form-air .aq-form-air-avatar {
+  width: 1.6rem; height: 1.6rem; border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #ffb286, #f36b25 60%, #b9501a);
+  display: inline-flex; align-items: center; justify-content: center;
+  box-shadow: 0 0 12px rgba(243, 107, 37, 0.5);
+  color: #fff;
+}
+.aq-form-air .aq-form-air-avatar svg { width: 0.85rem; height: 0.85rem; }
+.aq-form-air .aq-form-air-name { font-size: 0.85rem; font-weight: 800; color: #f4f5f9; flex: 1; }
+.aq-form-air .aq-form-air-msg {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0.55rem;
+  padding: 0.55rem 0.7rem;
+  font-size: 0.65rem;
+  color: #cbd5e1;
+  margin-bottom: 0.55rem;
+  opacity: 0; transform: translateY(4px);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.aq-form-mock.is-active .aq-form-air .aq-form-air-msg { opacity: 1; transform: translateY(0); }
+.aq-form-mock.is-active .aq-form-air .aq-form-air-msg:nth-of-type(1) { transition-delay: 0.85s; }
+.aq-form-mock.is-active .aq-form-air .aq-form-air-msg:nth-of-type(2) { transition-delay: 1.10s; }
+.aq-form-air .aq-form-air-msg.is-user {
+  background: linear-gradient(180deg, rgba(243, 107, 37, 0.22), rgba(243, 107, 37, 0.06));
+  border-color: rgba(243, 107, 37, 0.45);
+  color: #ffd1a8;
+  margin-left: 1.4rem;
+}
+.aq-form-air .aq-form-air-msg.is-bot {
+  margin-right: 1.4rem;
+}
+.aq-form-air .aq-form-air-msg.is-bot strong { color: #f4f5f9; font-weight: 800; }
+.aq-form-air .aq-form-air-input {
+  display: flex; align-items: center; gap: 0.5rem;
+  padding: 0.45rem 0.55rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.55rem;
+  font-size: 0.6rem; color: #6b7280;
+}
+.aq-form-air .aq-form-air-input span { flex: 1; }
+.aq-form-air .aq-form-air-input button {
+  width: 1.4rem; height: 1.4rem; border-radius: 0.3rem;
+  background: #f36b25; border: none;
+  display: inline-flex; align-items: center; justify-content: center;
+  color: #fff;
+}
+.aq-form-air .aq-form-air-input button svg { width: 0.7rem; height: 0.7rem; }
+
+/* --- Federal Systems strip --- */
+.aq-form-fed {
+  display: flex; align-items: center; justify-content: space-around;
+  padding: 0.85rem 0.9rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0.7rem;
+}
+.aq-form-fed .aq-form-fed-item {
+  display: flex; flex-direction: column; align-items: center; gap: 0.25rem;
+  font-size: 0.5rem; color: #a8a9ab; font-weight: 700; letter-spacing: 0.04em;
+}
+.aq-form-fed .aq-form-fed-icon {
+  width: 1.7rem; height: 1.7rem; border-radius: 0.4rem;
+  background: rgba(243, 107, 37, 0.12);
+  border: 1px solid rgba(243, 107, 37, 0.3);
+  display: inline-flex; align-items: center; justify-content: center;
+  color: #f36b25;
+}
+.aq-form-fed .aq-form-fed-icon svg { width: 0.95rem; height: 0.95rem; }
+
+/* =========================================================================
+   6) HERO DASHBOARD MOCKUP (.aq-hero-mock)
+   Replaces images/airQuireDemo.png. Full-width composite: main AIR-Quire
+   dashboard in the center plus 6 floating supporting cards arranged around
+   it (Analytics, Readiness Review, My Procurements, AIR assistant, New
+   Procurement wizard, Federal Systems strip) — mirrors the PNG layout but
+   renders as live HTML/CSS.
+   ========================================================================= */
+
+/* v41: removed !important width overrides on the hero section chain — the
+   image was reinstated, so the original Webflow layout handles sizing again.
+   When the .aq-hero-mock is re-enabled later we'll reintroduce a SCOPED
+   override (e.g. only when .aq-hero-mock is a non-display:none child). */
+
+.aq-hero-mock {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1700 / 880;
+  font-family: Mulish, Arial, sans-serif;
+  color: #f4f5f9;
+  /* Sized so 1% of width ≈ a usable em base. Children use em so the whole
+     composite scales with the container width. */
+  font-size: clamp(8px, 0.92vw, 14px);
+  isolation: isolate;
+  background: transparent;
+  overflow: visible;
+}
+
+/* Shared card chrome */
+.aq-hero-panel {
+  position: absolute;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(243, 107, 37, 0.06) 0%, transparent 55%),
+    linear-gradient(160deg, #15161d 0%, #0e1018 60%, #1a1208 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.85em;
+  padding: 0.85em 0.95em;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.aq-hero-panel-head {
+  display: flex; align-items: center; gap: 0.5em;
+  font-size: 0.9em; font-weight: 800; color: #f4f5f9;
+}
+.aq-hero-panel-head .icon {
+  width: 1.15em; height: 1.15em; flex: none;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 0.25em;
+  color: #f36b25;
+}
+.aq-hero-panel-head .icon svg { width: 100%; height: 100%; }
+.aq-hero-panel-head .meta { color: #6b7280; font-weight: 500; font-size: 0.75em; margin-left: auto; }
+
+/* ============ MAIN dashboard panel (center) ============ */
+.aq-hero-main-panel {
+  left: 18%;
+  right: 26%;
+  top: 4%;
+  bottom: 17%;
+  display: grid;
+  grid-template-columns: 14% 1fr;
+  border-radius: 0.85em;
+  padding: 0;
+  background: #11131a;
+}
+
+/* The dashboard's sidebar/main now live INSIDE .aq-hero-main-panel */
+.aq-hero-main-panel .aq-hero-sidebar { border-right: 1px solid rgba(255, 255, 255, 0.06); }
+
+/* ============ SIDEBAR ============ */
+.aq-hero-sidebar {
+  background: #11131a;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 0.85em 0.7em;
+  display: flex; flex-direction: column;
+  overflow: hidden;
+}
+.aq-hero-brand {
+  display: flex; align-items: center; gap: 0.45em;
+  padding: 0.2em 0.4em 0.85em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  margin-bottom: 0.7em;
+}
+.aq-hero-brand-mark {
+  width: 1.6em; height: 1.6em; border-radius: 50%;
+  background: rgba(243, 107, 37, 0.14);
+  border: 1px solid rgba(243, 107, 37, 0.4);
+  display: inline-flex; align-items: center; justify-content: center;
+  flex: none;
+}
+.aq-hero-brand-mark::after {
+  content: ""; width: 0.85em; height: 0.85em; border-radius: 50%;
+  border: 0.16em solid #f36b25; border-right-color: transparent;
+  transform: rotate(-30deg);
+}
+.aq-hero-brand-label { display: flex; flex-direction: column; min-width: 0; }
+.aq-hero-brand-name  { font-size: 0.95em; font-weight: 800; letter-spacing: -0.01em; color: #f4f5f9; }
+.aq-hero-brand-sub   { font-size: 0.65em; color: #a8a9ab; font-weight: 600; letter-spacing: 0.02em; }
+
+.aq-hero-nav { display: flex; flex-direction: column; gap: 0.15em; }
+.aq-hero-nav-section {
+  font-size: 0.62em; color: #6b7280; text-transform: uppercase;
+  letter-spacing: 0.1em; font-weight: 700;
+  padding: 0.7em 0.4em 0.3em;
+}
+.aq-hero-nav-item {
+  display: flex; align-items: center; gap: 0.5em;
+  padding: 0.45em 0.55em;
+  font-size: 0.78em; color: #cbd5e1; font-weight: 600;
+  border-radius: 0.4em;
+  white-space: nowrap;
+}
+.aq-hero-nav-item.is-active {
+  background: rgba(243, 107, 37, 0.1);
+  color: #f4f5f9;
+  border-left: 2px solid #f36b25;
+  padding-left: 0.4em;
+}
+.aq-hero-nav-icon {
+  width: 0.95em; height: 0.95em; flex: none;
+  display: inline-flex; align-items: center; justify-content: center;
+  color: currentColor;
+}
+.aq-hero-nav-icon svg { width: 100%; height: 100%; }
+.aq-hero-nav-badge {
+  margin-left: auto;
+  font-size: 0.62em; font-weight: 800;
+  background: #ef4444; color: white;
+  border-radius: 999px; padding: 0.1em 0.45em;
+  line-height: 1.2;
+}
+.aq-hero-user {
+  margin-top: auto;
+  display: flex; align-items: center; gap: 0.5em;
+  padding: 0.5em 0.55em;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+.aq-hero-user-avatar {
+  width: 1.5em; height: 1.5em; border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white; font-size: 0.62em; font-weight: 800;
+  display: inline-flex; align-items: center; justify-content: center; flex: none;
+}
+.aq-hero-user-meta { display: flex; flex-direction: column; min-width: 0; }
+.aq-hero-user-name { font-size: 0.78em; font-weight: 800; color: #f4f5f9; }
+.aq-hero-user-mail { font-size: 0.6em; color: #a8a9ab; }
+
+/* ============ MAIN AREA ============ */
+.aq-hero-main {
+  position: relative;
+  display: flex; flex-direction: column;
+  background: #0e0f14;
+  overflow: hidden;
+}
+.aq-hero-topbar {
+  display: flex; align-items: center; gap: 0.8em;
+  padding: 0.65em 1em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.aq-hero-search {
+  flex: 1;
+  display: flex; align-items: center; gap: 0.4em;
+  padding: 0.4em 0.6em;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 0.45em;
+  font-size: 0.7em; color: #6b7280;
+  max-width: 22em;
+}
+.aq-hero-search-kbd {
+  margin-left: auto; font-size: 0.85em; color: #6b7280;
+  background: rgba(255, 255, 255, 0.06); padding: 0.05em 0.35em; border-radius: 0.25em;
+}
+.aq-hero-bell {
+  position: relative; width: 1.25em; height: 1.25em;
+  color: #cbd5e1;
+}
+.aq-hero-bell svg { width: 100%; height: 100%; }
+.aq-hero-bell::after {
+  content: "4"; position: absolute; top: -0.2em; right: -0.4em;
+  background: #6366f1; color: white; font-size: 0.7em; font-weight: 800;
+  border-radius: 999px; min-width: 1em; padding: 0 0.2em; line-height: 1.2;
+  text-align: center;
+}
+
+.aq-hero-content {
+  padding: 0.95em 1.05em;
+  flex: 1; min-height: 0; overflow: hidden;
+  display: flex; flex-direction: column; gap: 0.7em;
+}
+
+/* Page header row */
+.aq-hero-pgheader {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 1em;
+}
+.aq-hero-pgtitle {
+  font-size: 1.35em; font-weight: 800; color: #f4f5f9; letter-spacing: -0.02em;
+}
+.aq-hero-pgsub {
+  font-size: 0.7em; color: #a8a9ab; margin-top: 0.15em;
+}
+.aq-hero-pgsub strong { color: #f4f5f9; font-weight: 700; }
+.aq-hero-newbtn {
+  display: inline-flex; align-items: center; gap: 0.35em;
+  background: #f36b25; color: white;
+  font-size: 0.78em; font-weight: 700;
+  padding: 0.5em 0.85em;
+  border-radius: 0.4em;
+  border: none;
+  box-shadow: 0 4px 14px rgba(243, 107, 37, 0.25);
+}
+.aq-hero-newbtn svg { width: 0.85em; height: 0.85em; }
+
+/* Fiscal year progress */
+.aq-hero-fy {
+  display: flex; align-items: center; gap: 0.6em;
+  padding: 0.55em 0.85em;
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  border-radius: 0.5em;
+}
+.aq-hero-fy-quarter {
+  display: inline-flex; align-items: center; gap: 0.3em;
+  background: rgba(99, 102, 241, 0.15);
+  color: #c7d2fe;
+  font-size: 0.7em; font-weight: 800;
+  padding: 0.2em 0.55em;
+  border-radius: 0.3em;
+  white-space: nowrap;
+  flex: none;
+}
+.aq-hero-fy-bar {
+  position: relative; flex: 1; height: 0.4em;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.aq-hero-fy-bar > span {
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 0;
+  background: linear-gradient(90deg, #6366f1, #a78bfa);
+  border-radius: 999px;
+  transition: width 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.aq-hero-mock.is-active .aq-hero-fy-bar > span { width: 59%; transition-delay: 0.4s; }
+.aq-hero-fy-pct  { font-size: 0.7em; font-weight: 700; color: #c7d2fe; }
+.aq-hero-fy-day  { font-size: 0.7em; color: #a8a9ab; padding-left: 0.6em; border-left: 1px solid rgba(255,255,255,0.1); }
+
+/* Attention card */
+.aq-hero-attention {
+  background: rgba(251, 146, 60, 0.05);
+  border: 1px solid rgba(251, 146, 60, 0.25);
+  border-radius: 0.55em;
+  padding: 0.6em 0.85em;
+  display: flex; gap: 0.7em; align-items: flex-start;
+}
+.aq-hero-attention-icon {
+  width: 1.2em; height: 1.2em; flex: none;
+  background: rgba(251, 146, 60, 0.18);
+  border: 1px solid rgba(251, 146, 60, 0.5);
+  border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  color: #fb923c;
+}
+.aq-hero-attention-icon svg { width: 0.7em; height: 0.7em; }
+.aq-hero-attention-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 0.2em; }
+.aq-hero-attention-title { font-size: 0.78em; font-weight: 800; color: #f4f5f9; }
+.aq-hero-attention-row {
+  font-size: 0.65em; color: #cbd5e1;
+  display: flex; align-items: center; gap: 0.4em;
+}
+.aq-hero-attention-row .num {
+  width: 1em; height: 1em; border-radius: 50%;
+  background: rgba(99, 102, 241, 0.2); border: 1px solid rgba(99, 102, 241, 0.5);
+  color: #c7d2fe; font-weight: 800; font-size: 0.7em;
+  display: inline-flex; align-items: center; justify-content: center;
+  flex: none;
+}
+.aq-hero-attention-row strong { color: #f4f5f9; font-weight: 700; }
+.aq-hero-attention-row em { color: #fca5a5; font-style: normal; font-size: 0.92em; }
+
+/* KPI row */
+.aq-hero-portfolio-line { font-size: 0.7em; color: #a8a9ab; }
+.aq-hero-portfolio-line strong { color: #f4f5f9; font-weight: 700; }
+.aq-hero-kpis {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6em;
+}
+.aq-hero-kpi {
+  position: relative;
+  padding: 0.7em 0.85em;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0));
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 0.55em;
+  display: flex; flex-direction: column; gap: 0.15em;
+}
+.aq-hero-kpi.is-orange {
+  background: linear-gradient(180deg, rgba(243, 107, 37, 0.12), rgba(243, 107, 37, 0.02));
+  border-color: rgba(243, 107, 37, 0.3);
+}
+.aq-hero-kpi-label { font-size: 0.6em; color: #a8a9ab; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; }
+.aq-hero-kpi-value { font-size: 1.4em; font-weight: 800; color: #f4f5f9; line-height: 1.05; font-variant-numeric: tabular-nums; }
+.aq-hero-kpi-sub   { font-size: 0.65em; color: #a8a9ab; }
+.aq-hero-kpi-icon {
+  position: absolute; top: 0.65em; right: 0.7em;
+  width: 1.4em; height: 1.4em; border-radius: 0.3em;
+  background: rgba(243, 107, 37, 0.15); border: 1px solid rgba(243, 107, 37, 0.4);
+  color: #f36b25;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.aq-hero-kpi-icon svg { width: 0.85em; height: 0.85em; }
+
+.aq-hero-kpis-secondary {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.6em;
+}
+.aq-hero-kpi-mini {
+  display: flex; align-items: center; gap: 0.55em;
+  padding: 0.55em 0.7em;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0.5em;
+}
+.aq-hero-kpi-mini-icon {
+  width: 1.6em; height: 1.6em; border-radius: 0.3em;
+  background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.08);
+  display: inline-flex; align-items: center; justify-content: center;
+  color: #cbd5e1; flex: none;
+}
+.aq-hero-kpi-mini-icon svg { width: 0.85em; height: 0.85em; }
+.aq-hero-kpi-mini-meta { display: flex; flex-direction: column; gap: 0.05em; }
+.aq-hero-kpi-mini-label { font-size: 0.55em; color: #a8a9ab; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; }
+.aq-hero-kpi-mini-value { font-size: 0.85em; font-weight: 800; color: #f4f5f9; }
+.aq-hero-kpi-mini-value small { font-size: 0.7em; color: #6b7280; font-weight: 500; }
+
+/* Two-column row: Procurements list + Recent Activity */
+.aq-hero-2col { display: grid; grid-template-columns: 1.1fr 1fr; gap: 0.7em; flex: 1; min-height: 0; }
+.aq-hero-panel {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0.55em;
+  padding: 0.65em 0.8em;
+  display: flex; flex-direction: column; gap: 0.4em;
+  overflow: hidden;
+}
+.aq-hero-panel-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-bottom: 0.4em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.aq-hero-panel-title {
+  font-size: 0.78em; font-weight: 800; color: #f4f5f9;
+  display: flex; align-items: center; gap: 0.3em;
+}
+.aq-hero-panel-title-icon { color: #f36b25; width: 0.85em; height: 0.85em; }
+.aq-hero-panel-title-icon svg { width: 100%; height: 100%; }
+.aq-hero-panel-link { font-size: 0.65em; font-weight: 700; color: #818cf8; }
+
+.aq-hero-procs { display: flex; flex-direction: column; gap: 0.35em; }
+.aq-hero-proc {
+  padding: 0.45em 0.55em;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 0.4em;
+}
+.aq-hero-proc.is-current {
+  border-color: rgba(99, 102, 241, 0.4);
+  background: rgba(99, 102, 241, 0.06);
+}
+.aq-hero-proc-eyebrow { font-size: 0.55em; color: #818cf8; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.2em; }
+.aq-hero-proc-name {
+  font-size: 0.72em; font-weight: 700; color: #f4f5f9;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.aq-hero-proc-tags { display: flex; align-items: center; gap: 0.3em; margin-top: 0.25em; }
+.aq-hero-proc-tag {
+  font-size: 0.55em; font-weight: 800; letter-spacing: 0.04em;
+  padding: 0.1em 0.35em; border-radius: 0.25em;
+  background: rgba(99, 102, 241, 0.16); color: #c7d2fe;
+  border: 1px solid rgba(99, 102, 241, 0.35);
+}
+.aq-hero-proc-tag.is-green { background: rgba(34, 197, 94, 0.16); color: #86efac; border-color: rgba(34, 197, 94, 0.35); }
+.aq-hero-proc-time { font-size: 0.55em; color: #6b7280; margin-left: auto; }
+
+.aq-hero-feed { display: flex; flex-direction: column; gap: 0.35em; }
+.aq-hero-feed-row {
+  display: flex; align-items: flex-start; gap: 0.5em;
+  font-size: 0.65em; color: #cbd5e1;
+}
+.aq-hero-feed-dot {
+  width: 0.45em; height: 0.45em; border-radius: 50%;
+  flex: none; margin-top: 0.45em;
+  background: #f36b25;
+}
+.aq-hero-feed-dot.is-green { background: #22c55e; }
+.aq-hero-feed-dot.is-amber { background: #fbbf24; }
+.aq-hero-feed-dot.is-gray  { background: #6b7280; }
+.aq-hero-feed-text { display: flex; flex-direction: column; }
+.aq-hero-feed-text strong { color: #f4f5f9; font-weight: 700; }
+.aq-hero-feed-text time { font-size: 0.85em; color: #6b7280; }
+
+/* Federal systems strip */
+.aq-hero-fed { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0.45em; }
+.aq-hero-fed-card {
+  display: flex; align-items: center; gap: 0.45em;
+  padding: 0.45em 0.55em;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0.4em;
+}
+.aq-hero-fed-card-icon {
+  width: 1.4em; height: 1.4em; border-radius: 0.3em;
+  background: rgba(243, 107, 37, 0.12);
+  border: 1px solid rgba(243, 107, 37, 0.3);
+  color: #f36b25;
+  display: inline-flex; align-items: center; justify-content: center; flex: none;
+}
+.aq-hero-fed-card-icon svg { width: 0.85em; height: 0.85em; }
+.aq-hero-fed-card-meta { display: flex; flex-direction: column; min-width: 0; }
+.aq-hero-fed-card-name { font-size: 0.72em; font-weight: 800; color: #f4f5f9; }
+.aq-hero-fed-card-sub  { font-size: 0.55em; color: #a8a9ab; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* Floating AIR assistant */
+.aq-hero-airpill {
+  position: absolute;
+  right: 1.1em; bottom: 1em;
+  display: inline-flex; align-items: center; gap: 0.45em;
+  padding: 0.55em 0.95em;
+  background: linear-gradient(135deg, #f36b25, #b9501a);
+  color: white;
+  font-size: 0.78em; font-weight: 800;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  border-radius: 999px;
+  box-shadow: 0 10px 28px rgba(243, 107, 37, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.15) inset;
+  z-index: 5;
+}
+.aq-hero-airpill svg { width: 1em; height: 1em; }
+
+/* Subtle entrance: each major block fades in once .is-active is set. */
+.aq-hero-mock .aq-hero-pgheader,
+.aq-hero-mock .aq-hero-fy,
+.aq-hero-mock .aq-hero-attention,
+.aq-hero-mock .aq-hero-portfolio-line,
+.aq-hero-mock .aq-hero-kpis,
+.aq-hero-mock .aq-hero-kpis-secondary,
+.aq-hero-mock .aq-hero-2col,
+.aq-hero-mock .aq-hero-fed,
+.aq-hero-mock .aq-hero-airpill {
+  opacity: 0; transform: translateY(6px);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.aq-hero-mock.is-active .aq-hero-pgheader        { opacity: 1; transform: none; transition-delay: 0.05s; }
+.aq-hero-mock.is-active .aq-hero-fy              { opacity: 1; transform: none; transition-delay: 0.15s; }
+.aq-hero-mock.is-active .aq-hero-attention       { opacity: 1; transform: none; transition-delay: 0.25s; }
+.aq-hero-mock.is-active .aq-hero-portfolio-line  { opacity: 1; transform: none; transition-delay: 0.30s; }
+.aq-hero-mock.is-active .aq-hero-kpis            { opacity: 1; transform: none; transition-delay: 0.40s; }
+.aq-hero-mock.is-active .aq-hero-kpis-secondary  { opacity: 1; transform: none; transition-delay: 0.50s; }
+.aq-hero-mock.is-active .aq-hero-2col            { opacity: 1; transform: none; transition-delay: 0.60s; }
+.aq-hero-mock.is-active .aq-hero-fed             { opacity: 1; transform: none; transition-delay: 0.70s; }
+.aq-hero-mock.is-active .aq-hero-airpill         { opacity: 1; transform: none; transition-delay: 0.85s; }
+
+/* ============ FLOATING SIDE PANELS (around main dashboard) ============ */
+
+/* Analytics — top-left */
+.aq-hero-side-analytics {
+  left: 0; top: 2%; width: 17%; height: 32%;
+}
+.aq-hero-side-analytics .aq-hero-side-mini-stats {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0.4em; margin-top: 0.6em;
+}
+.aq-hero-side-analytics .aq-hero-side-mini-stats div {
+  display: flex; flex-direction: column; gap: 0.1em;
+}
+.aq-hero-side-analytics .aq-hero-side-mini-stats label {
+  font-size: 0.65em; color: #a8a9ab; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700;
+}
+.aq-hero-side-analytics .aq-hero-side-mini-stats strong {
+  font-size: 0.85em; font-weight: 800; color: #f4f5f9;
+}
+.aq-hero-side-analytics .aq-hero-side-mini-stats em {
+  font-size: 0.65em; font-style: normal; color: #86efac; font-weight: 700;
+}
+.aq-hero-side-analytics .aq-hero-side-mini-stats em.is-down { color: #fca5a5; }
+.aq-hero-side-analytics .aq-hero-side-portfolio {
+  font-size: 0.7em; color: #a8a9ab; margin-top: 0.5em; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+}
+.aq-hero-side-analytics .aq-hero-side-portfolio-value {
+  font-size: 1.6em; font-weight: 800; color: #f4f5f9; margin-top: 0.1em;
+}
+.aq-hero-side-analytics .aq-hero-side-portfolio-trend {
+  font-size: 0.65em; color: #86efac; font-weight: 700;
+}
+.aq-hero-side-analytics .aq-hero-side-chart {
+  flex: 1; min-height: 0; margin-top: 0.5em;
+}
+.aq-hero-side-analytics .aq-hero-side-chart svg { width: 100%; height: 100%; }
+.aq-hero-side-analytics .aq-hero-side-chart-line {
+  fill: none; stroke: #f36b25; stroke-width: 2;
+  filter: drop-shadow(0 0 4px rgba(243, 107, 37, 0.6));
+  stroke-dasharray: 600; stroke-dashoffset: 600;
+  transition: stroke-dashoffset 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.aq-hero-mock.is-active .aq-hero-side-chart-line { stroke-dashoffset: 0; transition-delay: 0.5s; }
+.aq-hero-side-analytics .aq-hero-side-chart-fill {
+  fill: url(#aqHeroFill);
+  opacity: 0; transition: opacity 0.5s ease;
+}
+.aq-hero-mock.is-active .aq-hero-side-chart-fill { opacity: 1; transition-delay: 1.4s; }
+
+/* Readiness Review — left-bottom */
+.aq-hero-side-readiness {
+  left: 0; top: 38%; width: 17%; height: 50%;
+}
+.aq-hero-side-readiness .aq-hero-side-readiness-list {
+  display: flex; flex-direction: column; gap: 0.55em;
+  margin-top: 0.65em; flex: 1; min-height: 0;
+}
+.aq-hero-side-readiness-row {
+  display: flex; align-items: center; gap: 0.55em;
+  padding: 0.45em 0.55em;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0.4em;
+}
+.aq-hero-side-readiness-icon {
+  width: 1.5em; height: 1.5em; flex: none;
+  border-radius: 0.3em;
+  background: rgba(243, 107, 37, 0.14); border: 1px solid rgba(243, 107, 37, 0.4);
+  color: #f36b25;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.aq-hero-side-readiness-icon svg { width: 0.85em; height: 0.85em; }
+.aq-hero-side-readiness-meta { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+.aq-hero-side-readiness-name { font-size: 0.75em; font-weight: 700; color: #f4f5f9; }
+.aq-hero-side-readiness-sub  { font-size: 0.6em; color: #a8a9ab; }
+.aq-hero-side-readiness-tag {
+  font-size: 0.55em; font-weight: 800; letter-spacing: 0.04em;
+  padding: 0.18em 0.5em; border-radius: 0.3em;
+  text-transform: uppercase;
+}
+.aq-hero-side-readiness-tag.is-full   { color: #86efac; background: rgba(34,197,94,0.14); border: 1px solid rgba(34,197,94,0.4); }
+.aq-hero-side-readiness-tag.is-review { color: #ffd1a8; background: rgba(243,107,37,0.16); border: 1px solid rgba(243,107,37,0.4); }
+
+/* My Procurements — top-right */
+.aq-hero-side-procurements {
+  right: 0; top: 2%; width: 22%; height: 32%;
+}
+.aq-hero-side-procurements .aq-hero-side-table {
+  margin-top: 0.7em;
+  display: flex; flex-direction: column; gap: 0.4em;
+  flex: 1; min-height: 0;
+}
+.aq-hero-side-table-head {
+  display: grid; grid-template-columns: 1.6fr 0.7fr 0.8fr;
+  gap: 0.4em;
+  font-size: 0.6em; color: #a8a9ab; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  padding: 0 0.4em 0.3em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.aq-hero-side-table-row {
+  display: grid; grid-template-columns: 1.6fr 0.7fr 0.8fr;
+  gap: 0.4em; align-items: center;
+  padding: 0.35em 0.4em;
+  font-size: 0.7em;
+}
+.aq-hero-side-table-row .name {
+  font-weight: 700; color: #f4f5f9; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.aq-hero-side-table-row .type {
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 0.85em; font-weight: 800;
+  padding: 0.15em 0.45em; border-radius: 0.25em;
+  background: rgba(99, 102, 241, 0.15); color: #c7d2fe;
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  width: fit-content;
+}
+.aq-hero-side-table-row .type.is-ffp {
+  background: rgba(243, 107, 37, 0.18); color: #ffd1a8; border-color: rgba(243, 107, 37, 0.4);
+}
+.aq-hero-side-table-row .value { font-weight: 800; color: #f4f5f9; text-align: right; }
+
+.aq-hero-side-procurements .aq-hero-side-table-link {
+  font-size: 0.65em; color: #818cf8; font-weight: 700; text-align: right;
+  margin-top: 0.3em;
+}
+
+/* AIR assistant — right-middle */
+.aq-hero-side-air {
+  right: 0; top: 38%; width: 22%; height: 36%;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(243, 107, 37, 0.18) 0%, transparent 50%),
+    linear-gradient(160deg, #15161d 0%, #0e1018 60%, #1a1208 100%);
+}
+.aq-hero-side-air .aq-hero-side-air-head {
+  display: flex; align-items: center; gap: 0.45em;
+}
+.aq-hero-side-air-avatar {
+  width: 1.5em; height: 1.5em; border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #ffb286, #f36b25 60%, #b9501a);
+  display: inline-flex; align-items: center; justify-content: center;
+  color: white;
+  box-shadow: 0 0 12px rgba(243, 107, 37, 0.5);
+}
+.aq-hero-side-air-avatar svg { width: 0.85em; height: 0.85em; }
+.aq-hero-side-air-name { font-size: 0.95em; font-weight: 800; color: #f4f5f9; flex: 1; letter-spacing: 0.04em; }
+.aq-hero-side-air-name small { font-size: 0.55em; color: #6b7280; font-weight: 500; letter-spacing: 0; margin-left: 0.4em; }
+.aq-hero-side-air-close { color: #6b7280; font-size: 0.85em; }
+.aq-hero-side-air-title {
+  margin-top: 0.5em;
+  font-size: 1em; font-weight: 800; color: #f4f5f9; line-height: 1.2;
+}
+.aq-hero-side-air-title b { color: #f36b25; font-weight: 800; }
+.aq-hero-side-air-desc {
+  margin-top: 0.35em;
+  font-size: 0.7em; color: #cbd5e1; line-height: 1.4;
+}
+.aq-hero-side-air-suggest {
+  display: flex; flex-direction: column; gap: 0.35em;
+  margin-top: 0.55em;
+}
+.aq-hero-side-air-suggest button {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.4em;
+  padding: 0.4em 0.55em;
+  text-align: left;
+  font-size: 0.7em; color: #cbd5e1; font-family: inherit;
+}
+.aq-hero-side-air-input {
+  margin-top: auto;
+  display: flex; align-items: center; gap: 0.4em;
+  padding: 0.4em 0.55em;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 0.4em;
+  font-size: 0.65em; color: #6b7280;
+}
+.aq-hero-side-air-input span { flex: 1; }
+.aq-hero-side-air-input button {
+  width: 1.45em; height: 1.45em; border-radius: 0.3em;
+  background: #f36b25; border: none;
+  display: inline-flex; align-items: center; justify-content: center;
+  color: white;
+}
+.aq-hero-side-air-input button svg { width: 0.75em; height: 0.75em; }
+
+/* New Procurement wizard — bottom-right */
+.aq-hero-side-new {
+  right: 0; top: 76%; width: 22%; height: 24%;
+}
+.aq-hero-side-new-steps {
+  display: flex; flex-direction: column; gap: 0.4em;
+  margin-top: 0.6em; flex: 1; min-height: 0;
+}
+.aq-hero-side-new-step {
+  display: flex; align-items: center; gap: 0.55em;
+  padding: 0.35em 0.45em;
+  font-size: 0.7em; color: #cbd5e1;
+}
+.aq-hero-side-new-step.is-active {
+  background: rgba(243, 107, 37, 0.1);
+  border: 1px solid rgba(243, 107, 37, 0.4);
+  border-radius: 0.4em;
+}
+.aq-hero-side-new-step .icon {
+  width: 1.1em; height: 1.1em; flex: none; border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
+  display: inline-flex; align-items: center; justify-content: center;
+  color: #6b7280;
+}
+.aq-hero-side-new-step.is-active .icon { background: #f36b25; border-color: #f36b25; color: white; }
+.aq-hero-side-new-step .icon svg { width: 0.6em; height: 0.6em; }
+.aq-hero-side-new-step .meta { display: flex; flex-direction: column; gap: 0; line-height: 1.2; }
+.aq-hero-side-new-step .meta strong { color: #f4f5f9; font-weight: 800; font-size: 0.95em; }
+.aq-hero-side-new-step .meta span  { color: #6b7280; font-size: 0.85em; }
+.aq-hero-side-new-cta {
+  margin-top: 0.4em;
+  align-self: stretch;
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.35em;
+  padding: 0.5em 0.7em;
+  border-radius: 0.4em;
+  background: #f36b25; color: white;
+  font-size: 0.75em; font-weight: 800;
+}
+.aq-hero-side-new-cta svg { width: 0.75em; height: 0.75em; }
+
+/* Federal Systems strip — bottom-center */
+.aq-hero-side-fed {
+  left: 18%; right: 26%; bottom: 0; top: 86%;
+  display: flex; flex-direction: column;
+  padding: 0.7em 0.95em;
+}
+.aq-hero-side-fed-label {
+  font-size: 0.6em; color: #a8a9ab; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 800;
+}
+.aq-hero-side-fed-icons {
+  display: flex; align-items: center; justify-content: space-around;
+  flex: 1;
+}
+.aq-hero-side-fed-item {
+  display: flex; flex-direction: column; align-items: center; gap: 0.25em;
+  font-size: 0.6em; color: #cbd5e1; font-weight: 700; letter-spacing: 0.02em;
+}
+.aq-hero-side-fed-icon {
+  width: 1.7em; height: 1.7em; border-radius: 50%;
+  background: rgba(243, 107, 37, 0.12); border: 1px solid rgba(243, 107, 37, 0.3);
+  color: #f36b25;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.aq-hero-side-fed-icon svg { width: 0.95em; height: 0.95em; }
+
+/* Stagger entrance */
+.aq-hero-mock .aq-hero-panel {
+  opacity: 0; transform: translateY(10px) scale(0.985);
+  transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.aq-hero-mock.is-active .aq-hero-panel { opacity: 1; transform: none; }
+.aq-hero-mock.is-active .aq-hero-main-panel        { transition-delay: 0.05s; }
+.aq-hero-mock.is-active .aq-hero-side-analytics    { transition-delay: 0.20s; }
+.aq-hero-mock.is-active .aq-hero-side-readiness    { transition-delay: 0.30s; }
+.aq-hero-mock.is-active .aq-hero-side-procurements { transition-delay: 0.40s; }
+.aq-hero-mock.is-active .aq-hero-side-air          { transition-delay: 0.50s; }
+.aq-hero-mock.is-active .aq-hero-side-new          { transition-delay: 0.60s; }
+.aq-hero-mock.is-active .aq-hero-side-fed          { transition-delay: 0.70s; }
+
+/* Compact for narrow viewports */
+@media (max-width: 760px) {
+  .aq-hero-mock { font-size: 7px; }
+}
+
+/* Reduced motion: render the active state instantly with no transitions */
+@media (prefers-reduced-motion: reduce) {
+  .aq-mock *, .aq-form-mock *, .aq-hero-mock * { transition: none !important; animation: none !important; }
+}
+
+/* =========================================================================
+   6) SERVICES-PAGE FORM MOCK — extensions on top of the AIR-Quire pattern.
+   Used inside services/index.html .form-image_image-wrapper. Adds:
+     • Proportional donut (target-offset CSS variable)
+     • Mini per-engagement progress rings (loader + percentage)
+     • Inline horizontal progress bars under each engagement
+   ========================================================================= */
+.aq-form-mock.is-active .aq-form-portfolio .aq-form-donut-arc {
+  stroke-dashoffset: var(--target-offset, 0);
+}
+.eng-progress {
+  width: 32px; height: 32px;
+  position: relative;
+  flex: none;
+}
+.eng-progress svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.eng-progress .track { fill: none; stroke: rgba(255,255,255,0.1); stroke-width: 4; }
+.eng-progress .arc {
+  fill: none; stroke-width: 4; stroke-linecap: round;
+  stroke-dasharray: 87.96;
+  stroke-dashoffset: 87.96;
+  transition: stroke-dashoffset 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.aq-form-mock.is-active .eng-progress .arc {
+  stroke-dashoffset: var(--ring-offset, 0);
+}
+.eng-progress .pct-text {
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  font-size: 0.55rem; font-weight: 800;
+  color: #f4f5f9;
+}
+.aq-form-mock.is-active .eng-progress.is-loading .arc {
+  animation: ring-pulse 1.8s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+@keyframes ring-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.45; }
+}
+.eng-bar {
+  height: 3px; width: 100%;
+  background: rgba(255,255,255,0.08);
+  border-radius: 999px;
+  margin-top: 4px;
+  overflow: hidden;
+}
+.eng-bar-fill {
+  display: block;
+  height: 100%;
+  width: 0%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #E86222 0%, #ff9162 100%);
+  transition: width 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: 1.2s;
+}
+.aq-form-mock.is-active .eng-bar-fill { width: var(--bar-width, 0%); }

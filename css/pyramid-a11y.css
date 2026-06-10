@@ -1,0 +1,641 @@
+/*!
+ * Pyramid Systems Accessibility Widget — UI + Feature CSS
+ *
+ * SCOPING RULE:
+ *   Every accessibility feature rule below scopes itself with
+ *   `body :not(#pyramid-a11y-widget):not(#pyramid-a11y-panel):not(#pa11y-backdrop):not(#pa11y-reading-mask):not(#pa11y-reading-guide)`
+ *   so the widget's own DOM is permanently exempt. Add new feature rules
+ *   following the same pattern.
+ *
+ *   Widget elements re-assert their own styles below the feature section with
+ *   `!important` and ID-level specificity as belt-and-suspenders.
+ */
+
+/* ============================================================
+   PART 1 — WIDGET UI
+   ============================================================ */
+
+#pyramid-a11y-widget {
+  position: fixed !important;
+  bottom: 20px !important;
+  left: 20px !important;
+  right: auto !important;
+  z-index: 2147483647 !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+}
+
+/* FAB — frosted glass with DARK tint so it reads against any background.
+   White-tinted glass disappears on light pages (white-on-white). Dark tint
+   + backdrop blur keeps the glass feel while guaranteeing contrast: dark
+   over dark = darker disc; dark over light = translucent gray disc. White
+   icon + inset ring stay readable in both cases.
+   Solid Steel Gray fallback for browsers without backdrop-filter. */
+#pyramid-a11y-fab {
+  position: relative !important;
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  border: none !important;
+  background: rgba(40, 48, 60, 0.88) !important; /* fallback: solid dark */
+  color: #fff !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 0 0 1.25px rgba(255, 255, 255, 0.55),
+    0 8px 22px rgba(0, 0, 0, 0.32),
+    0 2px 6px rgba(0, 0, 0, 0.24) !important;
+  transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease !important;
+  padding: 0 !important;
+  opacity: 1 !important;
+}
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  #pyramid-a11y-fab {
+    background: rgba(31, 41, 55, 0.55) !important;
+    -webkit-backdrop-filter: blur(14px) saturate(160%) !important;
+    backdrop-filter: blur(14px) saturate(160%) !important;
+  }
+}
+#pyramid-a11y-fab:hover { transform: scale(1.05) !important; }
+#pyramid-a11y-fab svg {
+  width: 22px !important;
+  height: 22px !important;
+}
+/* FAB hides while panel is open — drawer takes over */
+.pa11y-panel-open #pyramid-a11y-fab {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Small checkmark badge on FAB when at least one feature is active */
+.pa11y-fab-check {
+  position: absolute !important;
+  top: -3.2px !important;
+  right: -3.2px !important;
+  width: 16.8px !important;
+  height: 16.8px !important;
+  background: #15a341 !important;
+  color: #fff !important;
+  border: 2px solid #ffffff !important;
+  border-radius: 50% !important;
+  display: none !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.pa11y-fab-check svg {
+  width: 8.8px !important;
+  height: 8.8px !important;
+  stroke: #fff !important;
+}
+#pyramid-a11y-fab.has--active .pa11y-fab-check {
+  display: flex !important;
+}
+
+/* Backdrop — invisible click-catcher only. The page stays fully visible
+   behind the drawer; clicking anywhere outside the drawer closes it. */
+#pa11y-backdrop {
+  position: fixed !important;
+  inset: 0 !important;
+  background: transparent !important;
+  z-index: 2147483645 !important;
+  pointer-events: none !important;
+}
+#pa11y-backdrop.is--visible {
+  pointer-events: auto !important;
+}
+
+/* Drawer panel — full-height, slides in from the left.
+   font-size locked to 14px so the panel and its descendants don't inherit
+   the html font-size scaling from pa11y-bigger-* features. */
+#pyramid-a11y-panel {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: auto !important;
+  bottom: 0 !important;
+  width: 352px !important;
+  max-width: calc(100vw - 16px) !important;
+  height: 100vh !important;
+  overflow-y: auto !important;
+  /* Trap scroll inside the panel. Without this, when the panel hits the top
+     or bottom, mouse-wheel events bubble up and scroll the underlying page —
+     which feels broken. `contain` also disables pull-to-refresh on touch. */
+  overscroll-behavior: contain !important;
+  background: #ffffff !important;
+  color: #111111 !important;
+  border-radius: 0 16px 16px 0 !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35) !important;
+  padding: 16px !important;
+  z-index: 2147483646 !important;
+  transform: translateX(-101%) !important;
+  transition: transform 0.25s ease !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+}
+/* Panel descendants — lock font-size against html-level scaling */
+#pyramid-a11y-panel *,
+#pyramid-a11y-panel span,
+#pyramid-a11y-panel div,
+#pyramid-a11y-panel button {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+}
+.pa11y-oversized-row,
+.pa11y-oversized-row span { font-size: 14px !important; }
+.pa11y-panel-open #pyramid-a11y-panel { transform: translateX(0) !important; }
+
+/* Header */
+.pa11y-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 4px 4px 12px 4px !important;
+  border-bottom: 1px solid #eee !important;
+  margin-bottom: 13.6px !important;
+  background: transparent !important;
+}
+.pa11y-title {
+  font-size: 15.2px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.01em !important;
+  color: #111 !important;
+}
+.pa11y-kbd {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  color: #888 !important;
+  margin-left: 6.4px !important;
+}
+.pa11y-close {
+  background: #f3f3f3 !important;
+  border: none !important;
+  cursor: pointer !important;
+  color: #555 !important;
+  padding: 6.4px !important;
+  border-radius: 50% !important;
+  width: 29.6px !important;
+  height: 29.6px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.pa11y-close:hover { background: #e7e8eb !important; color: #111 !important; }
+.pa11y-close svg { width: 16px !important; height: 16px !important; }
+
+/* Oversized switch */
+.pa11y-oversized-row {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 11.2px 13.6px !important;
+  background: #1c1f24 !important;
+  color: #ffffff !important;
+  border-radius: 10px !important;
+  margin-bottom: 13.6px !important;
+  font-weight: 500 !important;
+}
+.pa11y-oversized-row span { color: #ffffff !important; }
+/* Toggle switch — knob fills ~90% of track height for a snug, cohesive look.
+   Math (off → on translation): translateX = width - knob - (2 × inset). */
+.pa11y-switch {
+  position: relative !important;
+  width: 44px !important;
+  height: 24px !important;
+  border-radius: 999px !important;
+  background: #4a4d54 !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: background 0.2s !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+.pa11y-switch.is--on { background: linear-gradient(135deg, #ff7a3a, #ff4d6d) !important; }
+.pa11y-switch-knob {
+  position: absolute !important;
+  top: 2px !important;
+  left: 2px !important;
+  width: 20px !important;
+  height: 20px !important;
+  background: #fff !important;
+  border-radius: 50% !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) !important;
+  transition: transform 0.2s !important;
+}
+/* 44 (width) - 20 (knob) - 2*2 (insets) = 20 */
+.pa11y-switch.is--on .pa11y-switch-knob { transform: translateX(20px) !important; }
+
+/* Grid */
+.pa11y-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 9.6px !important;
+}
+.pa11y-tile {
+  position: relative !important;
+  background: #ffffff !important;
+  color: #111 !important;
+  border: 1.5px solid #e6e8ec !important;
+  border-radius: 10px !important;
+  padding: 13.6px 8px 11.2px 8px !important;
+  cursor: pointer !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 6.4px !important;
+  min-height: 89.6px !important;
+  text-align: center !important;
+  font-family: inherit !important;
+  transition: border-color 0.18s, background 0.18s, transform 0.1s !important;
+}
+.pa11y-tile:hover { border-color: #b9bdc4 !important; background: #fafbfc !important; }
+.pa11y-tile:active { transform: scale(0.97) !important; }
+.pa11y-tile.is--active {
+  border-color: #2a2d33 !important;
+  background: #f7f8fa !important;
+  box-shadow: inset 0 0 0 1px #2a2d33 !important;
+}
+.pa11y-tile-check {
+  position: absolute !important;
+  top: 6.4px !important;
+  right: 6.4px !important;
+  width: 16.8px !important;
+  height: 16.8px !important;
+  border-radius: 50% !important;
+  background: #2a2d33 !important;
+  color: #fff !important;
+  display: none !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.pa11y-tile-check svg { width: 10.4px !important; height: 10.4px !important; stroke: #fff !important; }
+.pa11y-tile.is--active .pa11y-tile-check { display: flex !important; }
+
+.pa11y-tile-icon {
+  width: 27.2px !important;
+  height: 27.2px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #111 !important;
+}
+.pa11y-tile-icon svg { width: 100% !important; height: 100% !important; }
+.pa11y-tile-label {
+  font-size: 13.12px !important;
+  font-weight: 600 !important;
+  color: #111 !important;
+  line-height: 1.2 !important;
+}
+
+/* Level bars at bottom of multi-mode tiles */
+.pa11y-level {
+  display: flex !important;
+  gap: 3.2px !important;
+  margin-top: 3.2px !important;
+  width: 100% !important;
+  justify-content: center !important;
+}
+.pa11y-level-bar {
+  width: 16.8px !important;
+  height: 2.88px !important;
+  border-radius: 999px !important;
+  background: #d6d9de !important;
+  transition: background 0.15s !important;
+}
+.pa11y-level-bar.is--on { background: #2a2d33 !important; }
+
+/* Footer */
+.pa11y-footer {
+  margin-top: 13.6px !important;
+  padding-top: 13.6px !important;
+  border-top: 1px solid #eee !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+.pa11y-reset {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4.8px !important;
+  font-size: 13.12px !important;
+  font-weight: 600 !important;
+  color: #444 !important;
+  background: #f3f4f6 !important;
+  border: 1px solid #e6e8ec !important;
+  padding: 6.4px 11.2px !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+}
+.pa11y-reset:hover { background: #e9eaef !important; color: #111 !important; }
+.pa11y-reset svg { width: 16px !important; height: 16px !important; }
+.pa11y-brand {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  color: #999 !important;
+  letter-spacing: 0.02em !important;
+}
+
+/* ============================================================
+   OVERSIZED WIDGET MODE
+   Larger FAB, wider panel, dramatically bigger tiles, icons, and text.
+   The panel font-size override stays explicit (16px) and the tile inner
+   styles are bumped via more-specific selectors below so they override the
+   base px values defined earlier in PART 1.
+   ============================================================ */
+.pa11y-oversized #pyramid-a11y-fab { width: 72px !important; height: 72px !important; }
+.pa11y-oversized #pyramid-a11y-fab svg { width: 35.2px !important; height: 35.2px !important; }
+.pa11y-oversized #pyramid-a11y-fab .pa11y-fab-check { width: 22px !important; height: 22px !important; top: -4px !important; right: -4px !important; }
+.pa11y-oversized #pyramid-a11y-fab .pa11y-fab-check svg { width: 12px !important; height: 12px !important; }
+
+.pa11y-oversized #pyramid-a11y-panel {
+  width: 520px !important;
+  max-width: calc(100vw - 16px) !important;
+  padding: 22px !important;
+  font-size: 16px !important;
+}
+
+/* Header bigger */
+.pa11y-oversized #pyramid-a11y-panel .pa11y-title { font-size: 18px !important; }
+.pa11y-oversized #pyramid-a11y-panel .pa11y-kbd { font-size: 13px !important; }
+.pa11y-oversized #pyramid-a11y-panel .pa11y-close { width: 36px !important; height: 36px !important; padding: 8px !important; }
+.pa11y-oversized #pyramid-a11y-panel .pa11y-close svg { width: 20px !important; height: 20px !important; }
+.pa11y-oversized #pyramid-a11y-panel .pa11y-header { padding: 4px 4px 16px 4px !important; margin-bottom: 18px !important; }
+
+/* Oversized switch row */
+.pa11y-oversized #pyramid-a11y-panel .pa11y-oversized-row,
+.pa11y-oversized #pyramid-a11y-panel .pa11y-oversized-row span {
+  font-size: 16px !important;
+  padding-top: 14px !important;
+  padding-bottom: 14px !important;
+}
+.pa11y-oversized #pyramid-a11y-panel .pa11y-oversized-row { padding: 14px 18px !important; margin-bottom: 18px !important; }
+/* Oversized switch — same ~90% knob-to-track ratio as the base size.
+   52 (width) - 24 (knob) - 2*3 (insets) = 22px translateX */
+.pa11y-oversized #pyramid-a11y-panel .pa11y-switch { width: 52px !important; height: 28px !important; }
+.pa11y-oversized #pyramid-a11y-panel .pa11y-switch-knob { width: 24px !important; height: 24px !important; top: 2px !important; left: 2px !important; }
+.pa11y-oversized #pyramid-a11y-panel .pa11y-switch.is--on .pa11y-switch-knob { transform: translateX(24px) !important; }
+
+/* Grid — tighter gap so tiles can be larger */
+.pa11y-oversized #pyramid-a11y-panel .pa11y-grid { gap: 12px !important; }
+
+/* Tile — much bigger box, padding, icon, label */
+.pa11y-oversized #pyramid-a11y-panel .pa11y-tile {
+  padding: 22px 10px 18px 10px !important;
+  min-height: 140px !important;
+  gap: 10px !important;
+  border-radius: 12px !important;
+  border-width: 2px !important;
+}
+.pa11y-oversized #pyramid-a11y-panel .pa11y-tile-icon {
+  width: 44px !important;
+  height: 44px !important;
+}
+.pa11y-oversized #pyramid-a11y-panel .pa11y-tile-label {
+  font-size: 16px !important;
+  line-height: 1.25 !important;
+}
+.pa11y-oversized #pyramid-a11y-panel .pa11y-tile-check {
+  width: 22px !important;
+  height: 22px !important;
+  top: 8px !important;
+  right: 8px !important;
+}
+.pa11y-oversized #pyramid-a11y-panel .pa11y-tile-check svg { width: 13px !important; height: 13px !important; }
+.pa11y-oversized #pyramid-a11y-panel .pa11y-level-bar { width: 22px !important; height: 4px !important; }
+.pa11y-oversized #pyramid-a11y-panel .pa11y-level { gap: 4px !important; margin-top: 5px !important; }
+
+/* Footer */
+.pa11y-oversized #pyramid-a11y-panel .pa11y-footer { margin-top: 18px !important; padding-top: 18px !important; }
+.pa11y-oversized #pyramid-a11y-panel .pa11y-reset { font-size: 15px !important; padding: 9px 14px !important; }
+.pa11y-oversized #pyramid-a11y-panel .pa11y-reset svg { width: 18px !important; height: 18px !important; }
+.pa11y-oversized #pyramid-a11y-panel .pa11y-brand { font-size: 13px !important; }
+
+/* Reading mask + guide overlays */
+/* Reading Mask — full-screen dark overlay with a transparent reading band that
+   follows the mouse Y position. JS sets top/height/etc., so we keep these
+   properties OFF the !important list. */
+#pa11y-reading-mask {
+  position: fixed !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  z-index: 2147483640 !important;
+}
+.pa11y-mask-top,
+.pa11y-mask-bottom {
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  background: rgba(0, 0, 0, 0.65) !important;
+}
+.pa11y-mask-top { top: 0 !important; height: 0; }
+.pa11y-mask-bottom { top: 0; height: 0; }
+.pa11y-mask-band {
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: 0;
+  height: 100px;
+  background: transparent !important;
+  box-shadow: 0 0 0 2px rgba(255, 235, 59, 0.6) !important;
+}
+
+/* Reading Guide — yellow-and-black highlighter band that follows the mouse Y.
+   Width spans the viewport; JS sets `top` based on mouse position. */
+#pa11y-reading-guide {
+  position: fixed !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: 0;
+  height: 28px;
+  background: #ffeb3b !important;
+  border-top: 3px solid #111 !important;
+  border-bottom: 3px solid #111 !important;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3) !important;
+  pointer-events: none !important;
+  z-index: 2147483640 !important;
+  mix-blend-mode: multiply;
+}
+
+/* ============================================================
+   PART 2 — ACCESSIBILITY FEATURE RULES
+   ============================================================
+   Every rule uses :not(:where(#widget-id, #widget-id *, ...)) to exclude
+   BOTH the widget elements AND every descendant inside them. The previous
+   pattern :not(#id) only excluded the element itself, letting descendants
+   leak through — which broke Contrast on the widget tiles.
+
+   The exclusion :where() block lists every widget root element. Anything
+   inside one of those IDs is shielded from feature CSS at the selector level.
+   ============================================================ */
+
+/* --- Contrast: Inverted Colors + Saturation modes ---
+   CRITICAL: We do NOT apply CSS `filter` to <body>, <html>, or any ancestor
+   that contains real page content. Why? `filter` creates a new stacking context
+   AND a new containing block for fixed-positioned descendants. The Pyramid site
+   uses `position: sticky` on the footer (sticks to viewport bottom) and
+   `position: fixed` on the floating award badge — both break catastrophically
+   when an ancestor becomes a containing block instead of the viewport.
+
+   Solution: a single fixed-positioned overlay div (#pa11y-fx-overlay) sits
+   above all page content but BELOW the widget, and uses `backdrop-filter` to
+   filter what's behind it. `backdrop-filter` filters the visual pixels behind
+   the element WITHOUT affecting the layout, positioning, or stacking of any
+   other element. JS (updateFxOverlay) mounts/unmounts the overlay and sets the
+   backdrop-filter string based on active modes. The widget at z-index >>
+   the overlay is unaffected. */
+#pa11y-fx-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  /* Just below reading-mask/guide (2147483640) so those overlays appear
+     unfiltered on top, but above all page content so backdrop-filter samples
+     the entire page. The widget at 2147483645+ stays well above. */
+  z-index: 2147483638 !important;
+  pointer-events: none !important;
+  background: transparent !important;
+  /* backdrop-filter is set inline by JS based on active modes */
+}
+
+/* --- Contrast: Dark (light text on near-black bg) --- */
+html.pa11y-contrast-dark body *:not(:where(
+  #pyramid-a11y-widget, #pyramid-a11y-widget *,
+  #pyramid-a11y-panel, #pyramid-a11y-panel *,
+  #pa11y-backdrop, #pa11y-backdrop *,
+  #pa11y-reading-mask, #pa11y-reading-mask *,
+  #pa11y-reading-guide, #pa11y-reading-guide *
+)) {
+  background-color: #0a0a0a !important;
+  color: #fafafa !important;
+  border-color: #444 !important;
+}
+html.pa11y-contrast-dark body a:not(:where(#pyramid-a11y-widget *, #pyramid-a11y-panel *)),
+html.pa11y-contrast-dark body a:not(:where(#pyramid-a11y-widget *, #pyramid-a11y-panel *)) * {
+  color: #ffd966 !important;
+  text-decoration: underline !important;
+}
+
+/* --- Contrast: Light (dark text on white bg) --- */
+html.pa11y-contrast-light body *:not(:where(
+  #pyramid-a11y-widget, #pyramid-a11y-widget *,
+  #pyramid-a11y-panel, #pyramid-a11y-panel *,
+  #pa11y-backdrop, #pa11y-backdrop *,
+  #pa11y-reading-mask, #pa11y-reading-mask *,
+  #pa11y-reading-guide, #pa11y-reading-guide *
+)) {
+  background-color: #ffffff !important;
+  color: #111111 !important;
+  border-color: #aaa !important;
+}
+html.pa11y-contrast-light body a:not(:where(#pyramid-a11y-widget *, #pyramid-a11y-panel *)),
+html.pa11y-contrast-light body a:not(:where(#pyramid-a11y-widget *, #pyramid-a11y-panel *)) * {
+  color: #0033cc !important;
+  text-decoration: underline !important;
+}
+
+/* --- Highlight Links --- */
+html.pa11y-highlight body a:not(:where(#pyramid-a11y-widget *, #pyramid-a11y-panel *, #pa11y-backdrop *)) {
+  background-color: #ffeb3b !important;
+  color: #000 !important;
+  text-decoration: underline !important;
+  outline: 2px dashed #f57f17 !important;
+  outline-offset: 2px !important;
+  padding: 0 0.15em !important;
+}
+
+/* --- Bigger Text (4 sizes) --- */
+html.pa11y-bigger-s   { font-size: 110% !important; }
+html.pa11y-bigger-m   { font-size: 125% !important; }
+html.pa11y-bigger-l   { font-size: 140% !important; }
+html.pa11y-bigger-xl  { font-size: 160% !important; }
+/* Widget UI uses absolute px throughout PART 1, so no rem-based overrides
+   are needed here. The widget is naturally insulated from html font-size
+   changes because none of its dimensions or font sizes reference rem/em. */
+
+/* --- Text Spacing --- */
+html.pa11y-spacing-light    body *:not(:where(#pyramid-a11y-widget, #pyramid-a11y-widget *, #pyramid-a11y-panel, #pyramid-a11y-panel *, #pa11y-backdrop *)) { letter-spacing: 0.05em !important; word-spacing: 0.1em !important; }
+html.pa11y-spacing-moderate body *:not(:where(#pyramid-a11y-widget, #pyramid-a11y-widget *, #pyramid-a11y-panel, #pyramid-a11y-panel *, #pa11y-backdrop *)) { letter-spacing: 0.1em !important;  word-spacing: 0.2em !important; }
+html.pa11y-spacing-heavy    body *:not(:where(#pyramid-a11y-widget, #pyramid-a11y-widget *, #pyramid-a11y-panel, #pyramid-a11y-panel *, #pa11y-backdrop *)) { letter-spacing: 0.18em !important; word-spacing: 0.35em !important; }
+
+/* --- Pause Animations --- */
+html.pa11y-pause body *:not(:where(#pyramid-a11y-widget, #pyramid-a11y-widget *, #pyramid-a11y-panel, #pyramid-a11y-panel *, #pa11y-backdrop *)),
+html.pa11y-pause body *:not(:where(#pyramid-a11y-widget, #pyramid-a11y-widget *, #pyramid-a11y-panel, #pyramid-a11y-panel *, #pa11y-backdrop *))::before,
+html.pa11y-pause body *:not(:where(#pyramid-a11y-widget, #pyramid-a11y-widget *, #pyramid-a11y-panel, #pyramid-a11y-panel *, #pa11y-backdrop *))::after {
+  animation: none !important;
+  animation-duration: 0s !important;
+  animation-delay: 0s !important;
+  transition: none !important;
+  transition-duration: 0s !important;
+  transition-delay: 0s !important;
+  scroll-behavior: auto !important;
+}
+
+/* --- Hide Images --- */
+html.pa11y-hideimg body img:not(:where(#pyramid-a11y-widget *, #pyramid-a11y-panel *)),
+html.pa11y-hideimg body video:not(:where(#pyramid-a11y-widget *, #pyramid-a11y-panel *)),
+html.pa11y-hideimg body picture:not(:where(#pyramid-a11y-widget *, #pyramid-a11y-panel *)),
+html.pa11y-hideimg body svg:not(:where(#pyramid-a11y-widget *, #pyramid-a11y-panel *)) {
+  visibility: hidden !important;
+}
+html.pa11y-hideimg body [style*="background-image"]:not(:where(#pyramid-a11y-widget *, #pyramid-a11y-panel *)) {
+  background-image: none !important;
+}
+
+/* --- Dyslexia Friendly --- */
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('https://cdn.jsdelivr.net/gh/antijingoist/open-dyslexic/otf/OpenDyslexic-Regular.otf') format('opentype');
+  font-display: swap;
+}
+html.pa11y-dyslexia body *:not(:where(#pyramid-a11y-widget, #pyramid-a11y-widget *, #pyramid-a11y-panel, #pyramid-a11y-panel *, #pa11y-backdrop *)) {
+  font-family: 'OpenDyslexic', 'Comic Sans MS', cursive !important;
+  letter-spacing: 0.03em !important;
+}
+
+/* --- Cursor: Big --- */
+html.pa11y-cursor-big body *:not(:where(#pyramid-a11y-widget, #pyramid-a11y-widget *, #pyramid-a11y-panel, #pyramid-a11y-panel *, #pa11y-backdrop *)) {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24' fill='%23ff7a3a' stroke='%23ffffff' stroke-width='1.5'><path d='M7.904 17.563a1.2 1.2 0 0 0 2.228 .308l2.09 -3.093l4.907 4.907a1.067 1.067 0 0 0 1.509 0l1.047 -1.047a1.067 1.067 0 0 0 0 -1.509l-4.907 -4.907l3.113 -2.09a1.2 1.2 0 0 0 -.309 -2.228l-13.582 -3.904l3.904 13.563z'/></svg>") 0 0, auto !important;
+}
+
+/* --- Tooltips ---
+   CSS-only tooltips using ::after don't work on <img> (void elements have no
+   content area). We use a JS-driven floating element instead — see pyramid-a11y.js
+   updateTooltipMode() / showTooltip() / hideTooltip(). The element below is
+   styled here. JS only mounts it when tooltips mode is active. */
+#pa11y-tooltip {
+  position: fixed !important;
+  background: #111 !important;
+  color: #fff !important;
+  padding: 6px 10px !important;
+  font-size: 13px !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  font-weight: 500 !important;
+  line-height: 1.3 !important;
+  border-radius: 6px !important;
+  z-index: 2147483640 !important;
+  pointer-events: none !important;
+  max-width: 320px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+  white-space: normal !important;
+  word-wrap: break-word !important;
+}
+
+/* --- Line Height (3 modes: 1.5x, 1.75x, 2x) --- */
+html.pa11y-lineheight-1-5  body *:not(:where(#pyramid-a11y-widget, #pyramid-a11y-widget *, #pyramid-a11y-panel, #pyramid-a11y-panel *, #pa11y-backdrop *)) { line-height: 1.5  !important; }
+html.pa11y-lineheight-1-75 body *:not(:where(#pyramid-a11y-widget, #pyramid-a11y-widget *, #pyramid-a11y-panel, #pyramid-a11y-panel *, #pa11y-backdrop *)) { line-height: 1.75 !important; }
+html.pa11y-lineheight-2    body *:not(:where(#pyramid-a11y-widget, #pyramid-a11y-widget *, #pyramid-a11y-panel, #pyramid-a11y-panel *, #pa11y-backdrop *)) { line-height: 2    !important; }
+
+/* --- Text Align (4 modes) --- */
+html.pa11y-textalign-left    body *:not(:where(#pyramid-a11y-widget, #pyramid-a11y-widget *, #pyramid-a11y-panel, #pyramid-a11y-panel *, #pa11y-backdrop *)) { text-align: left !important; }
+html.pa11y-textalign-right   body *:not(:where(#pyramid-a11y-widget, #pyramid-a11y-widget *, #pyramid-a11y-panel, #pyramid-a11y-panel *, #pa11y-backdrop *)) { text-align: right !important; }
+html.pa11y-textalign-center  body *:not(:where(#pyramid-a11y-widget, #pyramid-a11y-widget *, #pyramid-a11y-panel, #pyramid-a11y-panel *, #pa11y-backdrop *)) { text-align: center !important; }
+html.pa11y-textalign-justify body *:not(:where(#pyramid-a11y-widget, #pyramid-a11y-widget *, #pyramid-a11y-panel, #pyramid-a11y-panel *, #pa11y-backdrop *)) { text-align: justify !important; }
+
+/* --- Saturation (3 modes) ---
+   Like Inverted Colors above, saturation modes are applied via the shared
+   #pa11y-fx-overlay backdrop-filter (set by updateFxOverlay() in JS). No CSS
+   filter rules here — applying filter to body * created stacking contexts on
+   thousands of elements, trapping sticky/fixed positioning in their ancestors.
+   See the #pa11y-fx-overlay block earlier in this file for the contract. */

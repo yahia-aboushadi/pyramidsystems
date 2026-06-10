@@ -1,0 +1,2244 @@
+/* ==========================================================================
+   Feature Mocks v2 — incremental, choreographed animations + 3D parallax
+   Replaces placeholder images on index.html with floating glassmorphism cards.
+   Brand palette pulled from styles.css:
+     accent #f36b25, surface #1c1d1d, page #131414, text #f4f5f9, font Mulish
+
+   How animations are timed:
+   - Each .fm-row reveals when .feature-mock has .is-active, after --row-delay.
+   - Each .fm-tick--auto animates idle → pending → done after --seq-delay.
+   - Each .fm-tick--running animates idle → pending and stays pulsing.
+   - Each .fm-step--auto / --running animates the pipeline node similarly.
+   - Each .fm-bar > i fills after --bar-delay.
+   - .fm-spark > span bars grow staggered, offset from --spark-base.
+   - .fm-chip / .fm-block / .fm-arrow stagger via per-element --*-delay.
+   - .fm-card.fm-floating fades in after --float-delay (default 0.3s).
+   ========================================================================== */
+
+/* === Parallax perspective on the parent (live page + preview frame) === */
+.service-window_image,
+.feature-mock-frame {
+  perspective: 1300px;
+  perspective-origin: 50% 35%;
+}
+
+.feature-mock {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* Cap below the live page's .service-window_content-wrap padding-top
+     (22.25rem) minus .service-window_image top offset (1.6875rem) so the
+     mockup doesn't bleed into the heading text below it. */
+  min-height: 20rem;
+  padding: 1.25rem 1.5rem;
+  font-family: Mulish, Arial, sans-serif;
+  color: #f4f5f9;
+  overflow: hidden;
+  isolation: isolate;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+/* Faint dotted grid backdrop */
+.feature-mock::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, #ffffff0a 1px, transparent 0);
+  background-size: 14px 14px;
+  z-index: 0;
+  pointer-events: none;
+  mask-image: linear-gradient(to bottom, #000 30%, transparent 95%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 30%, transparent 95%);
+  transform: translateZ(-10px);
+}
+
+/* === GLASS CARDS === */
+.fm-card {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(180deg, #ffffff10, #ffffff05 60%, #ffffff03);
+  border: 0.0625rem solid #ffffff14;
+  border-radius: 0.875rem;
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  backdrop-filter: blur(14px) saturate(140%);
+  box-shadow:
+    inset 0 1px 0 #ffffff1a,
+    0 10px 30px #00000040,
+    0 0 0 1px #ffffff05;
+  padding: 0.85rem 1rem;
+  color: #f4f5f9;
+}
+
+.fm-card.fm-main {
+  opacity: 0;
+  transform: translate3d(0, 12px, 20px);
+  /* Fast reset; fade-IN gets the slow easing in the .is-active rule below. */
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.feature-mock.is-active .fm-card.fm-main {
+  opacity: 1;
+  transform: translate3d(0, 0, 20px);
+  transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--card-delay, 0s);
+}
+
+.fm-card.fm-floating {
+  position: absolute;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  transform: translate3d(0, 0, 45px);
+  /* Strip the glass-card styling — only the .fm-pill inside should show. */
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  border-radius: 0;
+}
+.feature-mock.is-active .fm-card.fm-floating {
+  opacity: 1;
+  transition: opacity 0.55s ease;
+  transition-delay: var(--float-delay, 0.3s);
+}
+
+/* Float keyframes keep translateZ baked in so 3D depth survives */
+.fm-floatA { animation: fmFloatA 6s ease-in-out infinite; }
+.fm-floatB { animation: fmFloatB 7s ease-in-out infinite; }
+@keyframes fmFloatA {
+  0%, 100% { transform: translate3d(0, 0, 45px); }
+  50%      { transform: translate3d(0, -7px, 45px); }
+}
+@keyframes fmFloatB {
+  0%, 100% { transform: translate3d(0, 0, 45px); }
+  50%      { transform: translate3d(0, 7px, 45px); }
+}
+
+/* === ROWS — sequential reveal === */
+.fm-row {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.feature-mock.is-active .fm-row {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+  transition-delay: var(--row-delay, 0s);
+}
+
+/* === HEADERS === */
+.fm-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.7rem;
+}
+.fm-title {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #f4f5f9;
+}
+.fm-sub {
+  font-size: 0.68rem;
+  color: #a8a9ab;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* === PILLS === */
+.fm-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.62rem;
+  font-weight: 600;
+  padding: 0.22rem 0.55rem;
+  border-radius: 100rem;
+  background: #f36b2526;
+  color: #ffb286;
+  border: 0.0625rem solid #f36b254d;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.fm-pill.is-success {
+  background: #2ecc7126;
+  color: #79e8a8;
+  border-color: #2ecc714d;
+}
+.fm-pill.is-neutral {
+  background: #ffffff10;
+  color: #d6d7d9;
+  border-color: #ffffff1f;
+}
+
+.fm-dot {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: #f36b25;
+  box-shadow: 0 0 6px #f36b25cc;
+  animation: fmPulse 2.4s ease-in-out infinite;
+}
+.fm-dot.is-success { background: #2ecc71; box-shadow: 0 0 6px #2ecc71cc; }
+
+@keyframes fmPulse {
+  0%, 100% { opacity: 1;   transform: scale(1); }
+  50%      { opacity: 0.4; transform: scale(0.85); }
+}
+
+/* === PROGRESS BARS — staggered fill === */
+.fm-bar {
+  position: relative;
+  height: 0.35rem;
+  width: 100%;
+  background: #ffffff10;
+  border-radius: 100rem;
+  overflow: hidden;
+}
+.fm-bar > i {
+  display: block;
+  height: 100%;
+  width: 0%;
+  border-radius: 100rem;
+  background: linear-gradient(90deg, #f36b25, #ff9b5a);
+  box-shadow: 0 0 8px #f36b2566;
+  transition: width 0.45s ease;
+}
+.feature-mock.is-active .fm-bar > i {
+  width: var(--fm-fill, 70%);
+  transition: width 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--bar-delay, 0s);
+}
+
+.fm-bar-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem 0.75rem;
+  align-items: center;
+}
+.fm-bar-row .fm-label {
+  font-size: 0.7rem;
+  color: #c9cacc;
+  font-weight: 500;
+}
+.fm-bar-row .fm-value {
+  font-size: 0.7rem;
+  color: #f4f5f9;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+/* === LIST ITEMS === */
+.fm-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+.fm-li {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.72rem;
+  color: #d6d7d9;
+}
+
+/* === TICKS — default IDLE === */
+.fm-tick {
+  position: relative;
+  flex: none;
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 50%;
+  background: #ffffff10;
+  color: #6b6c6e;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.55rem;
+  font-weight: 700;
+  border: 0.0625rem solid #ffffff1f;
+  transition: background 0.4s ease, color 0.4s ease, border-color 0.4s ease, opacity 0.4s ease;
+}
+
+/* Loading spinner ring around any auto-completing tick. Visible only during
+   the pending phase, then fades out as the tick resolves to green. */
+.fm-tick--auto::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  border: 1.4px solid transparent;
+  border-top-color: #f36b25;
+  border-right-color: #f36b25;
+  opacity: 0;
+  pointer-events: none;
+}
+.feature-mock.is-active .fm-tick--auto::before {
+  animation:
+    fmTickSpin 0.7s linear var(--seq-delay, 0s) infinite,
+    fmTickSpinShow 1.6s ease var(--seq-delay, 0s) 1 forwards;
+}
+@keyframes fmTickSpin {
+  to { transform: rotate(360deg); }
+}
+@keyframes fmTickSpinShow {
+  0%, 12%   { opacity: 0; }
+  20%, 60%  { opacity: 1; }
+  80%, 100% { opacity: 0; }
+}
+
+/* TICK auto-completes (idle → pending → done) */
+.feature-mock.is-active .fm-tick--auto {
+  animation: fmTickAuto 1.6s var(--seq-delay, 0s) forwards;
+}
+@keyframes fmTickAuto {
+  0% {
+    background: #ffffff10;
+    color: #6b6c6e;
+    border-color: #ffffff1f;
+    box-shadow: none;
+  }
+  20%, 65% {
+    background: #f36b2526;
+    color: #ffb286;
+    border-color: #f36b2566;
+    box-shadow: 0 0 0 2px #f36b252b;
+  }
+  100% {
+    background: #2ecc7133;
+    color: #79e8a8;
+    border-color: #2ecc7166;
+    box-shadow: none;
+  }
+}
+
+/* TICK stays pending (currently running) */
+.feature-mock.is-active .fm-tick--running {
+  animation:
+    fmTickRunning 0.5s var(--seq-delay, 0s) forwards,
+    fmPulse 1.6s ease-in-out infinite calc(var(--seq-delay, 0s) + 0.5s);
+}
+@keyframes fmTickRunning {
+  0% {
+    background: #ffffff10;
+    color: #6b6c6e;
+    border-color: #ffffff1f;
+  }
+  100% {
+    background: #f36b2526;
+    color: #ffb286;
+    border-color: #f36b2566;
+  }
+}
+
+/* === CHIPS — staggered reveal === */
+.fm-chips {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+.fm-chips > .fm-chip {
+  background: #ffffff08;
+  border: 0.0625rem solid #ffffff14;
+  border-radius: 0.55rem;
+  padding: 0.5rem 0.6rem;
+  font-size: 0.65rem;
+  color: #c9cacc;
+  font-weight: 500;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.fm-chips > .fm-chip .fm-chip-val {
+  color: #f4f5f9;
+  font-size: 0.78rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.fm-chips > .fm-chip.is-accent {
+  background: #f36b251a;
+  border-color: #f36b254d;
+  color: #ffb286;
+}
+.fm-chips > .fm-chip.is-accent .fm-chip-val { color: #ffb286; }
+
+/* Green/success chip (e.g. Analytics accuracy) */
+.fm-chips > .fm-chip.is-success {
+  background: rgba(46, 204, 113, 0.18);
+  border-color: rgba(46, 204, 113, 0.45);
+  color: #79e8a8;
+}
+.fm-chips > .fm-chip.is-success .fm-chip-val { color: #79e8a8; }
+
+.feature-mock.is-active .fm-chips > .fm-chip {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+.feature-mock.is-active .fm-chips > .fm-chip:nth-child(1) { transition-delay: calc(var(--chips-base, 0s) + 0.00s); }
+.feature-mock.is-active .fm-chips > .fm-chip:nth-child(2) { transition-delay: calc(var(--chips-base, 0s) + 0.25s); }
+.feature-mock.is-active .fm-chips > .fm-chip:nth-child(3) { transition-delay: calc(var(--chips-base, 0s) + 0.50s); }
+.feature-mock.is-active .fm-chips > .fm-chip:nth-child(4) { transition-delay: calc(var(--chips-base, 0s) + 0.75s); }
+
+/* === SPARKLINE — staggered grow === */
+.fm-spark {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 2.2rem;
+  margin-top: 0.4rem;
+}
+.fm-spark > span {
+  flex: 1;
+  background: linear-gradient(180deg, #f36b25, #f36b2533);
+  border-radius: 2px 2px 0 0;
+  height: 0%;
+  transition: height 0.3s ease;
+}
+.feature-mock.is-active .fm-spark > span {
+  height: var(--h, 30%);
+  transition: height 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.feature-mock.is-active .fm-spark > span:nth-child(1)  { transition-delay: calc(var(--spark-base, 0s) + 0.00s); }
+.feature-mock.is-active .fm-spark > span:nth-child(2)  { transition-delay: calc(var(--spark-base, 0s) + 0.13s); }
+.feature-mock.is-active .fm-spark > span:nth-child(3)  { transition-delay: calc(var(--spark-base, 0s) + 0.26s); }
+.feature-mock.is-active .fm-spark > span:nth-child(4)  { transition-delay: calc(var(--spark-base, 0s) + 0.39s); }
+.feature-mock.is-active .fm-spark > span:nth-child(5)  { transition-delay: calc(var(--spark-base, 0s) + 0.52s); }
+.feature-mock.is-active .fm-spark > span:nth-child(6)  { transition-delay: calc(var(--spark-base, 0s) + 0.65s); }
+.feature-mock.is-active .fm-spark > span:nth-child(7)  { transition-delay: calc(var(--spark-base, 0s) + 0.78s); }
+.feature-mock.is-active .fm-spark > span:nth-child(8)  { transition-delay: calc(var(--spark-base, 0s) + 0.91s); }
+.feature-mock.is-active .fm-spark > span:nth-child(9)  { transition-delay: calc(var(--spark-base, 0s) + 1.04s); }
+.feature-mock.is-active .fm-spark > span:nth-child(10) { transition-delay: calc(var(--spark-base, 0s) + 1.17s); }
+
+/* === PIPELINE === */
+.fm-pipeline {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  align-items: center;
+  position: relative;
+  margin: 0.4rem 0 0.6rem;
+}
+.fm-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  position: relative;
+}
+.fm-step-node {
+  width: 0.95rem;
+  height: 0.95rem;
+  border-radius: 50%;
+  background: #ffffff14;
+  border: 0.0625rem solid #ffffff26;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.55rem;
+  color: #6b6c6e;
+  font-weight: 700;
+  z-index: 2;
+  transition: background 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* STEP that progresses idle → active → done */
+.feature-mock.is-active .fm-step--auto .fm-step-node {
+  animation: fmStepAuto 1.6s var(--seq-delay, 0s) forwards;
+}
+@keyframes fmStepAuto {
+  0% {
+    background: #ffffff14;
+    border-color: #ffffff26;
+    color: #6b6c6e;
+    box-shadow: none;
+  }
+  20%, 60% {
+    background: #f36b2533;
+    border-color: #f36b25cc;
+    color: #ffb286;
+    box-shadow: 0 0 12px #f36b2580;
+  }
+  100% {
+    background: #2ecc7133;
+    border-color: #2ecc7180;
+    color: #79e8a8;
+    box-shadow: none;
+  }
+}
+
+/* STEP that stays in active state (currently building) */
+.feature-mock.is-active .fm-step--running .fm-step-node {
+  animation:
+    fmStepRunning 0.5s var(--seq-delay, 0s) forwards,
+    fmStepPulse 1.8s ease-in-out infinite calc(var(--seq-delay, 0s) + 0.5s);
+}
+@keyframes fmStepRunning {
+  0% {
+    background: #ffffff14;
+    border-color: #ffffff26;
+    color: #6b6c6e;
+    box-shadow: none;
+  }
+  100% {
+    background: #f36b2533;
+    border-color: #f36b25cc;
+    color: #ffb286;
+    box-shadow: 0 0 12px #f36b2580;
+  }
+}
+@keyframes fmStepPulse {
+  0%, 100% { transform: scale(1);    box-shadow: 0 0 12px #f36b2580; }
+  50%      { transform: scale(0.92); box-shadow: 0 0 6px  #f36b2540; }
+}
+
+.fm-step-label {
+  font-size: 0.58rem;
+  color: #a8a9ab;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+/* PIPELINE CONNECTOR — fills green only after the step completes */
+.fm-pipeline .fm-step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 0.45rem;
+  left: 50%;
+  width: 100%;
+  height: 1px;
+  background: #ffffff14;
+  z-index: 1;
+}
+.feature-mock.is-active .fm-step--auto:not(:last-child)::after {
+  animation: fmConnectorFill 0.7s calc(var(--seq-delay, 0s) + 1.0s) forwards;
+}
+@keyframes fmConnectorFill {
+  0%   { background: #ffffff14; }
+  100% { background: #2ecc7180; }
+}
+
+/* === WORKFLOW BLOCKS (low-code) — per-block stagger === */
+.fm-flow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  gap: 0.4rem;
+  align-items: center;
+}
+.fm-flow .fm-block {
+  background: #ffffff0d;
+  border: 0.0625rem solid #ffffff1f;
+  border-radius: 0.55rem;
+  padding: 0.55rem 0.4rem;
+  text-align: center;
+  font-size: 0.62rem;
+  color: #d6d7d9;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.fm-flow .fm-block .fm-block-icon {
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 0.4rem;
+  background: #f36b2526;
+  border: 0.0625rem solid #f36b254d;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.feature-mock.is-active .fm-flow .fm-block {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transition-delay: var(--block-delay, 0s);
+}
+
+.fm-flow .fm-arrow {
+  width: 0.85rem;
+  height: 1px;
+  background: #ffffff66;
+  position: relative;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.fm-flow .fm-arrow::after {
+  content: "";
+  position: absolute;
+  right: -1px;
+  top: -2px;
+  border-left: 4px solid #ffffff99;
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+}
+.feature-mock.is-active .fm-flow .fm-arrow {
+  opacity: 1;
+  transform: scaleX(1);
+  transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--arrow-delay, 0s);
+}
+
+/* === CLOUD TOPOLOGY (pill hub + 3 pill region nodes + curved connectors) === */
+.fm-topology {
+  width: 100%;
+  height: 8.5rem;
+  display: block;
+  margin-top: 0.3rem;
+  overflow: visible;
+}
+
+/* Curved connection lines from hub to each region pill. They pass UNDER the
+   pills (drawn first in SVG); the pill fills cover the path endpoints so it
+   looks like the line terminates at the pill edge. */
+.fm-topology .fm-link {
+  fill: none;
+  stroke: rgba(243, 107, 37, 0.55);
+  stroke-width: 1.1;
+  stroke-linecap: round;
+  stroke-dasharray: 280;
+  stroke-dashoffset: 280;
+  transition: stroke-dashoffset 0.35s ease;
+  filter: drop-shadow(0 0 4px rgba(243, 107, 37, 0.35));
+}
+.feature-mock.is-active .fm-topology .fm-link {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--link-delay, 0s);
+}
+
+/* Region node group (pill + label). Fades in + scales up sequentially. */
+.fm-topology .fm-region {
+  opacity: 0;
+  transform: scale(0.6);
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.feature-mock.is-active .fm-topology .fm-region {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--region-delay, 0s);
+}
+.fm-topology .fm-region-pill {
+  fill: rgba(28, 29, 29, 0.92);
+  stroke: rgba(243, 107, 37, 0.65);
+  stroke-width: 1.1;
+}
+.fm-topology .fm-region.is-accent .fm-region-pill {
+  fill: rgba(243, 107, 37, 0.28);
+  stroke: rgba(243, 107, 37, 1);
+  stroke-width: 1.3;
+}
+.fm-topology .fm-region-name {
+  fill: #f4f5f9;
+  font-family: Mulish, Arial, sans-serif;
+  font-size: 8px;
+  font-weight: 600;
+  text-anchor: middle;
+  dominant-baseline: central;
+}
+.fm-topology .fm-region-lat {
+  fill: #a8a9ab;
+  font-family: Mulish, Arial, sans-serif;
+  font-size: 7px;
+  font-weight: 500;
+  text-anchor: middle;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Hub pill — central focal point. Solid orange so it fully covers any line
+   underneath, with a subtle static glow via drop-shadow on the parent group. */
+.fm-topology .fm-hub {
+  filter: drop-shadow(0 0 6px rgba(243, 107, 37, 0.55));
+}
+.fm-topology .fm-hub-pill {
+  fill: #f36b25;
+  stroke: #ffb286;
+  stroke-width: 1.2;
+}
+.fm-topology .fm-hub-label {
+  fill: #f4f5f9;
+  font-family: Mulish, Arial, sans-serif;
+  font-size: 7.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-anchor: middle;
+  dominant-baseline: central;
+  text-transform: uppercase;
+}
+
+/* Traveling traffic dot — flows along each connector path on a continuous loop. */
+.fm-topology .fm-traffic {
+  fill: #ffd1a8;
+  filter: drop-shadow(0 0 5px rgba(255, 209, 168, 0.95));
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.feature-mock.is-active .fm-topology .fm-traffic {
+  opacity: 1;
+  transition: opacity 0.4s ease;
+  transition-delay: var(--traffic-delay, 1.8s);
+}
+
+/* === STATUS PILL — value/badge that pops in after a step completes === */
+.fm-status-pill {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 600;
+  padding: 0.18rem 0.55rem;
+  border-radius: 100rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 0.0625rem solid rgba(255, 255, 255, 0.14);
+  color: #f4f5f9;
+  letter-spacing: 0.01em;
+  font-variant-numeric: tabular-nums;
+  opacity: 0;
+  transform: scale(0.78);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.fm-status-pill.is-success {
+  background: rgba(46, 204, 113, 0.16);
+  border-color: rgba(46, 204, 113, 0.42);
+  color: #79e8a8;
+}
+.feature-mock.is-active .fm-status-pill {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--pill-delay, 0s);
+}
+
+/* === GREEN/SUCCESS BAR variant === */
+.fm-bar.fm-bar-success > i {
+  background: linear-gradient(90deg, #2ecc71, #4eed95);
+  box-shadow: 0 0 8px rgba(46, 204, 113, 0.5);
+}
+
+/* ==========================================================================
+   AI & INNOVATION — two-box flow (Inject Document → curve → AI Extraction)
+   ========================================================================== */
+.fm-ai-connector {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5; /* above both boxes — line + dots ride on top of the box edges */
+  pointer-events: none;
+  overflow: visible;
+  transform: translateZ(15px);
+}
+.fm-ai-link {
+  fill: none;
+  stroke: rgba(243, 107, 37, 0.85);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-dasharray: 320;
+  stroke-dashoffset: 320;
+  transition: stroke-dashoffset 0.4s ease;
+  filter: drop-shadow(0 0 5px rgba(243, 107, 37, 0.5));
+}
+.feature-mock.is-active .fm-ai-link {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--link-delay, 0s);
+}
+.fm-ai-link-end,
+.fm-ai-arrow {
+  fill: #ffb286;
+  filter: drop-shadow(0 0 4px rgba(255, 178, 134, 0.9));
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.feature-mock.is-active .fm-ai-link-end,
+.feature-mock.is-active .fm-ai-arrow {
+  opacity: 1;
+  transition: opacity 0.35s ease;
+  transition-delay: var(--end-delay, 0s);
+}
+
+/* Two stacked glass boxes inside the AI mockup. Override .fm-card.fm-main
+   defaults (static positioning) with absolute placement here. */
+.fm-card.fm-main.fm-ai-box {
+  position: absolute;
+  margin: 0;
+  padding: 0.7rem 0.85rem;
+}
+.fm-ai-box-1 { top: 0.5rem; left: 0.5rem;  width: 13rem;   z-index: 2; }
+.fm-ai-box-2 { top: 3rem;   right: 0.5rem; width: 14.5rem; z-index: 3; }
+
+.fm-ai-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.55rem;
+}
+.fm-ai-head-left {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 0;
+}
+.fm-ai-head-icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 0.3rem;
+  background: rgba(243, 107, 37, 0.22);
+  border: 0.0625rem solid rgba(243, 107, 37, 0.45);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+.fm-ai-title {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #f4f5f9;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.fm-ai-head-check {
+  position: relative;
+  flex: none;
+  width: 0.95rem;
+  height: 0.95rem;
+  border-radius: 50%;
+  background: rgba(46, 204, 113, 0.28);
+  color: #79e8a8;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.55rem;
+  font-weight: 700;
+  border: 0.0625rem solid rgba(46, 204, 113, 0.55);
+}
+
+/* Loading variant — starts as a gray spinner ring, transitions to a green
+   check after --check-duration. The base styles below apply when the parent
+   .feature-mock is NOT .is-active so the head check resets cleanly each loop. */
+.fm-ai-head-check--auto {
+  background: rgba(255, 255, 255, 0.06);
+  color: transparent;
+  border-color: rgba(255, 255, 255, 0.18);
+}
+.fm-ai-head-check--auto::before {
+  content: "";
+  position: absolute;
+  inset: -2.5px;
+  border-radius: 50%;
+  border: 1.4px solid transparent;
+  border-top-color: #f36b25;
+  border-right-color: #f36b25;
+  opacity: 0;
+  pointer-events: none;
+}
+.feature-mock.is-active .fm-ai-head-check--auto {
+  animation: fmHeadCheckAuto var(--check-duration, 2s) ease var(--seq-delay, 0s) 1 forwards;
+}
+.feature-mock.is-active .fm-ai-head-check--auto::before {
+  animation:
+    fmTickSpin 0.7s linear var(--seq-delay, 0s) infinite,
+    fmHeadCheckSpinShow var(--check-duration, 2s) ease var(--seq-delay, 0s) 1 forwards;
+}
+@keyframes fmHeadCheckAuto {
+  0%, 80% {
+    background: rgba(255, 255, 255, 0.06);
+    color: transparent;
+    border-color: rgba(255, 255, 255, 0.18);
+  }
+  100% {
+    background: rgba(46, 204, 113, 0.28);
+    color: #79e8a8;
+    border-color: rgba(46, 204, 113, 0.55);
+  }
+}
+@keyframes fmHeadCheckSpinShow {
+  0%, 5%   { opacity: 0; }
+  10%, 75% { opacity: 1; }
+  85%, 100% { opacity: 0; }
+}
+
+/* PDF document card inside Inject Document */
+.fm-ai-doc-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 0.0625rem solid rgba(255, 255, 255, 0.09);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.55rem;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 0.6rem;
+}
+.fm-ai-doc-icon {
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 0.35rem;
+  background: rgba(243, 107, 37, 0.22);
+  color: #ffb286;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.5rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  flex: none;
+  border: 0.0625rem solid rgba(243, 107, 37, 0.4);
+}
+.fm-ai-doc-info { min-width: 0; }
+.fm-ai-doc-name {
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: #f4f5f9;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.fm-ai-doc-meta {
+  font-size: 0.55rem;
+  color: #a8a9ab;
+  margin-top: 1px;
+  font-weight: 500;
+}
+
+/* Progress block (used by both boxes) */
+.fm-ai-progress { display: grid; gap: 0.3rem; }
+.fm-ai-progress-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.fm-ai-progress-label {
+  font-size: 0.62rem;
+  color: #c9cacc;
+  font-weight: 500;
+}
+.fm-ai-progress-val {
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: #79e8a8;
+  font-variant-numeric: tabular-nums;
+}
+
+/* "Ready for AI extraction" status row */
+.fm-ai-status {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.55rem;
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: #79e8a8;
+}
+.fm-ai-status-tick {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: #2ecc71;
+  color: #131414;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.45rem;
+  font-weight: 800;
+}
+
+/* Extract rows: label on left, status pill on right */
+.fm-ai-extract-rows {
+  display: grid;
+  gap: 0;
+  margin-bottom: 0.5rem;
+}
+.fm-ai-extract-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.32rem 0;
+  font-size: 0.66rem;
+  border-top: 0.0625rem solid rgba(255, 255, 255, 0.05);
+}
+.fm-ai-extract-row:first-child { border-top: none; padding-top: 0; }
+.fm-ai-extract-label {
+  color: #c9cacc;
+  font-weight: 500;
+}
+
+/* === AI TYPING DOTS === */
+.fm-typing {
+  display: inline-flex;
+  gap: 3px;
+  margin-left: 4px;
+}
+.fm-typing span {
+  width: 4px;
+  height: 4px;
+  background: #ffb286;
+  border-radius: 50%;
+  animation: fmDot 1.4s infinite ease-in-out both;
+}
+.fm-typing span:nth-child(2) { animation-delay: 0.15s; }
+.fm-typing span:nth-child(3) { animation-delay: 0.3s; }
+@keyframes fmDot {
+  0%, 80%, 100% { opacity: 0.2; transform: translateY(0); }
+  40%           { opacity: 1;   transform: translateY(-2px); }
+}
+
+/* ==========================================================================
+   Per-section card positioning
+   ========================================================================== */
+.fm-modernization .fm-card.fm-main { margin: 0.5rem 0 0.8rem; }
+.fm-modernization .fm-floating-1   { top: 0.6rem; right: 0.8rem; }
+
+.fm-cloud .fm-card.fm-main { margin-top: 0.6rem; }
+.fm-cloud .fm-floating-1   { top: 0.7rem; right: 0.8rem; }
+
+.fm-devsecops .fm-card.fm-main { margin-top: 0.5rem; }
+
+.fm-analytics .fm-card.fm-main { margin-top: 0.4rem; }
+.fm-analytics .fm-floating-1   { top: 0.7rem; right: 0.8rem; }
+
+.fm-lowcode .fm-card.fm-main { margin-top: 0.6rem; }
+.fm-lowcode .fm-floating-1   { top: 0.7rem; right: 0.8rem; }
+
+.fm-ai .fm-card.fm-main { margin-top: 0.5rem; }
+.fm-ai .fm-floating-1   { top: 0.7rem; right: 0.8rem; }
+
+/* ==========================================================================
+   Responsive — narrow viewports
+   On mobile the parent .services_window scales down (handled by site CSS).
+   We just tighten up internal spacing/font-sizes so nothing overflows or
+   crowds. SVG mockups already scale via viewBox.
+   ========================================================================== */
+@media (max-width: 768px) {
+  .feature-mock { padding: 1rem 1.15rem; }
+  .fm-card { padding: 0.7rem 0.85rem; }
+  .fm-title { font-size: 0.74rem; }
+  .fm-li { font-size: 0.68rem; }
+  .fm-bar-row .fm-label,
+  .fm-bar-row .fm-value { font-size: 0.66rem; }
+  .fm-pill { font-size: 0.58rem; padding: 0.18rem 0.5rem; }
+  .fm-chip { padding: 0.4rem 0.5rem; font-size: 0.6rem; }
+  .fm-chip .fm-chip-val { font-size: 0.72rem; }
+  .fm-step-label { font-size: 0.54rem; }
+  .fm-block { font-size: 0.58rem; padding: 0.45rem 0.3rem; }
+  .fm-flow .fm-block .fm-block-icon { width: 1.2rem; height: 1.2rem; }
+  .fm-topology { height: 7.5rem; }
+}
+
+@media (max-width: 600px) {
+  /* Stack the AI two-box flow vertically and hide the connector — the
+     side-by-side layout doesn't have room on narrow screens. */
+  .fm-card.fm-main.fm-ai-box {
+    position: relative;
+    top: auto; left: auto; right: auto; bottom: auto;
+    width: auto;
+    margin-bottom: 0.6rem;
+  }
+  .fm-ai-connector { display: none; }
+}
+
+@media (max-width: 480px) {
+  .feature-mock { padding: 0.85rem 1rem; min-height: 18rem; }
+  .fm-card { padding: 0.6rem 0.75rem; }
+  .fm-title { font-size: 0.7rem; }
+  .fm-li { font-size: 0.62rem; gap: 0.4rem; }
+  .fm-bar-row .fm-label,
+  .fm-bar-row .fm-value { font-size: 0.6rem; }
+  .fm-pill { font-size: 0.54rem; padding: 0.16rem 0.45rem; }
+  .fm-chip { padding: 0.32rem 0.4rem; font-size: 0.55rem; }
+  .fm-chip .fm-chip-val { font-size: 0.65rem; }
+  .fm-list { gap: 0.4rem; }
+  .fm-topology { height: 6.5rem; }
+  /* Hide the dotted-grid backdrop on very small screens — too noisy. */
+  .feature-mock::after { display: none; }
+}
+
+/* ==========================================================================
+   Reduced motion + touch fallbacks
+   ========================================================================== */
+@media (hover: none), (prefers-reduced-motion: reduce) {
+  .feature-mock { transform: none !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feature-mock,
+  .feature-mock .fm-card,
+  .feature-mock .fm-row,
+  .feature-mock .fm-bar > i,
+  .feature-mock .fm-spark > span,
+  .feature-mock .fm-chips > .fm-chip,
+  .feature-mock .fm-flow .fm-block,
+  .feature-mock .fm-flow .fm-arrow,
+  .feature-mock .fm-tick,
+  .feature-mock .fm-step-node {
+    transition: none !important;
+    animation: none !important;
+  }
+  .feature-mock .fm-card                 { opacity: 1; transform: none; }
+  .feature-mock .fm-row                  { opacity: 1; transform: none; }
+  .feature-mock .fm-bar > i              { width: var(--fm-fill, 70%); }
+  .feature-mock .fm-spark > span         { height: var(--h, 30%); }
+  .feature-mock .fm-chips > .fm-chip     { opacity: 1; transform: none; }
+  .feature-mock .fm-flow .fm-block       { opacity: 1; transform: none; }
+  .feature-mock .fm-flow .fm-arrow       { opacity: 1; transform: scaleX(1); }
+  .fm-floatA, .fm-floatB, .fm-dot, .fm-typing span { animation: none !important; }
+}
+
+/* ==========================================================================
+   TRUST BENTO — "Trusted for 30 Years. Built for the Mission Ahead."
+   6-tile glassmorphism grid that replaces placeHolderFooter.png. Tiles fade
+   in sequentially when the bento scrolls into view; the stat counters tick
+   up via the same data-count-to system used elsewhere.
+   ========================================================================== */
+/* Subtle ~3rem left bleed so the bento extends slightly past the container
+   left edge and the heading just grazes its leftmost tile (instead of the
+   full 13rem bleed which made the heading dominate everything). */
+.section-big-image .options_content-block {
+  height: auto;
+  /* Tall enough to contain heading + bento that's now offset 20rem from top */
+  min-height: 64rem;
+}
+.section-big-image .options_pictures-wrap {
+  width: auto;
+  max-width: 100%;
+  /* v31: extended bleed to -8rem so the entire bento area reads wider
+     (more horizontal real estate for the asymmetric tiles). */
+  inset: 20rem 0 0 -8rem;
+}
+.section-big-image .option-picture {
+  width: 100%;
+}
+
+.trust-bento {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: minmax(5.5rem, auto);
+  /* v34: bottom row swapped — stat narrow on LEFT (4 cols), caps wide on
+     RIGHT (8 cols). */
+  grid-template-areas:
+    ".    .    .    .    air  air  air  air  sec  sec  sec  sec"
+    ".    .    .    .    air  air  air  air  sec  sec  sec  sec"
+    "stat stat stat stat caps caps caps caps caps caps caps caps"
+    "stat stat stat stat caps caps caps caps caps caps caps caps";
+  gap: 1rem;
+  width: 100%;
+  font-family: Mulish, Arial, sans-serif;
+  color: #f4f5f9;
+}
+
+.trust-tile {
+  position: relative;
+  background: linear-gradient(180deg, #1c1d1d 0%, #161717 100%);
+  border: 0.0625rem solid #ffffff14;
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+.trust-bento.is-active .trust-tile {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: var(--tile-delay, 0s);
+}
+.trust-tile:hover {
+  border-color: rgba(243, 107, 37, 0.35);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35), 0 0 22px rgba(243, 107, 37, 0.07);
+}
+
+/* Soft ambient glow on each tile */
+.trust-tile::before {
+  content: "";
+  position: absolute;
+  top: -40%;
+  right: -25%;
+  width: 60%;
+  height: 80%;
+  background: radial-gradient(ellipse at center, rgba(243, 107, 37, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+.trust-tile > * { position: relative; z-index: 1; }
+
+/* === Tile placement (v19: 12-col grid w/ named areas, top-left empty for heading) === */
+.trust-airquire     { grid-area: air;  --tile-delay: 0.10s; }
+.trust-security     { grid-area: sec;  --tile-delay: 0.22s; }
+.trust-capabilities { grid-area: caps; --tile-delay: 0.34s; }
+.trust-stat         { grid-area: stat; --tile-delay: 0.46s; }
+
+.trust-tile-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #f36b25;
+  margin-bottom: 0.7rem;
+}
+
+/* === STAT tile (v32: narrow tile bottom-left with title/desc + terminal-bg
+   backdrop, 2x2 stats grid). */
+.trust-stat {
+  position: relative;
+  overflow: hidden;
+}
+.trust-stat-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("../images/terminal-bg.svg");
+  background-repeat: no-repeat;
+  background-position: 110% 100%;
+  background-size: auto 120%;
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: 0;
+  filter: hue-rotate(180deg) saturate(0.6) brightness(1.2);  /* shift any teal tones to orange */
+}
+.trust-stat-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.4rem;
+}
+.trust-stat-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #f4f5f9;
+  margin: 0;
+  line-height: 1.15;
+}
+.trust-stat-desc {
+  font-size: 0.7rem;
+  color: #c9cacc;
+  line-height: 1.4;
+  margin: 0 0 0.4rem;
+  max-width: 18rem;
+}
+.trust-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.1rem 1.2rem;
+  flex: 1;
+  align-content: center;
+}
+.trust-stat-cell { display: flex; flex-direction: column; gap: 0.25rem; }
+.trust-stat-num {
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  background: linear-gradient(135deg, #ffffff 30%, #f36b25 130%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-variant-numeric: tabular-nums;
+}
+.trust-stat-label {
+  font-size: 0.78rem;
+  color: #a8a9ab;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+/* === AIR-QUIRE tile === */
+.trust-airquire {
+  background: linear-gradient(135deg, #1c1d1d 55%, #2a1810 100%);
+}
+.trust-airq-badge {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  object-fit: contain;
+  z-index: 2;
+  opacity: 0.55;
+  filter: drop-shadow(0 0 8px rgba(243, 107, 37, 0.25));
+}
+.trust-airq-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #f4f5f9;
+  margin: 0 0 0.3rem;
+  line-height: 1.05;
+}
+.trust-airq-desc {
+  font-size: 0.72rem;
+  color: #c9cacc;
+  line-height: 1.4;
+  margin: 0 0 0.5rem;
+  max-width: 17rem;
+}
+.trust-airq-stats {
+  display: flex;
+  gap: 1.2rem;
+  font-size: 0.78rem;
+  color: #ffb286;
+  margin-top: auto;
+}
+.trust-airq-stats strong {
+  color: #f4f5f9;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin-right: 0.25rem;
+}
+
+/* === AIR-Quire stage (v24: 3 floating cards inspired by the "Code or No
+   Code" agent-flow style — Inject Document → AI Extraction → Team Routing.
+   Side cards extend past the tile padding (overflow:hidden hides excess)
+   so they read as a deeper workflow. Curvy SVG connectors stitch them. */
+.trust-airq-desc strong {
+  color: #ffb286;
+  font-weight: 700;
+}
+.trust-airq-stage {
+  position: relative;
+  margin: 0.4rem -1.5rem 0;   /* extend to the tile's full inner edge */
+  flex: 1;
+  min-height: 12rem;          /* taller so the middle card's progress bar isn't clipped */
+}
+/* v26: curvy SVG bezier connectors (objective-foundation style). The SVG
+   uses preserveAspectRatio="xMidYMid meet" so paths scale uniformly and
+   endpoint anchors stay smooth. Round endpoint dots are HTML divs so they
+   are guaranteed perfect circles regardless of stage aspect ratio. */
+.trust-airq-stage-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+.trust-airq-stage-line {
+  fill: none;
+  stroke: rgba(243, 107, 37, 0.95);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 4px rgba(243, 107, 37, 0.55));
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 240;
+  stroke-dashoffset: 240;
+  transition: stroke-dashoffset 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.trust-bento.is-active .trust-airq-stage-line { stroke-dashoffset: 0; transition-delay: 0.7s; }
+
+/* Endpoint circles — perfect circles via border-radius:50% on a fixed-size box.
+   Positions match the SVG path endpoints translated into stage rems
+   (stage ≈ 25rem wide × 9.5rem tall, viewBox 400×152, so 1rem ≈ 16px). */
+.trust-airq-stage-circle {
+  position: absolute;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: #f36b25;
+  box-shadow: 0 0 6px rgba(243, 107, 37, 0.85);
+  margin-top: -0.275rem;
+  margin-left: -0.275rem;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+/* Anchor each dot to its line endpoint in the SVG (viewBox 100×100,
+   stretched via preserveAspectRatio=none, so coordinates = percentages). */
+.trust-airq-stage-circle--1a { left: 22%; top: 40%; }   /* right side of LEFT card */
+.trust-airq-stage-circle--1b { left: 30%; top: 20%; }   /* left-top of MIDDLE card */
+.trust-airq-stage-circle--2a { left: 70%; top: 20%; }   /* right-top of MIDDLE card */
+.trust-airq-stage-circle--2b { left: 78%; top: 60%; }   /* left-bottom of RIGHT card */
+.trust-bento.is-active .trust-airq-stage-circle {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: 0.65s;
+}
+
+/* === Stage cards === */
+.trust-airq-stage-card {
+  position: absolute;
+  background: linear-gradient(180deg, rgba(28, 30, 34, 0.96), rgba(20, 22, 26, 0.96));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.7rem;
+  padding: 0.55rem 0.65rem 0.55rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-family: Mulish, Arial, sans-serif;
+  color: #f4f5f9;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+}
+.trust-airq-stage-card.is-left {
+  left: -3rem;
+  top: 1.6rem;
+  width: 8.6rem;
+}
+.trust-airq-stage-card.is-center {
+  left: 50%;
+  top: 0.2rem;
+  transform: translateX(-50%) translateY(8px);
+  width: 10.6rem;
+  border-color: rgba(243, 107, 37, 0.55);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.55), 0 0 22px rgba(243, 107, 37, 0.2);
+  z-index: 2;
+}
+.trust-airq-stage-card.is-right {
+  right: -3rem;
+  top: 1.8rem;
+  width: 8.8rem;
+}
+.trust-bento.is-active .trust-airq-stage-card { opacity: 1; transform: translateY(0); }
+.trust-bento.is-active .trust-airq-stage-card.is-center { transform: translateX(-50%) translateY(0); }
+.trust-bento.is-active .trust-airq-stage-card.is-left   { transition-delay: 0.4s; }
+.trust-bento.is-active .trust-airq-stage-card.is-center { transition-delay: 0.55s; }
+.trust-bento.is-active .trust-airq-stage-card.is-right  { transition-delay: 0.7s; }
+
+/* Card header: icon + title + status pill */
+.trust-airq-card-head {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.1rem;
+}
+.trust-airq-card-icon {
+  width: 1.05rem;
+  height: 1.05rem;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #f36b25;
+}
+.trust-airq-card-icon svg { width: 100%; height: 100%; display: block; }
+.trust-airq-card-icon.is-doc { color: #f36b25; }
+.trust-airq-card-icon.is-ai  { color: #ffb286; }
+.trust-airq-card-icon.is-people { color: #cbd5e1; }
+.trust-airq-card-title {
+  flex: 1;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  color: #f4f5f9;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.trust-airq-card-check {
+  flex: none;
+  width: 0.85rem;
+  height: 0.85rem;
+}
+.trust-airq-card-check svg { width: 100%; height: 100%; display: block; }
+.trust-airq-card-badge {
+  flex: none;
+  font-size: 0.46rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #f36b25;
+  background: rgba(243, 107, 37, 0.16);
+  border: 1px solid rgba(243, 107, 37, 0.45);
+  padding: 0.1rem 0.32rem;
+  border-radius: 0.3rem;
+  text-transform: uppercase;
+}
+
+/* File row inside Inject Document card */
+.trust-airq-card-file {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0.4rem;
+  padding: 0.3rem 0.4rem;
+}
+.trust-airq-card-file-icon {
+  width: 1.2rem;
+  height: 1.4rem;
+  flex: none;
+}
+.trust-airq-card-file-icon svg { width: 100%; height: 100%; display: block; }
+.trust-airq-card-file-meta { display: flex; flex-direction: column; min-width: 0; }
+.trust-airq-card-file-name {
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: #f4f5f9;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.trust-airq-card-file-sub {
+  font-size: 0.48rem;
+  color: #a8a9ab;
+  font-weight: 500;
+}
+
+/* Progress bar (Inject + AI Extraction) */
+.trust-airq-card-progress { display: flex; flex-direction: column; gap: 0.2rem; }
+.trust-airq-card-progress-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.48rem;
+  color: #cbd5e1;
+  font-weight: 600;
+}
+.trust-airq-card-progress-row span:last-child { color: #22c55e; font-weight: 800; }
+.trust-airq-card-progress-bar {
+  position: relative;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.trust-airq-card-progress-bar > span {
+  position: absolute;
+  inset: 0 100% 0 0;
+  background: linear-gradient(90deg, #16a34a, #22c55e);
+  border-radius: 999px;
+  transition: inset 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.trust-bento.is-active .trust-airq-stage-card.is-left  .trust-airq-card-progress-bar > span { inset: 0 0 0 0; transition-delay: 0.9s; }
+.trust-bento.is-active .trust-airq-stage-card.is-center .trust-airq-card-progress-bar > span { inset: 0 0 0 0; transition-delay: 1.1s; }
+
+/* Key/value rows in AI Extraction card */
+.trust-airq-card-kvs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.22rem;
+}
+.trust-airq-card-kv {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.5rem;
+  color: #cbd5e1;
+  font-weight: 600;
+}
+.trust-airq-card-pill {
+  font-size: 0.5rem;
+  font-weight: 800;
+  line-height: 15px;
+  color: #f4f5f9;
+  background: rgba(243, 107, 37, 0.18);
+  border: 1px solid rgba(243, 107, 37, 0.4);
+  padding: 0.05rem 0.35rem;
+  border-radius: 0.3rem;
+}
+
+/* Role rows in Team Routing card */
+.trust-airq-card-roles { display: flex; flex-direction: column; gap: 0.32rem; }
+.trust-airq-card-role { display: flex; align-items: center; gap: 0.4rem; }
+.trust-airq-card-role-avatar {
+  flex: none;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0.05));
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.trust-airq-card-role-meta { display: flex; flex-direction: column; min-width: 0; }
+.trust-airq-card-role-name {
+  font-size: 0.5rem;
+  font-weight: 700;
+  color: #f4f5f9;
+  line-height: 1.15;
+}
+.trust-airq-card-role-task {
+  font-size: 0.44rem;
+  font-weight: 500;
+  color: #a8a9ab;
+  line-height: 1.15;
+}
+
+/* === SECURITY tile (v25: replaces Federal Customers; v27: orange theme to
+   match the rest of the bento). Deep slate backdrop with topographic shield
+   pattern and a 3D shield in the bottom-right. */
+.trust-security {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 18% 100%, rgba(243, 107, 37, 0.18) 0%, transparent 60%),
+    linear-gradient(140deg, #1c1d28 0%, #181923 55%, #2a1810 100%);
+}
+.trust-security-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("../images/shield.svg");
+  background-repeat: no-repeat;
+  background-position: 105% 110%;
+  background-size: 110% auto;
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: screen;
+  filter: hue-rotate(150deg) saturate(0.9);   /* shift the teal pattern into warm orange */
+}
+/* Soft glow fading from bottom-right where the shield emerges */
+.trust-security::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 100% 100%, rgba(243, 107, 37, 0.20) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+.trust-security-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  max-width: 16rem;
+}
+.trust-security-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #f4f5f9;
+  margin: 0;
+  line-height: 1.12;
+}
+.trust-security-desc {
+  font-size: 0.72rem;
+  color: #c9cacc;
+  line-height: 1.45;
+  margin: 0;
+  max-width: 15rem;
+}
+.trust-security-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.trust-security-pills li {
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #f4f5f9;
+  background: rgba(243, 107, 37, 0.16);
+  border: 1px solid rgba(243, 107, 37, 0.5);
+  padding: 0.22rem 0.55rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.trust-bento.is-active .trust-security-pills li { opacity: 1; transform: translateY(0); }
+.trust-bento.is-active .trust-security-pills li:nth-child(1) { transition-delay: 0.5s; }
+.trust-bento.is-active .trust-security-pills li:nth-child(2) { transition-delay: 0.6s; }
+.trust-bento.is-active .trust-security-pills li:nth-child(3) { transition-delay: 0.7s; }
+.trust-bento.is-active .trust-security-pills li:nth-child(4) { transition-delay: 0.8s; }
+
+/* Real 3D shield PNG. Slides in from the bottom-RIGHT (off-screen
+   down-and-right of resting spot) with a fade-in. An ORANGE brand-color
+   tint layer sits on top using mix-blend-mode so the shield reads in the
+   bento's orange palette instead of looking flatly grey. */
+.trust-security-shield {
+  position: absolute;
+  right: -0.4rem;
+  bottom: -0.4rem;
+  width: 12.5rem;
+  height: 14rem;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate3d(2.5rem, 2.5rem, 0);
+  transition: opacity 1s ease, transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.6));
+}
+.trust-bento.is-active .trust-security-shield {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0.45s;
+}
+.trust-security-shield-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+/* Color tint overlay — uses the shield PNG as a mask and fills with the
+   brand orange gradient so the shield shape picks up the brand color
+   instead of staying grey. Sits ABOVE the source image with a color blend
+   so the 3D shading still reads. */
+.trust-security-shield-tint {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(140deg, rgba(255, 165, 110, 0.95) 0%, rgba(243, 107, 37, 0.85) 55%, rgba(180, 70, 20, 0.75) 100%);
+  -webkit-mask-image: url("../images/shield-real.png");
+  mask-image: url("../images/shield-real.png");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  mix-blend-mode: color;
+}
+
+/* === CAPABILITIES tile (v29: organic mind-map with gradient backdrop +
+   title/description, asymmetric connector paths, outer extension lines). */
+.trust-capabilities {
+  position: relative;
+  overflow: hidden;
+}
+/* Soft blurred gradient blob backdrop — teal → violet → orange wash gives
+   the card a saturated organic feel without competing with the orange
+   AIR-Quire/Security tiles next to it. */
+.trust-caps-glow {
+  position: absolute;
+  inset: -20% -10% -10% -10%;
+  background:
+    radial-gradient(ellipse 50% 60% at 18% 30%, rgba(4, 199, 185, 0.30) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 70% at 85% 75%, rgba(175, 101, 255, 0.32) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 50% at 50% 50%, rgba(243, 107, 37, 0.10) 0%, transparent 65%);
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 0;
+}
+.trust-caps-header {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 0.4rem;
+  max-width: 26rem;
+}
+.trust-caps-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #f4f5f9;
+  margin: 0;
+  line-height: 1.1;
+}
+.trust-caps-desc {
+  font-size: 0.72rem;
+  color: #c9cacc;
+  line-height: 1.45;
+  margin: 0;
+  max-width: 24rem;
+}
+.trust-mindmap {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  /* Extend horizontally past the tile's 1.5rem padding so the connector
+     stubs reach the bento tile's left/right edges. */
+  margin: 0.4rem -1.5rem 0;
+  min-height: 11rem;
+}
+.trust-mindmap-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+/* Connector lines: thin, white-ish, with a soft draw-on animation. */
+.trust-mind-line {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.42);
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  /* dasharray comfortably longer than the longest path so the full curve
+     draws out cleanly */
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  transition: stroke-dashoffset 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: 0.55s;
+}
+.trust-bento.is-active .trust-mind-line { stroke-dashoffset: 0; }
+
+/* v35: Pyramid logo replaces text+rect hub. Adds a subtle warm glow so it
+   feels like the focal point. Fades+scales in on activation. */
+.trust-mind-hub-logo {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(0.6);
+  transition: opacity 0.6s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 0 14px rgba(243, 107, 37, 0.4));
+}
+.trust-bento.is-active .trust-mind-hub-logo {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: 0.55s;
+}
+/* Legacy text+rect hub styles kept for fallback though they're no longer used */
+.trust-mind-hub-pill { fill: #f36b25; stroke: #ffb286; stroke-width: 1; }
+.trust-mind-hub-label {
+  fill: #f4f5f9; font-family: Mulish, Arial, sans-serif; font-size: 11px;
+  font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;
+}
+
+/* Branch boxes — 8px corners, very subtle background + light border */
+.trust-mind-branch rect {
+  fill: rgba(28, 29, 29, 0.65);
+  stroke: rgba(255, 255, 255, 0.16);
+  stroke-width: 1;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(0.85);
+  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.trust-mind-branch text {
+  fill: #f4f5f9;
+  font-family: Mulish, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+.trust-bento.is-active .trust-mind-branch rect,
+.trust-bento.is-active .trust-mind-branch text {
+  opacity: 1;
+  transform: scale(1);
+}
+/* All branches share the same delay range — animation feels lively without
+   needing per-branch nth-of-type tuning (which Safari handles inconsistently
+   on SVG anyway). Branch <g> elements are not the only siblings; the natural
+   source order applies a small stagger via :nth-of-type(...) on the rect
+   inside, but it's easier to just give them all a comfortable delay. */
+.trust-bento.is-active .trust-mind-branch rect,
+.trust-bento.is-active .trust-mind-branch text {
+  transition-delay: 0.95s;
+}
+
+/* === CERTIFICATIONS tile === */
+.trust-certs-row {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex: 1;
+  flex-wrap: wrap;
+}
+.trust-cert {
+  height: 4.8rem;
+  max-width: 8rem;
+  object-fit: contain;
+  filter: brightness(0.95);
+  transition: filter 0.3s ease;
+}
+.trust-cert:hover { filter: brightness(1.15); }
+.trust-cert-svg {
+  width: 4.8rem;
+  height: 4.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.trust-cert-svg svg { width: 100%; height: 100%; }
+
+/* === QUOTE tile (v16: full-width with before/after bar comparison) === */
+.trust-quote-body {
+  display: grid;
+  grid-template-columns: minmax(11rem, auto) 1fr;
+  gap: 1.5rem 2rem;
+  align-items: center;
+  flex: 1;
+}
+.trust-quote-headline {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  line-height: 1;
+}
+.trust-quote-num {
+  font-size: 4.5rem;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  background: linear-gradient(135deg, #ffffff 20%, #f36b25 120%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-variant-numeric: tabular-nums;
+}
+.trust-quote-unit {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #c9cacc;
+  letter-spacing: -0.01em;
+}
+.trust-quote-compare {
+  display: grid;
+  gap: 0.75rem;
+  align-content: center;
+}
+.trust-quote-row {
+  display: grid;
+  grid-template-columns: 4rem 1fr 5rem;
+  gap: 0.75rem;
+  align-items: center;
+}
+.trust-quote-row-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #a8a9ab;
+}
+.trust-quote-row-track {
+  position: relative;
+  display: block;
+  height: 0.5rem;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 100rem;
+  overflow: hidden;
+}
+.trust-quote-row-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 100rem;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.trust-quote-row-bar.is-before {
+  background: linear-gradient(90deg, #f36b25, #ff9b5a);
+  width: 100%;
+  box-shadow: 0 0 10px rgba(243, 107, 37, 0.5);
+}
+.trust-quote-row-bar.is-after {
+  background: linear-gradient(90deg, #2ecc71, #4eed95);
+  width: 0.12%;
+  min-width: 0.5rem;
+  box-shadow: 0 0 10px rgba(46, 204, 113, 0.6);
+}
+.trust-bento.is-active .trust-quote-row-bar.is-before { transform: scaleX(1); transition-delay: 1.0s; }
+.trust-bento.is-active .trust-quote-row-bar.is-after  { transform: scaleX(1); transition-delay: 1.4s; }
+.trust-quote-row-val {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #f4f5f9;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+.trust-quote-row:last-child .trust-quote-row-val { color: #79e8a8; }
+.trust-quote-text {
+  font-size: 0.78rem;
+  color: #c9cacc;
+  margin: 1rem 0 0;
+  line-height: 1.45;
+}
+.trust-quote-text strong {
+  color: #ffb286;
+  font-weight: 800;
+}
+
+/* === CONTRACT VEHICLES tile === */
+.trust-vehicles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem 0.7rem;
+  flex: 1;
+  align-content: center;
+}
+.trust-vehicle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 0.0625rem solid rgba(255, 255, 255, 0.08);
+  border-left: 2px solid rgba(243, 107, 37, 0.7);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.7rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #f4f5f9;
+  letter-spacing: -0.005em;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+.trust-vehicle:hover {
+  background: rgba(243, 107, 37, 0.08);
+  border-left-color: rgba(243, 107, 37, 1);
+  transform: translateX(2px);
+}
+.trust-vehicle::before {
+  content: "";
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  background: #f36b25;
+  flex: none;
+  box-shadow: 0 0 4px rgba(243, 107, 37, 0.7);
+}
+
+/* === RECOGNITION tile (v20: image-only auto-scrolling marquee) === */
+.trust-recognition { padding-bottom: 1.1rem; }
+.trust-recog-marquee {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  margin: 0 -1.5rem;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+}
+.trust-recog-track {
+  display: flex;
+  align-items: center;
+  gap: 2.4rem;
+  animation: trustMarquee 38s linear infinite;
+  width: max-content;
+  padding: 0.4rem 1.8rem;
+}
+.trust-tile.trust-recognition:hover .trust-recog-track {
+  animation-play-state: paused;
+}
+@keyframes trustMarquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+/* Each cert/partner image renders at a generous, uniform height with no card
+   chrome around it — the user wants just the images, big. */
+.trust-recog-img {
+  flex: none;
+  height: 5.2rem;
+  width: auto;
+  max-width: 12rem;
+  object-fit: contain;
+  filter: brightness(1.05) saturate(0.95);
+  opacity: 0.95;
+  transition: filter 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
+}
+.trust-recog-img:hover {
+  filter: brightness(1.2) saturate(1.1);
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+/* === Responsive === */
+@media (max-width: 1024px) {
+  .trust-bento {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      "air  air  sec  sec"
+      "air  air  sec  sec"
+      "caps caps caps caps"
+      "caps caps stat stat";
+  }
+}
+
+@media (max-width: 600px) {
+  .trust-bento {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "air"
+      "sec"
+      "caps"
+      "stat";
+    gap: 0.75rem;
+  }
+  .trust-tile { padding: 1.2rem; }
+  .trust-stat-num { font-size: 2rem; }
+  .trust-airq-title { font-size: 1.4rem; }
+  .trust-airq-badge { width: 3.2rem; height: 3.2rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trust-tile { transition: none !important; }
+  .trust-bento.is-active .trust-tile { opacity: 1; transform: none; }
+}
+
+
+/* ============================================================
+   === TRUST-BENTO MOBILE: HIDE DESKTOP-ONLY ANIMATION STAGES ===
+   The trust-bento tiles each contain a decorative animation
+   "stage" that uses absolute positioning calibrated to desktop
+   tile widths:
+
+     .trust-airq-stage   3 floating cards (Inject Document → AI
+                         Extraction → Team Routing) with side
+                         cards at left:-3rem / right:-3rem so
+                         they bleed past the tile edge, plus
+                         curvy SVG bezier connectors stitching
+                         them together.
+
+     .trust-security-pills  Floating zero-trust / ISO 27001 /
+                            Air-gapped pill chips inside the
+                            Compliance & Security tile.
+
+   On mobile the tile collapses to full viewport width but those
+   negative offsets don't scale. The side cards end up overlapping
+   the center card, the connectors point at empty space, and the
+   whole "workflow" visual stops reading as a workflow. Worst case
+   the cards overflow horizontally and force page-level horizontal
+   scroll.
+
+   Fix: hide the decorative stages on ≤767px. The text content
+   above them (eyebrow + title + product description) carries the
+   value prop on its own. The animations are visual reinforcement
+   that only works at desktop widths.
+
+   Companion benefit: cuts mobile animation/paint work, slight
+   performance win on lower-end Android.
+   ============================================================ */
+@media (max-width: 991px) {
+  /* Hide the 3 floating cards + curvy connectors. They are
+     positioned at left:-3rem / right:-3rem against the tile
+     edge, a deliberate "bleed past the edge" workflow visual
+     that only reads at desktop tile width. On any viewport
+     below 992px the cards overlap or fall off-screen.
+
+     Breakpoint raised from 767px to 991px after user reported
+     the cards still looking off-center on tablet-range viewports.
+
+     IMPORTANT: do NOT hide .trust-security-pills here. Those
+     pills ("ISO 27001", "Zero Trust", etc.) are real feature
+     labels, not decoration. Same for .trust-security-bg which
+     is the background shield image visible in mobile screenshots. */
+  .trust-airq-stage {
+    display: none !important;
+  }
+  /* The AIR-Quire tile uses flex: 1 on the stage to push the
+     stage into remaining vertical space. With the stage gone,
+     the description should be free to wrap naturally instead of
+     being constrained by the 17rem max-width that made sense
+     when the stage was below it. */
+  .trust-airq-desc {
+    max-width: 100%;
+  }
+
+  /* ----------------------------------------------------------
+     Services-window feature-mocks on the "we transform agencies"
+     homepage section: the AIR-Quire (.fm-ai) and Cybersecurity
+     (.fm-cyber) mocks each have TWO stacked cards (box-1 and
+     box-2). On desktop box-2 sits offset to the right of box-1
+     making a layered workflow visual. On mobile that second
+     card pushes down into the card's title/description area
+     and overlaps the headline ("AIR-Quire / Our AI-powered
+     platform that modernizes federal acquisition", etc).
+
+     Fix per user direction: keep only the TOP card (box-1) on
+     mobile. That's "Inject Document" for AIR-Quire and "Access
+     Verification" for Cybersecurity. Hide the second box and
+     the connector SVG between them. The first card on its own
+     is still a recognizable enough preview of the workflow.
+     ---------------------------------------------------------- */
+  .fm-ai .fm-ai-box-2,
+  .fm-cyber .fm-ai-box-2,
+  .fm-ai .fm-ai-connector {
+    display: none !important;
+  }
+
+  /* Recenter box-1 inside the available mock space.
+     NOTE: We MUST use !important on transform here. The default
+     rule `.feature-mock.is-active .fm-card.fm-main { transform:
+     translate3d(0,0,20px) }` at line ~81 has specificity 0,3,0
+     and was wiping out our centering once the section scrolled
+     into view (the .is-active class gets added by IntersectionObserver).
+
+     The new transform combines the centering shift (-50% X) with
+     the original Z-depth offset (20px) so the glass card still
+     gets its 3D perspective treatment but ends up centered. */
+  .fm-ai .fm-ai-box-1,
+  .fm-cyber .fm-ai-box-1 {
+    left: 50% !important;
+    right: auto !important;
+    transform: translate3d(-50%, 0, 20px) !important;
+    max-width: calc(100% - 1rem);
+    width: calc(100% - 1rem) !important;
+  }
+
+  /* Bring the floating status pill (AIR-Quire active / Zero Trust
+     active) ABOVE the Inject Document / Access Verification card.
+     Default z-index of .fm-card.fm-floating is 2, same as
+     .fm-ai-box-1. With equal z-index, document order wins and the
+     pill (which comes first in markup) sits behind the card.
+     Bump to z-index: 5 to put the pill on top.
+
+     Also reposition the .fm-cyber pill which doesn't have an explicit
+     fm-floating-1 rule at line ~1029 (only fm-ai, fm-modernization,
+     fm-cloud, fm-analytics, fm-lowcode do). Without a position rule
+     the cyber pill defaults to top:0 left:0 which on mobile lands
+     awkwardly. Pin it to top-right like the others. */
+  .fm-ai .fm-card.fm-floating,
+  .fm-cyber .fm-card.fm-floating {
+    z-index: 5 !important;
+  }
+  .fm-cyber .fm-floating-1 {
+    top: 0.7rem;
+    right: 0.8rem;
+  }
+}
+/* ============================================================
+   === TRUST-BENTO MOBILE — END ===
+   ============================================================ */
+
+
+/* ============================================================
+   Pyramid Systems Brand Typography
+   Primary (display/headlines): Funnel Display
+   Secondary (body/UI):         Poppins
+   Loaded via Google Fonts <link> in <head> of every page
+   ============================================================ */
+
+body, .body {
+    font-family: 'Poppins', 'Mulish', Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6,
+[class*="h1-hero"],
+[class*="heading-"],
+[class*="h2--"] {
+    font-family: 'Funnel Display', 'Poppins', Arial, sans-serif;
+    letter-spacing: -0.01em;
+}
+
+/* Buttons and nav stay on Poppins (same as body) — display font would
+   look too heavy at small UI sizes */
+.navlink, .button, .button-text, .menu_inner-button,
+.header_dd-link, .footer_navigation-link {
+    font-family: 'Poppins', 'Mulish', Arial, sans-serif;
+}

@@ -1,0 +1,366 @@
+/* Pyramid Systems — Cookie Consent (Consent Mode v2 banner + preferences).
+   Visual style mirrors the small bottom-corner card pattern. Sits on the
+   RIGHT side so it doesn't collide with the a11y widget on the bottom-left.
+
+   Defaults (opt-out / US-default):
+     - Necessary + Analytics: GRANTED by default
+     - Functional + Marketing: DENIED until user opts in
+   User can change at any time via window.PyramidConsent.open(), wired to
+   the "Cookie Preferences" hooks in the privacy policy. */
+
+.pc-root {
+    /* Glassy banner: very low alpha + heavy blur so the background page
+       content reads through. Modal stays more opaque (overridden below) so
+       its long-form text remains readable. */
+    --pc-bg: rgba(20, 22, 28, 0.55);
+    --pc-bg-modal: rgba(20, 22, 28, 0.92);
+    --pc-border: rgba(255, 255, 255, 0.12);
+    --pc-text: #f4f5f9;
+    --pc-text-muted: rgba(244, 245, 249, 0.7);
+    --pc-orange: #E86222;
+    --pc-orange-hover: #c9531c;
+    --pc-radius: 0.75rem;
+    --pc-shadow: 0 1.25rem 3rem rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.04);
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+    color: var(--pc-text);
+    /* Above sticky nav, below a11y widget panel (a11y panel is z=10000). */
+    z-index: 9990;
+}
+
+/* --- Banner: card with illustration + content, bottom-right ---
+   z-index MUST be on the .pc-banner itself (not just .pc-root). The
+   parent .pc-root is position:static so its z-index does nothing; the
+   banner needs an explicit z-index to stack above the sticky header and
+   the .floating-badge (z=9999). */
+.pc-banner {
+    position: fixed;
+    bottom: 1.25rem;
+    right: 1.25rem;
+    width: min(26rem, calc(100vw - 2.5rem));
+    background: var(--pc-bg);
+    /* Heavy backdrop blur is what gives the banner its glassy look. The
+       saturate boost compensates for the desaturation that blur causes,
+       so brand colors visible through the glass still read true. */
+    backdrop-filter: blur(28px) saturate(1.4);
+    -webkit-backdrop-filter: blur(28px) saturate(1.4);
+    border: 1px solid var(--pc-border);
+    border-radius: var(--pc-radius);
+    padding: 1.1rem 1.25rem .95rem;
+    box-shadow: var(--pc-shadow);
+    opacity: 0;
+    transform: translateY(1rem);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+    pointer-events: none;
+    z-index: 10001; /* above .floating-badge (9999) and sticky header */
+}
+.pc-banner.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+/* Small circular icon + title row at the top of the banner. Vertical
+   rhythm tuned tight: no extra padding above the icon (the banner's own
+   padding handles it), small margin below the row, line-height: 1 on the
+   title so its em-box doesn't add hidden whitespace. */
+.pc-banner-head {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin-bottom: 0.5rem;
+}
+.pc-banner-icon {
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 50%;
+    background: rgba(232, 98, 34, 0.16);
+    border: 1px solid rgba(232, 98, 34, 0.38);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffb286;
+    flex-shrink: 0;
+}
+.pc-banner-icon svg {
+    width: 0.95rem;
+    height: 0.95rem;
+}
+.pc-banner-title {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: var(--pc-text);
+    letter-spacing: -0.01em;
+    margin: 0;
+    line-height: 1.1;
+}
+.pc-banner-body {
+    font-size: 0.85rem;
+    line-height: 1.55;
+    color: var(--pc-text-muted);
+    margin: 0 0 .85rem;
+}
+.pc-banner-body a {
+    color: var(--pc-orange); /* #E86222 brand orange */
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-thickness: 1px;
+    transition: color .15s ease, text-decoration-thickness .15s ease;
+    font-weight: 600;
+}
+.pc-banner-body a:hover {
+    color: #ffffff;
+    text-decoration-thickness: 2px;
+}
+
+.pc-banner-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+.pc-btn {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: var(--pc-text);
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.55rem 0.95rem;
+    border-radius: 0.5rem;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    line-height: 1;
+}
+.pc-btn--primary {
+    background: var(--pc-orange);
+    color: #fff;
+}
+.pc-btn--primary:hover { background: var(--pc-orange-hover); }
+.pc-btn--ghost {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.pc-btn--ghost:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.25);
+}
+.pc-btn--link {
+    color: var(--pc-text-muted);
+    padding: 0.4rem 0.2rem;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+.pc-btn--link:hover { color: var(--pc-text); }
+
+/* --- Preferences modal --- */
+.pc-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    z-index: 10010; /* above banner (10001) and floating badge */
+}
+.pc-modal-backdrop.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+.pc-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.96);
+    width: min(34rem, calc(100vw - 2.5rem));
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+    /* Modal stays more opaque than the banner so long-form preferences
+       text is easy to read. */
+    background: var(--pc-bg-modal);
+    backdrop-filter: blur(24px) saturate(1.4);
+    -webkit-backdrop-filter: blur(24px) saturate(1.4);
+    border: 1px solid var(--pc-border);
+    border-radius: 1rem;
+    padding: 1.75rem;
+    box-shadow: var(--pc-shadow);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    z-index: 10011; /* above modal backdrop (10010) */
+}
+.pc-modal.is-visible {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    pointer-events: auto;
+}
+.pc-modal-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+.pc-modal-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--pc-text);
+}
+.pc-modal-close {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: var(--pc-text-muted);
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 0.35rem;
+    transition: color 0.15s ease, background 0.15s ease;
+    line-height: 1;
+}
+.pc-modal-close:hover {
+    color: var(--pc-text);
+    background: rgba(255, 255, 255, 0.06);
+}
+.pc-modal-intro {
+    font-size: 0.9rem;
+    color: var(--pc-text-muted);
+    line-height: 1.6;
+    margin: 0 0 1.5rem;
+}
+.pc-modal-intro a {
+    color: #ffb286;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.pc-category {
+    padding: 1rem 0;
+    border-top: 1px solid var(--pc-border);
+}
+.pc-category:first-of-type { border-top: 0; padding-top: 0; }
+.pc-category-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    justify-content: space-between;
+}
+.pc-category-text {
+    flex: 1;
+    min-width: 0;
+}
+.pc-category-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--pc-text);
+    margin: 0 0 0.25rem;
+}
+.pc-category-desc {
+    font-size: 0.82rem;
+    color: var(--pc-text-muted);
+    margin: 0;
+    line-height: 1.55;
+}
+.pc-category-locked {
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin-top: 0.25rem;
+    font-style: italic;
+}
+
+/* Toggle switch */
+.pc-toggle {
+    position: relative;
+    display: inline-block;
+    width: 2.5rem;
+    height: 1.4rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+}
+.pc-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+.pc-toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.14);
+    border-radius: 1rem;
+    transition: background 0.2s ease;
+}
+.pc-toggle-slider::before {
+    content: "";
+    position: absolute;
+    height: 1.05rem;
+    width: 1.05rem;
+    left: 0.175rem;
+    top: 0.175rem;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+}
+.pc-toggle input:checked + .pc-toggle-slider { background: var(--pc-orange); }
+.pc-toggle input:checked + .pc-toggle-slider::before { transform: translateX(1.1rem); }
+.pc-toggle input:disabled + .pc-toggle-slider { opacity: 0.55; cursor: not-allowed; }
+.pc-toggle input:focus-visible + .pc-toggle-slider {
+    box-shadow: 0 0 0 2px var(--pc-orange);
+}
+
+.pc-modal-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--pc-border);
+    flex-wrap: wrap;
+}
+.pc-modal-actions-left,
+.pc-modal-actions-right {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+/* Mobile compaction */
+@media (max-width: 540px) {
+    .pc-banner {
+        bottom: 1rem;
+        right: 1rem;
+        left: 1rem;
+        width: auto;
+        padding: 1rem;
+    }
+    /* Stack the cookie illustration on top of the content on mobile. */
+    .pc-banner-layout {
+        flex-direction: column;
+        align-items: stretch;
+        gap: .65rem;
+    }
+    .pc-banner-illustration {
+        width: 3rem;
+        height: 3rem;
+    }
+    .pc-banner-actions { gap: .4rem; }
+    .pc-banner-actions .pc-btn { flex: 1 1 auto; text-align: center; justify-content: center; }
+    .pc-banner-actions .pc-btn--link { flex-basis: 100%; }
+
+    .pc-modal { padding: 1.5rem 1.25rem; }
+    .pc-modal-actions { justify-content: stretch; }
+    .pc-modal-actions-left,
+    .pc-modal-actions-right { width: 100%; }
+    .pc-modal-actions-right { flex-direction: column-reverse; }
+    .pc-modal-actions-right .pc-btn { width: 100%; text-align: center; }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .pc-banner,
+    .pc-modal-backdrop,
+    .pc-modal { transition: none; }
+}
